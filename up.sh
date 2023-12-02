@@ -1,4 +1,4 @@
-gitpull 
-gitadd.
-gitcommit-m"$*"
-gitpush
+git pull 
+git add.
+git commit -m "$*"
+git push
