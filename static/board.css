@@ -11,6 +11,20 @@ body{
     float: left;
 }
 
-header{
-    z-index: 1;
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100.03px;
+    height: 121.97px;
+
 }
+
+header{
+    flex: 1;
+    display: flex;
+    margin-left: 16.11vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
