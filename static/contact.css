@@ -110,7 +110,6 @@ button {
 
 .contact-section-letter {
     display: block;
-    width: 100%;
     font-size: 20px;
     border-bottom: 1px darkgray solid;
     padding: 17px 36px;
@@ -187,4 +186,91 @@ button {
     font-size: 40px;
 }
 
+.contact-single-view-info{
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin-left: 64px;
+    margin-top: 32px;
+}
+
+.initial-name-container{
+    display: flex;
+    gap: 54px;
+}
+
+.initial-single-view{
+    font-size: 47px;
+    color: white;
+    padding: 10px;
+    background-color: #FFC700;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+}
+
+.name-edit-delete{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.name-single-view{
+    font-size: 47px;
+    font-weight: 500;
+
+}
+
+.edit-and-delete{
+    display: flex;
+    gap: 13px;
+    font-size: 16px;
+}
+
+.edit-and-delete span{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-and-delete span:hover{
+    color: #33AFE3;
+    cursor: pointer;
+}
+
+.contact-information-headline{
+    font-size: 20px;
+}
+
+.contact-information{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.email-single-view{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.email-single-view span:nth-child(even){
+    color: #007CEE;
+}
+
+.email-single-view span:nth-child(odd){
+    font-weight: 700;
+}
+
+.phone-single-view{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.phone-single-view span:nth-child(odd){
+    font-weight: 700;
+}
 /* Better with a team */
