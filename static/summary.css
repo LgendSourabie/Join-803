@@ -10,7 +10,7 @@ body {
 .summary-body {
   height: 100vh;
 }
-.main-container {
+.container-summary {
   height: 100vh;
 }
 
@@ -59,7 +59,7 @@ button {
   padding-bottom: 2rem;
   gap: 4px;
 }
-.logo {
+.logo-summary {
   width: 100.03px;
   height: 121.97px;
 }

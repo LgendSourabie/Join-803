@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/login.css" />
+    <link rel="stylesheet" href="/static/font.css" />
+    <title>Login</title>
+  </head>
+  <body class="login-body disp-flex">
+    <img class="login-logo" src="/icons/logo_blue.svg" alt="Logo" />
+    <div class="container-login">
+      <div class="menu-login">
+        <div class="icon-links-login">
+          <span class="question-user">Not a Join user?</span>
+          <button class="sign-up blue-btn">Sign up</button>
+        </div>
+      </div>
+      <form class="user-log-data-section disp-flex">
+        <!--onsubmit="submitForm();return"-->
+        <div class="title-join-underline disp-flex">
+          <div class="log-title">Log in</div>
+          <div class="btm-bar"></div>
+        </div>
+        <div class="input-grp-section disp-flex">
+          <div class="grp-input-login disp-flex">
+            <input
+              class="input-login input-login-1"
+              type="text"
+              placeholder="Email"
+              required
+            />
+            <input
+              class="input-login input-login-2"
+              type="text"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="remember-line disp-flex">
+            <div class="remember-me disp-flex">
+              <input type="checkbox" /><span class="remember ft-sz-400"
+                >Remember me</span
+              >
+            </div>
+            <span class="forgot-pwd">I forgot my password</span>
+          </div>
+        </div>
+
+        <div class="btn-line disp-flex">
+          <button class="blue-btn log-guest-btn">Log in</button
+          ><button class="white-btn log-guest-btn">Guest Log in</button>
+        </div>
+      </form>
+      <div class="privacy-link-login">
+        <a class="links-login ft-sz-400" href="#">Privacy Policy</a>
+        <a class="links-login ft-sz-400 legal-notice" href="#">Legal notice</a>
+      </div>
+    </div>
+  </body>
+</html>
