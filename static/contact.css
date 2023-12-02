@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+}
+
+.sidebar{
+    width: 15vw;
+    height: 100vh;
+    background-color: rgb(28, 28, 49);
+}
+
+.main-container{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.render-container{
+    display: flex;
+}
+
+.contacts-overview-container{
+    width: 30vw;
+    padding: 24px;
+    border: 1px black solid;
+}
+
+.add-new-contact{
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+#contacts-overview{
+    width: 100%;
+}
+
+.contact-section-letter{
+    display: block;
+    width: 100%;
+    border-bottom: 1px darkgray solid;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.contact-section{
+    margin-bottom: 24px;
+}
+
+.contact{
+    display: flex;
+}
+
+.contact:hover{
+    cursor: pointer;
+}
+
+.initial{
+    padding: 8px;
+    border: lightgray 1px solid;
+    border-radius: 50%;
+    height: fit-content;
+    margin-right: 8px;
+    background-color: aqua;
+}
+
+.name{
+ display: flex;
+}
+
+.email{
+    color: #007CEE;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/* single view */
+.contacts-headline{
+    display: flex;
+}
+
+.contacts-headline h2{
+    border-right: #29ABE2 solid 2px;
+    padding-right: 24px;
+    margin-right: 24px;
+}
+
+.contacts-headline span{
+    display: flex;
+    align-items: center;
+}
+
