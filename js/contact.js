@@ -23,22 +23,27 @@ return /*html*/`
 function insertContacts(){
     for (let i = 0; i < alphabet.length; i++) {
         let letter = alphabet[i].toLowerCase();
-        document.getElementById('section-'+letter).innerHTML += insertContactsTemmplate();
+        document.getElementById('section-'+letter).innerHTML += insertContactsTemmplate(i);
         // console.log('section-'+letter)
     }
     
 }
 
-function insertContactsTemmplate(){
+function insertContactsTemmplate(i){
 return /*html*/`
-    <div class="contact">
-        <div class="initial">JD</div>
+    <div class="contact" id="contact-${i}" onclick="highligtContact(${i})">
+        <div class="initial-border"><div class="initial">JD</div></div>
         <div style="display: flex;flex-direction: column;">
             <span class="name">John Doe</span>
             <span class="email">email@email1234.com</span>
         </div>
     </div>
 `
+}
+
+function highligtContact(i){
+    id = 'contact-' + i
+    document.getElementById(id).classList.add('highlight-contact')
 }
 
 renderContacts();

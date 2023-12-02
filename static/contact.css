@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-family: "Inter";
 }
 
 .sidebar{
@@ -18,7 +19,7 @@ body{
 }
 
 .contacts-overview-container{
-    width: 30vw;
+    width: 350px;
     padding: 24px;
     border: 1px black solid;
 }
@@ -46,19 +47,37 @@ body{
 
 .contact{
     display: flex;
+    padding: 16px 28px;
+    border-radius: 8px;
 }
 
 .contact:hover{
     cursor: pointer;
+    background: rgb(240,240,240);
+    background: linear-gradient(0deg, rgba(240,240,240,1) 30%, rgba(249,249,249,1) 100%);
+}
+
+.highlight-contact{
+    background: #2A3647 !important;
 }
 
 .initial{
     padding: 8px;
-    border: lightgray 1px solid;
+    /* border: lightgray 1px solid; */
     border-radius: 50%;
     height: fit-content;
+    /* margin-right: 8px; */
+    background-color: orange;
+}
+
+.initial-border{
+    padding: 1.5px 2px;
     margin-right: 8px;
-    background-color: aqua;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .name{
@@ -78,16 +97,22 @@ body{
 /* single view */
 .contacts-headline{
     display: flex;
+    margin-top: 80px;
+    margin-left: 64px;
 }
 
 .contacts-headline h2{
     border-right: #29ABE2 solid 2px;
     padding-right: 24px;
     margin-right: 24px;
+    font-size: 72px;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 .contacts-headline span{
     display: flex;
     align-items: center;
+    font-size: 40px;
 }
 
