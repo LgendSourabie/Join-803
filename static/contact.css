@@ -1,92 +1,163 @@
-body{
+body {
     margin: 0;
     font-family: "Inter";
 }
 
-.sidebar{
-    width: 15vw;
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.sidebar {
+    width: 232px;
     height: 100vh;
     background-color: rgb(28, 28, 49);
 }
 
-.main-container{
+.main-container {
     display: flex;
     justify-content: flex-start;
 }
 
-.render-container{
+.render-container {
     display: flex;
 }
 
-.contacts-overview-container{
-    width: 350px;
-    padding: 24px;
-    border: 1px black solid;
+.scroll-container {
+
+    max-height: 100vh;
+    overflow: auto;
 }
 
-.add-new-contact{
+
+/* scroll-bar */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
+
+::-webkit-scrollbar-button {
+    display: block;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+}
+
+::-webkit-scrollbar-button:vertical:start:increment {
+    display: none;
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+    background-image: url('../icons/arrowDown.svg');
+    height: 20px;
+    z-index: 999;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+    background-image: url('../icons/arrowDown.svg');
+    z-index: 999;
+}
+
+::-webkit-scrollbar-button:vertical:end:decrement {
+    display: none;
+}
+
+
+
+.contacts-overview-container {
+    width: 400px;
+    margin: 24px;
+}
+
+.add-new-contact {
     width: 100%;
     margin-bottom: 16px;
+    padding: 12px 0px;
+    background-color: #2A3647;
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 10px;
 }
 
-#contacts-overview{
+#contacts-overview {
     width: 100%;
 }
 
-.contact-section-letter{
+.contact-section-letter {
     display: block;
     width: 100%;
+    font-size: 20px;
     border-bottom: 1px darkgray solid;
-    padding-bottom: 8px;
+    padding: 17px 36px;
     margin-bottom: 8px;
 }
 
-.contact-section{
+.contact-section {
     margin-bottom: 24px;
 }
 
-.contact{
+.contact {
     display: flex;
     padding: 16px 28px;
     border-radius: 8px;
 }
 
-.contact:hover{
+.contact:hover {
     cursor: pointer;
-    background: rgb(240,240,240);
-    background: linear-gradient(0deg, rgba(240,240,240,1) 30%, rgba(249,249,249,1) 100%);
+    background: rgb(240, 240, 240);
+    background: linear-gradient(0deg, rgba(240, 240, 240, 1) 30%, rgba(249, 249, 249, 1) 100%);
 }
 
-.highlight-contact{
+.highlight-contact {
     background: #2A3647 !important;
+    color: white;
 }
 
-.initial{
+.initial-overview {
     padding: 8px;
     /* border: lightgray 1px solid; */
     border-radius: 50%;
     height: fit-content;
     /* margin-right: 8px; */
     background-color: orange;
+    border: 2px white solid;
+    margin-right: 10px;
 }
 
-.initial-border{
-    padding: 1.5px 2px;
-    margin-right: 8px;
-    border-radius: 50%;
-    background-color: white;
+.name {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 20px;
 }
 
-.name{
- display: flex;
-}
-
-.email{
+.email {
     color: #007CEE;
     cursor: pointer;
+    font-size: 16px;
 }
 
 
@@ -95,13 +166,13 @@ body{
 
 
 /* single view */
-.contacts-headline{
+.contacts-headline {
     display: flex;
-    margin-top: 80px;
+    margin-top: 120px;
     margin-left: 64px;
 }
 
-.contacts-headline h2{
+.contacts-headline h2 {
     border-right: #29ABE2 solid 2px;
     padding-right: 24px;
     margin-right: 24px;
@@ -110,9 +181,10 @@ body{
     margin-block-end: 0;
 }
 
-.contacts-headline span{
+.contacts-headline span {
     display: flex;
     align-items: center;
     font-size: 40px;
 }
 
+/* Better with a team */

@@ -32,7 +32,9 @@ function insertContacts(){
 function insertContactsTemmplate(i){
 return /*html*/`
     <div class="contact" id="contact-${i}" onclick="highligtContact(${i})">
-        <div class="initial-border"><div class="initial">JD</div></div>
+        <div class="initial-border">
+            <div class="initial-overview">JD</div>
+        </div>
         <div style="display: flex;flex-direction: column;">
             <span class="name">John Doe</span>
             <span class="email">email@email1234.com</span>
