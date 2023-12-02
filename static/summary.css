@@ -83,7 +83,7 @@ button {
   background-color: white;
   box-shadow: 0px 0 6px 0 rgba(0, 0, 0, 0.2);
   justify-content: space-between;
-  padding-right: 1.5rem;
+  padding-right: 4rem;
   padding-left: 7rem;
 }
 .menu-icons-group {
@@ -91,6 +91,7 @@ button {
 }
 .task-info-section {
   background-color: rgb(246, 247, 248);
+  padding-left: 6rem;
 }
 .login {
   border-radius: 50%;
@@ -104,8 +105,8 @@ button {
   cursor: pointer;
 }
 .marketing-slogan {
-  margin-top: 5rem;
-  margin-left: 6rem;
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
   gap: 30px;
 }
 .slogan {
@@ -144,3 +145,94 @@ button {
   line-height: 76.8px;
   color: #29abe2;
 }
+.first-line-task {
+  gap: 32px;
+}
+.do-task {
+  background-color: white;
+  width: 250px; /* 264px zu besprechen */
+  height: 145px; /* 168px zu besprechen */
+  border-radius: 30px;
+  justify-content: center;
+  gap: 18px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+.middle {
+  text-align: center;
+}
+/* zu besprechen */
+.task-icons {
+  width: 40px;
+  height: 40px;
+}
+
+.boar-progress-feedback {
+  background-color: white;
+  width: 168.67px; /* 264px zu besprechen */
+  height: 145px; /* 168px zu besprechen */
+  border-radius: 30px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.third-line-task {
+  gap: 13px;
+}
+
+.second-line-task {
+  height: 145px;
+  width: 532px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  gap: 13px;
+}
+.urgent {
+  gap: 18px;
+  justify-content: center;
+}
+
+.task-due-common {
+  width: 250px; /* 264px zu besprechen */
+  height: 145px; /* 168px zu besprechen */
+}
+.gray-separator-line {
+  height: 102.02px;
+  border: 2px solid #d1d1d1;
+}
+.upcomming-deadline {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.task-overview {
+  flex-direction: column;
+  gap: 18px;
+}
+.right-greeting {
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-text {
+  font-size: 20px;
+  line-height: 24px;
+  color: #2a3647;
+}
+.var-task {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 76.8px;
+}
+.due-date {
+  font-size: 21px;
+  line-height: 25.2px;
+  font-weight: 700;
+  color: #2a3647;
+}
+/* .do-task:hover {
+} */
