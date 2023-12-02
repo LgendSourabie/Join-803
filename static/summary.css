@@ -159,8 +159,8 @@ button {
 }
 .do-task {
   background-color: white;
-  width: 250px; /* 264px zu besprechen */
-  height: 145px; /* 168px zu besprechen */
+  width: 215px; /* 264px zu besprechen */
+  height: 126px; /* 168px zu besprechen */
   border-radius: 30px;
   justify-content: center;
   gap: 18px;
@@ -178,8 +178,8 @@ button {
 
 .boar-progress-feedback {
   background-color: white;
-  width: 168.67px; /* 264px zu besprechen */
-  height: 145px; /* 168px zu besprechen */
+  width: 145.33px; /* 264px zu besprechen */
+  height: 140px; /* 168px zu besprechen */
   border-radius: 30px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
   align-items: center;
@@ -193,8 +193,8 @@ button {
 }
 
 .second-line-task {
-  height: 145px;
-  width: 532px;
+  height: 126px;
+  width: 462px;
   background-color: white;
   border-radius: 30px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
@@ -208,7 +208,7 @@ button {
 
 .task-due-common {
   width: 250px; /* 264px zu besprechen */
-  height: 145px; /* 168px zu besprechen */
+  height: 140px; /* 168px zu besprechen */
 }
 .gray-separator-line {
   height: 102.02px;
@@ -231,8 +231,8 @@ button {
 }
 
 .task-text {
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 17px;
+  line-height: 18px;
   color: #2a3647;
 }
 .var-task {

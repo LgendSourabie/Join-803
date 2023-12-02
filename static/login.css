@@ -33,7 +33,7 @@ button {
   100% {
     width: 100.03px;
     height: 121.97px;
-    transform: translate(-30rem, -19rem);
+    transform: translate(calc(-50vw + 8rem), calc(-50vh + 6rem));
   }
 }
 
@@ -181,6 +181,10 @@ button {
 .forgot-pwd {
   opacity: 0;
 }
+.check-box {
+  cursor: pointer;
+}
+
 .remember {
   font-size: 16px;
   line-height: 19.2px;
