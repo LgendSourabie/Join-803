@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+}
+
+.sidebar-left{
+    background-color: #2A3647;
+    height: 100%;
+    width: 16.11vw;
+    position: absolute; 
+    z-index: 2;
+    float: left;
+}
+
+header{
+    z-index: 1;
+}
