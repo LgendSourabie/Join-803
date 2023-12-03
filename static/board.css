@@ -1,17 +1,17 @@
-body{
+body {
     margin: 0;
 }
 
-.sidebar-left{
+.sidebar-left {
     background-color: #2A3647;
     height: 100%;
-    width: 16.11vw;
-    position: absolute; 
+    width: 232px;
+    position: absolute;
     z-index: 2;
     float: left;
 }
 
-.logo{
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,11 +20,35 @@ body{
 
 }
 
-header{
+header {
+    height: 96px;
     flex: 1;
     display: flex;
-    margin-left: 16.11vw;
+    margin-left: 232px;
     justify-content: space-between;
     align-items: center;
 }
 
+.mainSection {
+    margin-left: 232px;
+    background-color: #F6F7F8;
+    flex: 1;
+    height: 100%;
+}
+
+.headline{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addandsearch{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todosection {
+    display: flex;
+    justify-content: space-around;
+}
