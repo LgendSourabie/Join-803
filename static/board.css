@@ -1,17 +1,22 @@
 body {
     margin: 0;
     background-color: #F6F7F8;
-    font-family: ;
 }
 
 .sidebar-left {
     background-color: #2A3647;
-    height: 100%;
+    height: 100vh;
     width: 232px;
     position: absolute;
     z-index: 2;
     float: left;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 
 .logo {
     width: 100.03px;
@@ -25,6 +30,41 @@ body {
     width: 232px;
     margin-top: 64px;
     margin-bottom: 64px;
+}
+
+.menusidebar {
+    width: 232px;
+    height: 229px;
+    gap: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.menubar {
+    height: 46px;
+    padding-top: 8px;
+    padding-right: 53px;
+    padding-bottom: 8px;
+    padding-left: 53px;
+    border-radius: 8px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.menusidebar img {
+    height: 30px;
+    width: 30px;
+}
+
+.menusidebar span {
+    height: 19px;
+    color: #CDCDCD;
+}
+
+.privacypolicy{
+    padding-bottom: 64px;
 }
 
 header {
