@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    background-color: #F6F7F8;
+    font-family: ;
 }
 
 .sidebar-left {
@@ -12,20 +14,47 @@ body {
 }
 
 .logo {
+    width: 100.03px;
+    height: 121.97px;
+}
+
+.logodiv {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100.03px;
-    height: 121.97px;
-
+    width: 232px;
+    margin-top: 64px;
+    margin-bottom: 64px;
 }
 
 header {
+    background-color: #FFFFFF;
     height: 96px;
     flex: 1;
+}
+
+.header {
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    padding-left: 348px;
     display: flex;
-    margin-left: 232px;
     justify-content: space-between;
+    align-items: center;
+}
+
+.header span {
+    width: 319px;
+    height: 24px;
+
+}
+
+.profilehelp {
+    width: 104px;
+    height: 56px;
+    gap: 16px;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -36,13 +65,13 @@ header {
     height: 100%;
 }
 
-.headline{
+.headline {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.addandsearch{
+.addandsearch {
     display: flex;
     justify-content: space-between;
     align-items: center;
