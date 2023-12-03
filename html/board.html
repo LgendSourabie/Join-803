@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
     <link rel="stylesheet" href="/static/board.css">
 </head>
-<body>
 
+<body>
+    <!-- Sidebar -->
     <div class="sidebar-left">
         <img class="logo" src="/icons/logo.svg" alt="">
         <div>
@@ -34,6 +36,8 @@
             <a>Legal notice</a>
         </div>
     </div>
+
+    <!-- Header section -->
     <header>
         <span>Kanban Project Management Tool</span>
         <div>
@@ -41,5 +45,46 @@
             <img src="/icons/userProfile.svg" alt="">
         </div>
     </header>
+
+
+    <!-- Main section -->
+    <div>
+        <div>
+            <span>Board</span>
+            <input type="Find Task">
+            <button>Add Task</button>
+        </div>
+        <div>
+            <div>
+                <div>
+                    <span>To do</span>
+                    <img src="/icons/add.svg" alt="">
+                </div>
+                <div id="todo"></div>
+            </div>
+            <div>
+                <div>
+                    <span>In Progress</span>
+                    <img src="/icons/add.svg" alt="">
+                </div>
+                <div id="inProgress"></div>
+            </div>
+            <div>
+                <div>
+                    <span>Await Feedback</span>
+                    <img src="/icons/add.svg" alt="">
+                </div>
+                <div id="awaitFeedback"></div>
+            </div>
+            <div>
+                <div>
+                    <span>Done</span>
+                </div>
+                <div id="done"></div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
