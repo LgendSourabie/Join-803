@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/login.css" />
+    <link rel="stylesheet" href="../static/singup.css" />
     <link rel="stylesheet" href="../static/font.css" />
 
     <!-- FAVICON -->
@@ -33,37 +33,47 @@
     <meta name="theme-color" content="#ffffff" />
     <!-- END FAVICON -->
 
-    <title>Login</title>
+    <title>Sign up</title>
   </head>
   <body class="login-body disp-flex">
     <img class="login-logo" src="/icons/logo_blue.svg" alt="Logo" />
-    <div class="container-login">
-      <div class="menu-login">
+    <div class="container-signup">
+      <!-- <div class="menu-login">
         <div class="icon-links-login">
           <span class="question-user">Not a Join user?</span>
-          <button class="sign-up blue-btn">
-            <a class="signup-link" href="../html/signup.html">Sign up</a>
-          </button>
+          <button class="sign-up blue-btn">Sign up</button>
         </div>
-      </div>
+      </div> -->
       <form class="user-log-data-section disp-flex">
         <!--onsubmit="submitForm();return"-->
         <div class="title-join-underline disp-flex">
-          <div class="log-title">Log in</div>
+          <div class="log-title">Sign up</div>
           <div class="btm-bar"></div>
         </div>
         <div class="input-grp-section disp-flex">
-          <div class="grp-input-login disp-flex">
+          <div class="grp-input-signup disp-flex">
             <input
-              class="input-login input-login-1"
+              class="input-signup input-signup-0"
+              type="text"
+              placeholder="Name"
+              required
+            />
+            <input
+              class="input-signup input-signup-1"
               type="email"
               placeholder="Email"
               required
             />
             <input
-              class="input-login input-login-2"
+              class="input-signup input-signup-2"
               type="password"
               placeholder="Password"
+              required
+            />
+            <input
+              class="input-signup input-signup-2"
+              type="password"
+              placeholder="Confirm Password"
               required
             />
           </div>
@@ -71,18 +81,16 @@
             <div class="remember-me disp-flex">
               <input class="check-box" type="checkbox" /><span
                 class="remember ft-sz-400"
-                >Remember me</span
-              >
+                >I accepted the </span
+              ><a class="consent-policy" href="#">Privacy policy</a>
             </div>
-            <span class="forgot-pwd">I forgot my password</span>
+            <!-- <span class="forgot-pwd">I forgot my password</span> -->
           </div>
         </div>
 
         <div class="btn-line disp-flex">
-          <button class="blue-btn log-guest-btn">Log in</button
-          ><a href="../html/summary.html" class="white-btn log-guest-btn"
-            >Guest Log in</a
-          >
+          <button class="blue-btn log-guest-btn">Sign up</button>
+          <!-- <button class="white-btn log-guest-btn">Guest Log in</button> -->
         </div>
       </form>
       <div class="privacy-link-login">

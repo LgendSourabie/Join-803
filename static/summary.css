@@ -26,12 +26,35 @@ button {
   margin-block-start: 0;
   margin-block-end: 0;
 }
-
+.submenu-user {
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  border-radius: 20px 0px 20px 20px;
+  background-color: #2a3647;
+  width: fit-content;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 70px;
+  right: 1.5rem;
+}
+.list-item {
+  display: list-item;
+  text-decoration: none;
+  list-style: none;
+  font-size: 16px;
+  line-height: 19.2px;
+  color: #cdcdcd;
+  padding: 8px 16px 8px 16px;
+  transition: transform 125ms ease-in-out;
+}
 .white-text {
   color: white;
 }
 .gray-text {
   color: #a8a8a8;
+}
+.d-none {
+  display: none;
 }
 /* LEFT SIDE SECTION*/
 
@@ -99,7 +122,7 @@ button {
 }
 .task-info-section {
   background-color: rgb(246, 247, 248);
-  padding-left: 6rem;
+  padding-inline: 6rem;
 }
 .login {
   border-radius: 50%;
@@ -294,6 +317,11 @@ button {
 }
 
 .sub-menu-container:hover {
+  background-color: rgb(41, 60, 85);
+  transform: scale(1.01);
+}
+
+.submenu-user .list-item:hover {
   background-color: rgb(41, 60, 85);
   transform: scale(1.01);
 }
