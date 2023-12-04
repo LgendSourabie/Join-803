@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+
+    <link rel="stylesheet" href="styleAddTask.css">
+    <script src="addTask.js"></script>
+
+</head>
+<body>
+
+    <div class="sidebarContainer">
+        <div class="logoContainer">
+            <img class="joinLogo" src="/img/Join_logo.svg" alt="">
+        </div>
+        <div class="sidesContainer">
+            <div class="summary sides">
+                <img src="/img/summary_logo.svg" alt="">
+                <span>Summary</span>
+            </div>
+            <div class="addTask sides">
+                <img src="/img/add_task_logo.svg" alt="">
+                <span>Add Task</span>
+            </div>
+            <div class="board sides">
+                <img src="/img/board_logo.svg" alt="">
+                <span>Board</span>
+            </div>
+            <div class="contacts sides">
+                <img src="/img/contacts_logo.svg" alt="">
+                <span>Contacts</span>
+            </div>
+        </div>
+        <div class="sidebarFooter">
+            <span>Privacy Policy</span>
+            <span>Legal notice</span>
+        </div>
+    </div>
+
+    <div class="addTaskHeadline">
+        <span class="spanHeader">Kanban Project Management Tool</span>
+        <div class="headerIMGS">
+            <img class="helpIMG" src="/img/help.svg" alt="">
+            <img class="UserIMG" src="/img/User profile initials.svg" alt="">
+        </div>
+    </div>
+
+    <div class="addTaskContainer">
+
+        <div class="seperatorAddTask"></div>
+
+        <div class="addTaskContainer">
+            <div class="h2Container">
+                <h2>Add Task</h2>
+            </div>
+            <div class="addTaskOverviewContainer">
+                <div class="containerLeft">
+                    <div class="titleAddTask addTaskOverview">
+                        <span>Title
+                            <span class="star">*</span>
+                        </span>
+                        <input id="title" type="text" placeholder="Enter a title" required>
+                    </div>
+                    <div class="descriptionAddTask addTaskOverview">
+                        <span>Description</span>
+                        <textarea id="description" class="textAreaAddTask" placeholder="Enter a Description"></textarea>
+                    </div>
+                    <div class="assignedAddTask addTaskOverview">
+                        <span>Assigned to</span>
+                        <select>
+                            <option id="assigned" value="">Selected contacts to assign</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="seperatorContainer"></div>
+
+                <div class="containerRight">
+                    <div class="dateAddTask addTaskOverview">
+                        <span>Due date
+                            <span class="star">*</span>
+                        </span>    
+                        <input id="date" type="date">
+                    </div>
+                    <div class="addTaskOverview">
+                        <span>Prio</span>
+                        <div class="prioSelection">
+                            <div class="prioUrgent allPrio">
+                                <span>Urgent</span>
+                                    <div class="img">
+                                        <img class="prio prioUrgentIMG" src="/img/Vector_urgent.svg" alt="">
+                                        <img class="prio prioUrgentIMG" src="/img/Vector_urgent.svg" alt="">
+                                    </div>
+                            </div>
+                            <div class="prioMedium allPrio">
+                                <span>Medium</span>
+                                    <div class="img">
+                                        <img class="prio prioMediumIMG" src="/img/Vector_medium.svg" alt="">
+                                        <img class="prio prioMediumIMG" src="/img/Vector_medium.svg" alt="">
+                                    </div>
+                            </div>
+                            <div class="prioLow allPrio">
+                                <span>Low</span>
+                                    <div class="img">
+                                        <img class="prio prioLowIMG" src="/img/Vector_low.svg" alt="">
+                                        <img class="prio prioLowIMG" src="/img/Vector_low.svg" alt="">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="categoryAddTask addTaskOverview">
+                        <span>Category
+                            <span class="star">*</span>
+                        </span>    
+                        <select>
+                            <option id="category" value="">Select task Category</option>
+                        </select>
+                    </div> 
+                    <div class="subtasksAddTask addTaskOverview">
+                        <span>Subtasks</span>
+                        <input id="subtasks" type="text" placeholder="Add new subtask">
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="footerAddTask">
+            <div class="spanFooter">
+                <span class="star">*</span>
+                <span>This field is required</span>
+            </div>
+            <div class="footerAddTaskButtons">
+                <button id="clearButton" class="clearButton">
+                    <img src="/img/Cancel.svg" alt="">
+                    <img src="/img/Vector.svg" alt="">
+                </button>
+                <button id="createTaskButton" class="createTaskButton">
+                    <img src="/img/Create Task.svg" alt="">
+                    <img src="/img/check.svg" alt="">
+                </button>
+            </div>
+        </div>
+  
+    
+</div>
+
+
+    
+</body>
+</html>
