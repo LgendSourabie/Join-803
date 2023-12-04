@@ -10,31 +10,34 @@ html {
 button {
   cursor: pointer;
 }
-.login-logo {
+.singup-logo {
   position: absolute;
   z-index: 999;
-  animation-name: logo-to-corner;
+  top: 4rem;
+  left: 6rem;
+
+  /* animation-name: logo-to-corner;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
-  animation-fill-mode: both;
+  animation-fill-mode: both; */
 }
 .container-signup {
   width: 100%;
-  opacity: 0;
+  /* opacity: 0; */
   padding-inline: 0.6rem;
-  animation-name: hide-login;
+  /* animation-name: hide-login;
   animation-duration: 1s;
   animation-timing-function: linear;
   animation-iteration-count: 1;
   animation-delay: 100ms;
-  animation-fill-mode: both;
+  animation-fill-mode: both; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-@keyframes logo-to-corner {
+/* @keyframes logo-to-corner {
   0% {
     width: 240px;
     height: 300px;
@@ -53,7 +56,7 @@ button {
   100% {
     opacity: 1;
   }
-}
+} */
 
 .login-body {
   font-family: "Inter";
