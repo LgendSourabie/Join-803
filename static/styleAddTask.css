@@ -1,236 +1,235 @@
 body {
-    margin: 0;
+  margin: 0;
 }
-​
+
 .addTaskHeadline {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
 }
-​
+
 .spanHeader {
-    font-size: 24px;
-    padding-left: 348px;
+  font-size: 24px;
+  padding-left: 348px;
 }
-​
+
 .headerIMGS {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
-​
+
 .helpIMG {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
-​
+
 .UserIMG {
-    width: 56px;
-    height: 56px;
-    gap: 16px;
+  width: 56px;
+  height: 56px;
+  gap: 16px;
 }
-​
+
 .sidebarContainer {
-    width: 232px;
-    height: 100vh;
-    background-color: #2A3647;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    position: fixed;
+  width: 232px;
+  height: 100vh;
+  background-color: #2a3647;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: fixed;
 }
-​
+
 .logoContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 64px;
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
 }
-​
+
 .joinLogo {
-    width: 100.03px;
-    height: 121.97px;
+  width: 100.03px;
+  height: 121.97px;
 }
-​
+
 .sidesContainer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 229px;
-    gap: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 229px;
+  gap: 15px;
 }
-​
+
 .sides {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(174,176,179);
-    height: 46px;
-    gap: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(174, 176, 179);
+  height: 46px;
+  gap: 8px;
 }
-​
+
 .sidebarFooter {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: rgb(137,140,144);
-    margin-bottom: 52px;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: rgb(137, 140, 144);
+  margin-bottom: 52px;
+  gap: 4px;
 }
-​
+
 .seperatorAddTask {
-    width: 100%;
-    height: 3px;
-    background-color: rgb(227,228,229);
+  width: 100%;
+  height: 3px;
+  background-color: rgb(227, 228, 229);
 }
-​
+
 .addTaskContainer {
-    background-color: rgb(246,247,248);
-    display: flex;
-    flex-direction: column;
+  background-color: rgb(246, 247, 248);
+  display: flex;
+  flex-direction: column;
 }
-​
+
 .addTaskOverviewContainer {
-    display: flex;
-    padding-left: 348px;
+  display: flex;
+  padding-left: 348px;
 }
-​
+
 h2 {
-    font-size: 73px;
-    padding-left: 348px;
+  font-size: 73px;
+  padding-left: 348px;
 }
-​
+
 .star {
-    color: rgb(255,129,144);
+  color: rgb(255, 129, 144);
 }
-​
+
 input {
-    border-radius: 10px;
-    border: 1px solid lightgrey;
-    padding: 16px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  padding: 16px;
 }
-​
+
 textarea {
-    border-radius: 10px;
-    border: 1px solid lightgrey;
-    padding: 16px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  padding: 16px;
 }
-​
+
 .containerLeft {
-    display: flex;
-    flex-direction: column;
-    width: 440px;
-    height: 376px;
-    gap: 8px;
-    padding-right: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 440px;
+  height: 376px;
+  gap: 8px;
+  padding-right: 24px;
 }
-​
+
 select {
-    border-radius: 10px;
-    border: 1px solid lightgrey;
-    padding: 16px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  padding: 16px;
 }
-​
+
 .seperatorContainer {
-    width: 1px;
-    height: 424px;
-    background-color: #D1D1D1;
+  width: 1px;
+  height: 424px;
+  background-color: #d1d1d1;
 }
-​
+
 .containerRight {
-    display: flex;
-    flex-direction: column;
-    width: 440px;
-    height: 376px;
-    gap: 8px;
-    padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 440px;
+  height: 376px;
+  gap: 8px;
+  padding-left: 24px;
 }
-​
+
 .titleAddTask {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-​
+
 .addTaskOverview {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-​
+
 .prioSelection {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
-​
+
 .allPrio {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 136px;
-    height: 56px;
-    border-radius: 10px;
-    padding: 16px, 10px, 16px, 10px;
-    background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 136px;
+  height: 56px;
+  border-radius: 10px;
+  padding: 16px, 10px, 16px, 10px;
+  background-color: #ffffff;
 }
-​
+
 .prio {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-​
+
 .prioUrgentIMG {
-    width: 20px;
-    height: 14.51px;
+  width: 20px;
+  height: 14.51px;
 }
-​
+
 .prioMediumIMG {
-    width: 20px;
-    height: 7.45px;
+  width: 20px;
+  height: 7.45px;
 }
-​
+
 .prioLowIMG {
-    width: 20px;
-    height: 8.76px;
+  width: 20px;
+  height: 8.76px;
 }
-​
+
 .spanFooter {
-    display: flex;
-    align-items: end;
-    padding-left: 348px;
+  display: flex;
+  align-items: end;
+  padding-left: 348px;
 }
-​
+
 .footerAddTask {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
-​
+
 .footerAddTaskButtons {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
 }
-​
+
 .clearButton {
-    height: 56px;
-    width: 110px;
-    border-radius: 10px;
-    padding: 16px;
-    gap: 4px;
+  height: 56px;
+  width: 110px;
+  border-radius: 10px;
+  padding: 16px;
+  gap: 4px;
 }
-​
+
 .clearButton:hover {
-    cursor: pointer;
-    
+  cursor: pointer;
 }
-​
+
 .createTaskButton {
-    height: 56px;
-    width: 183px;
-    border-radius: 10px;
-    padding: 16px;
-    gap: 4px;
-    background-color: rgb(42,54,71);
+  height: 56px;
+  width: 183px;
+  border-radius: 10px;
+  padding: 16px;
+  gap: 4px;
+  background-color: rgb(42, 54, 71);
 }
-​
+
 .createTaskButton:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
