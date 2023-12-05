@@ -82,7 +82,9 @@
           <a class="gray-text links" onclick="showPrivacyPolicy()"
             >Privacy Policy</a
           >
-          <a class="gray-text links">Legal notice</a>
+          <a class="gray-text links" onclick="showLegalNotice()"
+            >Legal notice</a
+          >
         </div>
       </div>
       <div class="right-side-section">
@@ -104,7 +106,9 @@
           </div>
         </header>
         <div id="submenu-user" class="submenu-user d-none">
-          <a class="list-item ft-sz-400" href="#"> Legal Notice</a>
+          <a class="list-item ft-sz-400" onclick="showLegalNotice()">
+            Legal Notice</a
+          >
           <a class="list-item ft-sz-400" onclick="showPrivacyPolicy()"
             >Privacy Policy</a
           >
@@ -304,7 +308,7 @@
             </div>
             <div class="qa-join">Enjoy using Join!</div>
           </span>
-          <span id="privacy-page" class="he d-none">
+          <span id="privacy-page" class="virtualClass help-page d-none">
             <div class="title-help">Privacy Policy</div>
             <a href="../html/summary.html"
               ><img
@@ -327,6 +331,175 @@
               tenetur rem aut quasi provident tempore non modi officiis
               molestias, laboriosam repellat excepturi.
             </div>
+          </span>
+          <span id="legal-notice-page" class="virtualClass help-page d-none">
+            <div class="title-help">Legal Notice</div>
+            <a href="../html/summary.html"
+              ><img
+                id="return-btn"
+                class="return-btn"
+                src="../icons/arrow-left-line.svg"
+                alt="Exit"
+            /></a>
+            <span class="qa-join">Imprint</span>
+            <div class="help-text">
+              is a kanban-based project management tool designed and built by a
+              group of dedicated students as part of their web development
+              bootcamp at the Developer Akademie.
+            </div>
+
+            <div>
+              <span class="help-topic-title">Exploring the Board</span>
+              <div class="help-text">
+                <ul class="list-email">
+                  <li class="list-notice">
+                    <a class="mail-links" href="">Ibrahima</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href="">join803@ibrahima.de</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href=""
+                      >Musterstraße XX, Musterstast</a
+                    >
+                  </li>
+                </ul>
+
+                <ul class="list-email">
+                  <li class="list-notice">
+                    <a class="mail-links" href="">Pascal</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href="">join803@pascal.de</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href=""
+                      >Musterstraße XX, Musterstast</a
+                    >
+                  </li>
+                </ul>
+
+                <ul class="list-email">
+                  <li class="list-notice">
+                    <a class="mail-links" href="">Henrik</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href="">join803@henrik.de</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href=""
+                      >Musterstraße XX, Musterstast</a
+                    >
+                  </li>
+                </ul>
+
+                <ul class="list-email">
+                  <li class="list-notice">
+                    <a class="mail-links" href="">Thomas</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href="">join803@thomas.de</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href=""
+                      >Musterstraße XX, Musterstast</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title">Acceptance of terms</span>
+              <div class="help-text">
+                Acceptance of terms By accessing and using
+                <span class="blue-join">Join</span> (Product), you acknowledge
+                and agree to the following terms and conditions, and any
+                policies, guidelines, or amendments thereto that may be
+                presented to you from time to time. We, the listed students, may
+                update or change the terms and conditions from time to time
+                without notice.
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title"
+                >Scope and ownership of the product</span
+              >
+              <div class="help-text">
+                <span class="blue-join">Join</span> has been developed as part
+                of a student group project in a web development bootcamp at the
+                <span class="blue-join">Developer Akademie GmbH</span>. It has
+                an educational purpose and is not intended for extensive
+                personal & business usage. As such, we cannot guarantee
+                consistent availability, reliability, accuracy, or any other
+                aspect of quality regarding this Product. The design of
+                <span class="blue-join">Join</span> is owned by the
+                <span class="blue-join">Developer Akademie GmbH</span>.
+                Unauthorized use, reproduction, modification, distribution, or
+                replication of the design is strictly prohibited.
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title">Proprietary rights</span>
+              <div class="help-text">
+                Aside from the design owned by
+                <span class="blue-join">Developer Akademie GmbH</span>, we, the
+                listed students, retain all proprietary rights in
+                <span class="blue-join">Join</span>, including any associated
+                copyrighted material, trademarks, and other proprietary
+                information.
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title">Use of the product</span>
+              <div class="help-text">
+                <span class="blue-join">Join</span> is intended to be used for
+                lawful purposes only, in accordance with all applicable laws and
+                regulations. Any use of <span class="blue-join">Join</span> for
+                illegal activities, or to harass, harm, threaten, or intimidate
+                another person, is strictly prohibited. You are solely
+                responsible for your interactions with other users of
+                <span class="blue-join">Join</span>.
+              </div>
+            </div>
+
+            <div>
+              <span class="help-topic-title"
+                >Disclaimer of warranties and limitation of liability</span
+              >
+              <div class="help-text">
+                <span class="blue-join">Join</span> is provided "as is" without
+                warranty of any kind, whether express or implied, including but
+                not limited to the implied warranties of merchantability,
+                fitness for a particular purpose, and non-infringement. In no
+                event will we, the listed students, or the
+                <span class="blue-join">Developer Akademie</span>, be liable for
+                any direct, indirect, incidental, special, consequential or
+                exemplary damages, including but not limited to, damages for
+                loss of profits, goodwill, use, data, or other intangible
+                losses, even if we have been advised of the possibility of such
+                damages, arising out of or in connection with the use or
+                performance of <span class="blue-join">Join</span>.
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title">Indemnity</span>
+              <div class="help-text">
+                You agree to indemnify, defend and hold harmless us, the listed
+                students, the <span class="blue-join">Developer Akademie</span>,
+                and our affiliates, partners, officers, directors, agents, and
+                employees, from and against any claim, demand, loss, damage,
+                cost, or liability (including reasonable legal fees) arising out
+                of or relating to your use of
+                <span class="blue-join">Join</span> and/or your breach of this
+                Legal Notice.
+              </div>
+            </div>
+            <!-- </div> -->
+            <div class="help-text">
+              For any questions or notices, please contact us at
+              <a class="mail-links" href="">join803@da.de</a>.
+            </div>
+            <div class="help-text">Date: July 26, 2023</div>
           </span>
         </div>
       </div>

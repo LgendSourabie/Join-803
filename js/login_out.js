@@ -71,15 +71,34 @@ const showPrivacyPolicy = function () {
   let loginBtn = document.getElementById("loginBtn");
   let helpIcon = document.getElementById("help-icon");
   let privacyPage = document.getElementById("privacy-page");
+  let legalNoticePage = document.getElementById("legal-notice-page");
   let userMenu = document.getElementById("submenu-user");
   let helpPage = document.getElementById("help-page");
-  hideIfPrivayPage(helpIcon, loginBtn, summPage, userMenu, helpPage);
+  hideThesePages(helpIcon, loginBtn, summPage, userMenu, helpPage);
+  legalNoticePage.classList.add("d-none");
+  legalNoticePage.style.display = "";
   helpPage.style.display = "";
   privacyPage.classList.remove("d-none");
   privacyPage.style.display = "inline-block";
 };
 
-const hideIfPrivayPage = function (
+const showLegalNotice = function () {
+  let summaryPage = document.getElementById("summary-page");
+  let loginBtn = document.getElementById("loginBtn");
+  let helpIcon = document.getElementById("help-icon");
+  let privacyPage = document.getElementById("privacy-page");
+  let legalNoticePage = document.getElementById("legal-notice-page");
+  let userMenu = document.getElementById("submenu-user");
+  let helpPage = document.getElementById("help-page");
+  hideThesePages(helpIcon, loginBtn, summaryPage, userMenu, helpPage);
+  privacyPage.classList.add("d-none");
+  privacyPage.style.display = "";
+  helpPage.style.display = "";
+  legalNoticePage.classList.remove("d-none");
+  legalNoticePage.style.display = "inline-block";
+};
+
+const hideThesePages = function (
   helpIcon,
   loginBtn,
   summPage,

@@ -275,6 +275,15 @@ button {
   color: #2a3647;
 }
 
+/* Für Legal Notice */
+.mail-links {
+  text-decoration: none;
+  color: #29abe2;
+}
+.list-notice {
+  list-style: none;
+}
+
 /* HOVER FUNCTIONS */
 .do-task:hover {
   transform: scale(1.025);
@@ -329,4 +338,8 @@ button {
 .submenu-user .list-item:hover {
   background-color: rgb(41, 60, 85);
   transform: scale(1.01);
+}
+
+.mail-links:hover {
+  text-decoration: underline;
 }
