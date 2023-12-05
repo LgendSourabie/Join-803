@@ -6,7 +6,7 @@
     <title>Join</title>
 
     <link rel="stylesheet" href="../static/styleAddTask.css">
-    <script src="addTask.js"></script>
+    <script src="/js/addTask.js"></script>
 
 </head>
 <body>
@@ -87,22 +87,22 @@
                     <div class="addTaskOverview">
                         <span>Prio</span>
                         <div class="prioSelection">
-                            <div class="prioUrgent allPrio">
-                                <span>Urgent</span>
+                            <div onclick="changeColorPrio(this)" class="prioUrgent allPrio">
+                                <span class="prio">Urgent</span>
                                     <div class="img">
                                         <img class="prio prioUrgentIMG" src="/img/img/Vector_urgent.svg" alt="">
                                         <img class="prio prioUrgentIMG" src="/img/img/Vector_urgent.svg" alt="">
                                     </div>
                             </div>
-                            <div class="prioMedium allPrio">
-                                <span>Medium</span>
+                            <div onclick="changeColorPrio(this)" class="prioMedium allPrio">
+                                <span class="prio">Medium</span>
                                     <div class="img">
                                         <img class="prio prioMediumIMG" src="/img/img/Vector_medium.svg" alt="">
                                         <img class="prio prioMediumIMG" src="/img/img/Vector_medium.svg" alt="">
                                     </div>
                             </div>
-                            <div class="prioLow allPrio">
-                                <span>Low</span>
+                            <div onclick="changeColorPrio(this)" class="prioLow allPrio">
+                                <span class="prio">Low</span>
                                     <div class="img">
                                         <img class="prio prioLowIMG" src="/img/img/Vector_low.svg" alt="">
                                         <img class="prio prioLowIMG" src="/img/img/Vector_low.svg" alt="">
