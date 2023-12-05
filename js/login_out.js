@@ -25,24 +25,45 @@ let users = [
 
 ///////// SINGN UP    /////////////////////////////////////////////////
 
-const registerUser = function (name, email, pwd, confirmPwd) {
-  let newUser = new Object();
+const registerUser = function () {
+  let userName = document.getElementById("register-user-name");
+  let userEmail = document.getElementById("register-user-email");
+  let pwd = document.getElementById("pwd");
+  let pwdConfirm = document.getElementById("confirm-pwd");
+  saveUser(userName.value, userEmail.value, pwd.value, pwdConfirm.value);
+};
+
+const saveUser = function (name, email, pwd, confirmPwd) {
   if (pwd === confirmPwd) {
-    newUser.name = name;
-    newUser.email = email;
-    newUser.password = pwd;
-    users.push(newUser);
+    users.push(new User(name, email, pwd));
     localStorage.setItem("users", JSON.stringify(users));
+    document
+      .getElementById("blue-btn-signup-success")
+      .classList.add("show-success-btn");
+    // setTimeout(userAction("login"), 5000);
   } else {
-    errorMessage("confirm-pwd", "Ups! Your password don't match");
+    errorMessage("confirmPwdError", "Ups! Your password don't match");
   }
 };
+
+function User(name, email, pwd) {
+  this.name = name;
+  this.email = email;
+  this.password = pwd;
+}
 
 const loadUsers = function () {
   let existUsers = localStorage.getItem("users");
   if (existUsers) {
     users = JSON.parse(existUsers);
   }
+  return users;
+};
+const errorMessage = function (id, msg) {
+  let fieldInput = document.getElementById("confirm-pwd");
+  let confirmPwd = document.getElementById(id);
+  confirmPwd.innerHTML = msg;
+  fieldInput.style.border = "2px solid red";
 };
 
 /////////////// LOG in /////////////////////////////////////////////////
@@ -145,6 +166,11 @@ const generateError = (errorType, errorMsg) => {
 
 const userAction = function (action) {
   window.location.href = `../html/${action}.html`;
+  // let successNtn = document.getElementById("blue-btn-signup-success");
+  // let hasShowClass = successNtn.classList.contains("show-success-btn");
+  // if (hasShowClass) {
+  //   successNtn.classList.remove("show-success-btn");
+  // }
 };
 
 const checkDataForValidation = function (currentEmail, currentPassword) {

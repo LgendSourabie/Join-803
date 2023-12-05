@@ -35,7 +35,7 @@
 
     <title>Sign up</title>
   </head>
-  <body class="login-body disp-flex">
+  <body class="login-body disp-flex" onload="loadUsers()">
     <img class="singup-logo" src="/icons/logo_blue.svg" alt="Logo" />
     <div class="container-signup">
       <!-- <div class="menu-login">
@@ -45,7 +45,10 @@
         </div>
       </div> -->
 
-      <form class="user-log-data-section-signup disp-flex">
+      <form
+        class="user-log-data-section-signup disp-flex"
+        onsubmit="registerUser();return false"
+      >
         <!--onsubmit="submitForm();return"-->
         <img
           class="exit-arrow"
@@ -60,7 +63,7 @@
         <div class="input-grp-section disp-flex">
           <div class="grp-input-signup disp-flex">
             <input
-              id="register-name"
+              id="register-user-name"
               class="input-signup input-signup-0"
               type="text"
               pattern="[a-zA-Z]*"
@@ -68,12 +71,13 @@
               required
             />
             <input
-              id="register-email"
+              id="register-user-email"
               class="input-signup input-signup-1"
               type="email"
               placeholder="Email"
               required
             />
+
             <input
               id="pwd"
               class="input-signup input-signup-2"
@@ -90,6 +94,7 @@
               placeholder="Confirm Password"
               required
             />
+            <p id="confirmPwdError"></p>
           </div>
           <div class="remember-line disp-flex ft-sz-400">
             <div class="remember-me disp-flex">
@@ -111,6 +116,9 @@
         <a class="links-login ft-sz-400" href="#">Privacy Policy</a>
         <a class="links-login ft-sz-400 legal-notice" href="#">Legal Notice</a>
       </div>
+      <button id="blue-btn-signup-success" class="blue-btn-signup-success">
+        You signed up successfully
+      </button>
     </div>
     <script src="../js/login_out.js"></script>
   </body>
