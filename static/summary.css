@@ -36,6 +36,7 @@ button {
   position: absolute;
   top: 70px;
   right: 1.5rem;
+  z-index: 2;
 }
 .list-item {
   display: list-item;
@@ -99,6 +100,7 @@ button {
   transition: all 125ms ease-in-out;
 }
 .links {
+  cursor: pointer;
   text-decoration: none;
   transition: all 125ms ease-in-out;
 }
@@ -107,6 +109,7 @@ button {
   height: 100vh;
   width: calc(100% - 232px);
   background-color: rgb(246, 247, 248);
+  overflow-y: auto;
 }
 
 .menu {
@@ -116,6 +119,8 @@ button {
   justify-content: space-between;
   padding-right: 4rem;
   padding-left: 7rem;
+  position: sticky;
+  top: 0;
 }
 .menu-icons-group {
   gap: 1rem;

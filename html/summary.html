@@ -79,8 +79,10 @@
           </div>
         </div>
         <div class="section-3">
-          <a href="#" class="gray-text links">Privacy Policy</a>
-          <a href="#" class="gray-text links">Legal notice</a>
+          <a class="gray-text links" onclick="showPrivacyPolicy()"
+            >Privacy Policy</a
+          >
+          <a class="gray-text links">Legal notice</a>
         </div>
       </div>
       <div class="right-side-section">
@@ -89,17 +91,27 @@
             Kanban Project Management Tool
           </div>
           <div class="menu-icons-group disp-flex">
-            <img class="help" src="/icons/help.svg" alt="Help" />
-            <button class="login" onclick="showSubmenu()">SM</button>
+            <img
+              id="help-icon"
+              class="help"
+              src="/icons/help.svg"
+              alt="Help"
+              onclick="openHelp()"
+            />
+            <button id="loginBtn" class="login" onclick="showSubmenu()">
+              SM
+            </button>
           </div>
         </header>
         <div id="submenu-user" class="submenu-user d-none">
           <a class="list-item ft-sz-400" href="#"> Legal Notice</a>
-          <a class="list-item ft-sz-400" href="#">Privacy Policy</a>
+          <a class="list-item ft-sz-400" onclick="showPrivacyPolicy()"
+            >Privacy Policy</a
+          >
           <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
         </div>
         <div class="task-info-section">
-          <span style="display: none">
+          <span id="summary-page" class="summary-page">
             <div class="marketing-slogan disp-flex">
               <div class="title">Join 360</div>
               <div class="blue-separator-line"></div>
@@ -174,9 +186,15 @@
               </div>
             </div>
           </span>
-          <span class="help-page">
+          <span id="help-page" class="help-page d-none">
             <div class="title-help">Help</div>
-            <img src="../icons/arrow-left-line.svg" alt="Exit" />
+            <a href="../html/summary.html"
+              ><img
+                id="return-btn"
+                class="return-btn"
+                src="../icons/arrow-left-line.svg"
+                alt="Exit"
+            /></a>
             <div class="help-text">
               Welcome to the help page for <span class="blue-join">Join</span>,
               your guide to using our kanban project management tool. Here,
@@ -286,9 +304,34 @@
             </div>
             <div class="qa-join">Enjoy using Join!</div>
           </span>
+          <span id="privacy-page" class="he d-none">
+            <div class="title-help">Privacy Policy</div>
+            <a href="../html/summary.html"
+              ><img
+                id="return-btn"
+                class="return-btn"
+                src="../icons/arrow-left-line.svg"
+                alt="Exit"
+            /></a>
+            <div class="qa-join">Subtitle</div>
+            <div class="help-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta,
+              ex cumque alias accusantium reiciendis deserunt ut iusto
+              doloremque corrupti rem, consequatur pariatur repellat illum,
+              quibusdam quam exercitationem numquam. Dolore, consequuntur?
+            </div>
+            <div class="qa-join">Subtitle</div>
+            <div class="help-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Aspernatur soluta amet iusto facilis quam, totam blanditiis. Totam
+              tenetur rem aut quasi provident tempore non modi officiis
+              molestias, laboriosam repellat excepturi.
+            </div>
+          </span>
         </div>
       </div>
     </div>
     <script src="../js/summary.js"></script>
+    <script src="../js/login_out.js"></script>
   </body>
 </html>
