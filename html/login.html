@@ -35,7 +35,7 @@
 
     <title>Login</title>
   </head>
-  <body class="login-body disp-flex">
+  <body id="me" class="login-body disp-flex">
     <img class="login-logo" src="/icons/logo_blue.svg" alt="Logo" />
     <div class="container-login">
       <div class="menu-login">
@@ -46,7 +46,10 @@
           </button>
         </div>
       </div>
-      <form class="user-log-data-section disp-flex">
+      <form
+        class="user-log-data-section disp-flex"
+        onsubmit="checkUserData();return false"
+      >
         <!--onsubmit="submitForm();return"-->
         <div class="title-join-underline disp-flex">
           <div class="log-title">Log in</div>
@@ -54,21 +57,27 @@
         </div>
         <div class="input-grp-section disp-flex">
           <div class="grp-input-login disp-flex">
-            <input
-              id="email"
-              class="input-login input-login-1"
-              type="email"
-              placeholder="Email"
-              required
-            />
-            <input
-              id="password"
-              class="input-login input-login-2"
-              type="password"
-              placeholder="Password"
-              minlength="4"
-              required
-            />
+            <div class="inp-ctn">
+              <input
+                id="email"
+                class="input-login input-login-1"
+                type="email"
+                placeholder="Email"
+                required
+              />
+              <p id="emailError"></p>
+            </div>
+            <div class="inp-ctn">
+              <input
+                id="password"
+                class="input-login input-login-2"
+                type="password"
+                placeholder="Password"
+                minlength="4"
+                required
+              />
+              <p id="passwordError"></p>
+            </div>
           </div>
           <div class="remember-line disp-flex ft-sz-400">
             <div class="remember-me disp-flex">
@@ -82,7 +91,7 @@
         </div>
 
         <div class="btn-line disp-flex">
-          <button type="submit" class="blue-btn log-guest-btn">Log in</button
+          <button class="blue-btn log-guest-btn">Log in</button
           ><a href="../html/summary.html" class="white-btn log-guest-btn"
             >Guest Log in</a
           >
@@ -93,5 +102,6 @@
         <a class="links-login ft-sz-400 legal-notice" href="#">Legal notice</a>
       </div>
     </div>
+    <script src="/js/login_out.js"></script>
   </body>
 </html>

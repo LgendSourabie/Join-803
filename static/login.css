@@ -213,7 +213,18 @@ button {
 .legal-notice {
   margin-left: 1.5rem;
 }
-
+.inp-ctn {
+  width: 100%;
+}
+#emailError,
+#passwordError {
+  color: red;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.input-login:user-invalid {
+  border: 2px solid red;
+}
 .blue-btn:hover {
   background-color: #29abe2;
   transform: scale(1.025);
