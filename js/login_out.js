@@ -25,13 +25,17 @@ let users = [
 
 ///////// SINGN UP    /////////////////////////////////////////////////
 
-const registerUser = function (name, email, password) {
+const registerUser = function (name, email, pwd, confirmPwd) {
   let newUser = new Object();
-  newUser.name = name;
-  newUser.email = email;
-  newUser.password = password;
-  users.push(newUser);
-  localStorage.setItem("users", JSON.stringify(users));
+  if (pwd === confirmPwd) {
+    newUser.name = name;
+    newUser.email = email;
+    newUser.password = pwd;
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+  } else {
+    errorMessage("confirm-pwd", "Ups! Your password don't match");
+  }
 };
 
 const loadUsers = function () {
@@ -118,8 +122,8 @@ const generateError = (errorType, errorMsg) => {
   }
 };
 
-const openSummaryPage = function () {
-  window.location.href = "../html/summary.html";
+const userAction = function (action) {
+  window.location.href = `../html/${action}.html`;
 };
 
 const checkDataForValidation = function (currentEmail, currentPassword) {
@@ -134,9 +138,9 @@ const checkDataForValidation = function (currentEmail, currentPassword) {
 
 const checkPassword = function (password, currentPassword) {
   if (isPasswordValid(password.value, currentPassword)) {
-    openSummaryPage();
+    userAction("summary");
   } else {
-    generateError("password", "Please Enter a valid password");
+    generateError("password", "Wrong password Ups! Try again");
   }
 };
 

@@ -70,15 +70,21 @@ button {
   top: 2rem;
   right: 5rem;
 }
-.user-log-data-section {
+.user-log-data-section-signup {
   background-color: white;
   width: 598px;
   flex-direction: column;
   justify-content: center;
   border-radius: 30px;
   box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
-  /* padding-inline: 2rem; */
+  position: relative;
   padding-block: 1rem;
+}
+.exit-arrow {
+  position: absolute;
+  top: 2.5rem;
+  left: 3rem;
+  cursor: pointer;
 }
 .btm-bar {
   width: 150px;
@@ -147,7 +153,7 @@ button {
   background-position: right;
   object-fit: cover;
 }
-.blue-btn {
+.blue-btn-signup {
   background-color: #2a3647;
   border: none;
   color: white;
@@ -206,7 +212,11 @@ button {
 .check-box {
   cursor: pointer;
 }
-
+.consent-policy {
+  color: #29abe2;
+  margin-left: -0.5rem;
+  text-decoration: none;
+}
 .remember {
   font-size: 16px;
   line-height: 19.2px;
@@ -223,9 +233,10 @@ button {
   margin-left: 1.5rem;
 }
 
-.blue-btn:hover {
+.blue-btn-signup:hover {
   background-color: #29abe2;
   transform: scale(1.025);
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.2);
 }
 .white-btn:hover {
   border-color: #29abe2;
@@ -235,4 +246,8 @@ button {
 .links-login:hover {
   transform: scale(1.025);
   color: #29abe2;
+}
+
+.consent-policy:hover {
+  text-decoration: underline;
 }

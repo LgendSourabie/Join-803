@@ -44,8 +44,15 @@
           <button class="sign-up blue-btn">Sign up</button>
         </div>
       </div> -->
-      <form class="user-log-data-section disp-flex">
+
+      <form class="user-log-data-section-signup disp-flex">
         <!--onsubmit="submitForm();return"-->
+        <img
+          class="exit-arrow"
+          src="../icons/arrow-left-line.svg"
+          alt="Exit"
+          onclick="userAction('login')"
+        />
         <div class="title-join-underline disp-flex">
           <div class="log-title">Sign up</div>
           <div class="btm-bar"></div>
@@ -53,50 +60,58 @@
         <div class="input-grp-section disp-flex">
           <div class="grp-input-signup disp-flex">
             <input
+              id="register-name"
               class="input-signup input-signup-0"
               type="text"
+              pattern="[a-zA-Z]*"
               placeholder="Name"
               required
             />
             <input
+              id="register-email"
               class="input-signup input-signup-1"
               type="email"
               placeholder="Email"
               required
             />
             <input
+              id="pwd"
               class="input-signup input-signup-2"
               type="password"
+              minlength="4"
               placeholder="Password"
               required
             />
             <input
+              id="confirm-pwd"
               class="input-signup input-signup-2"
               type="password"
+              minlength="4"
               placeholder="Confirm Password"
               required
             />
           </div>
           <div class="remember-line disp-flex ft-sz-400">
             <div class="remember-me disp-flex">
-              <input class="check-box" type="checkbox" /><span
+              <input class="check-box" type="checkbox" required /><span
                 class="remember ft-sz-400"
                 >I accepted the </span
-              ><a class="consent-policy" href="#">Privacy policy</a>
+              ><a class="consent-policy" href="#">Privacy Policy</a>
             </div>
             <!-- <span class="forgot-pwd">I forgot my password</span> -->
           </div>
         </div>
 
         <div class="btn-line disp-flex">
-          <button class="blue-btn log-guest-btn">Sign up</button>
+          <button class="blue-btn-signup log-guest-btn">Sign up</button>
           <!-- <button class="white-btn log-guest-btn">Guest Log in</button> -->
         </div>
       </form>
       <div class="privacy-link-login">
         <a class="links-login ft-sz-400" href="#">Privacy Policy</a>
-        <a class="links-login ft-sz-400 legal-notice" href="#">Legal notice</a>
+        <a class="links-login ft-sz-400 legal-notice" href="#">Legal Notice</a>
       </div>
     </div>
+    <script src="../js/login_out.js"></script>
   </body>
 </html>
