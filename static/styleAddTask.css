@@ -23,12 +23,14 @@ body {
 .helpIMG {
   width: 32px;
   height: 32px;
+  cursor: pointer;
 }
 
 .UserIMG {
   width: 56px;
   height: 56px;
   gap: 16px;
+  cursor: pointer;
 }
 
 .sidebarContainer {
@@ -67,6 +69,7 @@ body {
   color: rgb(174, 176, 179);
   height: 46px;
   gap: 8px;
+  cursor: pointer;
 }
 
 .sidebarFooter {
@@ -76,6 +79,10 @@ body {
   color: rgb(137, 140, 144);
   margin-bottom: 52px;
   gap: 4px;
+}
+
+.spanSidebarFooter {
+  cursor: pointer;
 }
 
 .seperatorAddTask {
@@ -108,12 +115,14 @@ input {
   border-radius: 10px;
   border: 1px solid lightgrey;
   padding: 16px;
+  cursor: pointer;
 }
 
 textarea {
   border-radius: 10px;
   border: 1px solid lightgrey;
   padding: 16px;
+  cursor: pointer;
 }
 
 .containerLeft {
@@ -129,6 +138,7 @@ select {
   border-radius: 10px;
   border: 1px solid lightgrey;
   padding: 16px;
+  cursor: pointer;
 }
 
 .seperatorContainer {
