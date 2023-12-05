@@ -6,7 +6,8 @@ let todo = [
         'due date': '13.12.23',
         'prio': '/icons/priomedium.svg',
         'category': 'Technical Task',
-        'subtasks': ['test1', 'test2']
+        'subtasks': ['test1', 'test2'],
+        'progress' : 2
     },
     {
         'title': 'test note',
@@ -15,7 +16,8 @@ let todo = [
         'due date': '13.12.23',
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
-        'subtasks': ['test1', 'test2']
+        'subtasks': ['test1', 'test2'],
+        'progress' : 1
     }, 
     {
         'title': 'test note',
@@ -24,7 +26,8 @@ let todo = [
         'due date': '13.12.23',
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
-        'subtasks': ['test1', 'test2']
+        'subtasks': ['test1', 'test2'],
+        'progress' : 0
     }
 ]
 let inprogress = [
@@ -35,7 +38,8 @@ let inprogress = [
         'due date': '13.12.23',
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
-        'subtasks': ['test1', 'test2']
+        'subtasks': ['test1', 'test2'],
+        'progress' : 1
     },
     {
         'title': 'test note',
@@ -44,7 +48,8 @@ let inprogress = [
         'due date': '13.12.23',
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
-        'subtasks': ['test1', 'test2']
+        'subtasks': ['test1', 'test2'],
+        'progress' : 1
     }
 ]
 let awaitfeedback = [
@@ -55,7 +60,8 @@ let awaitfeedback = [
         'due date': '13.12.23',
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
-        'subtasks': ['test1', 'test2']
+        'subtasks': ['test1', 'test2'],
+        'progress' : 1
     }
 ]
 let done = [
@@ -66,7 +72,8 @@ let done = [
         'due date': '13.12.23',
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
-        'subtasks': ['test1', 'test2']
+        'subtasks': ['test1', 'test2'],
+        'progress' : 1
     },
     {
         'title': 'test note',
@@ -75,7 +82,8 @@ let done = [
         'due date': '13.12.23',
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
-        'subtasks': ['test1', 'test2']
+        'subtasks': ['test1', 'test2'],
+        'progress' : 1
     }
 ]
 
@@ -131,32 +139,20 @@ function renderdone() {
 function todotemplate(array) {
     return /*html*/`
  <div class="todocard">
-     <button>${array.category}</button>
-     <b>${array.title}</b>
-     <span>${array.discription}</span>
-     <div>
-        <div class="progress-bar-container">
-            <div class="progress-bar" id="progressBar">0%</div>
-        </div>
-         ${array.subtasks.length}Subtasks
-     </div>
-     <div>
-         <div>contacts</div>
-         <img src="${array.prio}" alt="">
-     </div>
- </div>
+    <button>${array.category}</button>
+    <b>${array.title}</b>
+    <span>${array.discription}</span>
+    <div>
+        <div class="progress-container">
+            <div class="progress" style="width: ${array.progress / array.subtasks.length * 100}%">
+            </div>
+        </div>  
+        <div>${array.progress}/${array.subtasks.length}Subtasks</div> 
+    </div>
+    <div>
+        <div>contacts</div>
+        <img src="${array.prio}" alt="">
+    </div>
+</div>
 `
-}
-
-function updateProgressBar(percentage) {
-    const progressBar = document.getElementById('progressBar');
-    let currentWidth = parseInt(progressBar.style.width) || 0;
-    currentWidth += percentage;
-
-    if (currentWidth > 100) {
-        currentWidth = 100;
-    }
-
-    progressBar.style.width = currentWidth + '%';
-    progressBar.innerHTML = currentWidth + '%';
 }
