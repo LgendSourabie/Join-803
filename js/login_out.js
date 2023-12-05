@@ -127,6 +127,8 @@ function isEmailValid(givenEmail, currentEmail) {
     return false;
   }
 }
+
+// to refactor
 const generateError = (errorType, errorMsg) => {
   const emailError = document.getElementById("emailError");
   const passwordError = document.getElementById("passwordError");
