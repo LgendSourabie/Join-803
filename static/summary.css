@@ -177,10 +177,14 @@ button {
   color: #2a3647;
 }
 .current-user-name {
+  display: none;
   font-weight: 700;
   font-size: 64px;
   line-height: 76.8px;
   color: #29abe2;
+}
+.comma {
+  display: none;
 }
 .first-line-task {
   gap: 32px;
