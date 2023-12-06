@@ -10,3 +10,7 @@ const showSubmenu = function () {
   }
   //   document.getElementById("").style.display = "";
 };
+
+const todayDate = function () {
+  let today = new Date();
+};

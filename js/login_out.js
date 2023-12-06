@@ -186,6 +186,8 @@ const checkDataForValidation = function (currentEmail, currentPassword) {
 const checkPassword = function (password, currentPassword) {
   if (isPasswordValid(password.value, currentPassword)) {
     userAction("summary");
+    // document.getElementById("comma").style.display = "block";
+    // document.getElementById("current-user-name").style.display = "block";
   } else {
     generateError("password", "Wrong password Ups! Try again");
   }
