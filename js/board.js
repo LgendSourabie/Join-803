@@ -6,8 +6,8 @@ let todo = [
         'due date': '13.12.23',
         'prio': '/icons/priomedium.svg',
         'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 2
+        'subtasks': [],
+        'progress' : 0
     },
     {
         'title': 'test note',
@@ -142,17 +142,18 @@ function todotemplate(array) {
     <button>${array.category}</button>
     <b>${array.title}</b>
     <span>${array.discription}</span>
-    <div>
+    <div class="subtasks">
         <div class="progress-container">
             <div class="progress" style="width: ${array.progress / array.subtasks.length * 100}%">
             </div>
         </div>  
         <div>${array.progress}/${array.subtasks.length}Subtasks</div> 
     </div>
-    <div>
+    <div class="assignedprio">
         <div>contacts</div>
         <img src="${array.prio}" alt="">
     </div>
 </div>
 `
 }
+
