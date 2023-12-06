@@ -9,60 +9,37 @@
     <link rel="stylesheet" href="../static/font.css" />
 </head>
 
+
+
 <body>
     <div class="main-container">
+        <div id="add-contact-bg">
+            <div id="add-contact">
+                <div class="add-contact-slogan">
+                    <img src="../icons/logo.svg" alt="logo">
+                    <h2>Add Contact</h2>
+                    <p>Tasks are better with a team!</p>
+                </div>
+                <div class="add-contact-data">
+                    <div class="add-contact-data-picture"></div>
+                    <form>
+                        <div class="d-flex"><input type="text" minlength="2"  placeholder="Name" class="add-contact-input" id="name-input" required><div class="fake-img" ></div></div>
+                        <div class="d-flex"><input type="email" placeholder="Email" class="add-contact-input" id="email-input" required><div class="fake-img"></div></div>
+                        <div class="d-flex"><input type="tel" minlength="4" placeholder="Phone" class="add-contact-input" id="telephone-input" required>
+                            <div class="fake-img"></div>
+                        </div>
+                        <div class="d-flex">
+                            <button type="button" class="cancel-contact-button" onclick="closeAddContact()">Cancel</button>
+                            <button type="submit" onclick="createContact()" class="create-contact-button">Create contact</button> 
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
         <div class="sidebar"></div>
-        <div class="render-container">
-            <div class="scroll-container">
-                <div class="contacts-overview-container">
-                    <button class="add-new-contact">Add new contact <img src="../icons/addNewContact.svg"></button>
-                    <div id="contacts-overview">
-                    </div>
-                </div>
-            </div>
-            <div class="contact-single-view">
-                <div class="contacts-headline">
-                    <h2>Contacts</h2><span>Better with a team</span>
-                </div>
-                <div class="contact-single-view-info">
-                    <div>
-
-                        <div class="initial-name-container">
-                            <div class="initial-single-view">JD</div>
-                            <div class="name-edit-delete">
-                                <div class="name-single-view">John Doe</div>
-                                <div class="edit-and-delete">
-                                    <span><img src="../icons/editContact.svg">Edit</span>
-                                    <span><img src="../icons/delete.svg">Delete</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-information-headline">Contact Information</div>
-                    <div class="contact-information">
-                        <div class="email-single-view">
-                            <span>
-                                Email
-                            </span>
-                            <span>
-                                email@email1234.com
-                            </span>
-                        </div>
-                        <div class="phone-single-view">
-                            <span>
-                                Phone
-                            </span>
-                            <span>
-                                0123456789
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="show-contact">
-
-                </div>
-            </div>
+        <div class="render-container" id="render-container">
+            
         </div>
     </div>
 

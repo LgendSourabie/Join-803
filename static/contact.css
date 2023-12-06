@@ -2,8 +2,7 @@ body {
     margin: 0;
     font-family: "Inter";
 }
-
-button {
+button, input {
     background: none;
     color: inherit;
     border: none;
@@ -12,6 +11,127 @@ button {
     cursor: pointer;
     outline: inherit;
 }
+.d-none{
+    display: none !important;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.fake-img{
+    height: 20px;
+    width: 20px;
+    background-color: grey;
+}
+
+#add-contact-bg{
+    z-index: 900;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-contact{
+    z-index: 901;
+    height: 60vh;
+    width: 80vw;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+}
+
+.add-contact-slogan{
+    background-color: #2A3647;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 100px 20px 0 20px;
+    gap: 20px;
+    border-bottom-left-radius: 14px;
+    border-top-left-radius: 14px;
+}
+
+.add-contact-slogan img{
+    margin-block-end: 0;
+    margin-block-start: 0;
+    width: 100px;
+}
+.add-contact-slogan h2{
+    margin-block-end: 0;
+    margin-block-start: 0;
+    font-size: 56px;
+
+}
+
+
+
+.add-contact-slogan p{
+    font-size: 32px;
+}
+
+.add-contact-data-picture{
+    height: 120px;
+    width: 120px;
+    background-color: grey;
+}
+
+.add-contact-data{
+    display: flex;
+    height: 100%;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-contact-data form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.add-contact-input{
+    font-size: 24px;
+}
+
+.create-contact-button{
+    padding: 12px 4px;
+    background-color: #2A3647;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 10px;
+}
+
+.create-contact-button:hover{
+    background-color: #33AFE3;
+}
+
+.cancel-contact-button{
+    padding: 8px;
+    border: 1px #2A3647 solid;
+    color: #2A3647;
+    border-radius: 10px;
+    margin-right: 24px;
+}
+
+.cancel-contact-button:hover{
+    border: 1px #29ABE2 solid;
+    color: #33AFE3;
+}
+
+
+
 
 .sidebar {
     width: 232px;
@@ -22,6 +142,7 @@ button {
 .main-container {
     display: flex;
     justify-content: flex-start;
+    position: relative;
 }
 
 .render-container {
@@ -229,13 +350,13 @@ button {
     font-size: 16px;
 }
 
-.edit-and-delete span{
+.edit-and-delete div{
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.edit-and-delete span:hover{
+.edit-and-delete div:hover{
     color: #33AFE3;
     cursor: pointer;
 }
