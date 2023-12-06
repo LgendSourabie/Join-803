@@ -13,7 +13,7 @@
 
 <body>
     <div class="main-container">
-        <div id="add-contact-bg">
+        <div id="add-contact-bg" class="d-none">
             <div id="add-contact">
                 <div class="add-contact-slogan">
                     <img src="../icons/logo.svg" alt="logo">
@@ -21,16 +21,14 @@
                     <p>Tasks are better with a team!</p>
                 </div>
                 <div class="add-contact-data">
-                    <div class="add-contact-data-picture"></div>
-                    <form>
-                        <div class="d-flex"><input type="text" minlength="2"  placeholder="Name" class="add-contact-input" id="name-input" required><div class="fake-img" ></div></div>
-                        <div class="d-flex"><input type="email" placeholder="Email" class="add-contact-input" id="email-input" required><div class="fake-img"></div></div>
-                        <div class="d-flex"><input type="tel" minlength="4" placeholder="Phone" class="add-contact-input" id="telephone-input" required>
-                            <div class="fake-img"></div>
-                        </div>
+                    <img src="../icons/profileImageContacts.svg" alt="">
+                    <form onsubmit ="createContact()">  
+                        <div class="d-flex"><input type="text" minlength="2"  placeholder="Name" class="add-contact-input" id="name-input" required><img src="../icons/telephone.svg" alt="telephone"></div>
+                        <div class="d-flex"><input type="email" placeholder="Email" class="add-contact-input" id="email-input" required><img src="../icons/email.svg" alt="email"></div>
+                        <div class="d-flex"><input type="tel" minlength="4" placeholder="Phone" class="add-contact-input" id="telephone-input" required><img src="../icons/name.svg" alt="name"></div>
                         <div class="d-flex">
                             <button type="button" class="cancel-contact-button" onclick="closeAddContact()">Cancel</button>
-                            <button type="submit" onclick="createContact()" class="create-contact-button">Create contact</button> 
+                            <button type="submit"  class="create-contact-button">Create contact</button> 
                         </div>
                     </form>
 

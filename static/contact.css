@@ -97,19 +97,19 @@ button, input {
 }
 
 .add-contact-input{
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .create-contact-button{
-    padding: 12px 4px;
+    padding: 16px;
     background-color: #2A3647;
     color: white;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 21px;
+    font-weight: 700;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    /* gap: 16px; */
     border-radius: 10px;
 }
 
@@ -338,7 +338,7 @@ button, input {
     gap: 8px;
 }
 
-.name-single-view{
+#name-single-view{
     font-size: 47px;
     font-weight: 500;
 
@@ -371,27 +371,27 @@ button, input {
     gap: 22px;
 }
 
-.email-single-view{
+.email-single-view-container{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.email-single-view span:nth-child(even){
+.email-single-view-container span:nth-child(even){
     color: #007CEE;
 }
 
-.email-single-view span:nth-child(odd){
+.email-single-view-container span:nth-child(odd){
     font-weight: 700;
 }
 
-.phone-single-view{
+.phone-single-view-container{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.phone-single-view span:nth-child(odd){
+.phone-single-view-container span:nth-child(odd){
     font-weight: 700;
 }
 /* Better with a team */
