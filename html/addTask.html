@@ -69,10 +69,14 @@
                     </div>
                     <div class="assignedAddTask addTaskOverview">
                         <span>Assigned to</span>
-                        <select>
-                            <option id="assigned" value="">Selected contacts to assign</option>
-                        </select>
-                    </div>
+                            <select id="select">
+                                <option id="assigned" value="">Selected contacts to assign</option>
+                                <option value="">Pascal Wagner</option>
+                                <option value="">Henrik Sorg</option> 
+                                <option value="">Ibrahima Sourabie</option>
+                                <option value="">Thomas Jilge</option>
+                            </select>
+                         </div>
                 </div>
 
                 <div class="seperatorContainer"></div>
@@ -136,7 +140,7 @@
                     <img src="/img/img/Cancel.svg" alt="">
                     <img src="/img/img/Vector.svg" alt="">
                 </button>
-                <button id="createTaskButton" class="createTaskButton">
+                <button onclick="createTask()" id="createTaskButton" class="createTaskButton">
                     <img src="/img/img/Create Task.svg" alt="">
                     <img src="/img/img/check.svg" alt="">
                 </button>

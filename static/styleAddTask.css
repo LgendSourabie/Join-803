@@ -81,8 +81,9 @@ body {
   gap: 4px;
 }
 
-.spanSidebarFooter {
+.spanSidebarFooter:hover {
   cursor: pointer;
+  color: #29ABE2;
 }
 
 .seperatorAddTask {
@@ -230,6 +231,7 @@ select {
 
 .clearButton:hover {
   cursor: pointer;
+  border-color: #29ABE2;
 }
 
 .createTaskButton {
@@ -243,4 +245,6 @@ select {
 
 .createTaskButton:hover {
   cursor: pointer;
+  background-color: #29ABE2;
+  border-color: #29ABE2;
 }
