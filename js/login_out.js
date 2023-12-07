@@ -77,48 +77,6 @@ const checkUserData = function () {
   }
 };
 
-const openHelp = function () {
-  let summPage = document.getElementById("summary-page");
-  let helpIcon = document.getElementById("help-icon");
-  let helpPage = document.getElementById("help-page");
-  helpIcon.classList.add("d-none");
-  summPage.classList.add("d-none");
-  helpPage.classList.remove("d-none");
-  helpPage.style.display = "inline-block";
-};
-
-const showPrivacyPolicy = function () {
-  let summPage = document.getElementById("summary-page");
-  let loginBtn = document.getElementById("loginBtn");
-  let helpIcon = document.getElementById("help-icon");
-  let privacyPage = document.getElementById("privacy-page");
-  let legalNoticePage = document.getElementById("legal-notice-page");
-  let userMenu = document.getElementById("submenu-user");
-  let helpPage = document.getElementById("help-page");
-  hideThesePages(helpIcon, loginBtn, summPage, userMenu, helpPage);
-  legalNoticePage.classList.add("d-none");
-  legalNoticePage.style.display = "";
-  helpPage.style.display = "";
-  privacyPage.classList.remove("d-none");
-  privacyPage.style.display = "inline-block";
-};
-
-const showLegalNotice = function () {
-  let summaryPage = document.getElementById("summary-page");
-  let loginBtn = document.getElementById("loginBtn");
-  let helpIcon = document.getElementById("help-icon");
-  let privacyPage = document.getElementById("privacy-page");
-  let legalNoticePage = document.getElementById("legal-notice-page");
-  let userMenu = document.getElementById("submenu-user");
-  let helpPage = document.getElementById("help-page");
-  hideThesePages(helpIcon, loginBtn, summaryPage, userMenu, helpPage);
-  privacyPage.classList.add("d-none");
-  privacyPage.style.display = "";
-  helpPage.style.display = "";
-  legalNoticePage.classList.remove("d-none");
-  legalNoticePage.style.display = "inline-block";
-};
-
 const hideThesePages = function (
   helpIcon,
   loginBtn,
@@ -166,11 +124,6 @@ const generateError = (errorType, errorMsg) => {
 
 const userAction = function (action) {
   window.location.href = `../html/${action}.html`;
-  // let successNtn = document.getElementById("blue-btn-signup-success");
-  // let hasShowClass = successNtn.classList.contains("show-success-btn");
-  // if (hasShowClass) {
-  //   successNtn.classList.remove("show-success-btn");
-  // }
 };
 
 const checkDataForValidation = function (currentEmail, currentPassword) {
@@ -186,15 +139,7 @@ const checkDataForValidation = function (currentEmail, currentPassword) {
 const checkPassword = function (password, currentPassword) {
   if (isPasswordValid(password.value, currentPassword)) {
     userAction("summary");
-    // document.getElementById("comma").style.display = "block";
-    // document.getElementById("current-user-name").style.display = "block";
   } else {
     generateError("password", "Wrong password Ups! Try again");
   }
 };
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    checkDataForValidation();
-  }
-});

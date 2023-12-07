@@ -79,10 +79,10 @@
           </div>
         </div>
         <div class="section-3">
-          <a class="gray-text links" onclick="userAction('privacy')"
+          <a class="gray-text links" onclick="userAction('privacy_guest')"
             >Privacy Policy</a
           >
-          <a class="gray-text links" onclick="userAction('legal_notice')"
+          <a class="gray-text links" onclick="userAction('legal_notice_guest')"
             >Legal notice</a
           >
         </div>
@@ -98,18 +98,21 @@
               class="help"
               src="/icons/help.svg"
               alt="Help"
-              onclick="userAction('help')"
+              onclick="userAction('help_guest')"
             />
-            <button id="loginBtn" class="login" onclick="showSubmenu()">
-              SM
+            <button id="loginBtn" class="login-guest" onclick="showSubmenu()">
+              G
             </button>
           </div>
         </header>
         <div id="submenu-user" class="submenu-user d-none">
-          <a class="list-item ft-sz-400" onclick="userAction('legal_notice')">
+          <a
+            class="list-item ft-sz-400"
+            onclick="userAction('legal_notice_guest')"
+          >
             Legal Notice</a
           >
-          <a class="list-item ft-sz-400" onclick="userAction('privacy')"
+          <a class="list-item ft-sz-400" onclick="userAction('privacy_guest')"
             >Privacy Policy</a
           >
           <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
@@ -163,17 +166,17 @@
                 </div>
                 <div class="third-line-task disp-flex">
                   <div class="boar-progress-feedback disp-flex">
-                    <span id="board-task-number" class="var-task">0</span
+                    <span class="var-task">0</span
                     ><span class="task-text ft-sz-400">Tasks In</span>
                     <span class="task-text ft-sz-400">Board</span>
                   </div>
                   <div class="boar-progress-feedback disp-flex">
-                    <span id="progress-task-number" class="var-task">0</span
+                    <span class="var-task">0</span
                     ><span class="task-text ft-sz-400">Tasks In</span>
                     <span class="task-text ft-sz-400">Progress</span>
                   </div>
                   <div class="boar-progress-feedback disp-flex">
-                    <span id="feedback-task-number" class="var-task">0</span
+                    <span class="var-task">0</span
                     ><span class="task-text ft-sz-400">Awaiting</span>
                     <span class="task-text ft-sz-400">Feedback</span>
                   </div>

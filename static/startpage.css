@@ -1,32 +1,31 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-}
-html {
-  height: 62.5%;
   box-sizing: border-box;
 }
 button {
   cursor: pointer;
 }
-.singup-logo {
+.login-logo {
   position: absolute;
   z-index: 999;
-  top: 2rem;
-  left: 6rem;
+  animation-name: logo-to-corner;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
-.container-signup {
-  width: 100%;
-  /* opacity: 0; */
-  padding-inline: 0.6rem;
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.container-login {
+  opacity: 0;
+  animation-name: hide-login;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-delay: 200ms;
+  animation-fill-mode: both;
 }
 
-/* @keyframes logo-to-corner {
+@keyframes logo-to-corner {
   0% {
     width: 240px;
     height: 300px;
@@ -45,7 +44,7 @@ button {
   100% {
     opacity: 1;
   }
-} */
+}
 
 .login-body {
   font-family: "Inter";
@@ -59,21 +58,14 @@ button {
   top: 2rem;
   right: 5rem;
 }
-.user-log-data-section-signup {
+.user-log-data-section {
   background-color: white;
-  width: 598px;
+  width: 500px;
   flex-direction: column;
   justify-content: center;
   border-radius: 30px;
   box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
-  position: relative;
-  padding-block: 1rem;
-}
-.exit-arrow {
-  position: absolute;
-  top: 2.5rem;
-  left: 3rem;
-  cursor: pointer;
+  padding-block: 2rem;
 }
 .btm-bar {
   width: 150px;
@@ -85,7 +77,8 @@ button {
   gap: 10px;
 }
 .input-grp-section {
-  width: 100%;
+  width: 422px;
+  margin-top: 32px;
   flex-direction: column;
   justify-content: center;
   gap: 32px;
@@ -100,48 +93,51 @@ button {
   display: flex;
   align-items: center;
 }
-.grp-input-signup {
+.grp-input-login {
   width: 100%;
   flex-direction: column;
   justify-content: center;
+  gap: 18px;
 }
-.input-signup {
-  width: 70.5%;
+.input-login {
+  width: 100%;
   height: 53px; /*152px zum Besprechen*/
   border-radius: 10px;
   border: 1px solid #d1d1d1;
   outline: none;
   padding-inline: 21px;
-  margin-top: 1.2rem;
 }
-.input-signup::placeholder {
+.input-login::placeholder {
   font-family: "Inter";
-  /* font-size: 20px; */
-  font-size: 1.25rem;
+  font-size: 20px;
   line-height: 24px;
   font-weight: 400;
 }
-.input-signup-1::placeholder {
+.input-login-1::placeholder {
   background-image: url("/icons/mail.svg");
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
 }
 
-.input-signup-0::placeholder {
+.input-login-0::placeholder {
   background-image: url("/icons/person.svg");
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
 }
+.signup-link {
+  text-decoration: none;
+  color: white;
+}
 
-.input-signup-2::placeholder {
+.input-login-2::placeholder {
   background-image: url("/icons/lock.svg");
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
 }
-.blue-btn-signup {
+.blue-btn {
   background-color: #2a3647;
   border: none;
   color: white;
@@ -150,41 +146,12 @@ button {
   border-radius: 8px;
   transition: transform 125ms ease-in-out;
 }
-.show-success-btn {
-  transform: translateY(-54vh);
-  animation-name: showSuccesBtn;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-}
-
-.blue-btn-signup-success {
-  position: absolute;
-  transform: translateY(-54vh);
-  background-color: #2a3647;
-  border: none;
-  color: white;
-  z-index: 2;
-  padding-inline: 1.5rem;
-  padding-block: 1rem;
-  border-radius: 8px;
-}
-
-@keyframes showSuccesBtn {
-  0% {
-    transform: translateY(-54vh);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
 
 .white-btn {
   background-color: white;
   color: #2a3647;
   padding-inline: 1.5rem;
-  padding-block: 1rem;
+  padding-block: 0.9rem;
   border-radius: 8px;
   border: 3px solid #2a3647;
   transition: transform 125ms ease-in-out;
@@ -199,6 +166,7 @@ button {
   font-size: 21px;
   font-weight: 700;
   line-height: 25.2px;
+  text-decoration: none;
 }
 .btn-line {
   margin-top: 32px;
@@ -229,11 +197,7 @@ button {
 .check-box {
   cursor: pointer;
 }
-.consent-policy {
-  color: #29abe2;
-  margin-left: -0.5rem;
-  text-decoration: none;
-}
+
 .remember {
   font-size: 16px;
   line-height: 19.2px;
@@ -249,17 +213,19 @@ button {
 .legal-notice {
   margin-left: 1.5rem;
 }
-#confirmPwdError {
+.inp-ctn {
+  width: 100%;
+}
+#emailError,
+#passwordError {
   color: red;
   margin-block-start: 0;
   margin-block-end: 0;
-  margin-left: -10.5rem;
 }
-.input-signup-1:user-invalid {
+.input-login:user-invalid {
   border: 2px solid red;
 }
-
-.blue-btn-signup:hover {
+.blue-btn:hover {
   background-color: #29abe2;
   transform: scale(1.025);
   box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.2);
@@ -268,12 +234,9 @@ button {
   border-color: #29abe2;
   color: #29abe2;
   transform: scale(1.025);
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.2);
 }
 .links-login:hover {
   transform: scale(1.025);
   color: #29abe2;
-}
-
-.consent-policy:hover {
-  text-decoration: underline;
 }

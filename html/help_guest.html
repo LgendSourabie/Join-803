@@ -79,10 +79,10 @@
           </div>
         </div>
         <div class="section-3">
-          <a class="gray-text links" onclick="userAction('privacy')"
+          <a class="gray-text links" onclick="userAction('privacy_guest')"
             >Privacy Policy</a
           >
-          <a class="gray-text links" onclick="userAction('legal_notice')"
+          <a class="gray-text links" onclick="userAction('legal_notice_guest')"
             >Legal notice</a
           >
         </div>
@@ -101,15 +101,18 @@
               onclick="openHelp()"
             /> -->
             <button id="loginBtn" class="login" onclick="showSubmenu()">
-              SM
+              G
             </button>
           </div>
         </header>
         <div id="submenu-user" class="submenu-user d-none">
-          <a class="list-item ft-sz-400">
+          <a
+            class="list-item ft-sz-400"
+            onclick="userAction('legal_notice_guest')"
+          >
             Legal Notice</a
           >
-          <a class="list-item ft-sz-400"
+          <a class="list-item ft-sz-400" onclick="userAction('privacy_guest')"
             >Privacy Policy</a
           >
           <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
@@ -117,7 +120,7 @@
         <div class="task-info-section">
           <span id="help-page" class="help-page">
             <div class="title-help">Help</div>
-            <a href="../html/summary.html"
+            <a href="../html/guest.html"
               ><img
                 id="return-btn"
                 class="return-btn"

@@ -9,13 +9,15 @@ button {
 .login-logo {
   position: absolute;
   z-index: 999;
-  animation-name: logo-to-corner;
+  left: 6rem;
+  top: 2rem;
+  /* animation-name: logo-to-corner;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
-  animation-fill-mode: both;
+  animation-fill-mode: both; */
 }
-.container-login {
+/* .container-login {
   opacity: 0;
   animation-name: hide-login;
   animation-duration: 1s;
@@ -23,7 +25,7 @@ button {
   animation-iteration-count: 1;
   animation-delay: 100ms;
   animation-fill-mode: both;
-}
+} */
 
 @keyframes logo-to-corner {
   0% {
