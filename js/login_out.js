@@ -18,33 +18,49 @@ let users = [
   },
   {
     name: "Thomas",
-    email: "join803@thomas.com",
+    email: "join803@thomas.de",
     password: "1237",
   },
 ];
 
 ///////// SINGN UP    /////////////////////////////////////////////////
 
-const registerUser = function () {
+function registerUser() {
   let userName = document.getElementById("register-user-name");
   let userEmail = document.getElementById("register-user-email");
   let pwd = document.getElementById("pwd");
   let pwdConfirm = document.getElementById("confirm-pwd");
   saveUser(userName.value, userEmail.value, pwd.value, pwdConfirm.value);
-};
+}
 
-const saveUser = function (name, email, pwd, confirmPwd) {
-  if (pwd === confirmPwd) {
-    users.push(new User(name, email, pwd));
-    localStorage.setItem("users", JSON.stringify(users));
-    document
-      .getElementById("blue-btn-signup-success")
-      .classList.add("show-success-btn");
-    // setTimeout(userAction("login"), 5000);
+function saveUser(name, email, pwd, confirmPwd) {
+  if (!existEmail(email)[1]) {
+    document.getElementById("register-user-email").style.border = "";
+    document.getElementById("emailExist").innerHTML = "";
+    if (pwd === confirmPwd) {
+      document.getElementById("confirm-pwd").style.border = "";
+      document.getElementById("confirmPwdError").innerHTML = "";
+      users.push(new User(name, email, pwd));
+      localStorage.setItem("users", JSON.stringify(users));
+      document
+        .getElementById("blue-btn-signup-success")
+        .classList.add("show-success-btn");
+      // setTimeout(userAction("login"), 5000);
+    } else {
+      errorMessage(
+        "confirm-pwd",
+        "confirmPwdError",
+        "Ups! Your password doesn't match"
+      );
+    }
   } else {
-    errorMessage("confirmPwdError", "Ups! Your password don't match");
+    errorMessage(
+      "register-user-email",
+      "emailExist",
+      "Ups! Email already exists"
+    );
   }
-};
+}
 
 function User(name, email, pwd) {
   this.name = name;
@@ -59,36 +75,51 @@ const loadUsers = function () {
   }
   return users;
 };
-const errorMessage = function (id, msg) {
-  let fieldInput = document.getElementById("confirm-pwd");
-  let confirmPwd = document.getElementById(id);
+const errorMessage = function (id1, id2, msg) {
+  let fieldInput = document.getElementById(id1);
+  let confirmPwd = document.getElementById(id2);
   confirmPwd.innerHTML = msg;
   fieldInput.style.border = "2px solid red";
 };
 
+const existEmail = function (email) {
+  let listEmail = users.map((a) => a.email);
+  let exitThisEmail = listEmail.includes(email.toLowerCase());
+  return [listEmail, exitThisEmail];
+};
+
+const enableSignUP = function () {
+  let ischecked = document.getElementById("check-box-signup").checked;
+  if (ischecked) {
+    document.getElementById("sign-up-btn").disabled = false;
+  } else {
+    document.getElementById("sign-up-btn").disabled = true;
+  }
+};
 /////////////// LOG in /////////////////////////////////////////////////
 
 const checkUserData = function () {
+  let email = document.getElementById("email");
+  let password = document.getElementById("password");
+  let isValid = false;
   for (let i = 0; i < users.length; i++) {
     const user = users[i];
-    const email = user["email"];
-    const password = user["password"];
-    checkDataForValidation(email, password);
+    const currentEmail = user["email"];
+    const currentPassword = user["password"];
+    if (
+      isEmailValid(email.value, currentEmail) &&
+      isPasswordValid(password.value, currentPassword)
+    ) {
+      isValid = true;
+      i = users.length;
+    }
   }
-};
-
-const hideThesePages = function (
-  helpIcon,
-  loginBtn,
-  summPage,
-  userMenu,
-  helpPage
-) {
-  helpIcon.classList.add("d-none");
-  loginBtn.classList.add("d-none");
-  summPage.classList.add("d-none");
-  userMenu.classList.add("d-none");
-  helpPage.classList.add("d-none");
+  if (!isValid) {
+    generateError("email", "Please Enter a valid email");
+    generateError("password", "Wrong password Ups! Try again");
+  } else {
+    userAction("summary");
+  }
 };
 
 function isPasswordValid(givenPassword, currentPassword) {
@@ -124,16 +155,6 @@ const generateError = (errorType, errorMsg) => {
 
 const userAction = function (action) {
   window.location.href = `../html/${action}.html`;
-};
-
-const checkDataForValidation = function (currentEmail, currentPassword) {
-  let email = document.getElementById("email");
-  let password = document.getElementById("password");
-  if (isEmailValid(email.value, currentEmail)) {
-    checkPassword(password, currentPassword);
-  } else {
-    generateError("email", "Please Enter a valid email");
-  }
 };
 
 const checkPassword = function (password, currentPassword) {

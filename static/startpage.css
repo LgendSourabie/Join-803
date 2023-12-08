@@ -3,7 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
-button {
+button,
+a {
   cursor: pointer;
 }
 .login-logo {
@@ -21,7 +22,7 @@ button {
   animation-duration: 1s;
   animation-timing-function: linear;
   animation-iteration-count: 1;
-  animation-delay: 200ms;
+  animation-delay: 300ms;
   animation-fill-mode: both;
 }
 

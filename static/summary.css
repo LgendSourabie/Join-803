@@ -23,7 +23,8 @@ body {
   align-items: center;
 }
 
-button {
+button,
+a {
   cursor: pointer;
 }
 .para-summary {
@@ -80,12 +81,22 @@ button {
   gap: 15px;
   width: 100%;
 }
+.bg-summary {
+  background-color: #091931 !important;
+}
+.clr-white {
+  color: white;
+}
+.clr-white-filter {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(156deg)
+    brightness(108%) contrast(101%);
+}
 .section-3 {
   display: flex;
   flex-direction: column;
   padding-top: 5rem;
   padding-bottom: 2rem;
-  gap: 4px;
+  width: 100%;
 }
 .logo-summary {
   width: 100.03px;
@@ -106,7 +117,17 @@ button {
 .links {
   cursor: pointer;
   text-decoration: none;
+  padding-block: 0.5rem;
+  padding-left: 60px;
   transition: all 125ms ease-in-out;
+}
+
+.bg-links {
+  background-color: #091931 !important;
+}
+.bg-links:hover {
+  transform: scale(1) !important;
+  color: #a8a8a8 !important;
 }
 /* RIGHT SIDE SECTION */
 .right-side-section {
@@ -351,8 +372,11 @@ button {
 .login:hover {
   background-color: #d5e5fe;
 }
+.login-guest:hover {
+  background-color: #d5e5fe;
+}
 
-.sub-menu-container:hover {
+.sub-menu-container:not(.bg-summary):hover {
   background-color: rgb(41, 60, 85);
   transform: scale(1.01);
 }
