@@ -99,8 +99,11 @@ body {
 }
 
 .addTaskOverviewContainer {
-  display: flex;
   padding-left: 348px;
+}
+
+.addTaskContainerLeftRight {
+  display: flex;
 }
 
 h2 {
@@ -208,7 +211,6 @@ select {
 .spanFooter {
   display: flex;
   align-items: end;
-  padding-left: 348px;
 }
 
 .footerAddTask {
