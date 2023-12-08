@@ -6,10 +6,10 @@
     <title>Join</title>
 
     <link rel="stylesheet" href="../static/styleAddTask.css">
-    <script src="/js/addTask.js"></script>
+
 
 </head>
-<body>
+<body onload="load()">
 
     <div class="sidebarContainer">
         <div class="logoContainer">
@@ -55,7 +55,7 @@
             <div class="h2Container">
                 <h2>Add Task</h2>
             </div>
-            <div class="addTaskOverviewContainer">
+            <form class="addTaskOverviewContainer">
                 <div class="containerLeft">
                     <div class="titleAddTask addTaskOverview">
                         <span>Title
@@ -127,9 +127,7 @@
                         <input id="subtasks" type="text" placeholder="Add new subtask">
                     </div> 
                 </div>
-            </div>
-        </div>
-
+                
         <div class="footerAddTask">
             <div class="spanFooter">
                 <span class="star">*</span>
@@ -146,11 +144,30 @@
                 </button>
             </div>
         </div>
+            </form>
+        </div>
+<!-- 
+        <div class="footerAddTask">
+            <div class="spanFooter">
+                <span class="star">*</span>
+                <span>This field is required</span>
+            </div>
+            <div class="footerAddTaskButtons">
+                <button id="clearButton" class="clearButton">
+                    <img src="/img/img/Cancel.svg" alt="">
+                    <img src="/img/img/Vector.svg" alt="">
+                </button>
+                <button onclick="createTask()" id="createTaskButton" class="createTaskButton">
+                    <img src="/img/img/Create Task.svg" alt="">
+                    <img src="/img/img/check.svg" alt="">
+                </button>
+            </div>
+        </div> -->
   
     
 </div>
 
-
+<script src="/js/addTask.js"></script>
     
 </body>
 </html>

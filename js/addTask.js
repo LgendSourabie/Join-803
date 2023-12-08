@@ -13,6 +13,7 @@ let contacts = [
     },
 ];
 
+
 let tasks = [];
 let users = [];
 let subtasks = 0;
@@ -58,6 +59,10 @@ function addContacts() {
 }
 
 
+let liste = [];
+// let descriptions = [];
+
+
 function createTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
@@ -65,13 +70,33 @@ function createTask() {
     let category = document.getElementById('category').value;
     let assignedTo = document.getElementById('select').value;
 
-    tasks.push({
-        title: title,
-        description: description, 
-        date: date,
-        category: category,
-        assignedTo: assignedTo
-    })
+    // tasks.push({
+    //     title: title,
+    //     description: description, 
+    //     date: date,
+    //     category: category,
+    //     assignedTo: assignedTo
+    // })
+    saveLocalStorage(title, description, date, category, assignedTo)
 }
 
 
+function loadHTML(page) {
+    windows.location.href = `
+        ../html/${page}.html;
+    `;
+}
+
+
+function saveLocalStorage(val1,val2, val3, val4, val5) {
+    liste.push({titles:`${val1}`, descriptions:`${val2}`, dates:`${val3}`, categorys:`${val4}`, assignedTos:`${val5}`,});
+    localStorage.setItem('liste', JSON.stringify(liste));
+}
+
+
+function  load(){
+    let des = localStorage.getItem('liste');
+    if(des){
+        liste= JSON.parse(des);
+    }
+}
