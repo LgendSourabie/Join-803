@@ -2,27 +2,27 @@
 
 let users = [
   {
-    name: "Ibrahima",
+    name: "Ibrahima Join",
     email: "join803@ibrahima.de",
     password: "1234",
   },
   {
-    name: "Pascal",
+    name: "Pascal Join",
     email: "join803@pascal.de",
     password: "1235",
   },
   {
-    name: "Henrik",
+    name: "Henrik Join",
     email: "join803@henrik.de",
     password: "1236",
   },
   {
-    name: "Thomas",
+    name: "Thomas Join",
     email: "join803@thomas.de",
     password: "1237",
   },
 ];
-
+let currentUser = [];
 ///////// SINGN UP    /////////////////////////////////////////////////
 
 function registerUser() {
@@ -73,7 +73,6 @@ const loadUsers = function () {
   if (existUsers) {
     users = JSON.parse(existUsers);
   }
-  return users;
 };
 const errorMessage = function (id1, id2, msg) {
   let fieldInput = document.getElementById(id1);
@@ -111,6 +110,8 @@ const checkUserData = function () {
       isPasswordValid(password.value, currentPassword)
     ) {
       isValid = true;
+      currentUser.push(email.value);
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
       i = users.length;
     }
   }
@@ -120,6 +121,26 @@ const checkUserData = function () {
   } else {
     userAction("summary");
   }
+};
+
+const greetUser = function () {
+  let userNameField = document.getElementById("current-user-name");
+  let profileField = document.getElementById("loginBtn");
+  let userCurrent = localStorage.getItem("currentUser");
+  currentUser = JSON.parse(userCurrent);
+  let listEmail = users.map((a) => a.email);
+  let listName = users.map((a) => a.name);
+  let index = listEmail.indexOf(currentUser[currentUser.length - 1]);
+  let nameUser = listName[index];
+  userNameField.innerHTML = `${nameUser}`;
+  profileField.innerHTML = `${fullName(nameUser)[1]}${fullName(nameUser)[0]}`;
+};
+
+const fullName = function (name) {
+  let nameArray = name.split(" ");
+  let fisrtName = nameArray[0];
+  let lastName = nameArray[1];
+  return [fisrtName[0].toUpperCase(), lastName[0].toUpperCase()];
 };
 
 function isPasswordValid(givenPassword, currentPassword) {
@@ -138,7 +159,6 @@ function isEmailValid(givenEmail, currentEmail) {
   }
 }
 
-// to refactor
 const generateError = (errorType, errorMsg) => {
   const emailError = document.getElementById("emailError");
   const passwordError = document.getElementById("passwordError");

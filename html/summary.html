@@ -35,7 +35,7 @@
     <!-- END FAVICON -->
     <title>Summary</title>
   </head>
-  <body class="summary-body" onload="loadUsers()">
+  <body class="summary-body" onload="loadUsers();greetUser()">
     <div class="container-summary disp-flex">
       <div class="left-side-section disp-flex">
         <div class="section-1">
@@ -100,9 +100,11 @@
               alt="Help"
               onclick="userAction('help')"
             />
-            <button id="loginBtn" class="login" onclick="showSubmenu()">
-              SM
-            </button>
+            <button
+              id="loginBtn"
+              class="login"
+              onclick="showSubmenu()"
+            ></button>
           </div>
         </header>
         <div id="submenu-user" class="submenu-user d-none">
@@ -182,11 +184,9 @@
               <div class="right-greeting disp-flex">
                 <div>
                   <span class="greeting">Good morning</span>
-                  <span id="comma" class="comma greeting">,</span><br />
+                  <span id="comma" class="greeting">,</span><br />
                 </div>
-                <span id="current-user-name" class="current-user-name"
-                  >User-name</span
-                >
+                <span id="current-user-name" class="current-user-name"></span>
               </div>
             </div>
           </span>
