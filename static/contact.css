@@ -11,6 +11,13 @@ button, input {
     cursor: pointer;
     outline: inherit;
 }
+
+#telephone-input::-webkit-outer-spin-button,
+#telephone-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .d-none{
     display: none !important;
 }
