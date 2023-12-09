@@ -2,7 +2,9 @@ body {
     margin: 0;
     font-family: "Inter";
 }
-button, input {
+
+button,
+input {
     background: none;
     color: inherit;
     border: none;
@@ -14,25 +16,25 @@ button, input {
 
 #telephone-input::-webkit-outer-spin-button,
 #telephone-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-.d-none{
+.d-none {
     display: none !important;
 }
 
-.d-flex{
+.d-flex {
     display: flex;
 }
 
-.fake-img{
+.fake-img {
     height: 20px;
     width: 20px;
     background-color: grey;
 }
 
-#add-contact-bg{
+#add-contact-bg {
     z-index: 900;
     width: 100%;
     height: 100vh;
@@ -45,7 +47,7 @@ button, input {
     align-items: center;
 }
 
-#add-contact{
+#add-contact {
     z-index: 901;
     height: 60vh;
     width: 80vw;
@@ -54,7 +56,7 @@ button, input {
     display: flex;
 }
 
-.add-contact-slogan{
+.add-contact-slogan {
     background-color: #2A3647;
     display: flex;
     flex-direction: column;
@@ -65,12 +67,13 @@ button, input {
     border-top-left-radius: 14px;
 }
 
-.add-contact-slogan img{
+.add-contact-slogan img {
     margin-block-end: 0;
     margin-block-start: 0;
     width: 100px;
 }
-.add-contact-slogan h2{
+
+.add-contact-slogan h2 {
     margin-block-end: 0;
     margin-block-start: 0;
     font-size: 56px;
@@ -79,17 +82,17 @@ button, input {
 
 
 
-.add-contact-slogan p{
+.add-contact-slogan p {
     font-size: 32px;
 }
 
-.add-contact-data-picture{
+.add-contact-data-picture {
     height: 120px;
     width: 120px;
     background-color: grey;
 }
 
-.add-contact-data{
+.add-contact-data {
     display: flex;
     height: 100%;
     flex: 1;
@@ -97,17 +100,17 @@ button, input {
     align-items: center;
 }
 
-.add-contact-data form{
+.add-contact-data form {
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
-.add-contact-input{
+.add-contact-input {
     font-size: 20px;
 }
 
-.create-contact-button{
+.create-contact-button {
     padding: 16px;
     background-color: #2A3647;
     color: white;
@@ -120,11 +123,11 @@ button, input {
     border-radius: 10px;
 }
 
-.create-contact-button:hover{
+.create-contact-button:hover {
     background-color: #33AFE3;
 }
 
-.cancel-contact-button{
+.cancel-contact-button {
     padding: 8px;
     border: 1px #2A3647 solid;
     color: #2A3647;
@@ -132,7 +135,7 @@ button, input {
     margin-right: 24px;
 }
 
-.cancel-contact-button:hover{
+.cancel-contact-button:hover {
     border: 1px #29ABE2 solid;
     color: #33AFE3;
 }
@@ -314,7 +317,7 @@ button, input {
     font-size: 40px;
 }
 
-.contact-single-view-info{
+.contact-single-view-info {
     display: flex;
     flex-direction: column;
     gap: 21px;
@@ -322,12 +325,12 @@ button, input {
     margin-top: 32px;
 }
 
-.initial-name-container{
+.initial-name-container {
     display: flex;
     gap: 54px;
 }
 
-.initial-single-view{
+.initial-single-view {
     font-size: 47px;
     color: white;
     padding: 10px;
@@ -339,66 +342,68 @@ button, input {
     align-items: center;
 }
 
-.name-edit-delete{
+.name-edit-delete {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-#name-single-view{
+#name-single-view {
     font-size: 47px;
     font-weight: 500;
 
 }
 
-.edit-and-delete{
+.edit-and-delete {
     display: flex;
     gap: 13px;
     font-size: 16px;
 }
 
-.edit-and-delete div{
+.edit-and-delete div {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.edit-and-delete div:hover{
-    color: #33AFE3;
+.edit-and-delete div:hover {
+    /* color: #33AFE3; */
+    filter: invert(35%) sepia(53%) saturate(3671%) hue-rotate(192deg) brightness(94%) contrast(106%);
     cursor: pointer;
 }
 
-.contact-information-headline{
+.contact-information-headline {
     font-size: 20px;
 }
 
-.contact-information{
+.contact-information {
     display: flex;
     flex-direction: column;
     gap: 22px;
 }
 
-.email-single-view-container{
+.email-single-view-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.email-single-view-container span:nth-child(even){
+.email-single-view-container span:nth-child(even) {
     color: #007CEE;
 }
 
-.email-single-view-container span:nth-child(odd){
+.email-single-view-container span:nth-child(odd) {
     font-weight: 700;
 }
 
-.phone-single-view-container{
+.phone-single-view-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.phone-single-view-container span:nth-child(odd){
+.phone-single-view-container span:nth-child(odd) {
     font-weight: 700;
 }
+
 /* Better with a team */

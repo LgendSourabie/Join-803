@@ -113,7 +113,7 @@ function renderToDos() {
     for (let i = 0; i < todo.length; i++) {
         const array = todo[i];
 
-        content.innerHTML += todotemplate(array, i);
+        content.innerHTML += todotemplate(array, i, todo);
     }
 }
 
@@ -123,7 +123,7 @@ function renderinProgress() {
     for (let i = 0; i < inprogress.length; i++) {
         const array = inprogress[i];
 
-        content.innerHTML += todotemplate(array, i);
+        content.innerHTML += todotemplate(array, i, inprogress);
     }
 }
 
@@ -133,7 +133,7 @@ function renderawaitFeedback() {
     for (let i = 0; i < awaitfeedback.length; i++) {
         const array = awaitfeedback[i];
 
-        content.innerHTML += todotemplate(array, i);
+        content.innerHTML += todotemplate(array, i, awaitfeedback);
     }
 }
 
@@ -143,26 +143,26 @@ function renderdone() {
     for (let i = 0; i < done.length; i++) {
         const array = done[i];
 
-        content.innerHTML += todotemplate(array, i);
+        content.innerHTML += todotemplate(array, i, done);
     }
 }
 
-function todotemplate(array, i) {
+function todotemplate(jsonElement, i, array) {
     return /*html*/`
- <div class="todocard" draggable="true" ondragstart="startDragging(${array},${i})">
-    <button>${array.category}</button>
-    <b>${array.title}</b>
-    <span>${array.discription}</span>
+ <div class="todocard" draggable="true" ondragstart="startDragging(${array, i})">
+    <button>${jsonElement.category}</button>
+    <b>${jsonElement.title}</b>
+    <span>${jsonElement.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${array.progress / array.subtasks.length * 100}%">
+            <div class="progress" style="width: ${jsonElement.progress / jsonElement.subtasks.length * 100}%">
             </div>
         </div>  
-        <div>${array.progress}/${array.subtasks.length}Subtasks</div> 
+        <div>${jsonElement.progress}/${jsonElement.subtasks.length}Subtasks</div> 
     </div>
     <div class="assignedprio">
         <div>contacts</div>
-        <img src="${array.prio}" alt="">
+        <img src="${jsonElement.prio}" alt="">
     </div>
 </div>
 `
