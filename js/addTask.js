@@ -1,4 +1,4 @@
-let contacts = [
+let user = [
     {
         name: "Pascal Wagner"
     },
@@ -14,11 +14,14 @@ let contacts = [
 ];
 
 
+let liste = [];
 let tasks = [];
 let users = [];
 let subtasks = 0;
 let usersSelect = [];
 let usersAssigned = [];
+let categories = [];
+
 
 function changeColorPrio(element) {
     if (element.classList.contains('prioUrgent')) {
@@ -33,51 +36,38 @@ function changeColorPrio(element) {
 
 
 function addContacts() {
-    // let getContacts = document.getElementById('assigned');
-    // let newElement = document.createElement('new');
     let select = document.getElementById('select');
     select.innerHTML = '';
 
-    select.innerHTML = `
-        <option id="assigned" value="">Selected contacts to assign</option>
+    for (let i = 0; i < user.length; i++) {
+        let currentUser = user[i].name;
+        select.innerHTML = /*html*/`
+            <option id="assigned" value="">${currentUser}</option>
     `;
-
-    for (let i = 0; i < contacts.length; i++) {
-        const contact = contacts[i];
-        select.innerHTML += `
-        <div class="assignedAddTask addTaskOverview">
-        <span>Assigned to</span>
-            <select id="select">
-                <option value="">Pascal Wagner</option>
-                <option value="">Henrik Sorg</option> 
-                <option value="">Ibrahima Sourabie</option>
-                <option value="">Thomas Jilge</option>
-            </select>
-         </div>
-        `;
 }
 }
 
 
-let liste = [];
-// let descriptions = [];
+// function addNewCategory() {
+//     let newCategory = document.getElementById('selectCategory');
+//     let selectCategory = newCategory.value;
+// }
 
 
 function createTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let date = document.getElementById('date').value;
-    let category = document.getElementById('category').value;
     let assignedTo = document.getElementById('select').value;
+    let category = document.getElementById('selectCategory').value;
 
-    // tasks.push({
-    //     title: title,
-    //     description: description, 
-    //     date: date,
-    //     category: category,
-    //     assignedTo: assignedTo
-    // })
-    saveLocalStorage(title, description, date, category, assignedTo)
+    saveLocalStorage(title, description, date, assignedTo, category);
+
+    if (!categories.includes(category)) {
+        categories.push(category);
+    }
+
+    // addNewCategory(category);
 }
 
 
@@ -89,9 +79,16 @@ function loadHTML(page) {
 
 
 function saveLocalStorage(val1,val2, val3, val4, val5) {
-    liste.push({titles:`${val1}`, descriptions:`${val2}`, dates:`${val3}`, categorys:`${val4}`, assignedTos:`${val5}`,});
+    liste.push({
+        titles:`${val1}`,
+        descriptions:`${val2}`,
+        dates:`${val3}`,
+        categories:`${val4}`,
+        assignedTos:`${val5}`
+    });
     localStorage.setItem('liste', JSON.stringify(liste));
 }
+
 
 
 function  load(){
@@ -100,3 +97,4 @@ function  load(){
         liste= JSON.parse(des);
     }
 }
+

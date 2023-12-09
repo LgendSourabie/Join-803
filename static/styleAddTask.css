@@ -33,6 +33,7 @@ body {
   cursor: pointer;
 }
 
+
 .sidebarContainer {
   width: 232px;
   height: 100vh;
@@ -117,7 +118,7 @@ h2 {
 
 input {
   border-radius: 10px;
-  border: 1px solid lightgrey;
+  border: 1px solid #D1D1D1;
   padding: 16px;
   cursor: pointer;
 }
@@ -143,6 +144,10 @@ select {
   border: 1px solid lightgrey;
   padding: 16px;
   cursor: pointer;
+}
+
+select:hover {
+  border-color: grey;
 }
 
 .seperatorContainer {
@@ -188,6 +193,10 @@ select {
   cursor: pointer;
 }
 
+.allPrio:hover {
+  box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
+}
+
 .prio {
   display: flex;
   flex-direction: column;
@@ -229,11 +238,15 @@ select {
   border-radius: 10px;
   padding: 16px;
   gap: 4px;
+  font-size: 20px;
+  border: 1px solid rgb(42, 54, 71);
 }
 
 .clearButton:hover {
   cursor: pointer;
   border-color: #29ABE2;
+  color: #29ABE2;
+  box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
 }
 
 .createTaskButton {
@@ -243,10 +256,15 @@ select {
   padding: 16px;
   gap: 4px;
   background-color: rgb(42, 54, 71);
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
 }
 
 .createTaskButton:hover {
   cursor: pointer;
   background-color: #29ABE2;
   border-color: #29ABE2;
+  border: unset;
+  box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
 }
