@@ -195,7 +195,9 @@ a {
   gap: 1rem;
 }
 .forgot-pwd {
-  opacity: 0;
+  /* opacity: 0; */
+  cursor: pointer;
+  color: #29abe2;
 }
 .check-box {
   cursor: pointer;

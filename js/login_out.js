@@ -123,7 +123,7 @@ const checkUserData = function () {
   }
 };
 
-const greetUser = function () {
+const greetUserWithName = function () {
   let userNameField = document.getElementById("current-user-name");
   let profileField = document.getElementById("loginBtn");
   let userCurrent = localStorage.getItem("currentUser");
@@ -132,8 +132,22 @@ const greetUser = function () {
   let listName = users.map((a) => a.name);
   let index = listEmail.indexOf(currentUser[currentUser.length - 1]);
   let nameUser = listName[index];
+  greetUser("greet-user");
   userNameField.innerHTML = `${nameUser}`;
   profileField.innerHTML = `${fullName(nameUser)[1]}${fullName(nameUser)[0]}`;
+};
+
+const greetUser = function (id) {
+  let greetField = document.getElementById(id);
+  let now = new Date();
+  let hoursNow = now.getHours();
+  if (5 <= hoursNow && hoursNow <= 11) {
+    greetField.innerHTML = `Good morning`;
+  } else if (12 <= hoursNow && hoursNow <= 17) {
+    greetField.innerHTML = `Good afternoon`;
+  } else {
+    greetField.innerHTML = `Good evening`;
+  }
 };
 
 const fullName = function (name) {

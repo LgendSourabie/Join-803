@@ -35,7 +35,7 @@
     <!-- END FAVICON -->
     <title>Summary</title>
   </head>
-  <body class="summary-body" onload="loadUsers()">
+  <body class="summary-body" onload="loadUsers();greetUser('greet-guest')">
     <div class="container-summary disp-flex">
       <div class="left-side-section disp-flex">
         <div class="section-1">
@@ -184,8 +184,8 @@
               </div>
               <div class="right-greeting disp-flex">
                 <div>
-                  <span class="greeting">Good morning!</span>
-                  <span id="comma" class="comma greeting"></span><br />
+                  <span id="greet-guest" class="greeting">Good morning</span>
+                  <span id="comma" class="comma greeting">!</span><br />
                 </div>
                 <span id="current-user-name" class="current-user-name"></span>
               </div>
