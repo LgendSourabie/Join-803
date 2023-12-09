@@ -7,7 +7,8 @@ let todo = [
         'prio': '/icons/priomedium.svg',
         'category': 'Technical Task',
         'subtasks': [],
-        'progress' : 0
+        'progress' : 0,
+        'id' : 0
     },
     {
         'title': 'test note',
@@ -17,7 +18,8 @@ let todo = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 1
+        'progress' : 1,
+        'id' : 1
     }, 
     {
         'title': 'test note',
@@ -27,7 +29,8 @@ let todo = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 0
+        'progress' : 0,
+        'id' : 2
     }
 ]
 let inprogress = [
@@ -39,7 +42,8 @@ let inprogress = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 1
+        'progress' : 1,
+        'id' : 3
     },
     {
         'title': 'test note',
@@ -49,7 +53,8 @@ let inprogress = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 1
+        'progress' : 1,
+        'id' : 4
     }
 ]
 let awaitfeedback = [
@@ -61,7 +66,8 @@ let awaitfeedback = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 1
+        'progress' : 1,
+        'id' : 5
     }
 ]
 let done = [
@@ -73,7 +79,8 @@ let done = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 1
+        'progress' : 1,
+        'id' : 6
     },
     {
         'title': 'test note',
@@ -83,10 +90,14 @@ let done = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 1
+        'progress' : 1,
+        'id' : 7
     }
 ]
 
+let currentarray;
+let currenti;
+let currentelement;
 
 function init() {
     renderToDos();
@@ -102,7 +113,7 @@ function renderToDos() {
     for (let i = 0; i < todo.length; i++) {
         const array = todo[i];
 
-        content.innerHTML += todotemplate(array);
+        content.innerHTML += todotemplate(array, i);
     }
 }
 
@@ -112,7 +123,7 @@ function renderinProgress() {
     for (let i = 0; i < inprogress.length; i++) {
         const array = inprogress[i];
 
-        content.innerHTML += todotemplate(array);
+        content.innerHTML += todotemplate(array, i);
     }
 }
 
@@ -122,7 +133,7 @@ function renderawaitFeedback() {
     for (let i = 0; i < awaitfeedback.length; i++) {
         const array = awaitfeedback[i];
 
-        content.innerHTML += todotemplate(array);
+        content.innerHTML += todotemplate(array, i);
     }
 }
 
@@ -132,13 +143,13 @@ function renderdone() {
     for (let i = 0; i < done.length; i++) {
         const array = done[i];
 
-        content.innerHTML += todotemplate(array);
+        content.innerHTML += todotemplate(array, i);
     }
 }
 
-function todotemplate(array) {
+function todotemplate(array, i) {
     return /*html*/`
- <div class="todocard">
+ <div class="todocard" draggable="true" ondragstart="startDragging(${array},${i})">
     <button>${array.category}</button>
     <b>${array.title}</b>
     <span>${array.discription}</span>
@@ -157,3 +168,20 @@ function todotemplate(array) {
 `
 }
 
+function startDragging(array, i) {
+    currentarray = array;
+    currenti = i;
+    currentelement = currentarray[currenti];
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function moveTo(array) {
+    array.push(currentelement);
+    currentarray.splice(currenti, 1); 
+    
+    init();
+    
+}

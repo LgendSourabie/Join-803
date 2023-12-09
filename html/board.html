@@ -71,27 +71,27 @@
                     <span>To do</span>
                     <img src="/icons/plusButton.svg" alt="">
                 </div>
-                <div id="todo"></div>
+                <div id="todo" ondragover="allowDrop(event)" ondrop="moveTo(todo)"></div>
             </div>
             <div>
                 <div>
                     <span>In Progress</span>
                     <img src="/icons/plusButton.svg" alt="">
                 </div>
-                <div id="inprogress"></div>
+                <div id="inprogress" ondragover="allowDrop(event)" ondrop="moveTo(inprogress)"></div>
             </div>
             <div>
                 <div>
                     <span>Await Feedback</span>
                     <img src="/icons/plusButton.svg" alt="">
                 </div>
-                <div id="awaitfeedback"></div>
+                <div id="awaitfeedback" ondragover="allowDrop(event)" ondrop="moveTo(awaitfeedback)"></div>
             </div>
             <div>
                 <div>
                     <span>Done</span>
                 </div>
-                <div id="done"></div>
+                <div id="done" ondragover="allowDrop(event)" ondrop="moveTo(done)"></div>
             </div>
         </div>
     </div>
