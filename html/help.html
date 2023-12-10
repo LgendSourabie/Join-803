@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../static/summary.css" />
     <link rel="stylesheet" href="../static/help.css" />
     <link rel="stylesheet" href="../static/font.css" />
+    <script src="../sensitive/token.js"></script>
+    <script src="../sensitive/url.js"></script>
 
     <!-- FAVICON -->
     <link
@@ -33,9 +35,9 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <!-- END FAVICON -->
-    <title>Summary</title>
+    <title>Help</title>
   </head>
-  <body class="summary-body" onload="loadUsers()">
+  <body class="summary-body" onload="init()">
     <div class="container-summary disp-flex">
       <div class="left-side-section disp-flex">
         <div class="section-1">
@@ -106,12 +108,8 @@
           </div>
         </header>
         <div id="submenu-user" class="submenu-user d-none">
-          <a class="list-item ft-sz-400">
-            Legal Notice</a
-          >
-          <a class="list-item ft-sz-400"
-            >Privacy Policy</a
-          >
+          <a class="list-item ft-sz-400"> Legal Notice</a>
+          <a class="list-item ft-sz-400">Privacy Policy</a>
           <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
         </div>
         <div class="task-info-section">

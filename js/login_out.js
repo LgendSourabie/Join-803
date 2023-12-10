@@ -1,27 +1,5 @@
 "use strict";
-
-let users = [
-  {
-    name: "Ibrahima Join",
-    email: "join803@ibrahima.de",
-    password: "1234",
-  },
-  {
-    name: "Pascal Join",
-    email: "join803@pascal.de",
-    password: "1235",
-  },
-  {
-    name: "Henrik Join",
-    email: "join803@henrik.de",
-    password: "1236",
-  },
-  {
-    name: "Thomas Join",
-    email: "join803@thomas.de",
-    password: "1237",
-  },
-];
+let users = [];
 let currentUser = [];
 ///////// SINGN UP    /////////////////////////////////////////////////
 
@@ -33,7 +11,7 @@ function registerUser() {
   saveUser(userName.value, userEmail.value, pwd.value, pwdConfirm.value);
 }
 
-function saveUser(name, email, pwd, confirmPwd) {
+async function saveUser(name, email, pwd, confirmPwd) {
   if (!existEmail(email)[1]) {
     document.getElementById("register-user-email").style.border = "";
     document.getElementById("emailExist").innerHTML = "";
@@ -41,11 +19,11 @@ function saveUser(name, email, pwd, confirmPwd) {
       document.getElementById("confirm-pwd").style.border = "";
       document.getElementById("confirmPwdError").innerHTML = "";
       users.push(new User(name, email, pwd));
-      localStorage.setItem("users", JSON.stringify(users));
       document
         .getElementById("blue-btn-signup-success")
         .classList.add("show-success-btn");
-      // setTimeout(userAction("login"), 5000);
+      await setItem("users", JSON.stringify(users));
+      setTimeout(userAction("login"), 7000);
     } else {
       errorMessage(
         "confirm-pwd",
@@ -74,6 +52,7 @@ const loadUsers = function () {
     users = JSON.parse(existUsers);
   }
 };
+
 const errorMessage = function (id1, id2, msg) {
   let fieldInput = document.getElementById(id1);
   let confirmPwd = document.getElementById(id2);
@@ -95,6 +74,34 @@ const enableSignUP = function () {
     document.getElementById("sign-up-btn").disabled = true;
   }
 };
+
+async function init() {
+  try {
+    await loadAllUsers();
+    greetUserWithName();
+  } catch (e) {
+    console.warn("No users available");
+  }
+}
+
+async function loadAllUsers() {
+  users = JSON.parse(await getItem("users"));
+}
+
+async function setItem(key, value) {
+  const payload = { key, value, token: STORAGE_TOKEN };
+  return fetch(STORAGE_URL, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  }).then((response) => response.json());
+}
+
+async function getItem(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  return fetch(url)
+    .then((response) => response.json())
+    .then((response) => response.data.value);
+}
 /////////////// LOG in /////////////////////////////////////////////////
 
 const checkUserData = function () {
@@ -128,10 +135,10 @@ const greetUserWithName = function () {
   let profileField = document.getElementById("loginBtn");
   let userCurrent = localStorage.getItem("currentUser");
   currentUser = JSON.parse(userCurrent);
-  let listEmail = users.map((a) => a.email);
-  let listName = users.map((a) => a.name);
-  let index = listEmail.indexOf(currentUser[currentUser.length - 1]);
-  let nameUser = listName[index];
+  let lastElem = currentUser[currentUser.length - 1];
+  let loggedUsers = users.filter((a) => a.email === lastElem);
+  let loggedUser = loggedUsers.map((a) => a.name);
+  let nameUser = loggedUser[0];
   greetUser("greet-user");
   userNameField.innerHTML = `${nameUser}`;
   profileField.innerHTML = `${fullName(nameUser)[1]}${fullName(nameUser)[0]}`;

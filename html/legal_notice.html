@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../static/summary.css" />
     <link rel="stylesheet" href="../static/help.css" />
     <link rel="stylesheet" href="../static/font.css" />
+    <script src="../sensitive/token.js"></script>
+    <script src="../sensitive/url.js"></script>
 
     <!-- FAVICON -->
     <link
@@ -44,38 +46,44 @@
         <div class="section-2">
           <div class="sub-menu-container disp-flex">
             <img
-              class="icons-left-side-section"
+              class="icons-left-side-section cursor-ptr"
               src="/icons/summary.svg"
               alt="Summary"
+              onclick="userAction('summary')"
             />
-            <p class="para-summary gray-text ft-sz-400">Summary</p>
+            <p
+              class="para-summary gray-text ft-sz-400 cursor-ptr"
+              onclick="userAction('summary')"
+            >
+              Summary
+            </p>
           </div>
 
           <div class="sub-menu-container disp-flex">
             <img
-              class="icons-left-side-section"
+              class="icons-left-side-section cursor-ptr"
               src="/icons/addTask.svg"
               alt="Task"
             />
-            <p class="para-summary gray-text ft-sz-400">Add Task</p>
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
           <div class="sub-menu-container disp-flex">
             <img
-              class="icons-left-side-section"
+              class="icons-left-side-section cursor-ptr"
               src="/icons/board.svg"
               alt="Board"
             />
-            <p class="para-summary gray-text ft-sz-400">Board</p>
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
 
           <div class="sub-menu-container disp-flex">
             <img
-              class="icons-left-side-section"
+              class="icons-left-side-section cursor-ptr"
               src="/icons/contact.svg"
               alt="Contacts"
             />
-            <p class="para-summary gray-text ft-sz-400">Contacts</p>
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Contacts</p>
           </div>
         </div>
         <div class="section-3">

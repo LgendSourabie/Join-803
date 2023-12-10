@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../static/summary.css" />
     <link rel="stylesheet" href="../static/help.css" />
     <link rel="stylesheet" href="../static/font.css" />
+    <script src="../sensitive/token.js"></script>
+    <script src="../sensitive/url.js"></script>
 
     <!-- FAVICON -->
     <link
@@ -35,7 +37,7 @@
     <!-- END FAVICON -->
     <title>Summary</title>
   </head>
-  <body class="summary-body" onload="loadUsers();greetUser('greet-guest')">
+  <body class="summary-body" onload="init();greetUser('greet-guest')">
     <div class="container-summary disp-flex">
       <div class="left-side-section disp-flex">
         <div class="section-1">
@@ -44,38 +46,40 @@
         <div class="section-2">
           <div class="sub-menu-container disp-flex bg-summary">
             <img
-              class="icons-left-side-section"
+              class="icons-left-side-section cursor-ptr"
               src="/icons/summary_white.svg"
               alt="Summary"
             />
-            <p class="para-summary gray-text ft-sz-400 clr-white">Summary</p>
+            <p class="para-summary gray-text ft-sz-400 clr-white cursor-ptr">
+              Summary
+            </p>
           </div>
 
           <div class="sub-menu-container disp-flex">
             <img
-              class="icons-left-side-section"
+              class="icons-left-side-section cursor-ptr"
               src="/icons/addTask.svg"
               alt="Task"
             />
-            <p class="para-summary gray-text ft-sz-400">Add Task</p>
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
           <div class="sub-menu-container disp-flex">
             <img
-              class="icons-left-side-section"
+              class="icons-left-side-section cursor-ptr"
               src="/icons/board.svg"
               alt="Board"
             />
-            <p class="para-summary gray-text ft-sz-400">Board</p>
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
 
           <div class="sub-menu-container disp-flex">
             <img
-              class="icons-left-side-section"
+              class="icons-left-side-section cursor-ptr"
               src="/icons/contact.svg"
               alt="Contacts"
             />
-            <p class="para-summary gray-text ft-sz-400">Contacts</p>
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Contacts</p>
           </div>
         </div>
         <div class="section-3">

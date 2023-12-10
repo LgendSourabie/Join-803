@@ -2,12 +2,7 @@
 
 const showSubmenu = function () {
   let element = document.getElementById("submenu-user");
-  let hasClass = element.classList.contains("d-none");
-  if (hasClass) {
-    element.classList.remove("d-none");
-  } else {
-    element.classList.add("d-none");
-  }
+  element.classList.toggle("d-none");
 };
 
 const dueDateNextTask = function () {

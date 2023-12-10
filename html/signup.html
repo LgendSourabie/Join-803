@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/singup.css" />
     <link rel="stylesheet" href="../static/font.css" />
+    <script src="../sensitive/token.js"></script>
+    <script src="../sensitive/url.js"></script>
 
     <!-- FAVICON -->
     <link
@@ -35,7 +37,7 @@
 
     <title>Sign up</title>
   </head>
-  <body class="login-body disp-flex" onload="loadUsers()">
+  <body class="login-body disp-flex" onload="init()">
     <img class="singup-logo" src="/icons/logo_blue.svg" alt="Logo" />
     <div class="container-signup">
       <form
@@ -58,7 +60,7 @@
               id="register-user-name"
               class="input-signup input-signup-0"
               type="text"
-              pattern="[a-zA-Z]*"
+              pattern="[a-zA-Z\s]*"
               placeholder="Name"
               required
             />
