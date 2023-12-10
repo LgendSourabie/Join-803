@@ -53,7 +53,6 @@ function generateTodoHTML(element) {
 
 function allowDrop(ev) {
     ev.preventDefault();
-    console.log('Geklappt'+ev);
 }
 
 function moveTo(category) {

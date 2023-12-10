@@ -1,4 +1,4 @@
-let todo = [
+let todos = [
     {
         'title': 'test note',
         'discription': 'we test it',
@@ -8,7 +8,8 @@ let todo = [
         'category': 'Technical Task',
         'subtasks': [],
         'progress' : 0,
-        'id' : 0
+        'id' : 0,
+        'category' : 'todo'
     },
     {
         'title': 'test note',
@@ -19,7 +20,8 @@ let todo = [
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
         'progress' : 1,
-        'id' : 1
+        'id' : 1,
+        'category' : 'todo'
     }, 
     {
         'title': 'test note',
@@ -30,158 +32,128 @@ let todo = [
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
         'progress' : 0,
-        'id' : 2
+        'id' : 2,
+        'category' : 'awaitfeedback'
+    }, 
+    {
+        'title': 'test note',
+        'discription': 'we test it',
+        'assigned to': 'Pascal',
+        'due date': '13.12.23',
+        'prio': '/icons/priolow.svg',
+        'category': 'Technical Task',
+        'subtasks': ['test1', 'test2'],
+        'progress' : 0,
+        'id' : 2,
+        'category' : 'awaitfeedback'
+    }, 
+    {
+        'title': 'test note',
+        'discription': 'we test it',
+        'assigned to': 'Pascal',
+        'due date': '13.12.23',
+        'prio': '/icons/priolow.svg',
+        'category': 'Technical Task',
+        'subtasks': ['test1', 'test2'],
+        'progress' : 0,
+        'id' : 2,
+        'category' : 'inprogress'
+    }, 
+    {
+        'title': 'test note',
+        'discription': 'we test it',
+        'assigned to': 'Pascal',
+        'due date': '13.12.23',
+        'prio': '/icons/priolow.svg',
+        'category': 'Technical Task',
+        'subtasks': ['test1', 'test2'],
+        'progress' : 0,
+        'id' : 2,
+        'category' : 'done'
     }
-]
-let inprogress = [
-    {
-        'title': 'test note',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 1,
-        'id' : 3
-    },
-    {
-        'title': 'test note',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 1,
-        'id' : 4
-    }
-]
-let awaitfeedback = [
-    {
-        'title': 'test note',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 1,
-        'id' : 5
-    }
-]
-let done = [
-    {
-        'title': 'test note',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 1,
-        'id' : 6
-    },
-    {
-        'title': 'test note',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 1,
-        'id' : 7
-    }
-]
+];
 
-let currentarray;
-let currenti;
-let currentelement;
+let currentDraggedElement;
 
-function init() {
-    renderToDos();
-    renderawaitFeedback();
-    renderinProgress();
-    renderdone();
-}
 
 
 function renderToDos() {
-    let content = document.getElementById('todo');
 
-    for (let i = 0; i < todo.length; i++) {
-        const array = todo[i];
+    let todo = todos.filter(t => t['category'] == 'todo');
 
-        content.innerHTML += todotemplate(array, i, todo);
+    document.getElementById('todo').innerHTML = '';
+
+    for (let index = 0; index < todo.length; index++) {
+        const element = todo[index];
+        document.getElementById('todo').innerHTML += todotemplate(element);
+    }
+
+    let inprogress = todos.filter(t => t['category'] == 'inprogress');
+
+    document.getElementById('inprogress').innerHTML = '';
+
+    for (let index = 0; index < inprogress.length; index++) {
+        const element = inprogress[index];
+        document.getElementById('inprogress').innerHTML += todotemplate(element);
+    }
+
+    let awaitfeedback = todos.filter(t => t['category'] == 'awaitfeedback');
+
+    document.getElementById('awaitfeedback').innerHTML = '';
+
+    for (let index = 0; index < awaitfeedback.length; index++) {
+        const element = awaitfeedback[index];
+        document.getElementById('awaitfeedback').innerHTML += todotemplate(element);
+    }
+
+    let done = todos.filter(t => t['category'] == 'done');
+
+    document.getElementById('done').innerHTML = '';
+
+    for (let index = 0; index < done.length; index++) {
+        const element = done[index];
+        document.getElementById('done').innerHTML += todotemplate(element);
     }
 }
 
-function renderinProgress() {
-    let content = document.getElementById('inprogress');
-
-    for (let i = 0; i < inprogress.length; i++) {
-        const array = inprogress[i];
-
-        content.innerHTML += todotemplate(array, i, inprogress);
-    }
-}
-
-function renderawaitFeedback() {
-    let content = document.getElementById('awaitfeedback');
-
-    for (let i = 0; i < awaitfeedback.length; i++) {
-        const array = awaitfeedback[i];
-
-        content.innerHTML += todotemplate(array, i, awaitfeedback);
-    }
-}
-
-function renderdone() {
-    let content = document.getElementById('done');
-
-    for (let i = 0; i < done.length; i++) {
-        const array = done[i];
-
-        content.innerHTML += todotemplate(array, i, done);
-    }
-}
-
-function todotemplate(jsonElement, i, array) {
+function todotemplate(array) {
     return /*html*/`
- <div class="todocard" draggable="true" ondragstart="startDragging(${array, i})">
-    <button>${jsonElement.category}</button>
-    <b>${jsonElement.title}</b>
-    <span>${jsonElement.discription}</span>
+ <div class="todocard" draggable="true" ondragstart="startDragging(${array['id']})">
+    <button>${array.category}</button>
+    <b>${array.title}</b>
+    <span>${array.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${jsonElement.progress / jsonElement.subtasks.length * 100}%">
+            <div class="progress" style="width: ${array.progress / array.subtasks.length * 100}%">
             </div>
         </div>  
-        <div>${jsonElement.progress}/${jsonElement.subtasks.length}Subtasks</div> 
+        <div>${array.progress}/${array.subtasks.length}Subtasks</div> 
     </div>
     <div class="assignedprio">
         <div>contacts</div>
-        <img src="${jsonElement.prio}" alt="">
+        <img src="${array.prio}" alt="">
     </div>
 </div>
 `
 }
 
-function startDragging(array, i) {
-    currentarray = array;
-    currenti = i;
-    currentelement = currentarray[currenti];
+function startDragging(id) {
+    currentDraggedElement = id;
 }
 
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(array) {
-    array.push(currentelement);
-    currentarray.splice(currenti, 1); 
-    
-    init();
-    
+function moveTo(category) {
+    todos[currentDraggedElement]['category'] = category;
+    renderToDos();
+}
+
+function highlight(id) {
+    document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+function removeHighlight(id) {
+    document.getElementById(id).classList.remove('drag-area-highlight');
 }

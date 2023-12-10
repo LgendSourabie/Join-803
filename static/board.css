@@ -122,6 +122,11 @@ header {
     justify-content: space-around;
 }
 
+.todoscontainer{
+    height: 70vh;
+    padding: 20px;
+}
+
 .todocard {
     background-color: white;
     width: 252px;
@@ -180,4 +185,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.drag-area-highlight {
+    background-color: #20d47a4b;
 }

@@ -9,7 +9,7 @@
     <script src="/js/board.js"></script>
 </head>
 
-<body onload="init()">
+<body onload="renderToDos()">
     <!-- Sidebar -->
     <div class="sidebar-left">
         <div class="logodiv">
@@ -71,27 +71,27 @@
                     <span>To do</span>
                     <img src="/icons/plusButton.svg" alt="">
                 </div>
-                <div id="todo" ondragover="allowDrop(event)" ondrop="moveTo(todo)"></div>
+                <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')" ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
             </div>
             <div>
                 <div>
                     <span>In Progress</span>
                     <img src="/icons/plusButton.svg" alt="">
                 </div>
-                <div id="inprogress" ondragover="allowDrop(event)" ondrop="moveTo(inprogress)"></div>
+                <div id="inprogress" class="todoscontainer" ondragover="allowDrop(event); highlight('inprogress')" ondrop="moveTo('inprogress')" ondragleave="removeHighlight('inprogress')"></div>
             </div>
             <div>
                 <div>
                     <span>Await Feedback</span>
                     <img src="/icons/plusButton.svg" alt="">
                 </div>
-                <div id="awaitfeedback" ondragover="allowDrop(event)" ondrop="moveTo(awaitfeedback)"></div>
+                <div id="awaitfeedback" class="todoscontainer" ondragover="allowDrop(event); highlight('awaitfeedback')" ondrop="moveTo('awaitfeedback')" ondragleave="removeHighlight('awaitfeedback')"></div>
             </div>
             <div>
                 <div>
                     <span>Done</span>
                 </div>
-                <div id="done" ondragover="allowDrop(event)" ondrop="moveTo(done)"></div>
+                <div id="done" class="todoscontainer" ondragover="allowDrop(event); highlight('done')" ondrop="moveTo('done')" ondragleave="removeHighlight('done')"></div>
             </div>
         </div>
     </div>
