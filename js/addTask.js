@@ -71,6 +71,31 @@ function createTask() {
 }
 
 
+function clearTask() {
+    let clearTitle = document.getElementById('title');
+    let clearDescription = document.getElementById('description');
+    let clearAssignedTo = document.getElementById('select');
+    let clearDate = document.getElementById('date');
+    let clearPrioOptions = document.querySelectorAll('.allPrio'); 
+    let clearCategory = document.getElementById('selectCategory');
+    let clearSubtasks = document.getElementById('subtasks');
+
+    clearTitle.value = '';
+    clearDescription.value = '';
+    clearAssignedTo.value = '';
+    clearDate.value = '';
+    clearSubtasks.value = '';
+
+    clearPrioOptions.forEach(option => {
+        option.style.backgroundColor = '';
+        option.style.color = '';
+    });
+
+    clearCategory.value = '';
+}
+
+
+
 function loadHTML(page) {
     windows.location.href = `
         ../html/${page}.html;

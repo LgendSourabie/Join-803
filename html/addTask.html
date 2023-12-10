@@ -92,7 +92,7 @@
                     </div>
                     <div class="addTaskOverview">
                         <span>Prio</span>
-                        <div class="prioSelection">
+                        <div id="prio" class="prioSelection">
                             <div onclick="changeColorPrio(this)" class="prioUrgent allPrio">
                                 <span class="prio">Urgent</span>
                                     <div class="img">
@@ -139,7 +139,7 @@
                 <span>This field is required</span>
             </div>
             <div class="footerAddTaskButtons">
-                <button id="clearButton" class="clearButton">
+                <button onclick="clearTask()" id="clearButton" class="clearButton">
                     <!-- <img src="/img/img/Cancel.svg" alt="">
                     <img src="/img/img/Vector.svg" alt=""> -->
                     <span>Clear X</span>
