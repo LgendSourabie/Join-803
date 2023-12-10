@@ -17,41 +17,73 @@ let user = [
 let liste = [];
 let tasks = [];
 let users = [];
+let prios = [];
 let subtasks = 0;
 let usersSelect = [];
 let usersAssigned = [];
-let categories = [];
+let categories = ['Technical Task','User Story'];
 
 
-function changeColorPrio(element) {
-    if (element.classList.contains('prioUrgent')) {
-        element.style.backgroundColor = 'rgb(255,61,0)';
-    } else if (element.classList.contains('prioMedium')) {
-        element.style.backgroundColor = 'rgb(255,168,0)';
-    } else if (element.classList.contains('prioLow')) {
-        element.style.backgroundColor = 'rgb(122,226,41)';
+function  load(){
+    let des = localStorage.getItem('liste');
+    if(des){
+        liste= JSON.parse(des);
     }
-    element.style.color = 'white';
+}
+
+
+function initialize(){
+    addContacts();
+    addCategory();
+}
+
+
+// function changeColorPrio(element) {
+//     if (element.classList.contains('prioUrgent')) {
+//         element.style.backgroundColor = 'rgb(255,61,0)';
+//     } else if (element.classList.contains('prioMedium')) {
+//         element.style.backgroundColor = 'rgb(255,168,0)';
+//     } else if (element.classList.contains('prioLow')) {
+//         element.style.backgroundColor = 'rgb(122,226,41)';
+//     }
+//     element.style.color = 'white';
+// }
+
+
+function changeColorPrio(id,color) {
+    let currentColor = document.getElementById(id);
+    currentColor.classList.toggle(color);
+}
+
+function prio(id) {
+    prios.push(id);
 }
 
 
 function addContacts() {
     let select = document.getElementById('select');
-    select.innerHTML = '';
+    select.innerHTML = `<option id="assigned" value="">Selected contacts to assign</option>`
 
     for (let i = 0; i < user.length; i++) {
         let currentUser = user[i].name;
-        select.innerHTML = /*html*/`
-            <option id="assigned" value="">${currentUser}</option>
+        select.innerHTML += /*html*/`
+            <option id="assigned-${i}" value="${currentUser}">${currentUser}</option>
     `;
 }
 }
 
 
-// function addNewCategory() {
-//     let newCategory = document.getElementById('selectCategory');
-//     let selectCategory = newCategory.value;
-// }
+function addCategory() {
+    let select = document.getElementById('selectCategory');
+    select.innerHTML = `<option id="category" value="">Select task Category</option>`
+
+    for (let i = 0; i < categories.length; i++) {
+        let currentCategory = categories[i];
+        select.innerHTML += /*html*/`
+            <option id="category-${i}" value="${currentCategory}">${currentCategory}</option>
+    `;
+}
+}
 
 
 function createTask() {
@@ -61,13 +93,13 @@ function createTask() {
     let assignedTo = document.getElementById('select').value;
     let category = document.getElementById('selectCategory').value;
 
-    saveLocalStorage(title, description, date, assignedTo, category);
+
+    saveLocalStorage(title, description, date, assignedTo, category,prios);
 
     if (!categories.includes(category)) {
         categories.push(category);
     }
 
-    // addNewCategory(category);
 }
 
 
@@ -84,6 +116,7 @@ function clearTask() {
     clearDescription.value = '';
     clearAssignedTo.value = '';
     clearDate.value = '';
+    clearCategory.value = '';
     clearSubtasks.value = '';
 
     clearPrioOptions.forEach(option => {
@@ -91,9 +124,7 @@ function clearTask() {
         option.style.color = '';
     });
 
-    clearCategory.value = '';
 }
-
 
 
 function loadHTML(page) {
@@ -102,24 +133,20 @@ function loadHTML(page) {
     `;
 }
 
+// let val6 =  prios[prios.length-1]
 
-function saveLocalStorage(val1,val2, val3, val4, val5) {
+function saveLocalStorage(val1,val2, val3, val4, val5,prios) {
     liste.push({
         titles:`${val1}`,
         descriptions:`${val2}`,
         dates:`${val3}`,
         categories:`${val4}`,
-        assignedTos:`${val5}`
+        assignedTos:`${val5}`,
+        prio: `${prios[prios.length-1]}`
     });
     localStorage.setItem('liste', JSON.stringify(liste));
 }
 
 
 
-function  load(){
-    let des = localStorage.getItem('liste');
-    if(des){
-        liste= JSON.parse(des);
-    }
-}
 

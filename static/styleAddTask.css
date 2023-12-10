@@ -233,13 +233,16 @@ select:hover {
 }
 
 .clearButton {
-  height: 56px;
+  /* height: 56px; */
   width: 110px;
   border-radius: 10px;
-  padding: 16px;
+  /* padding: 16px; */
   gap: 4px;
   font-size: 20px;
   border: 1px solid rgb(42, 54, 71);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .clearButton:hover {
@@ -248,6 +251,20 @@ select:hover {
   color: #29ABE2;
   box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
 }
+.bg-urgent{
+  background-color: rgb(255,61,0);
+  color: white;
+}
+.bg-medium{
+  background-color: rgb(255,168,0);
+  color: white;
+}
+.bg-low{
+  background-color: rgb(122,226,41);
+  color: white;
+
+}
+
 
 .createTaskButton {
   height: 56px;

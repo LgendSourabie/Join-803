@@ -9,7 +9,7 @@
 
 
 </head>
-<body onload="load()">
+<body onload="load(); initialize()">
 
     <div class="sidebarContainer">
         <div class="logoContainer">
@@ -55,7 +55,7 @@
             <div class="h2Container">
                 <h2>Add Task</h2>
             </div>
-            <form class="addTaskOverviewContainer">
+            <form class="addTaskOverviewContainer" onsubmit="createTask() ;return false">
                 <div class="addTaskContainerLeftRight">
                 <div class="containerLeft">
                     <div class="titleAddTask addTaskOverview">
@@ -71,11 +71,11 @@
                     <div class="assignedAddTask addTaskOverview">
                         <span>Assigned to</span>
                             <select id="select">
-                                <option id="assigned" value="">Selected contacts to assign</option>
-                                <option value="">Pascal Wagner</option>
-                                <option value="">Henrik Sorg</option> 
-                                <option value="">Ibrahima Sourabie</option>
-                                <option value="">Thomas Jilge</option>
+                                <!-- <option id="assigned" value="">Selected contacts to assign</option>
+                                <option  value="Pascal Wagner">Pascal Wagner</option>
+                                <option  value="Henrik Sorg">Henrik Sorg</option> 
+                                <option value="Ibrahima Sourabie">Ibrahima Sourabie</option>
+                                <option value="Thomas Jilge">Thomas Jilge</option> -->
                             </select>
                          </div>
                 </div>
@@ -93,22 +93,22 @@
                     <div class="addTaskOverview">
                         <span>Prio</span>
                         <div id="prio" class="prioSelection">
-                            <div onclick="changeColorPrio(this)" class="prioUrgent allPrio">
-                                <span class="prio">Urgent</span>
-                                    <div class="img">
+                            <div onclick="changeColorPrio('colorUrgent','bg-urgent')" id="colorUrgent" class="prioUrgent allPrio">
+                                <span onclick="prio('Urgent')" class="prio">Urgent</span>
+                                    <div class="img" id="img-urgent">
                                         <img class="prio prioUrgentIMG" src="/img/img/Vector_urgent.svg" alt="">
                                         <img class="prio prioUrgentIMG" src="/img/img/Vector_urgent.svg" alt="">
                                     </div>
                             </div>
-                            <div onclick="changeColorPrio(this)" class="prioMedium allPrio">
-                                <span class="prio">Medium</span>
+                            <div onclick="changeColorPrio('colorMedium','bg-medium')" id="colorMedium" class="prioMedium allPrio">
+                                <span onclick="prio('Medium')" class="prio">Medium</span>
                                     <div class="img">
                                         <img class="prio prioMediumIMG" src="/img/img/Vector_medium.svg" alt="">
                                         <img class="prio prioMediumIMG" src="/img/img/Vector_medium.svg" alt="">
                                     </div>
                             </div>
-                            <div onclick="changeColorPrio(this)" class="prioLow allPrio">
-                                <span class="prio">Low</span>
+                            <div onclick="changeColorPrio('colorLow','bg-low')" id="colorLow" class="prioLow allPrio">
+                                <span onclick="prio('Low')" class="prio">Low</span>
                                     <div class="img">
                                         <img class="prio prioLowIMG" src="/img/img/Vector_low.svg" alt="">
                                         <img class="prio prioLowIMG" src="/img/img/Vector_low.svg" alt="">
@@ -121,9 +121,9 @@
                             <span class="star">*</span>
                         </span>    
                         <select id="selectCategory">
-                            <option id="category" value="">Select task Category</option>
-                            <option value="">Technical Task</option>
-                            <option value="">User Story</option>
+                            <!-- <option id="category" value="">Select task Category</option>
+                            <option value="Technical Task">Technical Task</option>
+                            <option value="User Story">User Story</option> -->
                         </select>
                     </div> 
                     <div class="subtasksAddTask addTaskOverview">
@@ -139,12 +139,13 @@
                 <span>This field is required</span>
             </div>
             <div class="footerAddTaskButtons">
-                <button onclick="clearTask()" id="clearButton" class="clearButton">
+                <!-- <button onclick="clearTask()" id="clearButton" class="clearButton"> -->
+                <div onclick="clearTask()" id="clearButton" class="clearButton">
                     <!-- <img src="/img/img/Cancel.svg" alt="">
                     <img src="/img/img/Vector.svg" alt=""> -->
-                    <span>Clear X</span>
-                </button>
-                <button onclick="createTask()" id="createTaskButton" class="createTaskButton">
+                    Clear X
+                    </div>
+                <button id="createTaskButton" class="createTaskButton">
                     <!-- <img src="/img/img/Create Task.svg" alt=""> -->
                     <span>Create Task</span>
                     <img src="/img/img/check.svg" alt="">
