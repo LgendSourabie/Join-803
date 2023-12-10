@@ -44,7 +44,7 @@ let todos = [
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
         'progress' : 0,
-        'id' : 2,
+        'id' : 3,
         'category' : 'awaitfeedback'
     }, 
     {
@@ -56,7 +56,7 @@ let todos = [
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
         'progress' : 0,
-        'id' : 2,
+        'id' : 4,
         'category' : 'inprogress'
     }, 
     {
@@ -68,7 +68,7 @@ let todos = [
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
         'progress' : 0,
-        'id' : 2,
+        'id' : 5,
         'category' : 'done'
     }
 ];
@@ -147,6 +147,7 @@ function allowDrop(ev) {
 
 function moveTo(category) {
     todos[currentDraggedElement]['category'] = category;
+    removeHighlight(category);
     renderToDos();
 }
 

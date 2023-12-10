@@ -57,6 +57,7 @@ function allowDrop(ev) {
 
 function moveTo(category) {
     todos[currentDraggedElement]['category'] = category;
+    removeHighlight(category);
     updateHTML();
 }
 
