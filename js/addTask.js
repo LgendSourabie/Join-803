@@ -35,6 +35,7 @@ function  load(){
 function initialize(){
     addContacts();
     addCategory();
+    defaultPrio();
 }
 
 
@@ -50,13 +51,19 @@ function initialize(){
 // }
 
 
-function changeColorPrio(id,color) {
+function changeColorPrio(id, color) {
     let currentColor = document.getElementById(id);
     currentColor.classList.toggle(color);
 }
 
 function prio(id) {
     prios.push(id);
+}
+
+
+function defaultPrio() {
+    changeColorPrio('colorMedium', 'bgMedium');
+    prio('Medium');
 }
 
 
@@ -86,15 +93,22 @@ function addCategory() {
 }
 
 
+function addNewSubtask() {
+    let subtask = document.getElementById('subtasks');
+    subtask.innerHTML = '';
+}
+
+
 function createTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let date = document.getElementById('date').value;
     let assignedTo = document.getElementById('select').value;
     let category = document.getElementById('selectCategory').value;
+    let subtasks = document.getElementById('subtasks').value;
 
 
-    saveLocalStorage(title, description, date, assignedTo, category,prios);
+    saveLocalStorage(title, description, date, assignedTo, category,prios, subtasks);
 
     if (!categories.includes(category)) {
         categories.push(category);
@@ -135,17 +149,21 @@ function loadHTML(page) {
 
 // let val6 =  prios[prios.length-1]
 
-function saveLocalStorage(val1,val2, val3, val4, val5,prios) {
+function saveLocalStorage(val1,val2, val3, val4, val5,prios, val6) {
     liste.push({
-        titles:`${val1}`,
-        descriptions:`${val2}`,
-        dates:`${val3}`,
-        categories:`${val4}`,
-        assignedTos:`${val5}`,
-        prio: `${prios[prios.length-1]}`
+        titles: `${val1}`,
+        descriptions: `${val2}`,
+        dates: `${val3}`,
+        categories: `${val4}`,
+        assignedTos: `${val5}`,
+        prio: `${prios[prios.length-1]}`,
+        subtasks: `${val6}`
     });
     localStorage.setItem('liste', JSON.stringify(liste));
 }
+
+
+
 
 
 

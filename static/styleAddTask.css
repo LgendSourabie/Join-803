@@ -97,6 +97,7 @@ body {
   background-color: rgb(246, 247, 248);
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .addTaskOverviewContainer {
@@ -148,6 +149,18 @@ select {
 
 select:hover {
   border-color: grey;
+}
+
+.subtasksPlusIMG {
+  /* position: absolute; */
+  width: 14px;
+  height: 14px;
+}
+
+.subtasksPlusIMG:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  border-radius: 50%;
 }
 
 .seperatorContainer {
@@ -214,7 +227,7 @@ select:hover {
 
 .prioLowIMG {
   width: 20px;
-  height: 8.76px;
+  height: 14.51px;
 }
 
 .spanFooter {
@@ -233,7 +246,7 @@ select:hover {
 }
 
 .clearButton {
-  /* height: 56px; */
+  height: 56px;
   width: 110px;
   border-radius: 10px;
   /* padding: 16px; */
@@ -251,23 +264,9 @@ select:hover {
   color: #29ABE2;
   box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
 }
-.bg-urgent{
-  background-color: rgb(255,61,0);
-  color: white;
-}
-.bg-medium{
-  background-color: rgb(255,168,0);
-  color: white;
-}
-.bg-low{
-  background-color: rgb(122,226,41);
-  color: white;
-
-}
-
 
 .createTaskButton {
-  height: 56px;
+  /* height: 56px; */
   width: 183px;
   border-radius: 10px;
   padding: 16px;
@@ -276,6 +275,9 @@ select:hover {
   color: #ffffff;
   font-size: 21px;
   font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .createTaskButton:hover {
@@ -284,4 +286,24 @@ select:hover {
   border-color: #29ABE2;
   border: unset;
   box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
+}
+
+.bgUrgent{
+  background-color: rgb(255,61,0);
+  color: white;
+}
+
+.bgMedium{
+  background-color: rgb(255,168,0);
+  color: white;
+}
+
+.bgLow{
+  background-color: rgb(122,226,41);
+  color: white;
+}
+
+.imgCheck {
+  width: 15.49px;
+  height: 11.22px;
 }
