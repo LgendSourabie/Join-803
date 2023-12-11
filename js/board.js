@@ -9,7 +9,7 @@ let todos = [
         'subtasks': [],
         'progress' : 0,
         'id' : 0,
-        'category' : 'todo'
+        'taskboard' : 'todo'
     },
     {
         'title': 'test note',
@@ -21,7 +21,7 @@ let todos = [
         'subtasks': ['test1', 'test2'],
         'progress' : 1,
         'id' : 1,
-        'category' : 'todo'
+        'taskboard' : 'todo'
     }, 
     {
         'title': 'test note',
@@ -33,7 +33,7 @@ let todos = [
         'subtasks': ['test1', 'test2'],
         'progress' : 0,
         'id' : 2,
-        'category' : 'awaitfeedback'
+        'taskboard' : 'awaitfeedback'
     }, 
     {
         'title': 'test note',
@@ -45,7 +45,7 @@ let todos = [
         'subtasks': ['test1', 'test2'],
         'progress' : 0,
         'id' : 3,
-        'category' : 'awaitfeedback'
+        'taskboard' : 'awaitfeedback'
     }, 
     {
         'title': 'test note',
@@ -57,7 +57,7 @@ let todos = [
         'subtasks': ['test1', 'test2'],
         'progress' : 0,
         'id' : 4,
-        'category' : 'inprogress'
+        'taskboard' : 'inprogress'
     }, 
     {
         'title': 'test note',
@@ -69,7 +69,7 @@ let todos = [
         'subtasks': ['test1', 'test2'],
         'progress' : 0,
         'id' : 5,
-        'category' : 'done'
+        'taskboard' : 'done'
     }
 ];
 
@@ -79,7 +79,7 @@ let currentDraggedElement;
 
 function renderToDos() {
 
-    let todo = todos.filter(t => t['category'] == 'todo');
+    let todo = todos.filter(t => t['taskboard'] == 'todo');
 
     document.getElementById('todo').innerHTML = '';
 
@@ -88,7 +88,7 @@ function renderToDos() {
         document.getElementById('todo').innerHTML += todotemplate(element);
     }
 
-    let inprogress = todos.filter(t => t['category'] == 'inprogress');
+    let inprogress = todos.filter(t => t['taskboard'] == 'inprogress');
 
     document.getElementById('inprogress').innerHTML = '';
 
@@ -97,7 +97,7 @@ function renderToDos() {
         document.getElementById('inprogress').innerHTML += todotemplate(element);
     }
 
-    let awaitfeedback = todos.filter(t => t['category'] == 'awaitfeedback');
+    let awaitfeedback = todos.filter(t => t['taskboard'] == 'awaitfeedback');
 
     document.getElementById('awaitfeedback').innerHTML = '';
 
@@ -106,7 +106,7 @@ function renderToDos() {
         document.getElementById('awaitfeedback').innerHTML += todotemplate(element);
     }
 
-    let done = todos.filter(t => t['category'] == 'done');
+    let done = todos.filter(t => t['taskboard'] == 'done');
 
     document.getElementById('done').innerHTML = '';
 
@@ -118,7 +118,7 @@ function renderToDos() {
 
 function todotemplate(array) {
     return /*html*/`
- <div class="todocard" draggable="true" ondragstart="startDragging(${array['id']})">
+ <div class="todocard" draggable="true" ondragstart="startDragging(${array['id']})" onclick="showtodowindow()">
     <button>${array.category}</button>
     <b>${array.title}</b>
     <span>${array.discription}</span>
@@ -146,7 +146,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
-    todos[currentDraggedElement]['category'] = category;
+    todos[currentDraggedElement]['taskboard'] = category;
     removeHighlight(category);
     renderToDos();
 }
@@ -157,4 +157,37 @@ function highlight(id) {
 
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
+}
+
+function showtodowindow(){
+    let todowindow = document.getElementById('showtodowindow');
+    todowindow.innerHTML = /*html*/`
+        <div>
+            <div>
+                <button></button>
+                <img src="" alt="">
+            </div>
+            <h1></h1>
+            <span></span>
+            <div>
+                <span></span>
+                <span></span>
+            </div>
+            <div>
+                <span></span>
+                <div>
+                    <span></span>
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div>
+                <div></div>
+                <div id="contacts"></div>
+            </div>
+            <div>
+                <span></span>
+                <div id="subtasks"></div>
+            </div>
+        </div>
+    `
 }
