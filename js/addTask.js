@@ -39,22 +39,11 @@ function initialize(){
 }
 
 
-// function changeColorPrio(element) {
-//     if (element.classList.contains('prioUrgent')) {
-//         element.style.backgroundColor = 'rgb(255,61,0)';
-//     } else if (element.classList.contains('prioMedium')) {
-//         element.style.backgroundColor = 'rgb(255,168,0)';
-//     } else if (element.classList.contains('prioLow')) {
-//         element.style.backgroundColor = 'rgb(122,226,41)';
-//     }
-//     element.style.color = 'white';
-// }
-
-
 function changeColorPrio(id, color) {
     let currentColor = document.getElementById(id);
     currentColor.classList.toggle(color);
 }
+
 
 function prio(id) {
     prios.push(id);
@@ -65,6 +54,11 @@ function defaultPrio() {
     changeColorPrio('colorMedium', 'bgMedium');
     prio('Medium');
 }
+
+
+// function changeColorPrioImg() {
+
+// }
 
 
 function addContacts() {
@@ -117,27 +111,47 @@ function createTask() {
 }
 
 
+// function clearTask() {
+//     let clearTitle = document.getElementById('title');
+//     let clearDescription = document.getElementById('description');
+//     let clearAssignedTo = document.getElementById('select');
+//     let clearDate = document.getElementById('date');
+//     let clearPrioOptions = document.querySelectorAll('.allPrio'); 
+//     let clearCategory = document.getElementById('selectCategory');
+//     let clearSubtasks = document.getElementById('subtasks');
+
+//     clearTitle.value = '';
+//     clearDescription.value = '';
+//     clearAssignedTo.value = '';
+//     clearDate.value = '';
+//     clearCategory.value = '';
+//     clearSubtasks.value = '';
+
+//     clearPrioOptions.forEach(option => {
+//         option.style.backgroundColor = '';
+//         option.style.color = '';
+//     });
+
+// }
+
+
 function clearTask() {
-    let clearTitle = document.getElementById('title');
-    let clearDescription = document.getElementById('description');
-    let clearAssignedTo = document.getElementById('select');
-    let clearDate = document.getElementById('date');
-    let clearPrioOptions = document.querySelectorAll('.allPrio'); 
-    let clearCategory = document.getElementById('selectCategory');
-    let clearSubtasks = document.getElementById('subtasks');
+    document.getElementById('title').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('select').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('selectCategory').value = '';
+    document.getElementById('subtasks').value = '';
 
-    clearTitle.value = '';
-    clearDescription.value = '';
-    clearAssignedTo.value = '';
-    clearDate.value = '';
-    clearCategory.value = '';
-    clearSubtasks.value = '';
+    document.querySelectorAll('.allPrio').forEach(option => {
+        option.style.backgroundColor = 'white';
+        option.style.color = 'black';
 
-    clearPrioOptions.forEach(option => {
-        option.style.backgroundColor = '';
-        option.style.color = '';
     });
 
+    document.getElementById('colorUrgent').style.fontWeight = '400';
+    document.getElementById('colorMedium').style.fontWeight = '400';
+    document.getElementById('colorLow').style.fontWeight = '400';
 }
 
 

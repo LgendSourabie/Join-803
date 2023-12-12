@@ -10,7 +10,7 @@ body {
 }
 
 .spanHeader {
-  font-size: 24px;
+  font-size: 20px;
   padding-left: 348px;
 }
 
@@ -100,12 +100,32 @@ body {
   height: 100vh;
 }
 
-.addTaskOverviewContainer {
+/* .addTaskOverviewContainer {
   padding-left: 348px;
-}
+} */
 
 .addTaskContainerLeftRight {
   display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    /* padding-left: 348px; */
+}
+
+.addTaskContainerOne {
+  display: flex;
+  flex-direction: column;
+}
+
+.addTaskContainerTwo{
+  padding-left: 348px;
+  padding-right: 624px;
+  margin-top: 129px;
+}
+
+.groupButtonForm{
+  display: flex;
+  padding-left: 348px;
 }
 
 h2 {
@@ -191,6 +211,7 @@ select:hover {
 
 .prioSelection {
   display: flex;
+  justify-content: space-between;
   gap: 8px;
 }
 
@@ -291,19 +312,32 @@ select:hover {
 .bgUrgent{
   background-color: rgb(255,61,0);
   color: white;
+  font-weight: 700;
 }
 
 .bgMedium{
   background-color: rgb(255,168,0);
   color: white;
+  font-weight: 700;
 }
 
 .bgLow{
   background-color: rgb(122,226,41);
   color: white;
+  font-weight: 700;
 }
 
 .imgCheck {
   width: 15.49px;
   height: 11.22px;
+}
+
+.containerLeftSpan {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.sidebarSpan {
+  font-size: 20px;
+  font-weight: 400;
 }
