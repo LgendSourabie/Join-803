@@ -10,15 +10,13 @@ a {
 .login-logo {
   position: absolute;
   z-index: 999;
-  left: 6rem;
-  top: 2rem;
-  /* animation-name: logo-to-corner;
+  animation-name: logo-to-corner;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
-  animation-fill-mode: both; */
+  animation-fill-mode: both;
 }
-/* .container-login {
+.container-login {
   opacity: 0;
   animation-name: hide-login;
   animation-duration: 1s;
@@ -26,7 +24,7 @@ a {
   animation-iteration-count: 1;
   animation-delay: 100ms;
   animation-fill-mode: both;
-} */
+}
 .container-login {
   width: 100%;
   padding-inline: 0.6rem;
@@ -258,12 +256,71 @@ a {
   color: #29abe2;
   font-size: 16px;
 }
+.logo-white {
+  animation-name: logo-to-corner, logoWhite;
+  animation-duration: 2s, 1s;
+  animation-timing-function: ease-in-out, linear;
+  animation-iteration-count: 1, 1;
+  animation-fill-mode: both, both;
+}
+
+.logo-blue {
+  animation-name: logo-to-corner, logoBlue;
+  animation-duration: 2s, 1s;
+  animation-timing-function: ease-in-out, linear;
+  animation-iteration-count: 1, 1;
+  animation-fill-mode: both, both;
+}
 
 @media (width<=1020px) {
-  .login-logo {
-    width: 3rem;
-    top: 2rem;
-    left: 2rem;
+  .overlay {
+    animation-name: overlayBlue;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 100ms;
+    animation-fill-mode: both;
+  }
+
+  @keyframes logo-to-corner {
+    0% {
+      width: 240px;
+      height: 300px;
+    }
+    100% {
+      width: 3.5rem;
+      transform: translate(calc(-50vw + 4.5rem), calc(-50vh + 4rem));
+    }
+  }
+
+  @keyframes overlayBlue {
+    0% {
+      inset: 0;
+      background-color: #2a3647;
+      position: absolute;
+    }
+    100% {
+      display: none;
+    }
+  }
+
+  @keyframes logoWhite {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes logoBlue {
+    0% {
+      /* opacity: 0; */
+      display: none;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
 

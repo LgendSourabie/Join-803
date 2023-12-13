@@ -30,6 +30,12 @@ button {
   line-height: 19.2px;
   margin-bottom: 1rem;
 }
+.date-legal-notice {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.2px;
+  padding-bottom: 5px;
+}
 
 .help-topic-title {
   font-weight: 700;
@@ -51,4 +57,21 @@ button {
   font-weight: 700;
   margin-bottom: 1rem;
   display: inline-block;
+}
+
+@media (width<=935px) {
+  .title-help {
+    font-size: 32px;
+  }
+}
+@media (width<=820px) {
+  .return-btn {
+    right: 2rem;
+  }
+}
+
+@media (width<=575px) {
+  .date-legal-notice {
+    padding-bottom: 90px;
+  }
 }

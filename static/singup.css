@@ -283,3 +283,37 @@ a {
 .consent-policy:hover {
   text-decoration: underline;
 }
+
+@media (width<=1020px) {
+  .singup-logo {
+    width: 3rem;
+    top: 2rem;
+    left: 2rem;
+  }
+}
+
+@media (width<=1020px) {
+  .input-signup {
+    width: 92%;
+    height: 36px;
+  }
+}
+
+@media (width<=620px) {
+  .user-log-data-section-signup {
+    width: 95%;
+  }
+
+  .log-title {
+    font-size: 40px;
+  }
+  .exit-arrow {
+    left: 1rem;
+  }
+  .title-join-underline {
+    gap: unset;
+  }
+  .blue-btn-signup {
+    padding-block: 0.7rem;
+  }
+}

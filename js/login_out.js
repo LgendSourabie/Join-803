@@ -136,7 +136,7 @@ const greetUserWithName = function () {
   let userCurrent = localStorage.getItem("currentUser");
   currentUser = JSON.parse(userCurrent);
   let lastElem = currentUser[currentUser.length - 1];
-  let loggedUsers = users.filter((a) => a.email === lastElem);
+  let loggedUsers = users.filter((a) => a.email === lastElem); //to ...
   let loggedUser = loggedUsers.map((a) => a.name);
   let nameUser = loggedUser[0];
   greetUser("greet-user");
