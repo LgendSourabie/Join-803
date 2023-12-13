@@ -85,7 +85,7 @@ function renderToDos() {
 
     for (let index = 0; index < todo.length; index++) {
         const element = todo[index];
-        document.getElementById('todo').innerHTML += todotemplate(element);
+        document.getElementById('todo').innerHTML += todotemplate(element, index);
     }
 
     let inprogress = todos.filter(t => t['taskboard'] == 'inprogress');
@@ -94,7 +94,7 @@ function renderToDos() {
 
     for (let index = 0; index < inprogress.length; index++) {
         const element = inprogress[index];
-        document.getElementById('inprogress').innerHTML += todotemplate(element);
+        document.getElementById('inprogress').innerHTML += todotemplate(element ,index);
     }
 
     let awaitfeedback = todos.filter(t => t['taskboard'] == 'awaitfeedback');
@@ -103,7 +103,7 @@ function renderToDos() {
 
     for (let index = 0; index < awaitfeedback.length; index++) {
         const element = awaitfeedback[index];
-        document.getElementById('awaitfeedback').innerHTML += todotemplate(element);
+        document.getElementById('awaitfeedback').innerHTML += todotemplate(element, index);
     }
 
     let done = todos.filter(t => t['taskboard'] == 'done');
@@ -112,13 +112,13 @@ function renderToDos() {
 
     for (let index = 0; index < done.length; index++) {
         const element = done[index];
-        document.getElementById('done').innerHTML += todotemplate(element);
+        document.getElementById('done').innerHTML += todotemplate(element, index);
     }
 }
 
-function todotemplate(array) {
+function todotemplate(array, i) {
     return /*html*/`
- <div class="todocard" draggable="true" ondragstart="startDragging(${array['id']})" onclick="showtodowindow()">
+ <div class="todocard" draggable="true" ondragstart="startDragging(${array['id']})" onclick="showtodowindow(${i})">
     <button>${array.category}</button>
     <b>${array.title}</b>
     <span>${array.discription}</span>
@@ -159,25 +159,26 @@ function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
 
-function showtodowindow(){
+function showtodowindow(i){
     let todowindow = document.getElementById('showtodowindow');
+    todowindow.classList.add('showtodowindow');
     todowindow.innerHTML = /*html*/`
-        <div>
+        <div class="overlay">
             <div>
-                <button></button>
-                <img src="" alt="">
+                <button>${todos[i].category}</button>
+                <img src="/icons/close.svg" alt="">
             </div>
-            <h1></h1>
-            <span></span>
+            <h1>${todos[i].title}</h1>
+            <span>${todos[i].discription}</span>
             <div>
-                <span></span>
-                <span></span>
+                <span>Due date</span>
+                <span>${todos[i]['due date']}</span>
             </div>
             <div>
-                <span></span>
+                <span>Priority</span>
                 <div>
-                    <span></span>
-                    <img src="" alt="">
+                    <span>${todos[i].category}</span>
+                    <img src="${todos[i].prio}" alt="">
                 </div>
             </div>
             <div>
@@ -185,9 +186,16 @@ function showtodowindow(){
                 <div id="contacts"></div>
             </div>
             <div>
-                <span></span>
+                <span>Subtasks</span>
                 <div id="subtasks"></div>
             </div>
         </div>
+    `;
+    createSubtasks(i);
+}
+
+function createSubtasks(i){
+    document.getElementById('subtasks').innerHTML += /*html*/`
+        <div></div>
     `
 }
