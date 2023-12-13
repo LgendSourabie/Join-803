@@ -80,8 +80,6 @@ input {
 
 }
 
-
-
 .add-contact-slogan p {
     font-size: 32px;
 }
@@ -103,7 +101,13 @@ input {
 .add-contact-data form {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 32px;
+}
+
+.add-contact-input-container{
+    padding: 13px 21px 13px 21px;
+    border: 1px #D1D1D1 solid;
+    border-radius: 10px;
 }
 
 .add-contact-input {
@@ -159,7 +163,7 @@ input {
     display: flex;
 }
 
-.scroll-container {
+.contacts-scroll-container {
 
     max-height: 100vh;
     overflow: auto;
@@ -167,26 +171,26 @@ input {
 
 
 /* scroll-bar */
-::-webkit-scrollbar {
+.contacts-scroll-container::-webkit-scrollbar {
     width: 20px;
 }
 
-::-webkit-scrollbar-track {
+.contacts-scroll-container::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
-::-webkit-scrollbar-thumb {
+.contacts-scroll-container::-webkit-scrollbar-thumb {
     background-color: #d6dee1;
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.contacts-scroll-container::-webkit-scrollbar-thumb:hover {
     background-color: #a8bbbf;
 }
 
-::-webkit-scrollbar-button {
+.contacts-scroll-container::-webkit-scrollbar-button {
     display: block;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -194,22 +198,22 @@ input {
     background-position: center;
 }
 
-::-webkit-scrollbar-button:vertical:start:increment {
+.contacts-scroll-container::-webkit-scrollbar-button:vertical:start:increment {
     display: none;
 }
 
-::-webkit-scrollbar-button:vertical:start:decrement {
-    background-image: url('../icons/arrowDown.svg');
+.contacts-scroll-container::-webkit-scrollbar-button:vertical:start:decrement {
+    background-image: url('../icons/arrowUp.svg');
     height: 20px;
     z-index: 999;
 }
 
-::-webkit-scrollbar-button:vertical:end:increment {
+.contacts-scroll-container::-webkit-scrollbar-button:vertical:end:increment {
     background-image: url('../icons/arrowDown.svg');
     z-index: 999;
 }
 
-::-webkit-scrollbar-button:vertical:end:decrement {
+.contacts-scroll-container::-webkit-scrollbar-button:vertical:end:decrement {
     display: none;
 }
 
@@ -290,12 +294,11 @@ input {
     font-size: 16px;
 }
 
-
-
-
-
-
 /* single view */
+.contact-single-view{
+    flex: 1;
+}
+
 .contacts-headline {
     display: flex;
     margin-top: 120px;
@@ -306,7 +309,7 @@ input {
     border-right: #29ABE2 solid 2px;
     padding-right: 24px;
     margin-right: 24px;
-    font-size: 72px;
+    font-size: 61px;
     margin-block-start: 0;
     margin-block-end: 0;
 }
@@ -314,7 +317,8 @@ input {
 .contacts-headline span {
     display: flex;
     align-items: center;
-    font-size: 40px;
+    font-size: 27px;
+    padding-right: 40px;
 }
 
 .contact-single-view-info {
@@ -406,4 +410,76 @@ input {
     font-weight: 700;
 }
 
-/* Better with a team */
+#responsive-contact-single-view{
+    display: flex;
+    flex-direction: column;
+}
+
+@media(max-width:1000px) {
+    /* add Contact */
+    .contact-single-view{
+        display: none;
+        padding-left: 16px;
+    }
+    #add-contact{
+        flex-direction: column;
+        width: 95%;
+        height: 90vh !important;
+        height: unset;
+        border-radius: 30px;
+    }
+    .add-contact-slogan{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0 20px 0 20px;
+    }
+    .add-contact-slogan img{
+        display: none;
+    }
+    .add-contact-slogan h2{
+        font-size: 47px;
+    }
+    .add-contact-slogan p{
+        font-size: 20px;
+        height: 46%;
+        
+    }
+    .add-contact-data{
+        position: relative;
+    }
+    .profile-icon-container{
+        position: absolute;
+        top: -70px;
+    }
+    /* Single view */
+    .contacts-headline{
+        margin-top: 36px;
+        margin-left: 0;
+        flex-direction: column;
+    }
+    .contacts-headline h2{
+        font-size: 47px;
+    }
+    .contacts-headline span{
+
+    }
+    .initial-name-container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+    }
+    .initial-single-view{
+        font-size: 27px;
+    }
+    #name-single-view{
+        font-size: 36px;
+        font-weight: 700;
+    }
+    .edit-and-delete{
+        display: none;
+    }
+
+}

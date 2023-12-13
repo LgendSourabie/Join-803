@@ -62,26 +62,20 @@ function renderContactSection() {
 
 function renderContactSectionTemplate() {
   return /*html*/ `
-        <div class="scroll-container">
-                <div class="contacts-overview-container">
-                    <button class="add-new-contact" onclick="renderAddContact()">Add new contact<img src="../icons/addNewContact.svg"></button>
-                    <div id="contacts-overview">
-                    </div>
-                </div>
-            </div>
-            <div class="contact-single-view">
-                <div class="contacts-headline">
-                    <h2>Contacts</h2><span>Better with a team</span>
-                </div>
-                <div class="contact-single-view-info" id="show-contact">
-                    
-                </div>
-
-                <!-- <div class="show-contact">
-
-                </div> -->
-            </div>
-    `;
+    <div class="contacts-scroll-container">
+      <div class="contacts-overview-container">
+          <button class="add-new-contact" onclick="renderAddContact()">Add new contact<img src="../icons/addNewContact.svg"></button>
+          <div id="contacts-overview"></div>
+          </div>
+      </div>
+      <div class="contact-single-view" id="contact-single-view">
+        <div class="contacts-headline">
+            <h2>Contacts</h2><span>Better with a team</span>
+        </div>
+        <div class="contact-single-view-info" id="show-contact"> 
+      </div>
+    </div>
+  `;
 }
 
 function renderContacts() {
@@ -96,7 +90,7 @@ function openContact(i) {
   if (selectedContact == highlightedContact) {
     hideContact();
     removeHighligtContact(i);
-  }else{
+  } else {
     removeHighligtContact(i);
     showContact(i);
     highligtContact(i);
@@ -109,18 +103,13 @@ function hideContact() {
 
 function showContact(i) {
   
+  document.getElementById("show-contact").innerHTML = showContactTemplate(i);
+}
+
+function showContactTemplate(i) {
   let name = contacts[i]["name"];
   let email = contacts[i]["email"];
   let telephone = contacts[i]["telephone"];
-  document.getElementById("show-contact").innerHTML = showContactTemplate(
-    name,
-    email,
-    telephone,
-    i
-  );
-}
-
-function showContactTemplate(name, email, telephone, i) {
   return /*html*/ `
         <div>
             <div class="initial-name-container">
@@ -187,7 +176,7 @@ function insertContacts() {
 function insertContactsTemmplate(i, name) {
   let email = contacts[i]["email"];
   return /*html*/ `
-    <div class="contact" id="contact-${i}" onclick="openContact(${i})">
+    <div class="contact" id="contact-${i}" onclick="openContact(${i}), showContactResponsiv(${i})">
         <div class="initial-border">
             <div class="initial-overview">JD</div>
         </div>
@@ -204,12 +193,13 @@ function highligtContact(i) {
   setHighligtContact();
 }
 
-function setHighligtContact(){
-  document.getElementById(highlightedContact).classList.add("highlight-contact");
+function setHighligtContact() {
+  document
+    .getElementById(highlightedContact)
+    .classList.add("highlight-contact");
 }
 
 function removeHighligtContact() {
-  
   id = highlightedContact;
   if (highlightedContact) {
     document.getElementById(id).classList.remove("highlight-contact");
@@ -225,14 +215,12 @@ function createContact() {
   setEditToFalse();
 }
 
-function createOrEditContact(name, telephone, email){
-
-  if (contactIndex != -1){
+function createOrEditContact(name, telephone, email) {
+  if (contactIndex != -1) {
     editExistingContact(name, telephone, email);
-  }else{
-    createNewContact(name, telephone, email)
+  } else {
+    createNewContact(name, telephone, email);
   }
-  debugger
   closeAddContact();
   renderContactSection();
   i = highlightedContact.slice(-1);
@@ -240,14 +228,18 @@ function createOrEditContact(name, telephone, email){
   showContact(i);
 }
 
-function createNewContact(name, telephone, email){
+function createNewContact(name, telephone, email) {
   contacts.push({ name: name, telephone: telephone, email: email });
   lastIndex = contacts.length - 1;
-  highlightedContact = 'contact-' + lastIndex;
+  highlightedContact = "contact-" + lastIndex;
 }
 
-function editExistingContact(name, telephone, email){
-  contacts.splice(contactIndex, 1, { name: name, telephone: telephone, email: email });
+function editExistingContact(name, telephone, email) {
+  contacts.splice(contactIndex, 1, {
+    name: name,
+    telephone: telephone,
+    email: email,
+  });
 }
 
 function renderAddContact() {
@@ -263,38 +255,39 @@ function openAddContact() {
 
 function addAndEditTemplate() {
   return /*html*/ `
-        <div id="add-contact">
-            <div class="add-contact-slogan">
-                <img src="../icons/logo.svg" alt="logo">
-                <h2 id="headline-add-edit"></h2>
-                <p id="subheadline-add-edit"></p>
-            </div>
-            <div class="add-contact-data">
-                <img src="../icons/profileImageContacts.svg" alt="telephone-icon">
-                <form onsubmit="createContact()">
-                    <div class="d-flex"><input type="text" minlength="2"  placeholder="Name" class="add-contact-input" id="name-input" required><img src="../icons/name.svg" alt="telephone-icon"></div>
-                    <div class="d-flex"><input type="email" placeholder="Email" class="add-contact-input" id="email-input" required><img src="../icons/email.svg" alt="telephone-icon"></div>
-                    <div class="d-flex">
-                        <input 
-                            type="number" 
-                            minlength="4" 
-                            placeholder="Phone" 
-                            class="add-contact-input" 
-                            id="telephone-input" 
-                            required>
-                        <img src="../icons/telephone.svg" alt="telephone-icon">
-                    </div>
-                    <div class="d-flex">
-                        <button type="button" class="cancel-contact-button" onclick="closeAddContact()">Cancel</button>
-                        <button type="submit" class="create-contact-button" id="button-add-edit"></button> 
-                    </div>
-                </form>
-            </div>
+    <div id="add-contact">
+        <div class="add-contact-slogan">
+            <img src="../icons/logo.svg" alt="logo">
+            <h2 id="headline-add-edit"></h2>
+            <p id="subheadline-add-edit"></p>
         </div>
+        <div class="add-contact-data">
+          <div class="profile-icon-container">
+            <img src="../icons/profileImageContacts.svg" alt="profile icon">
+          </div>
+            <form onsubmit="createContact()">
+                <div class="d-flex add-contact-input-container"><input type="text" minlength="2"  placeholder="Name" class="add-contact-input" id="name-input" required><img src="../icons/name.svg" alt="telephone-icon"></div>
+                <div class="d-flex add-contact-input-container"><input type="email" placeholder="Email" class="add-contact-input" id="email-input" required><img src="../icons/email.svg" alt="telephone-icon"></div>
+                <div class="d-flex add-contact-input-container">
+                    <input 
+                        type="number" 
+                        minlength="4" 
+                        placeholder="Phone" 
+                        class="add-contact-input" 
+                        id="telephone-input" 
+                        required>
+                    <img src="../icons/telephone.svg" alt="telephone-icon">
+                </div>
+                <div class="d-flex">
+                  <button type="button" class="cancel-contact-button" onclick="closeAddContact()">Cancel</button>
+                  <button type="submit" class="create-contact-button" id="button-add-edit"></button> 
+                </div>
+            </form>
+            
+        </div>
+    </div>
     `;
 }
-
-
 
 function insertContentAddEdit(addOrEdit) {
   headline = document.getElementById("headline-add-edit");
@@ -334,7 +327,7 @@ function editContact(i) {
   // openContact();
 }
 
-function saveContactIndex(i){
+function saveContactIndex(i) {
   contactIndex = i;
 }
 
@@ -342,7 +335,7 @@ function saveContactIndex(i){
 //   edit = true;
 // }
 
-function setEditToFalse(){
+function setEditToFalse() {
   contactIndex = -1;
 }
 
@@ -362,3 +355,57 @@ function deleteContact(i) {
 }
 
 renderContactSection();
+
+
+
+
+// Create a MediaQueryList object
+let x = window.matchMedia('(max-width: 1000px)')
+
+function showContactResponsiv(jsonIndex) {
+  let name = contacts[jsonIndex]["name"];
+  let email = contacts[jsonIndex]["email"];
+  let telephone = contacts[jsonIndex]["telephone"];
+  if (x.matches) { // If media query matches
+    document.getElementById('contact-single-view').classList.add('d-none');
+    document.getElementById('render-container').innerHTML = /*html*/`
+    
+      <div class="contact-single-view" id="contact-single-view">
+        <div class="contacts-headline">
+            <h2>Contacts</h2><span>Better with a team</span>
+        </div>
+        <div class="contact-single-view-info" id="show-contact"> 
+      </div>
+    `;
+    document.getElementById('contact-single-view').style = 'display: unset'
+    document.getElementById('contact-single-view').innerHTML += showContactTemplate(jsonIndex);
+  }
+}
+
+
+
+
+// Safe and get contacts in remote Storage
+async function loadAllContacts() {
+  users = JSON.parse(await getItem("contacts"));
+}
+
+setItem("contacts", JSON.stringify(contacts));
+
+async function setItem(key, value) {
+  const payload = { key, value, token: STORAGE_TOKEN };
+  return fetch(STORAGE_URL, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  }).then((response) => response.json());
+}
+
+async function getItem(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  return fetch(url)
+    .then((response) => response.json())
+    .then((response) => response.data.value);
+}
+
+// contacts = JSON.parse(getItem("contacts"));
+// setItem("contacts", JSON.stringify(contacts));
