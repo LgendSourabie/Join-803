@@ -39,10 +39,17 @@ function initialize(){
 }
 
 
+// function changeColorPrio(id, color) {
+//     let currentColor = document.getElementById(id);
+//     currentColor.classList.toggle(color);
+// }
+
+
 function changeColorPrio(id, color) {
     let currentColor = document.getElementById(id);
     currentColor.classList.toggle(color);
 }
+
 
 
 function prio(id) {
@@ -54,11 +61,6 @@ function defaultPrio() {
     changeColorPrio('colorMedium', 'bgMedium');
     prio('Medium');
 }
-
-
-// function changeColorPrioImg() {
-
-// }
 
 
 function addContacts() {
@@ -101,38 +103,12 @@ function createTask() {
     let category = document.getElementById('selectCategory').value;
     let subtasks = document.getElementById('subtasks').value;
 
-
-    saveLocalStorage(title, description, date, assignedTo, category,prios, subtasks);
-
     if (!categories.includes(category)) {
         categories.push(category);
     }
 
+    saveLocalStorage(title, description, date, assignedTo, category,prios, subtasks);
 }
-
-
-// function clearTask() {
-//     let clearTitle = document.getElementById('title');
-//     let clearDescription = document.getElementById('description');
-//     let clearAssignedTo = document.getElementById('select');
-//     let clearDate = document.getElementById('date');
-//     let clearPrioOptions = document.querySelectorAll('.allPrio'); 
-//     let clearCategory = document.getElementById('selectCategory');
-//     let clearSubtasks = document.getElementById('subtasks');
-
-//     clearTitle.value = '';
-//     clearDescription.value = '';
-//     clearAssignedTo.value = '';
-//     clearDate.value = '';
-//     clearCategory.value = '';
-//     clearSubtasks.value = '';
-
-//     clearPrioOptions.forEach(option => {
-//         option.style.backgroundColor = '';
-//         option.style.color = '';
-//     });
-
-// }
 
 
 function clearTask() {
@@ -161,7 +137,6 @@ function loadHTML(page) {
     `;
 }
 
-// let val6 =  prios[prios.length-1]
 
 function saveLocalStorage(val1,val2, val3, val4, val5,prios, val6) {
     liste.push({

@@ -18,11 +18,17 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-right: 40px;
 }
 
 .helpIMG {
   width: 32px;
   height: 32px;
+}
+
+.helpIMG:hover {
+  width: 34px;
+  height: 34px;
   cursor: pointer;
 }
 
@@ -30,6 +36,10 @@ body {
   width: 56px;
   height: 56px;
   gap: 16px;
+}
+
+.UserIMG:hover {
+  background-color: aqua;
   cursor: pointer;
 }
 
@@ -82,6 +92,11 @@ body {
   gap: 4px;
 }
 
+.spanSidebarFooter {
+  padding: 8px;
+  gap: 8px;
+}
+
 .spanSidebarFooter:hover {
   cursor: pointer;
   color: #29ABE2;
@@ -97,19 +112,12 @@ body {
   background-color: rgb(246, 247, 248);
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
-
-/* .addTaskOverviewContainer {
-  padding-left: 348px;
-} */
 
 .addTaskContainerLeftRight {
   display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: space-evenly;
-    /* padding-left: 348px; */
 }
 
 .addTaskContainerOne {
@@ -119,8 +127,8 @@ body {
 
 .addTaskContainerTwo{
   padding-left: 348px;
-  padding-right: 624px;
-  margin-top: 129px;
+  padding-right: 648px;
+  margin-top: 106px;
 }
 
 .groupButtonForm{
@@ -139,14 +147,14 @@ h2 {
 
 input {
   border-radius: 10px;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #A8A8A8;
   padding: 16px;
   cursor: pointer;
 }
 
 textarea {
   border-radius: 10px;
-  border: 1px solid lightgrey;
+  border: 1px solid #A8A8A8;
   padding: 16px;
   cursor: pointer;
 }
@@ -162,7 +170,7 @@ textarea {
 
 select {
   border-radius: 10px;
-  border: 1px solid lightgrey;
+  border: 1px solid #A8A8A8;
   padding: 16px;
   cursor: pointer;
 }
@@ -172,9 +180,11 @@ select:hover {
 }
 
 .subtasksPlusIMG {
-  /* position: absolute; */
   width: 14px;
   height: 14px;
+  position: absolute;
+  margin-top: 43px;
+  margin-left: 410px;
 }
 
 .subtasksPlusIMG:hover {
@@ -287,7 +297,7 @@ select:hover {
 }
 
 .createTaskButton {
-  /* height: 56px; */
+  height: 56px;
   width: 183px;
   border-radius: 10px;
   padding: 16px;
@@ -340,4 +350,8 @@ select:hover {
 .sidebarSpan {
   font-size: 20px;
   font-weight: 400;
+}
+
+.spanSubtasks {
+  font-size: 20px;
 }
