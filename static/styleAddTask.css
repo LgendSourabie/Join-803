@@ -39,7 +39,6 @@ body {
 }
 
 .UserIMG:hover {
-  background-color: aqua;
   cursor: pointer;
 }
 
@@ -358,6 +357,43 @@ select:hover {
 
 /* RESPONSIVE DESIGN */
 
+.sidebarContainerResponsive {
+  display: none;
+  justify-content: center;
+  background-color: #2a3647;
+  height: 80px;
+  gap: 15px;
+}
+
+.sidesContainerResponsive {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  color: rgb(174, 176, 179);
+}
+
+.sidesResponsive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sidesImgResponsive {
+  width: 24px;
+  height: 24px;
+}
+
+.addTaskHeadlineResponsive {
+  display: none;
+}
+
+.joinLogoResponsive {
+  width: 32px;
+  height: 39.02px;
+}
+
 @media (max-width: 1295px) {
 
   .groupButtonForm {
@@ -382,4 +418,95 @@ select:hover {
   .addTaskContainerTwo {
     margin-top: 5px;
   }
+}
+
+@media (max-width: 1024px) {
+
+  .sidebarContainer {
+    display: none;
+  }
+
+  .sidebarContainerResponsive {
+    display: flex;
+    justify-content: center;
+    background-color: #2a3647;
+    height: 80px;
+    gap: 15px;
+  }
+
+  .addTaskHeadline {
+    display: none;
+  }
+
+  .addTaskHeadlineResponsive {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  .joinLogoContainerResponsive {
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* .spanHeaderResponsive {
+    display: flex;
+    align-items: center;
+  } */
+
+  .groupButtonForm {
+    padding-left: 0;
+  }
+
+  .containerLeft {
+    width: 75%;
+  }
+
+  .containerRight {
+    width: 75%;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+
+  .UserIMG {
+    width: 40x;
+    height: 40px;
+  }
+
+  .helpIMG {
+    display: none;
+  }
+
+  .sidebarSpanResponsive {
+    font-size: 14px;
+  }
+
+  .allPrio {
+    height: 41px;
+  }
+
+  .containerLeft {
+    width: 85%;
+  }
+
+  .containerRight {
+    width: 85%;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  .containerLeft {
+    width: 95%;
+  }
+
+  .containerRight {
+    width: 95%;
+  }
+
 }
