@@ -11,7 +11,7 @@ body {
 
 .spanHeader {
   font-size: 20px;
-  padding-left: 348px;
+  padding-left: 328px;
 }
 
 .headerIMGS {
@@ -125,19 +125,20 @@ body {
 }
 
 .addTaskContainerTwo{
-  padding-left: 348px;
+  padding-left: 328px;
   padding-right: 648px;
   margin-top: 106px;
 }
 
 .groupButtonForm{
   display: flex;
-  padding-left: 348px;
+  flex-direction: column;
+  padding-left: 328px;
 }
 
 h2 {
   font-size: 73px;
-  padding-left: 348px;
+  /* padding-left: 328px; */
 }
 
 .star {
@@ -355,6 +356,23 @@ select:hover {
   font-size: 20px;
 }
 
+.test3 {
+  display: flex;
+}
+
+.dropDownImg {
+  width: 24px;
+  height: 24px;
+  margin-top: -42px;
+  margin-left: 410px;
+}
+
+.dropDownImg:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  border-radius: 50%;
+}
+
 /* RESPONSIVE DESIGN */
 
 .sidebarContainerResponsive {
@@ -396,9 +414,23 @@ select:hover {
 
 @media (max-width: 1295px) {
 
+  /* .h2Container {
+    display: flex;
+    justify-content: center;
+  } */
+
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   .groupButtonForm {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
+  }
+
+  .test3 {
+    flex-direction: column;
   }
 
   .seperatorContainer {
@@ -408,6 +440,7 @@ select:hover {
   .containerLeft {
     padding-right: 0;
     height: 285px;
+    
   }
 
   .containerRight {
@@ -421,6 +454,12 @@ select:hover {
 }
 
 @media (max-width: 1024px) {
+
+  h2 {
+    font-size: 56px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
   .sidebarContainer {
     display: none;
@@ -459,18 +498,32 @@ select:hover {
     padding-left: 0;
   }
 
-  .containerLeft {
+  /* .containerLeft {
     width: 75%;
   }
 
   .containerRight {
     width: 75%;
-  }
+  } */
 
 
 }
 
+@media (max-width: 768px) {
+
+  h2 {
+    font-size: 56px;
+  }
+
+  .clearButton {
+    display: none;
+  }
+
+}
+
 @media (max-width: 480px) {
+
+
 
   .UserIMG {
     width: 40x;
@@ -487,6 +540,11 @@ select:hover {
 
   .allPrio {
     height: 41px;
+  }
+
+  .test3 {
+    width: 85%;
+    align-items: center;
   }
 
   .containerLeft {
