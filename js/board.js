@@ -12,7 +12,7 @@ let todos = [
         'taskboard' : 'todo'
     },
     {
-        'title': 'test note',
+        'title': 'test note1',
         'discription': 'we test it',
         'assigned to': 'Pascal',
         'due date': '13.12.23',
@@ -24,7 +24,7 @@ let todos = [
         'taskboard' : 'todo'
     }, 
     {
-        'title': 'test note',
+        'title': 'test note2',
         'discription': 'we test it',
         'assigned to': 'Pascal',
         'due date': '13.12.23',
@@ -36,7 +36,7 @@ let todos = [
         'taskboard' : 'awaitfeedback'
     }, 
     {
-        'title': 'test note',
+        'title': 'test note3',
         'discription': 'we test it',
         'assigned to': 'Pascal',
         'due date': '13.12.23',
@@ -48,7 +48,7 @@ let todos = [
         'taskboard' : 'awaitfeedback'
     }, 
     {
-        'title': 'test note',
+        'title': 'test note4',
         'discription': 'we test it',
         'assigned to': 'Pascal',
         'due date': '13.12.23',
@@ -60,7 +60,7 @@ let todos = [
         'taskboard' : 'inprogress'
     }, 
     {
-        'title': 'test note',
+        'title': 'test note5',
         'discription': 'we test it',
         'assigned to': 'Pascal',
         'due date': '13.12.23',

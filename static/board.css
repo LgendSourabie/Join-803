@@ -1,8 +1,8 @@
 body {
     margin: 0;
     background-color: #F6F7F8;
+    font-family: 'inter';
 }
-
 .sidebar-left {
     background-color: #2A3647;
     height: 100vh;
@@ -15,56 +15,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-
-.logo {
-    width: 100.03px;
-    height: 121.97px;
-}
-
-.logodiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 232px;
-    margin-top: 64px;
-    margin-bottom: 64px;
-}
-
-.menusidebar {
-    width: 232px;
-    height: 229px;
-    gap: 15px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.menubar {
-    height: 46px;
-    padding-top: 8px;
-    padding-right: 53px;
-    padding-bottom: 8px;
-    padding-left: 53px;
-    border-radius: 8px;
-    gap: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.menusidebar img {
-    height: 30px;
-    width: 30px;
-}
-
-.menusidebar span {
-    height: 19px;
-    color: #CDCDCD;
-}
-
-.privacypolicy {
-    padding-bottom: 64px;
 }
 
 header {
@@ -83,21 +33,6 @@ header {
     align-items: center;
 }
 
-.header span {
-    width: 319px;
-    height: 24px;
-
-}
-
-.profilehelp {
-    width: 104px;
-    height: 56px;
-    gap: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .mainSection {
     margin-left: 232px;
     background-color: #F6F7F8;
@@ -106,15 +41,21 @@ header {
 }
 
 .headline {
+    height: 232px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
+.headline h1{
+    font-size: 61px;
+    font-weight: 700;
+}
 .addandsearch {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 4.69vh;
+    width: 35vw;
 }
 
 .todosection {
@@ -127,9 +68,13 @@ header {
     padding: 20px;
 }
 
+.todosplit{
+    width: 17.08vw;
+}
+
 .todocard {
     background-color: white;
-    width: 252px;
+    width: 17.5vw;
     gap: 10px;
     border-radius: 24px;
     padding: 16px;
