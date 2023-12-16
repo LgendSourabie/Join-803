@@ -39,12 +39,6 @@ function initialize(){
 }
 
 
-// function changeColorPrio(id, color) {
-//     let currentColor = document.getElementById(id);
-//     currentColor.classList.toggle(color);
-// }
-
-
 function changeColorPrio(id, color) {
     let currentColor = document.getElementById(id);
     currentColor.classList.toggle(color);

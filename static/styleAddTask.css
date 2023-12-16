@@ -82,6 +82,10 @@ body {
   cursor: pointer;
 }
 
+.sides:hover {
+  cursor: pointer;
+}
+
 .sidebarFooter {
   display: flex;
   flex-direction: column;
@@ -183,7 +187,7 @@ select:hover {
   width: 14px;
   height: 14px;
   position: absolute;
-  margin-top: 43px;
+  margin-top: 58px;
   margin-left: 410px;
 }
 
@@ -354,6 +358,7 @@ select:hover {
 
 .spanSubtasks {
   font-size: 20px;
+  margin-top: 15px;
 }
 
 .test3 {
@@ -372,6 +377,11 @@ select:hover {
   background-color: lightgrey;
   border-radius: 50%;
 }
+
+.active {
+  background-color: #091931;
+}
+
 
 /* RESPONSIVE DESIGN */
 
@@ -393,9 +403,14 @@ select:hover {
 
 .sidesResponsive {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   gap: 4px;
+}
+
+.sidesResponsive:hover {
+  cursor: pointer;
 }
 
 .sidesImgResponsive {
@@ -410,6 +425,14 @@ select:hover {
 .joinLogoResponsive {
   width: 32px;
   height: 39.02px;
+}
+
+.activeResponsive {
+  background-color: #091931;
+  height: 76px;
+  width: 80px;
+  gap: 10px;
+  border-radius: 16px;
 }
 
 @media (max-width: 1295px) {
@@ -429,6 +452,10 @@ select:hover {
     align-items: center;
   }
 
+  .test2 {
+    width: 440px;
+  }
+
   .test3 {
     flex-direction: column;
   }
@@ -440,6 +467,7 @@ select:hover {
   .containerLeft {
     padding-right: 0;
     height: 285px;
+    justify-content: center;
     
   }
 
