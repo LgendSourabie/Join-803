@@ -19,7 +19,7 @@ let todos = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 1,
+        'progress' : 0,
         'id' : 1,
         'taskboard' : 'todo'
     }, 
@@ -79,40 +79,24 @@ let currentDraggedElement;
 
 function renderToDos() {
 
-    let todo = todos.filter(t => t['taskboard'] == 'todo');
+    forlooprender('todo');
 
-    document.getElementById('todo').innerHTML = '';
+    forlooprender('inprogress');
+
+    forlooprender('awaitfeedback');
+
+    forlooprender('done');
+
+}
+
+function forlooprender(test){
+    let todo = todos.filter(t => t['taskboard'] == test);
+
+    document.getElementById(test).innerHTML = '';
 
     for (let index = 0; index < todo.length; index++) {
         const element = todo[index];
-        document.getElementById('todo').innerHTML += todotemplate(element, index);
-    }
-
-    let inprogress = todos.filter(t => t['taskboard'] == 'inprogress');
-
-    document.getElementById('inprogress').innerHTML = '';
-
-    for (let index = 0; index < inprogress.length; index++) {
-        const element = inprogress[index];
-        document.getElementById('inprogress').innerHTML += todotemplate(element ,index);
-    }
-
-    let awaitfeedback = todos.filter(t => t['taskboard'] == 'awaitfeedback');
-
-    document.getElementById('awaitfeedback').innerHTML = '';
-
-    for (let index = 0; index < awaitfeedback.length; index++) {
-        const element = awaitfeedback[index];
-        document.getElementById('awaitfeedback').innerHTML += todotemplate(element, index);
-    }
-
-    let done = todos.filter(t => t['taskboard'] == 'done');
-
-    document.getElementById('done').innerHTML = '';
-
-    for (let index = 0; index < done.length; index++) {
-        const element = done[index];
-        document.getElementById('done').innerHTML += todotemplate(element, index);
+        document.getElementById(test).innerHTML += todotemplate(element, index);
     }
 }
 
@@ -162,40 +146,69 @@ function removeHighlight(id) {
 function showtodowindow(i){
     let todowindow = document.getElementById('showtodowindow');
     todowindow.classList.add('showtodowindow');
-    todowindow.innerHTML = /*html*/`
-        <div class="overlay">
-            <div>
-                <button>${todos[i].category}</button>
-                <img src="/icons/close.svg" alt="">
-            </div>
-            <h1>${todos[i].title}</h1>
-            <span>${todos[i].discription}</span>
-            <div>
-                <span>Due date</span>
-                <span>${todos[i]['due date']}</span>
-            </div>
-            <div>
-                <span>Priority</span>
-                <div>
-                    <span>${todos[i].category}</span>
-                    <img src="${todos[i].prio}" alt="">
-                </div>
-            </div>
-            <div>
-                <div></div>
-                <div id="contacts"></div>
-            </div>
-            <div>
-                <span>Subtasks</span>
-                <div id="subtasks"></div>
-            </div>
-        </div>
-    `;
+    todowindow.innerHTML = todowindowtemplate(i);
     createSubtasks(i);
 }
 
+function todowindowtemplate(i){
+    return /*html*/`
+    <div class="overlay">
+        <div>
+            <button>${todos[i].category}</button>
+            <img src="/icons/close.svg" alt="" onclick="closetodowindow()">
+        </div>
+        <h1>${todos[i].title}</h1>
+        <span>${todos[i].discription}</span>
+        <div>
+            <span>Due date</span>
+            <span>${todos[i]['due date']}</span>
+        </div>
+        <div>
+            <span>Priority</span>
+            <div>
+                <span>${todos[i].category}</span>
+                <img src="${todos[i].prio}" alt="">
+            </div>
+        </div>
+        <div>
+            <div></div>
+            <div id="contacts"></div>
+        </div>
+        <div>
+            <span>Subtasks</span>
+            <div id="subtasks"></div>
+        </div>
+    </div>
+`;
+}
+
 function createSubtasks(i){
-    document.getElementById('subtasks').innerHTML += /*html*/`
-        <div></div>
+    for (let j = 0; j < todos[i].subtasks.length; j++) {
+        const element = todos[i].subtasks[j];
+        document.getElementById('subtasks').innerHTML += /*html*/`
+        <div>
+            <img id="checkbox${j}" src="/icons/uncheckBox.svg" alt="" onclick="changecheckbox('checkbox${j}' , ${i})">
+           <span>${element}</span> 
+        </div>
     `
+    }
+}
+
+function closetodowindow(){
+    document.getElementById('showtodowindow').classList.remove('showtodowindow');
+    document.getElementById('showtodowindow').innerHTML = '';
+
+}
+
+function changecheckbox(j , i) {
+    const checkbox = document.getElementById(j);
+    const checkButtonPath = '/icons/uncheckBox.svg';
+
+    if (checkbox.src.endsWith(checkButtonPath)) {
+        checkbox.src = '/icons/checkButton.svg';
+        todos[i].progress + 1
+    } else {
+        checkbox.src = checkButtonPath;
+        todos[i].progress - 1
+    }
 }
