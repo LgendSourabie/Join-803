@@ -26,42 +26,54 @@
     <!-- Main section -->
     <div class="mainSection">
         <div class="headline">
-            <h1>Board</h1>
             <div class="addandsearch">
+                <h1>Board</h1>
                 <div>
-                    <input type="Find Task">
-                    <img src="/icons/search.svg" alt="">
+                    <div>
+                        <input type="Find Task">
+                        <img src="/icons/search.svg" alt="">
+                    </div>
+                    <button>Add Task <img src="/icons/add.svg" alt=""></button>
                 </div>
-                <button>Add Task <img src="/icons/add.svg" alt=""></button>
+            </div>
+            <div class="tablecolumn">
+                <div class="tablecolumntitle">
+                    <span>To do</span>
+                    <img src="/icons/plusButton.svg" alt="">
+                </div>
+                <div class="tablecolumntitle">
+                    <span>In Progress</span>
+                    <img src="/icons/plusButton.svg" alt="">
+                </div>
+                <div class="tablecolumntitle">
+                    <span>Await Feedback</span>
+                    <img src="/icons/plusButton.svg" alt="">
+                </div>
+                <div class="tablecolumntitle">
+                    <span>Done</span>
+                </div>
             </div>
         </div>
         <div class="todosection">
             <div class="todosplit">
-                <div>
-                    <span>To do</span>
-                    <img src="/icons/plusButton.svg" alt="">
-                </div>
-                <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')" ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
+
+                <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')"
+                    ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
             </div>
             <div class="todosplit">
-                <div>
-                    <span>In Progress</span>
-                    <img src="/icons/plusButton.svg" alt="">
-                </div>
-                <div id="inprogress" class="todoscontainer" ondragover="allowDrop(event); highlight('inprogress')" ondrop="moveTo('inprogress')" ondragleave="removeHighlight('inprogress')"></div>
+
+                <div id="inprogress" class="todoscontainer" ondragover="allowDrop(event); highlight('inprogress')"
+                    ondrop="moveTo('inprogress')" ondragleave="removeHighlight('inprogress')"></div>
             </div>
             <div class="todosplit">
-                <div>
-                    <span>Await Feedback</span>
-                    <img src="/icons/plusButton.svg" alt="">
-                </div>
-                <div id="awaitfeedback" class="todoscontainer" ondragover="allowDrop(event); highlight('awaitfeedback')" ondrop="moveTo('awaitfeedback')" ondragleave="removeHighlight('awaitfeedback')"></div>
+
+                <div id="awaitfeedback" class="todoscontainer" ondragover="allowDrop(event); highlight('awaitfeedback')"
+                    ondrop="moveTo('awaitfeedback')" ondragleave="removeHighlight('awaitfeedback')"></div>
             </div>
             <div class="todosplit">
-                <div>
-                    <span>Done</span>
-                </div>
-                <div id="done" class="todoscontainer" ondragover="allowDrop(event); highlight('done')" ondrop="moveTo('done')" ondragleave="removeHighlight('done')"></div>
+
+                <div id="done" class="todoscontainer" ondragover="allowDrop(event); highlight('done')"
+                    ondrop="moveTo('done')" ondragleave="removeHighlight('done')"></div>
             </div>
         </div>
         <div id="showtodowindow"></div>

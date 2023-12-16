@@ -3,6 +3,7 @@ body {
     background-color: #F6F7F8;
     font-family: 'inter';
 }
+
 .sidebar-left {
     background-color: #2A3647;
     height: 100vh;
@@ -36,26 +37,49 @@ header {
 .mainSection {
     margin-left: 232px;
     background-color: #F6F7F8;
-    flex: 1;
     height: 100%;
 }
 
 .headline {
+    width: 1208px;
     height: 232px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    top: 96px;
+    left: 232px;
+    position: sticky;
 }
-.headline h1{
+
+.headline h1 {
     font-size: 61px;
     font-weight: 700;
 }
+
 .addandsearch {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 4.69vh;
-    width: 35vw;
+    width: 1056px;
+    height: 73px;
+    top: 79.5px; 
+    left: 64px;
+    position: sticky;
+}
+
+.tablecolumn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 24px;
+    top: 200.5px;
+    padding: 0px 64px 0px 64px;
+    position: sticky;
+}
+
+.tablecolumntitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 244px;
+    height: 24px;
 }
 
 .todosection {
@@ -63,14 +87,12 @@ header {
     justify-content: space-around;
 }
 
-.todoscontainer{
+.todoscontainer {
     height: 70vh;
     padding: 20px;
 }
 
-.todosplit{
-    width: 17.08vw;
-}
+
 
 .todocard {
     background-color: white;
@@ -118,7 +140,7 @@ header {
     transition: width 0.4s ease;
 }
 
-.subtasks{
+.subtasks {
     height: 14px;
     display: flex;
     justify-content: flex-start;
@@ -126,7 +148,7 @@ header {
 
 }
 
-.assignedprio{
+.assignedprio {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -137,19 +159,20 @@ header {
 }
 
 
-.showtodowindow{
+.showtodowindow {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    position: fixed; z-index: 2;
+    position: fixed;
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.3);
     top: 0;
 
 }
 
-.overlay{
+.overlay {
     background-color: white;
     width: 525px;
     border-radius: 25px;
