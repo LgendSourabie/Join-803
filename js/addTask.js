@@ -24,6 +24,7 @@ let usersAssigned = [];
 let categories = ['Technical Task','User Story'];
 
 
+// This function is responsible for loading data from local storage.
 function  load(){
     let des = localStorage.getItem('liste');
     if(des){
@@ -32,6 +33,7 @@ function  load(){
 }
 
 
+// This function serves as an initializer, orchestrating various tasks to set up the application.
 function initialize(){
     addContacts();
     addCategory();
@@ -39,6 +41,7 @@ function initialize(){
 }
 
 
+// This function changes the source (image) attribute of three HTML elements based on their IDs.
 function changeColorPrio(id,id2,id3, currentsrc, src,src2,src3) {
     let element = document.getElementById(id);
     let element2 = document.getElementById(id2);
@@ -52,6 +55,17 @@ function changeColorPrio(id,id2,id3, currentsrc, src,src2,src3) {
         element.setAttribute('src', currentsrc);
         element2.setAttribute('src', src2);
         element3.setAttribute('src', src3);
+    }
+}
+
+function chang(id) {
+    let element = document.getElementById(id);
+    if (StateButton === currentsrc) {
+        element.setAttribute('src', src);
+    } else {
+        element.setAttribute('src', currentsrc); // ein Kreuz
+        element.setAttribute('src', currentsrc); // ein Checkmark
+
     }
 }
 
@@ -75,7 +89,7 @@ function addContacts() {
     for (let i = 0; i < user.length; i++) {
         let currentUser = user[i].name;
         select.innerHTML += /*html*/`
-            <option id="assigned-${i}" value="${currentUser}">${currentUser}</option>
+             <option id="assigned-${i}" value="${currentUser}"><button class="contactsButton">ID</button> ${currentUser}  <img src="" alt=""></option>
     `;
 }
 }
@@ -158,7 +172,10 @@ function saveLocalStorage(val1,val2, val3, val4, val5,prios, val6) {
 
 
 
-
+// =contacts.map((contact)=>contact['name'].toUpperCase())
+// Names[0].split(' ')
+// Names[0].split(' ')[0]
+// Names[0].split(' ')[0].slice(1)
 
 
 

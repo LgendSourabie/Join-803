@@ -178,7 +178,16 @@ select {
   border: 1px solid #A8A8A8;
   padding: 16px;
   cursor: pointer;
+  appearance: none;
+  background-image: url('../img/img/arrow_drop_down.svg');
+  background-repeat: no-repeat;
+  background-position-y: center;
+  padding-right: 2rem;
+  background-position-x: right;
+  background-origin: content-box;
 }
+
+
 
 select:hover {
   border-color: grey;
@@ -227,10 +236,10 @@ select:hover {
 .prioSelection {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: 16px;
 }
 
-.allPrio {
+/* .allPrio {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -240,11 +249,11 @@ select:hover {
   padding: 16px, 10px, 16px, 10px;
   background-color: #ffffff;
   cursor: pointer;
-}
+} */
 
-.allPrio:hover {
+/* .allPrio:hover {
   box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
-}
+} */
 
 .prio {
   display: flex;
@@ -383,6 +392,13 @@ select:hover {
   background-color: #091931;
 }
 
+.contactsButton {
+  width: 20px;
+  height: 20px;
+  color: blue;
+  border-radius: 50%;
+}
+
 
 /* RESPONSIVE DESIGN */
 
@@ -439,6 +455,10 @@ select:hover {
 .testPrio {
   width: 136px;
   height: 56px;
+}
+
+.testPrio:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 1295px) {
@@ -573,8 +593,18 @@ select:hover {
     font-size: 14px;
   }
 
-  .allPrio {
+  /* .allPrio {
     height: 41px;
+  } */
+
+  .prioSelection {
+    gap: 8px;
+  }
+
+  .test2 {
+    width: 70%;
+    display: flex;
+    /* justify-content: center; */
   }
 
   .test3 {
@@ -590,7 +620,16 @@ select:hover {
     width: 85%;
   }
 
+  .testPrio {
+    width: 121.33px;
+    height: 41px;
+  }
 }
+
+/* .subtasksPlusIMG {
+  margin-left: 318px;
+} */
+
 
 @media (max-width: 360px) {
 
