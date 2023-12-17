@@ -49,7 +49,7 @@ a {
 } */
 
 .login-body {
-  font-family: "Inter";
+  font-family: 'Inter';
   background-color: #f6f7f8;
   flex-direction: column;
   justify-content: center;
@@ -116,28 +116,28 @@ a {
   margin-top: 1.2rem;
 }
 .input-signup::placeholder {
-  font-family: "Inter";
+  font-family: 'Inter';
   /* font-size: 20px; */
   font-size: 1.25rem;
   line-height: 24px;
   font-weight: 400;
 }
 .input-signup-1::placeholder {
-  background-image: url("/icons/mail.svg");
+  background-image: url('/icons/mail.svg');
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
 }
 
 .input-signup-0::placeholder {
-  background-image: url("/icons/person.svg");
+  background-image: url('/icons/person.svg');
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
 }
 
 .input-signup-2::placeholder {
-  background-image: url("/icons/lock.svg");
+  background-image: url('/icons/lock.svg');
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
@@ -244,7 +244,7 @@ a {
   justify-content: center;
   position: absolute;
   width: 100%;
-  bottom: 3rem;
+  bottom: 1.5rem;
   gap: 1.2rem;
   right: 0;
   left: 0;

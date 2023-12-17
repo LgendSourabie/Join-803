@@ -58,7 +58,7 @@ a {
 }
 
 .login-body {
-  font-family: "Inter";
+  font-family: 'Inter';
   background-color: #f6f7f8;
   flex-direction: column;
   justify-content: center;
@@ -119,20 +119,20 @@ a {
   padding-inline: 21px;
 }
 .input-login::placeholder {
-  font-family: "Inter";
+  font-family: 'Inter';
   font-size: 20px;
   line-height: 24px;
   font-weight: 400;
 }
 .input-login-1::placeholder {
-  background-image: url("/icons/mail.svg");
+  background-image: url('/icons/mail.svg');
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
 }
 
 .input-login-0::placeholder {
-  background-image: url("/icons/person.svg");
+  background-image: url('/icons/person.svg');
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
@@ -143,7 +143,7 @@ a {
 }
 
 .input-login-2::placeholder {
-  background-image: url("/icons/lock.svg");
+  background-image: url('/icons/lock.svg');
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
