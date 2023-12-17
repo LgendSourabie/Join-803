@@ -6,7 +6,7 @@ let todos = [
         'due date': '13.12.23',
         'prio': '/icons/priomedium.svg',
         'category': 'Technical Task',
-        'subtasks': [],
+        'subtasks': ['test2'],
         'progress' : 0,
         'id' : 0,
         'taskboard' : 'todo'
@@ -77,22 +77,24 @@ let currentDraggedElement;
 
 
 
-function renderToDos() {
+function renderToDos(filteredTodos) {
 
-    forlooprender('todo');
+    forlooprender('todo', filteredTodos);
 
-    forlooprender('inprogress');
+    forlooprender('inprogress', filteredTodos);
 
-    forlooprender('awaitfeedback');
+    forlooprender('awaitfeedback', filteredTodos);
 
-    forlooprender('done');
+    forlooprender('done', filteredTodos);
 
 }
 
-function forlooprender(test){
-    let todo = todos.filter(t => t['taskboard'] == test);
+function forlooprender(test, filteredTodos){
+    let todo = filteredTodos || todos.filter(t => t['taskboard'] == test);
 
     document.getElementById(test).innerHTML = '';
+
+    let fragment = document.createDocumentFragment();
 
     for (let index = 0; index < todo.length; index++) {
         const element = todo[index];
@@ -211,4 +213,18 @@ function changecheckbox(j , i) {
         checkbox.src = checkButtonPath;
         todos[i].progress - 1
     }
+}
+
+function filterTodosByTitle() {
+    // Get the input element and its value
+    let input = document.getElementById('taskInput');
+    let filter = input.value.toLowerCase();
+
+    // Filter the todos based on the input
+    let filteredTodos = todos.filter(function(todo) {
+        return todo.title.toLowerCase().includes(filter);
+    });
+
+    // Update the display for each taskboard
+    renderToDos(filteredTodos);
 }

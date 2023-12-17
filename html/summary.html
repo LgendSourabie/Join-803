@@ -10,28 +10,10 @@
     <script src="../sensitive/url.js"></script>
 
     <!-- FAVICON -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../favicon/favicon-16x16.png"
-    />
-    <link
-      rel="mask-icon"
-      href="../favicon/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <!-- END FAVICON -->
@@ -45,80 +27,42 @@
         </div>
         <div class="section-2">
           <div class="sub-menu-container disp-flex bg-summary">
-            <img
-              class="icons-left-side-section cursor-ptr"
-              src="/icons/summary_white.svg"
-              alt="Summary"
-            />
-            <p class="para-summary gray-text ft-sz-400 clr-white cursor-ptr">
-              Summary
-            </p>
+            <img class="icons-left-side-section cursor-ptr" src="/icons/summary_white.svg" alt="Summary" />
+            <p class="para-summary gray-text ft-sz-400 clr-white cursor-ptr">Summary</p>
           </div>
 
           <div class="sub-menu-container disp-flex">
-            <img
-              class="icons-left-side-section cursor-ptr"
-              src="/icons/addTask.svg"
-              alt="Task"
-            />
+            <img class="icons-left-side-section cursor-ptr" src="/icons/addTask.svg" alt="Task" />
             <p class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
           <div class="sub-menu-container disp-flex">
-            <img
-              class="icons-left-side-section cursor-ptr"
-              src="/icons/board.svg"
-              alt="Board"
-            />
+            <img class="icons-left-side-section cursor-ptr" src="/icons/board.svg" alt="Board" />
             <p class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
 
           <div class="sub-menu-container disp-flex">
-            <img
-              class="icons-left-side-section cursor-ptr"
-              src="/icons/contact.svg"
-              alt="Contacts"
-            />
+            <img class="icons-left-side-section cursor-ptr" src="/icons/contact.svg" alt="Contacts" />
             <p class="para-summary gray-text ft-sz-400 cursor-ptr">Contacts</p>
           </div>
         </div>
         <div class="section-3">
-          <a class="gray-text links" onclick="userAction('privacy')"
-            >Privacy Policy</a
-          >
-          <a class="gray-text links" onclick="userAction('legal_notice')"
-            >Legal notice</a
-          >
+          <a class="gray-text links" onclick="userAction('privacy')">Privacy Policy</a>
+          <a class="gray-text links" onclick="userAction('legal_notice')">Legal Notice</a>
         </div>
       </div>
       <div class="right-side-section">
         <header class="menu disp-flex">
           <img class="mobile-logo" src="../icons/logo_blue.svg" alt="Logo" />
-          <div class="kanban-tool ft-sz-400">
-            Kanban Project Management Tool
-          </div>
+          <div class="kanban-tool ft-sz-400">Kanban Project Management Tool</div>
           <div class="menu-icons-group disp-flex">
-            <img
-              id="help-icon"
-              class="help"
-              src="/icons/help.svg"
-              alt="Help"
-              onclick="userAction('help')"
-            />
-            <button
-              id="loginBtn"
-              class="login"
-              onclick="showSubmenu()"
-            ></button>
+            <img id="help-icon" class="help" src="/icons/help.svg" alt="Help" onclick="userAction('help')" />
+            <button id="loginBtn" class="login" onclick="showSubmenu()"></button>
           </div>
         </header>
         <div id="submenu-user" class="submenu-user d-none">
-          <a class="list-item ft-sz-400" onclick="userAction('legal_notice')">
-            Legal Notice</a
-          >
-          <a class="list-item ft-sz-400" onclick="userAction('privacy')"
-            >Privacy Policy</a
-          >
+          <a class="list-item ft-sz-400" onclick="userAction('legal_notice')"> Legal Notice</a>
+          <a class="list-item ft-sz-400" onclick="userAction('privacy')">Privacy Policy</a>
           <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
         </div>
         <div class="task-info-section">
@@ -131,24 +75,22 @@
             </div>
             <div class="task disp-flex">
               <div class="task-overview disp-flex">
+                <div class="greeting-responsive">
+                  <div>
+                    <span id="greet-user-responsive" class="greeting"></span>
+                  </div>
+                  <span id="current-user-name-responsive" class="current-user-name"></span>
+                </div>
                 <div class="first-line-task disp-flex">
                   <div class="todo do-task disp-flex">
-                    <img
-                      class="task-icons-blue"
-                      src="/icons/edit.svg"
-                      alt="TO-DO"
-                    />
+                    <img class="task-icons-blue" src="/icons/edit.svg" alt="TO-DO" />
                     <div class="middle">
                       <span id="todo" class="var-task">0</span>
                       <span class="task-text ft-sz-400">To-do</span>
                     </div>
                   </div>
                   <div class="done do-task disp-flex">
-                    <img
-                      class="task-icons-blue"
-                      src="/icons/check.svg"
-                      alt="TO-DO"
-                    />
+                    <img class="task-icons-blue" src="/icons/check.svg" alt="TO-DO" />
                     <div class="middle">
                       <span id="done" class="var-task">0</span>
                       <span class="task-text ft-sz-400">Done</span>
@@ -157,11 +99,7 @@
                 </div>
                 <div class="second-line-task disp-flex">
                   <div class="urgent disp-flex task-due-common">
-                    <img
-                      class="task-icons"
-                      src="/icons/urgent.svg"
-                      alt="Urgent"
-                    />
+                    <img class="task-icons" src="/icons/urgent.svg" alt="Urgent" />
                     <div class="middle">
                       <span id="urgent" class="var-task">0</span>
                       <span class="task-text ft-sz-400">Urgent</span>
@@ -193,8 +131,8 @@
               </div>
               <div class="right-greeting disp-flex">
                 <div>
-                  <span id="greet-user" class="greeting">Good morning</span>
-                  <span id="comma" class="greeting">,</span><br />
+                  <span id="greet-user" class="greeting"></span>
+                  <span id="comma" class="greeting"></span><br />
                 </div>
                 <span id="current-user-name" class="current-user-name"></span>
               </div>

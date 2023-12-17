@@ -82,9 +82,33 @@ header {
 
 }
 
-.addandsearch button img{
+.addandsearch button img {
     height: 32px;
     width: 32px;
+}
+
+.searchtask {
+    width: 312px;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #A8A8A8;
+    display: flex;
+    align-items: center;
+}
+
+.searchtask img {
+    margin-left: 16px;
+    height: 32px;
+    width: 48px;
+}
+
+input {
+    height: 48px;
+    width: 232px;
+    border: none;
+    border-radius: 10px;
 }
 
 .tablecolumn {
@@ -117,6 +141,7 @@ header {
 
 .todoscontainer {
     padding-top: 20px;
+    min-height: 600px;
 }
 
 

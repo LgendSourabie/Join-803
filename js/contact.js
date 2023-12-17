@@ -31,32 +31,42 @@ let contacts = [
     name: "Ibrahima Sourabie",
     telephone: "0123456789",
     email: "ibrahima@join803.de",
+    initials: "IS",
+    bgColor: '#298c2b'
   },
   {
     name: "Pascal Wagner",
     telephone: "0123456789",
     email: "pascal@join803.de",
+    initials: "PW",
+    bgColor: '#cb636e'
   },
   {
     name: "Thomas Jilge",
     telephone: "0123456789",
     email: "thomas@join803.de",
+    initials: "TJ",
+    bgColor: '#ae3ad5'
   },
   {
     name: "Henrik Sorg",
     telephone: "0123456789",
     email: "henrik@join803.de",
+    initials: "HS",
+    bgColor: '#50e04c'
   },
 ];
 
 let highlightedContact;
+let currentContact;
+let selectedContact;
 
 let edit = false;
 let contactIndex = -1;
 
-function renderContactSection() {
-  document.getElementById("render-container").innerHTML =
-    renderContactSectionTemplate();
+async function renderContactSection() {
+  // contacts =  JSON.parse(await getItem("contacts"));
+  document.getElementById("render-container").innerHTML = renderContactSectionTemplate();
   renderContacts();
 }
 
@@ -85,8 +95,8 @@ function renderContacts() {
 }
 
 function openContact(i) {
-  let selectedContact = "contact-" + i;
-
+  selectedContact = "contact-" + i;
+  currentContact = i;
   if (selectedContact == highlightedContact) {
     hideContact();
     removeHighligtContact(i);
@@ -101,19 +111,23 @@ function hideContact() {
   document.getElementById("show-contact").innerHTML = "";
 }
 
+
 function showContact(i) {
-  
   document.getElementById("show-contact").innerHTML = showContactTemplate(i);
+  currentContact = i;
 }
+
 
 function showContactTemplate(i) {
   let name = contacts[i]["name"];
   let email = contacts[i]["email"];
   let telephone = contacts[i]["telephone"];
+  let initials = contacts[i]["initials"];
+  let bg = contacts[i]["bgColor"];
   return /*html*/ `
         <div>
             <div class="initial-name-container">
-                <div class="initial-single-view">JD</div>
+                <div id="initial-single-view" style="background: ${bg}">${initials}</div>
                 <div class="name-edit-delete">
                     <div id="name-single-view">${name}</div>
                     <div class="edit-and-delete">
@@ -169,16 +183,19 @@ function insertContacts() {
     // let letter = alphabet[i].toLowerCase();
     section.innerHTML += insertContactsTemmplate(i, name);
     section.classList.remove("d-none");
+
     // console.log('section-'+letter)
   }
 }
 
 function insertContactsTemmplate(i, name) {
   let email = contacts[i]["email"];
+  let initials = getInitials(name);
+  let bg = contacts[i]["bgColor"];
   return /*html*/ `
     <div class="contact" id="contact-${i}" onclick="openContact(${i}), showContactResponsiv(${i})">
         <div class="initial-border">
-            <div class="initial-overview">JD</div>
+            <div class="initial-overview" style="background:${bg}">${initials}</div>
         </div>
         <div style="display: flex;flex-direction: column;">
             <span class="name">${name}</span>
@@ -194,9 +211,7 @@ function highligtContact(i) {
 }
 
 function setHighligtContact() {
-  document
-    .getElementById(highlightedContact)
-    .classList.add("highlight-contact");
+  document.getElementById(highlightedContact).classList.add("highlight-contact");
 }
 
 function removeHighligtContact() {
@@ -211,15 +226,19 @@ function createContact() {
   let name = document.getElementById("name-input").value;
   let telephone = document.getElementById("telephone-input").value;
   let email = document.getElementById("email-input").value;
-  createOrEditContact(name, telephone, email);
+  let initials = getInitials(name);
+  
+  createOrEditContact(name, telephone, email, initials);
   setEditToFalse();
 }
 
-function createOrEditContact(name, telephone, email) {
+function createOrEditContact(name, telephone, email, initials) {
+  // ev.preventDefault()
   if (contactIndex != -1) {
-    editExistingContact(name, telephone, email);
+    editExistingContact(name, telephone, email, initials);
+    // xxxxxx
   } else {
-    createNewContact(name, telephone, email);
+    createNewContact(name, telephone, email, initials);
   }
   closeAddContact();
   renderContactSection();
@@ -228,19 +247,26 @@ function createOrEditContact(name, telephone, email) {
   showContact(i);
 }
 
-function createNewContact(name, telephone, email) {
-  contacts.push({ name: name, telephone: telephone, email: email });
+function createNewContact(name, telephone, email, initials) {
+  let bg = randomColorGenerator();
+  contacts.push({ name: name, telephone: telephone, email: email, initials: initials, bgColor: bg});
   lastIndex = contacts.length - 1;
   highlightedContact = "contact-" + lastIndex;
 }
 
-function editExistingContact(name, telephone, email) {
+
+async function editExistingContact(name, telephone, email, initials) {
+  let bg = contacts[currentContact]['bgColor']
   contacts.splice(contactIndex, 1, {
     name: name,
     telephone: telephone,
     email: email,
+    initials: initials,
+    bgColor: bg
   });
+  // await setItem('contacts', contacts)
 }
+
 
 function renderAddContact() {
   openAddContact();
@@ -253,6 +279,14 @@ function openAddContact() {
   addContact.innerHTML = addAndEditTemplate();
 }
 
+
+function initialsTemplate(bg){
+  return /*html*/`
+  <div id="initial-edit-contact" style="background: ${bg}">HS</div>
+`
+}
+
+
 function addAndEditTemplate() {
   return /*html*/ `
     <div id="add-contact">
@@ -260,12 +294,13 @@ function addAndEditTemplate() {
             <img src="../icons/logo.svg" alt="logo">
             <h2 id="headline-add-edit"></h2>
             <p id="subheadline-add-edit"></p>
+            <div class="border-add-edit"></div>
         </div>
         <div class="add-contact-data">
-          <div class="profile-icon-container">
+          <div class="profile-icon-container" id="profile-icon-container">
             <img src="../icons/profileImageContacts.svg" alt="profile icon">
           </div>
-            <form onsubmit="createContact()">
+              <div>
                 <div class="d-flex add-contact-input-container"><input type="text" minlength="2"  placeholder="Name" class="add-contact-input" id="name-input" required><img src="../icons/name.svg" alt="telephone-icon"></div>
                 <div class="d-flex add-contact-input-container"><input type="email" placeholder="Email" class="add-contact-input" id="email-input" required><img src="../icons/email.svg" alt="telephone-icon"></div>
                 <div class="d-flex add-contact-input-container">
@@ -280,9 +315,9 @@ function addAndEditTemplate() {
                 </div>
                 <div class="d-flex">
                   <button type="button" class="cancel-contact-button" onclick="closeAddContact()">Cancel</button>
-                  <button type="submit" class="create-contact-button" id="button-add-edit"></button> 
+                  <button type="submit" class="create-contact-button" id="button-add-edit" onclick="createContact()"></button> 
                 </div>
-            </form>
+              </div>
             
         </div>
     </div>
@@ -294,37 +329,37 @@ function insertContentAddEdit(addOrEdit) {
   subheadline = document.getElementById("subheadline-add-edit");
   button = document.getElementById("button-add-edit");
   if (addOrEdit == "add") {
-    ContentAddContact(headline, subheadline, button);
+    contentAddContact(headline, subheadline, button);
   } else {
-    ContentEditContact(headline, subheadline, button);
+    contentEditContact(headline, subheadline, button);
   }
 }
 
-function ContentAddContact(headline, subheadline, button) {
+function contentAddContact(headline, subheadline, button) {
   headline.innerHTML = "Add Contact";
   subheadline.innerHTML = "Tasks are better with a team!";
   button.innerHTML = "Create Contact";
+
 }
 
-function ContentEditContact(headline, subheadline, button) {
+function contentEditContact(headline, subheadline, button) {
   headline.innerHTML = "Edit Contact";
   subheadline.innerHTML = "";
   button.innerHTML = "Edit Contact";
+  let bg = contacts[currentContact]["bgColor"];
+  document.getElementById('profile-icon-container').innerHTML = initialsTemplate(bg);
 }
 
 function closeAddContact() {
   document.getElementById("add-contact-bg").classList.add("d-none");
-  event.preventDefault();
   setEditToFalse();
 }
 
 function editContact(i) {
-  // setEditToTrue();
   saveContactIndex(i);
   openAddContact();
   insertContentAddEdit("edit");
   getInputValueContact();
-  // openContact();
 }
 
 function saveContactIndex(i) {
@@ -340,12 +375,14 @@ function setEditToFalse() {
 }
 
 function getInputValueContact() {
-  getName = document.getElementById("name-single-view").innerHTML;
-  getEmail = document.getElementById("email-single-view").innerHTML;
-  getPhone = document.getElementById("phone-single-view").innerHTML;
+  let getName = document.getElementById("name-single-view").innerHTML;
+  let getEmail = document.getElementById("email-single-view").innerHTML;
+  let getPhone = document.getElementById("phone-single-view").innerHTML;
+  let initials = document.getElementById("initial-single-view").innerHTML;
   document.getElementById("name-input").value = getName.trim();
   document.getElementById("telephone-input").value = getPhone.trim();
   document.getElementById("email-input").value = getEmail.trim();
+  document.getElementById('initial-edit-contact').innerHTML = initials;
 }
 
 function deleteContact(i) {
@@ -387,10 +424,10 @@ function showContactResponsiv(jsonIndex) {
 
 // Safe and get contacts in remote Storage
 async function loadAllContacts() {
-  users = JSON.parse(await getItem("contacts"));
+  contacts = JSON.parse(await getItem("contacts"));
 }
 
-setItem("contacts", JSON.stringify(contacts));
+// setItem("contacts", JSON.stringify(contacts));
 
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
@@ -402,10 +439,24 @@ async function setItem(key, value) {
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  return fetch(url)
+  return await fetch(url)
     .then((response) => response.json())
     .then((response) => response.data.value);
 }
 
-// contacts = JSON.parse(getItem("contacts"));
+// contacts =  JSON.parse(await getItem("contacts"));
 // setItem("contacts", JSON.stringify(contacts));
+
+
+//standard funktionen
+function getInitials(nameAsString) {
+  let initials = (fullname=>fullname.map((n, i)=>(i==0||i==fullname.length-1)&&n[0]).filter(n=>n).join("")) 
+  (nameAsString.split(" ")).toUpperCase();
+  
+  return initials
+}
+
+function randomColorGenerator(){
+  let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  return randomColor
+}
