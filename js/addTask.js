@@ -39,9 +39,20 @@ function initialize(){
 }
 
 
-function changeColorPrio(id, color) {
-    let currentColor = document.getElementById(id);
-    currentColor.classList.toggle(color);
+function changeColorPrio(id,id2,id3, currentsrc, src,src2,src3) {
+    let element = document.getElementById(id);
+    let element2 = document.getElementById(id2);
+    let element3 = document.getElementById(id3);
+    let StateButton = element.getAttribute('src');
+    if (StateButton === currentsrc) {
+        element.setAttribute('src', src);
+        element2.setAttribute('src', src2);
+        element3.setAttribute('src', src3);
+    } else {
+        element.setAttribute('src', currentsrc);
+        element2.setAttribute('src', src2);
+        element3.setAttribute('src', src3);
+    }
 }
 
 
@@ -52,7 +63,7 @@ function prio(id) {
 
 
 function defaultPrio() {
-    changeColorPrio('colorMedium', 'bgMedium');
+    // changeColorPrio('colorMedium', 'bgMedium');
     prio('Medium');
 }
 

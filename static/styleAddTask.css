@@ -130,8 +130,9 @@ body {
 
 .addTaskContainerTwo{
   padding-left: 328px;
-  padding-right: 648px;
+  /* padding-right: 648px; */
   margin-top: 106px;
+  width: 928px;
 }
 
 .groupButtonForm{
@@ -435,6 +436,11 @@ select:hover {
   border-radius: 16px;
 }
 
+.testPrio {
+  width: 136px;
+  height: 56px;
+}
+
 @media (max-width: 1295px) {
 
   /* .h2Container {
@@ -478,6 +484,7 @@ select:hover {
 
   .addTaskContainerTwo {
     margin-top: 5px;
+    width: 440px;
   }
 }
 
