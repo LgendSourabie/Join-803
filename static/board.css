@@ -40,28 +40,51 @@ header {
     height: 100%;
 }
 
-.headline {
-    width: 1208px;
-    height: 232px;
-    top: 96px;
-    left: 232px;
-    position: sticky;
-}
 
-.headline h1 {
+.section1 h1 {
     font-size: 61px;
     font-weight: 700;
 }
 
-.addandsearch {
+.headline {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 1056px;
     height: 73px;
-    top: 79.5px; 
-    left: 64px;
-    position: sticky;
+    margin-top: 79.5px;
+    margin-left: 64px;
+}
+
+.addandsearch {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: 504px;
+    gap: 32px;
+
+}
+
+.addandsearch button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 160px;
+    height: 48px;
+    padding: 8px 16px 8px 16px;
+    border-radius: 10px;
+    border: 1px;
+    gap: 4px;
+    background-color: #2A3647;
+    color: white;
+    font-size: 19px;
+    font-weight: 700;
+
+}
+
+.addandsearch button img{
+    height: 32px;
+    width: 32px;
 }
 
 .tablecolumn {
@@ -69,9 +92,8 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 24px;
-    top: 200.5px;
+    margin-top: 55.5px;
     padding: 0px 64px 0px 64px;
-    position: sticky;
 }
 
 .tablecolumntitle {
@@ -82,21 +104,25 @@ header {
     height: 24px;
 }
 
+.todosplit {
+    width: 252px;
+    height: 688px;
+}
+
 .todosection {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0px 64px 0px 64px;
 }
 
 .todoscontainer {
-    height: 70vh;
-    padding: 20px;
+    padding-top: 20px;
 }
 
 
 
 .todocard {
     background-color: white;
-    width: 17.5vw;
     gap: 10px;
     border-radius: 24px;
     padding: 16px;
