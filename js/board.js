@@ -77,30 +77,53 @@ let currentDraggedElement;
 
 
 
-function renderToDos(filteredTodos) {
+function renderToDos() {
 
-    forlooprender('todo', filteredTodos);
+    forlooprender('todo');
 
-    forlooprender('inprogress', filteredTodos);
+    forlooprender('inprogress');
 
-    forlooprender('awaitfeedback', filteredTodos);
+    forlooprender('awaitfeedback');
 
-    forlooprender('done', filteredTodos);
+    forlooprender('done');
 
 }
 
-function forlooprender(test, filteredTodos){
-    let todo = filteredTodos || todos.filter(t => t['taskboard'] == test);
+function forlooprender(test){
+    let todo = todos.filter(t => t['taskboard'] == test);
 
     document.getElementById(test).innerHTML = '';
-
-    let fragment = document.createDocumentFragment();
 
     for (let index = 0; index < todo.length; index++) {
         const element = todo[index];
         document.getElementById(test).innerHTML += todotemplate(element, index);
     }
 }
+
+function filterTodosByTitle() {
+    let input = document.getElementById('taskInput');
+    let filter = input.value.toLowerCase();
+
+    let filteredTodos = todos.filter(function(todo) {
+        return todo.title.toLowerCase().includes(filter);
+    });
+
+    renderFilteredTodos(filteredTodos);
+}
+
+function renderFilteredTodos(filteredTodos) {
+
+    document.getElementById('todo').innerHTML = '';
+    document.getElementById('inprogress').innerHTML = '';
+    document.getElementById('awaitfeedback').innerHTML = '';
+    document.getElementById('done').innerHTML = '';
+
+    for (let index = 0; index < filteredTodos.length; index++) {
+        const element = filteredTodos[index];
+        document.getElementById(element.taskboard).innerHTML += todotemplate(element, index);
+    }
+}
+
 
 function todotemplate(array, i) {
     return /*html*/`
@@ -122,6 +145,7 @@ function todotemplate(array, i) {
 </div>
 `
 }
+
 
 function startDragging(id) {
     currentDraggedElement = id;
@@ -184,6 +208,7 @@ function todowindowtemplate(i){
 `;
 }
 
+
 function createSubtasks(i){
     for (let j = 0; j < todos[i].subtasks.length; j++) {
         const element = todos[i].subtasks[j];
@@ -215,16 +240,3 @@ function changecheckbox(j , i) {
     }
 }
 
-function filterTodosByTitle() {
-    // Get the input element and its value
-    let input = document.getElementById('taskInput');
-    let filter = input.value.toLowerCase();
-
-    // Filter the todos based on the input
-    let filteredTodos = todos.filter(function(todo) {
-        return todo.title.toLowerCase().includes(filter);
-    });
-
-    // Update the display for each taskboard
-    renderToDos(filteredTodos);
-}
