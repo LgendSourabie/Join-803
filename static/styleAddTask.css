@@ -461,6 +461,15 @@ select:hover {
   cursor: pointer;
 }
 
+.headerInitials {
+  width: 56px;
+  height: 56px;
+  border: 1px solid black;
+  background-color: white;
+  color: #29ABE2;
+  border-radius: 50%;
+}
+
 @media (max-width: 1295px) {
 
   /* .h2Container {
@@ -632,6 +641,10 @@ select:hover {
 
 
 @media (max-width: 360px) {
+
+  .test2 {
+    width: 80%;
+  }
 
   .containerLeft {
     width: 95%;
