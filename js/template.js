@@ -1,6 +1,7 @@
 function templateSummary(){
     return /*html*/`
-        <span id="summary-page" class="summary-page">
+ 
+    <span id="summary-page" class="summary-page">
             <div class="marketing-slogan disp-flex">
               <div class="title">Join 360</div>
               <div class="blue-separator-line"></div>
@@ -71,7 +72,8 @@ function templateSummary(){
                 <span id="current-user-name" class="current-user-name"></span>
               </div>
             </div>
-          </span>
+          </span>  
+        
     `
 }
 
@@ -79,7 +81,7 @@ function templateAddTask(){
     return /*html*/`
         <div class="addTaskContainer">
 
-<div class="seperatorAddTask"></div>
+<!-- <div class="seperatorAddTask"></div> -->
 
 <div class="addTaskContainer">
 
