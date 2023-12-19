@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="../static/summary.css" />
     <link rel="stylesheet" href="../static/help.css" />
     <link rel="stylesheet" href="../static/font.css" />
+
+    <link rel="stylesheet" href="../static/styleAddTask.css">
+
+    <link rel="stylesheet" href="../static/board.css">
+
+    <link rel="stylesheet" href="../static/contact.css">
+
     <script src="../sensitive/token.js"></script>
     <script src="../sensitive/url.js"></script>
 
@@ -26,22 +33,22 @@
           <img class="logo-summary" src="/icons/logo.svg" alt="Logo" />
         </div>
         <div class="section-2">
-          <div class="sub-menu-container disp-flex bg-summary">
+          <div class="sub-menu-container disp-flex bg-summary" onclick="render(templateSummary())">
             <img class="icons-left-side-section cursor-ptr" src="/icons/summary_white.svg" alt="Summary" />
             <p class="para-summary gray-text ft-sz-400 clr-white cursor-ptr">Summary</p>
           </div>
 
-          <div class="sub-menu-container disp-flex">
+          <div class="sub-menu-container disp-flex" onclick="render(templateAddTask())">
             <img class="icons-left-side-section cursor-ptr" src="/icons/addTask.svg" alt="Task" />
             <p class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
-          <div class="sub-menu-container disp-flex">
+          <div class="sub-menu-container disp-flex" onclick="render(templateBoard()); renderToDos()">
             <img class="icons-left-side-section cursor-ptr" src="/icons/board.svg" alt="Board" />
             <p class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
 
-          <div class="sub-menu-container disp-flex">
+          <div class="sub-menu-container disp-flex" onclick="render(templateContacts()); renderContactSection()">
             <img class="icons-left-side-section cursor-ptr" src="/icons/contact.svg" alt="Contacts" />
             <p class="para-summary gray-text ft-sz-400 cursor-ptr">Contacts</p>
           </div>
@@ -65,7 +72,7 @@
           <a class="list-item ft-sz-400" onclick="userAction('privacy')">Privacy Policy</a>
           <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
         </div>
-        <div class="task-info-section">
+        <div id="render-container" class="task-info-section">
           <span id="summary-page" class="summary-page">
             <div class="marketing-slogan disp-flex">
               <div class="title">Join 360</div>
@@ -141,7 +148,19 @@
         </div>
       </div>
     </div>
+    
+    
+    <!-- script summary -->
     <script src="../js/summary.js"></script>
     <script src="../js/login_out.js"></script>
+    <!-- script addTask -->
+    <script src="../js/addTask.js"></script>
+    <!-- script board -->
+    <script src="/js/board.js"></script>
+    <!-- script contacts -->
+    <script src="../js/contact.js"></script>
+    <!-- template -->
+    <script src="../js/template.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>

@@ -65,7 +65,6 @@ let contactIndex = -1;
 
 async function renderContactSection() {
   contacts =  JSON.parse(await getItem("contacts"));
-
   document.getElementById("render-container").innerHTML = renderContactSectionTemplate();
   renderContacts();
 }
@@ -86,6 +85,7 @@ function renderContactSectionTemplate() {
         <div class="contact-single-view-info" id="show-contact"> 
       </div>
     </div>
+    <div id="add-contact-bg" class="d-none"></div>
   `;
 }
 
@@ -405,7 +405,7 @@ async function deleteContact(i) {
   renderContactSection();
 }
 
-renderContactSection();
+// renderContactSection();
 
 
 // Create a MediaQueryList object

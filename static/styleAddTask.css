@@ -138,7 +138,7 @@ body {
 .groupButtonForm{
   display: flex;
   flex-direction: column;
-  padding-left: 328px;
+  /* padding-left: 328px; */
 }
 
 h2 {
