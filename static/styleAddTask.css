@@ -131,10 +131,10 @@ body {
 }
 
 .addTaskContainerTwo{
-  padding-left: 328px;
+  /* padding-left: 328px; */
   /* padding-right: 648px; */
-  margin-top: 106px;
-  width: 928px;
+  margin-top: 270px;
+  width: 880px;
 }
 
 .groupButtonForm{
