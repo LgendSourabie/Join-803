@@ -1,6 +1,6 @@
 let todos = [
     {
-        'title': 'test note',
+        'title': 'test note für den Zweck der Testung.',
         'discription': 'we test it',
         'assigned to': 'Pascal',
         'due date': '13.12.23',
@@ -179,30 +179,41 @@ function showtodowindow(i){
 function todowindowtemplate(i){
     return /*html*/`
     <div class="overlay">
-        <div>
+        <div class="overlaybutton">
             <button>${todos[i].category}</button>
             <img src="/icons/close.svg" alt="" onclick="closetodowindow()">
         </div>
         <h1>${todos[i].title}</h1>
-        <span>${todos[i].discription}</span>
-        <div>
-            <span>Due date</span>
+        <span class="overlaydiscription">${todos[i].discription}</span>
+        <div class="overlaytable">
+            <span>Due date:</span>
             <span>${todos[i]['due date']}</span>
         </div>
-        <div>
+        <div class="overlaytable">
             <span>Priority</span>
             <div>
                 <span>${todos[i].category}</span>
                 <img src="${todos[i].prio}" alt="">
             </div>
         </div>
-        <div>
-            <div></div>
+        <div class="overlayassigned">
+            <div>Assinged to:</div>
             <div id="contacts"></div>
         </div>
-        <div>
+        <div class="overlayassigned">
             <span>Subtasks</span>
             <div id="subtasks"></div>
+        </div>
+        <div class="overlaychange">
+            <div class="overlaydelete">
+                <img src="/icons/delete.svg" alt="">
+                <span>Delete</span>
+            </div>
+            <span>|</span>
+            <div class="overlayedit">
+                <img src="/icons/editcontact.svg" alt="">
+                <span>Edit</span>
+            </div>
         </div>
     </div>
 `;
