@@ -60,12 +60,12 @@ let contacts = [
 let highlightedContact;
 let currentContact;
 let selectedContact;
-
 let edit = false;
 let contactIndex = -1;
 
 async function renderContactSection() {
-  // contacts =  JSON.parse(await getItem("contacts"));
+  contacts =  JSON.parse(await getItem("contacts"));
+
   document.getElementById("render-container").innerHTML = renderContactSectionTemplate();
   renderContacts();
 }
@@ -77,6 +77,7 @@ function renderContactSectionTemplate() {
           <button class="add-new-contact" onclick="renderAddContact()">Add new contact<img src="../icons/addNewContact.svg"></button>
           <div id="contacts-overview"></div>
           </div>
+          <button class="responsiv-contact-button" onclick="renderAddContact()"><img src="../icons/addNewContact.svg" alt=""></button>
       </div>
       <div class="contact-single-view" id="contact-single-view">
         <div class="contacts-headline">
@@ -156,8 +157,10 @@ function showContactTemplate(i) {
                 </span>
             </div>
         </div>
+        <button class="responsiv-contact-button" onclick="renderAddContact()"><img src="../icons/three_points.svg" alt=""></button>
     `;
 }
+
 
 function insertDirectory() {
   for (let i = 0; i < alphabet.length; i++) {
@@ -167,6 +170,7 @@ function insertDirectory() {
   }
 }
 
+
 function insertDirectoryTemplate(letter) {
   return /*html*/ `
     <div class="contact-section d-none" id="section-${letter.toLowerCase()}">
@@ -175,18 +179,17 @@ function insertDirectoryTemplate(letter) {
 `;
 }
 
+
 function insertContacts() {
   for (let i = 0; i < contacts.length; i++) {
     let name = contacts[i]["name"];
     let initialLetter = name.charAt(0).toLowerCase();
     let section = document.getElementById("section-" + initialLetter);
-    // let letter = alphabet[i].toLowerCase();
     section.innerHTML += insertContactsTemmplate(i, name);
     section.classList.remove("d-none");
-
-    // console.log('section-'+letter)
   }
 }
+
 
 function insertContactsTemmplate(i, name) {
   let email = contacts[i]["email"];
@@ -205,14 +208,17 @@ function insertContactsTemmplate(i, name) {
 `;
 }
 
+
 function highligtContact(i) {
   highlightedContact = "contact-" + i;
   setHighligtContact();
 }
 
+
 function setHighligtContact() {
   document.getElementById(highlightedContact).classList.add("highlight-contact");
 }
+
 
 function removeHighligtContact() {
   id = highlightedContact;
@@ -221,6 +227,7 @@ function removeHighligtContact() {
     highlightedContact = "";
   }
 }
+
 
 function createContact() {
   let name = document.getElementById("name-input").value;
@@ -232,24 +239,33 @@ function createContact() {
   setEditToFalse();
 }
 
-function createOrEditContact(name, telephone, email, initials) {
+
+async function createOrEditContact(name, telephone, email, initials) {
   // ev.preventDefault()
   if (contactIndex != -1) {
     editExistingContact(name, telephone, email, initials);
+    
     // xxxxxx
   } else {
-    createNewContact(name, telephone, email, initials);
+    await createNewContact(name, telephone, email, initials);
   }
   closeAddContact();
   renderContactSection();
-  i = highlightedContact.slice(-1);
   setHighligtContact();
+  i = highlightedContact.slice(-1);
   showContact(i);
 }
 
-function createNewContact(name, telephone, email, initials) {
+
+async function createNewContact(name, telephone, email, initials) {
   let bg = randomColorGenerator();
-  contacts.push({ name: name, telephone: telephone, email: email, initials: initials, bgColor: bg});
+  contacts.push({ name: name,
+     telephone: telephone,
+     email: email,
+     initials: initials,
+     bgColor: bg
+    });
+    await setItem("contacts", JSON.stringify(contacts));
   lastIndex = contacts.length - 1;
   highlightedContact = "contact-" + lastIndex;
 }
@@ -300,17 +316,17 @@ function addAndEditTemplate() {
           <div class="profile-icon-container" id="profile-icon-container">
             <img src="../icons/profileImageContacts.svg" alt="profile icon">
           </div>
-              <div>
-                <div class="d-flex add-contact-input-container"><input type="text" minlength="2"  placeholder="Name" class="add-contact-input" id="name-input" required><img src="../icons/name.svg" alt="telephone-icon"></div>
-                <div class="d-flex add-contact-input-container"><input type="email" placeholder="Email" class="add-contact-input" id="email-input" required><img src="../icons/email.svg" alt="telephone-icon"></div>
+              <div class="add-contact-data-inputs">
                 <div class="d-flex add-contact-input-container">
-                    <input 
-                        type="number" 
-                        minlength="4" 
-                        placeholder="Phone" 
-                        class="add-contact-input" 
-                        id="telephone-input" 
-                        required>
+                  <input type="text" minlength="2"  placeholder="Name" class="add-contact-input" id="name-input" required>
+                  <img src="../icons/name.svg" alt="telephone-icon">
+                </div>
+                <div class="d-flex add-contact-input-container">
+                  <input type="email" placeholder="Email" class="add-contact-input" id="email-input" required>
+                  <img src="../icons/email.svg" alt="telephone-icon">
+                </div>
+                <div class="d-flex add-contact-input-container">
+                    <input type="number" minlength="4" placeholder="Phone" class="add-contact-input" id="telephone-input" required>
                     <img src="../icons/telephone.svg" alt="telephone-icon">
                 </div>
                 <div class="d-flex">
@@ -318,7 +334,7 @@ function addAndEditTemplate() {
                   <button type="submit" class="create-contact-button" id="button-add-edit" onclick="createContact()"></button> 
                 </div>
               </div>
-            
+              
         </div>
     </div>
     `;
@@ -366,9 +382,6 @@ function saveContactIndex(i) {
   contactIndex = i;
 }
 
-// function setEditToTrue(){
-//   edit = true;
-// }
 
 function setEditToFalse() {
   contactIndex = -1;
@@ -385,8 +398,9 @@ function getInputValueContact() {
   document.getElementById('initial-edit-contact').innerHTML = initials;
 }
 
-function deleteContact(i) {
+async function deleteContact(i) {
   contacts.splice(i, 1);
+  await setItem("contacts", JSON.stringify(contacts));
   removeHighligtContact();
   renderContactSection();
 }
@@ -394,22 +408,24 @@ function deleteContact(i) {
 renderContactSection();
 
 
-
-
 // Create a MediaQueryList object
 let x = window.matchMedia('(max-width: 1000px)')
 
 function showContactResponsiv(jsonIndex) {
-  let name = contacts[jsonIndex]["name"];
-  let email = contacts[jsonIndex]["email"];
-  let telephone = contacts[jsonIndex]["telephone"];
+  // let name = contacts[jsonIndex]["name"];
+  // let email = contacts[jsonIndex]["email"];
+  // let telephone = contacts[jsonIndex]["telephone"];
   if (x.matches) { // If media query matches
     document.getElementById('contact-single-view').classList.add('d-none');
     document.getElementById('render-container').innerHTML = /*html*/`
-    
       <div class="contact-single-view" id="contact-single-view">
-        <div class="contacts-headline">
-            <h2>Contacts</h2><span>Better with a team</span>
+        <div class="d-flex justify-content-between align-items-start w-100">
+          <div class="contacts-headline">
+            <h2>Contacts</h2>
+            <span>Better with a team</span>
+            <div class="border-responsive-single"></div>
+          </div>
+          <img src="../icons/arrow-left-line.svg" class="arrow-back-contacts d-none" alt="back" onclick="closeContactResponsiv(${jsonIndex});">
         </div>
         <div class="contact-single-view-info" id="show-contact"> 
       </div>
@@ -419,7 +435,11 @@ function showContactResponsiv(jsonIndex) {
   }
 }
 
-
+function closeContactResponsiv(i){
+  if (x.matches){
+    renderContactSection();
+  }
+}
 
 
 // Safe and get contacts in remote Storage
