@@ -260,21 +260,21 @@ function templateBoard(){
 function templateContacts(){
     return /*html*/`
     <div class="d-flex">
-    <div class="contacts-scroll-container">
-      <div class="contacts-overview-container">
-          <button class="add-new-contact" onclick="renderAddContact()">Add new contact<img src="../icons/addNewContact.svg"></button>
-          <div id="contacts-overview"></div>
-          </div>
-          <button class="responsiv-contact-button" onclick="renderAddContact()"><img src="../icons/addNewContact.svg" alt=""></button>
-      </div>
-      <div class="contact-single-view" id="contact-single-view">
-        <div class="contacts-headline">
-            <h2>Contacts</h2><span>Better with a team</span>
+        <div class="contacts-scroll-container">
+        <div class="contacts-overview-container">
+            <button class="add-new-contact" onclick="renderAddContact()">Add new contact<img src="../icons/addNewContact.svg"></button>
+            <div id="contacts-overview"></div>
+            </div>
+            <button class="responsiv-contact-button" onclick="renderAddContact()"><img src="../icons/addNewContact.svg" alt=""></button>
         </div>
-        <div class="contact-single-view-info" id="show-contact"> 
-      </div>
-    </div>
-    <div id="add-contact-bg" class="d-none"></div>
+        <div class="contact-single-view" id="contact-single-view">
+            <div class="contacts-headline">
+                <h2>Contacts</h2><span>Better with a team</span>
+            </div>
+            <div class="contact-single-view-info" id="show-contact"> 
+        </div>
+        </div>
+        <div id="add-contact-bg" class="d-none"></div>
     </div>
     `;
 }
