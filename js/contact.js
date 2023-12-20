@@ -90,7 +90,7 @@ function openContact(i) {
 }
 
 function hideContact() {
-  document.getElementById("new-contact").innerHTML = "";
+  document.getElementById("current-contact").innerHTML = "";
 }
 
 
@@ -114,7 +114,25 @@ function hideContact() {
 
 
 function showContact(i){
+  let newContact = document.getElementById("new-contact");
+  let currentContact = document.getElementById("current-contact")
+  currentContact.innerHTML = ''
+  currentContact.classList.add('fly-in')
+  newContact.innerHTML = showContactTemplate(i);
+  newContact.classList.add('fly-in');
 
+  newContact.ontransitionend = function(){
+    updateContactContainer(newContact, currentContact)
+    newContact.ontransitionend = null;
+  }
+
+}
+
+
+function updateContactContainer(newContact, currentContact){
+  currentContact.innerHTML = newContact.innerHTML;
+  newContact.innerHTML = ''
+  newContact.classList.remove('fly-in')
 }
 
 

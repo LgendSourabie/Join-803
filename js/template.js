@@ -271,8 +271,8 @@ function templateContacts(){
             <div class="contacts-headline">
                 <h2>Contacts</h2><span>Better with a team</span>
             </div>
-            <div class="contact-single-view-info" id="new-contact"> 
-        </div>
+            <div class="contact-single-view-info" id="new-contact"></div>
+            <div class="contact-single-view-info" id="current-contact"></div>
         </div>
         <div id="add-contact-bg" class="d-none"></div>
     </div>
