@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .dropdown {
+    margin-left: 2rem;
+    margin-top: 2rem;
+    padding-inline: 1rem;
+    padding-block: 0.3rem;
+    border: 2px solid #222;
+    width: 30%;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .options {
+    /* background-color: blueviolet; */
+    width: 30%;
+    margin-left: 2rem;
+    border: 1px solid #222;
+  }
+  .option {
+    padding-block: 2px;
+    cursor: pointer;
+  }
+  .d-none {
+    display: none;
+  }
+  .bi {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin-left: 0.3rem;
+  }
+  
+  .btn-grp {
+    width: 2rem;
+    border-radius: 50%;
+    height: 2rem;
+  }
+  
+  .btn {
+    margin-left: 2rem;
+  }
+  
+  .newColor {
+    color: white;
+    background-color: blue;
+  }

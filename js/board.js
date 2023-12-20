@@ -7,7 +7,7 @@ let todos = [
         'prio': '/icons/priomedium.svg',
         'category': 'Technical Task',
         'subtasks': ['test2'],
-        'progress' : 0,
+        'progress' : 1,
         'id' : 0,
         'taskboard' : 'todo'
     },
@@ -19,7 +19,7 @@ let todos = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 0,
+        'progress' : 2,
         'id' : 1,
         'taskboard' : 'todo'
     }, 
@@ -31,7 +31,7 @@ let todos = [
         'prio': '/icons/priolow.svg',
         'category': 'Technical Task',
         'subtasks': ['test1', 'test2'],
-        'progress' : 0,
+        'progress' : 1,
         'id' : 2,
         'taskboard' : 'awaitfeedback'
     }, 
