@@ -20,6 +20,8 @@ input {
     margin: 0;
 }
 
+
+
 .d-none {
     display: none !important;
 }
@@ -344,14 +346,15 @@ input {
 }
 
 /* single view */
-.contact-single-view {
+/* .contact-single-view {
     flex: 1;
-}
+} */
 
 .contacts-headline {
     display: flex;
     margin-top: 120px;
-    margin-left: 64px;
+    position: relative;
+    left: 45px;
 }
 
 .contacts-headline h2 {
@@ -371,11 +374,18 @@ input {
 }
 
 .contact-single-view-info {
+    position: absolute;
+    left: 100vw;
     display: flex;
     flex-direction: column;
     gap: 21px;
     margin-left: 64px;
     margin-top: 32px;
+    transition: left .15s;
+}
+
+.fly-in{
+    left: 660px;
 }
 
 .initial-name-container {

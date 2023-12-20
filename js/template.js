@@ -1,6 +1,7 @@
 function templateSummary() {
   return /*html*/ `
-        <span id="summary-page" class="summary-page">
+ 
+    <span id="summary-page" class="summary-page">
             <div class="marketing-slogan disp-flex">
               <div class="title">Join 360</div>
               <div class="blue-separator-line"></div>
@@ -271,7 +272,6 @@ function templateContacts() {
         <div class="contact-single-view-info" id="show-contact"> 
       </div>
     </div>
-    <div id="add-contact-bg" class="d-none"></div>
     `;
   renderContactSection();
 }

@@ -63,37 +63,18 @@ let selectedContact;
 let edit = false;
 let contactIndex = -1;
 
+
 async function renderContactSection() {
   contacts =  JSON.parse(await getItem("contacts"));
-  document.getElementById("render-container").innerHTML = renderContactSectionTemplate();
   renderContacts();
 }
 
-function renderContactSectionTemplate() {
-  return /*html*/ `
-    <div class="contacts-scroll-container">
-      <div class="contacts-overview-container">
-          <button class="add-new-contact" onclick="renderAddContact()">Add new contact<img src="../icons/addNewContact.svg"></button>
-          <div id="contacts-overview"></div>
-          </div>
-          <button class="responsiv-contact-button" onclick="renderAddContact()"><img src="../icons/addNewContact.svg" alt=""></button>
-      </div>
-      <div class="contact-single-view" id="contact-single-view">
-        <div class="contacts-headline">
-            <h2>Contacts</h2><span>Better with a team</span>
-        </div>
-        <div class="contact-single-view-info" id="show-contact"> 
-      </div>
-    </div>
-    <div id="add-contact-bg" class="d-none"></div>
-  `;
-}
 
 function renderContacts() {
   insertDirectory();
   insertContacts();
-  // showContact();
 }
+
 
 function openContact(i) {
   selectedContact = "contact-" + i;
@@ -109,13 +90,49 @@ function openContact(i) {
 }
 
 function hideContact() {
-  document.getElementById("show-contact").innerHTML = "";
+  document.getElementById("current-contact").innerHTML = "";
 }
 
 
-function showContact(i) {
-  document.getElementById("show-contact").innerHTML = showContactTemplate(i);
-  currentContact = i;
+// function showContact(i) {
+  
+//   let contactCont = document.getElementById("new-contact");
+//   contactCont.classList.add('d-none');
+//   contactCont.classList.remove('fly-in');
+//   contactCont.classList.remove('d-none');
+  
+//   setTimeout(() => {
+    
+//     contactCont.innerHTML = showContactTemplate(i);
+    
+//     contactCont.classList.add('fly-in');
+//   }, 100);
+  
+  
+//   currentContact = i;
+// }
+
+
+function showContact(i){
+  let newContact = document.getElementById("new-contact");
+  let currentContact = document.getElementById("current-contact")
+  currentContact.innerHTML = ''
+  currentContact.classList.add('fly-in')
+  newContact.innerHTML = showContactTemplate(i);
+  newContact.classList.add('fly-in');
+
+  newContact.ontransitionend = function(){
+    updateContactContainer(newContact, currentContact)
+    newContact.ontransitionend = null;
+  }
+
+}
+
+
+function updateContactContainer(newContact, currentContact){
+  currentContact.innerHTML = newContact.innerHTML;
+  newContact.innerHTML = ''
+  newContact.classList.remove('fly-in')
 }
 
 
@@ -427,7 +444,7 @@ function showContactResponsiv(jsonIndex) {
           </div>
           <img src="../icons/arrow-left-line.svg" class="arrow-back-contacts d-none" alt="back" onclick="closeContactResponsiv(${jsonIndex});">
         </div>
-        <div class="contact-single-view-info" id="show-contact"> 
+        <div class="contact-single-view-info" id="new-contact"> 
       </div>
     `;
     document.getElementById('contact-single-view').style = 'display: unset'

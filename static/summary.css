@@ -155,9 +155,9 @@ a {
 .task-info-section {
   background-color: rgb(246, 247, 248);
   padding-inline: 6rem;
-  /* padding-left: 6rem; */
+  padding-left: 6rem;
   height: calc(100vh - 70px);
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
 }
@@ -188,7 +188,7 @@ a {
   transition: transform 125ms ease-in-out;
 }
 .marketing-slogan {
-  /* margin-top: 3.5rem; */
+  margin-top: 3.5rem;
   margin-bottom: 2rem;
   gap: 30px;
 }
@@ -202,6 +202,7 @@ a {
   font-size: 61px;
   color: #000000;
   line-height: 73.2px;
+  margin-left: 6rem;
 }
 .blue-separator-line {
   height: 59px;

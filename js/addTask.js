@@ -58,30 +58,30 @@ function changeColorPrio(id,id2,id3, currentsrc, src,src2,src3) {
     }
 }
 
-function chang(id) {
-    let element = document.getElementById(id);
-    if (StateButton === currentsrc) {
-        element.setAttribute('src', src);
-    } else {
-        element.setAttribute('src', currentsrc); // ein Kreuz
-        element.setAttribute('src', currentsrc); // ein Checkmark
+// function chang(id) {
+//     let element = document.getElementById(id);
+//     if (StateButton === currentsrc) {
+//         element.setAttribute('src', src);
+//     } else {
+//         element.setAttribute('src', currentsrc); // ein Kreuz
+//         element.setAttribute('src', currentsrc); // ein Checkmark
 
-    }
-}
+//     }
+// }
 
 
-
+// Function to add priority to the array
 function prio(id) {
     prios.push(id);
 }
 
-
+// Function to set the default priority
 function defaultPrio() {
     // changeColorPrio('colorMedium', 'bgMedium');
     prio('Medium');
 }
 
-
+// Function to populate a dropdown list with contacts
 function addContacts() {
     let select = document.getElementById('select');
     select.innerHTML = `<option id="assigned" value="">Selected contacts to assign</option>`
@@ -89,12 +89,12 @@ function addContacts() {
     for (let i = 0; i < user.length; i++) {
         let currentUser = user[i].name;
         select.innerHTML += /*html*/`
-             <option id="assigned-${i}" value="${currentUser}"><button class="contactsButton">ID</button> ${currentUser}  <img src="" alt=""></option>
+             <option id="assigned-${i}" value="${currentUser}"><button class="contactsButton"></button> ${currentUser}  <img src="" alt=""></option>
     `;
 }
 }
 
-
+// Function to populate a dropdown list with task categories
 function addCategory() {
     let select = document.getElementById('selectCategory');
     select.innerHTML = `<option id="category" value="">Select task Category</option>`
@@ -107,13 +107,13 @@ function addCategory() {
 }
 }
 
-
+// Function to clear and reset the content of the subtasks element
 function addNewSubtask() {
     let subtask = document.getElementById('subtasks');
     subtask.innerHTML = '';
 }
 
-
+// Function to create and save a new task with user input
 function createTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
@@ -129,7 +129,7 @@ function createTask() {
     saveLocalStorage(title, description, date, assignedTo, category,prios, subtasks);
 }
 
-
+// Function to clear/reset values in the task creation form
 function clearTask() {
     document.getElementById('title').value = '';
     document.getElementById('description').value = '';
@@ -149,14 +149,14 @@ function clearTask() {
     document.getElementById('colorLow').style.fontWeight = '400';
 }
 
-
+// Function to load an HTML page
 function loadHTML(page) {
     windows.location.href = `
         ../html/${page}.html;
     `;
 }
 
-
+// Function to save task details to local storage
 function saveLocalStorage(val1,val2, val3, val4, val5,prios, val6) {
     liste.push({
         titles: `${val1}`,

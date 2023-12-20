@@ -29,9 +29,6 @@
   />
 
     <link rel="stylesheet" href="../static/styleAddTask.css">
-    <link rel="stylesheet" href="../html/summary.html">
-    <link rel="stylesheet" href="../html/board.html">
-    <link rel="stylesheet" href="../html/contact.html">
     <script src="../sensitive/url.js"></script>
     <script src="../sensitive/token.js"></script>
 
@@ -112,7 +109,7 @@
                                     <span class="containerLeftSpan">Title
                                         <span class="star">*</span>
                                     </span>
-                                    <input id="title" type="text" placeholder="Enter a title" required>
+                                    <input id="title" class="inputAddTask" type="text" placeholder="Enter a title" required>
                                 </div>
                                 <div class="descriptionAddTask addTaskOverview">
                                     <span class="containerLeftSpan">Description</span>
@@ -174,7 +171,7 @@
                                 </div> 
                                 <div class="subtasksAddTask addTaskOverview">
                                     <span class="spanSubtasks">Subtasks</span>
-                                    <input id="subtasks" type="text" placeholder="Add new subtask">
+                                    <input id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
                                     <img onclick="addNewSubtask()" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
                                 </div> 
                             </div>

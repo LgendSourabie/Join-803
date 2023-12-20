@@ -126,13 +126,15 @@ body {
 .addTaskContainerOne {
   display: flex;
   flex-direction: column;
+  padding-left: 7rem;
+  padding-top: 7rem;
 }
 
 .addTaskContainerTwo{
-  padding-left: 328px;
+  /* padding-left: 328px; */
   /* padding-right: 648px; */
-  margin-top: 106px;
-  width: 928px;
+  margin-top: 270px;
+  width: 880px;
 }
 
 .groupButtonForm{
@@ -150,7 +152,7 @@ h2 {
   color: rgb(255, 129, 144);
 }
 
-input {
+.inputAddTask {
   border-radius: 10px;
   border: 1px solid #A8A8A8;
   padding: 16px;
