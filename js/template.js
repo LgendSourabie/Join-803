@@ -259,6 +259,7 @@ function templateBoard(){
 
 function templateContacts(){
     return /*html*/`
+    <div class="d-flex">
     <div class="contacts-scroll-container">
       <div class="contacts-overview-container">
           <button class="add-new-contact" onclick="renderAddContact()">Add new contact<img src="../icons/addNewContact.svg"></button>
@@ -274,6 +275,6 @@ function templateContacts(){
       </div>
     </div>
     <div id="add-contact-bg" class="d-none"></div>
+    </div>
     `;
-    renderContactSection();
 }

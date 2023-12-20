@@ -63,6 +63,7 @@ let selectedContact;
 let edit = false;
 let contactIndex = -1;
 
+
 async function renderContactSection() {
   contacts =  JSON.parse(await getItem("contacts"));
   document.getElementById("render-container").innerHTML = renderContactSectionTemplate();
