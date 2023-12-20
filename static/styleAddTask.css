@@ -487,6 +487,7 @@ select:hover {
   .groupButtonForm {
     /* flex-direction: column; */
     align-items: center;
+    width: 100%;
   }
 
   .test2 {
@@ -495,6 +496,8 @@ select:hover {
 
   .test3 {
     flex-direction: column;
+    width: 100%;
+    align-items: center;
   }
 
   .seperatorContainer {
@@ -505,12 +508,14 @@ select:hover {
     padding-right: 0;
     height: 285px;
     justify-content: center;
+    width: 80%;
     
   }
 
   .containerRight {
     padding-left: 0;
     height: 340px;
+    width: 80%;
   }
 
   .addTaskContainerTwo {
