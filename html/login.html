@@ -9,35 +9,17 @@
     <script src="../sensitive/url.js"></script>
 
     <!-- FAVICON -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../favicon/favicon-16x16.png"
-    />
-    <link
-      rel="mask-icon"
-      href="../favicon/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <!-- END FAVICON -->
 
     <title>Login</title>
   </head>
-  <body class="login-body disp-flex" onload="init()">
+  <body class="login-body disp-flex" onload="init();initLocalStorage()">
     <img class="login-logo" src="/icons/logo_blue.svg" alt="Logo" />
     <div class="container-login">
       <div class="menu-login">
@@ -49,10 +31,7 @@
           </button>
         </div>
       </div>
-      <form
-        class="user-log-data-section disp-flex"
-        onsubmit="checkUserData();return false"
-      >
+      <form class="user-log-data-section disp-flex" onsubmit="checkUserData();return false">
         <div class="title-join-underline disp-flex">
           <div class="log-title">Log in</div>
           <div class="btm-bar"></div>
@@ -60,13 +39,7 @@
         <div class="input-grp-section disp-flex">
           <div class="grp-input-login disp-flex">
             <div class="inp-ctn">
-              <input
-                id="email"
-                class="input-login input-login-1"
-                type="email"
-                placeholder="Email"
-                required
-              />
+              <input id="email" class="input-login input-login-1" type="email" placeholder="Email" required />
               <p id="emailError"></p>
             </div>
             <div class="inp-ctn">
@@ -98,20 +71,12 @@
 
         <div class="btn-line disp-flex">
           <button class="blue-btn log-guest-btn">Log in</button
-          ><a href="../html/guest.html" class="white-btn log-guest-btn"
-            >Guest Log in</a
-          >
+          ><a href="../html/guest.html" class="white-btn log-guest-btn">Guest Log in</a>
         </div>
       </form>
       <div class="privacy-link-login">
-        <a class="links-login ft-sz-400" onclick="userAction('privacy_login')"
-          >Privacy Policy</a
-        >
-        <a
-          class="links-login ft-sz-400 legal-notice"
-          onclick="userAction('legal_notice_login')"
-          >Legal Notice</a
-        >
+        <a class="links-login ft-sz-400" onclick="userAction('privacy_login')">Privacy Policy</a>
+        <a class="links-login ft-sz-400 legal-notice" onclick="userAction('legal_notice_login')">Legal Notice</a>
       </div>
     </div>
     <script src="/js/login_out.js"></script>

@@ -1,5 +1,5 @@
-function templateSummary(){
-    return /*html*/`
+function templateSummary() {
+  return /*html*/ `
         <span id="summary-page" class="summary-page">
             <div class="marketing-slogan disp-flex">
               <div class="title">Join 360</div>
@@ -72,14 +72,14 @@ function templateSummary(){
               </div>
             </div>
           </span>
-    `
+    `;
 }
 
-function templateAddTask(){
-    return /*html*/`
+function templateAddTask() {
+  return /*html*/ `
         <div class="addTaskContainer">
 
-<div class="seperatorAddTask"></div>
+<!-- <div class="seperatorAddTask"></div> -->
 
 <div class="addTaskContainer">
 
@@ -192,11 +192,11 @@ function templateAddTask(){
     </form>
 </div>
 </div>
-    `
+    `;
 }
 
-function templateBoard(){
-    return /*html*/`
+function templateBoard() {
+  return /*html*/ `
         <div class="mainSection">
         <div class="section1">
             <div class="headline">
@@ -252,11 +252,11 @@ function templateBoard(){
         
     </div>
     <div id="showtodowindow"></div>
-    `
+    `;
 }
 
-function templateContacts(){
-    return /*html*/`
+function templateContacts() {
+  return /*html*/ `
     <div class="contacts-scroll-container">
       <div class="contacts-overview-container">
           <button class="add-new-contact" onclick="renderAddContact()">Add new contact<img src="../icons/addNewContact.svg"></button>
@@ -273,5 +273,5 @@ function templateContacts(){
     </div>
     <div id="add-contact-bg" class="d-none"></div>
     `;
-    renderContactSection();
+  renderContactSection();
 }

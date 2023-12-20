@@ -2,6 +2,10 @@
 let users = [];
 let currentUser = [];
 let ischecked = false;
+
+function initLocalStorage() {
+  localStorage.setItem('currentUser', JSON.stringify(currentUser));
+}
 ///////// SINGN UP    /////////////////////////////////////////////////
 
 function registerUser() {
@@ -133,7 +137,7 @@ const checkUserData = function () {
     const currentPassword = user['password'];
     if (isEmailValid(email.value, currentEmail) && isPasswordValid(password.value, currentPassword)) {
       isValid = true;
-      currentUser.push(email.value.toLowerCase());
+      currentUser.push(email.value);
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
       i = users.length;
     }
