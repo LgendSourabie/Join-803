@@ -98,14 +98,14 @@ function hideContact() {
   
 //   let contactCont = document.getElementById("new-contact");
 //   contactCont.classList.add('d-none');
-//   contactCont.classList.remove('fly-in');
+//   contactCont.classList.remove('fly-in-contact');
 //   contactCont.classList.remove('d-none');
   
 //   setTimeout(() => {
     
 //     contactCont.innerHTML = showContactTemplate(i);
     
-//     contactCont.classList.add('fly-in');
+//     contactCont.classList.add('fly-in-contact');
 //   }, 100);
   
   
@@ -117,9 +117,9 @@ function showContact(i){
   let newContact = document.getElementById("new-contact");
   let currentContact = document.getElementById("current-contact")
   currentContact.innerHTML = ''
-  currentContact.classList.add('fly-in')
+  currentContact.classList.add('fly-in-contact')
   newContact.innerHTML = showContactTemplate(i);
-  newContact.classList.add('fly-in');
+  newContact.classList.add('fly-in-contact');
 
   newContact.ontransitionend = function(){
     updateContactContainer(newContact, currentContact)
@@ -132,7 +132,7 @@ function showContact(i){
 function updateContactContainer(newContact, currentContact){
   currentContact.innerHTML = newContact.innerHTML;
   newContact.innerHTML = ''
-  newContact.classList.remove('fly-in')
+  newContact.classList.remove('fly-in-contact')
 }
 
 
