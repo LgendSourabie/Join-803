@@ -102,7 +102,7 @@ function templateAddTask() {
                             <span class="containerLeftSpan">Title
                                 <span class="star">*</span>
                             </span>
-                            <input id="title" type="text" placeholder="Enter a title" required>
+                            <input id="title" class="inputAddTask" type="text" placeholder="Enter a title" required>
                         </div>
                         <div class="descriptionAddTask addTaskOverview">
                             <span class="containerLeftSpan">Description</span>
@@ -114,6 +114,7 @@ function templateAddTask() {
                             <!-- <input id="select" type="text">
                             <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt=""> -->
                         </div>
+                        
                     </div>
 
                     <div class="seperatorContainer"></div>
@@ -124,7 +125,7 @@ function templateAddTask() {
                             <span class="containerLeftSpan">Due date
                                 <span class="star">*</span>
                             </span>    
-                            <input id="date" type="date">
+                            <input id="date" class="inputAddTask" type="date">
                         </div>
                         <div class="addTaskOverview">
                             <span class="containerLeftSpan">Prio</span>
@@ -164,7 +165,7 @@ function templateAddTask() {
                         </div> 
                         <div class="subtasksAddTask addTaskOverview">
                             <span class="spanSubtasks">Subtasks</span>
-                            <input id="subtasks" type="text" placeholder="Add new subtask">
+                            <input id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
                             <img onclick="addNewSubtask()" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
                         </div> 
                     </div>
