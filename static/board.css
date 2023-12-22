@@ -18,11 +18,11 @@ body {
     justify-content: space-between;
 }
 
-header {
+/* header {
     background-color: #FFFFFF;
     height: 96px;
     flex: 1;
-}
+} */
 
 .header {
     padding-top: 20px;

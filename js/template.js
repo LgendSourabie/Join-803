@@ -110,9 +110,12 @@ function templateAddTask() {
                         </div>
                         <div class="assignedAddTask addTaskOverview">
                             <span class="containerLeftSpan">Assigned to</span>
-                            <select id="select"></select>
+                            <!-- <select id="select"></select> -->
                             <!-- <input id="select" type="text">
                             <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt=""> -->
+                            <div id="dropdown" class="dropdown" onclick="showOptions('options','d-none')">Select Item ...</div>
+                                <div id="options" class="options d-none"></div>
+                                <div id="btn-grp" class="btn"></div>
                         </div>
                         
                     </div>

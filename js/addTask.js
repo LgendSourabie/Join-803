@@ -48,7 +48,7 @@ let listeOptions = [
 
 let liste = [];
 let tasks = [];
-let users = [];
+// let users = [];
 let prios = [];
 let subtasks = 0;
 let usersSelect = [];
@@ -114,17 +114,17 @@ function defaultPrio() {
 }
 
 // Function to populate a dropdown list with contacts
-function addContacts() {
-    let select = document.getElementById('select');
-    select.innerHTML = `<option id="assigned" value="">Selected contacts to assign</option>`
+// function addContacts() {
+//     let select = document.getElementById('select');
+//     select.innerHTML = `<option id="assigned" value="">Selected contacts to assign</option>`
 
-    for (let i = 0; i < user.length; i++) {
-        let currentUser = user[i].name;
-        select.innerHTML += /*html*/`
-             <option id="assigned-${i}" value="${currentUser}"><button class="contactsButton"></button> ${currentUser}  <img src="" alt=""></option>
-    `;
-}
-}
+//     for (let i = 0; i < user.length; i++) {
+//         let currentUser = user[i].name;
+//         select.innerHTML += /*html*/`
+//              <option id="assigned-${i}" value="${currentUser}"><button class="contactsButton"></button> ${currentUser}  <img src="" alt=""></option>
+//     `;
+// }
+// }
 
 // Function to populate a dropdown list with task categories
 function addCategory() {
@@ -200,18 +200,43 @@ function saveLocalStorage(val1,val2, val3, val4, val5,prios, val6) {
         subtasks: `${val6}`
     });
     localStorage.setItem('liste', JSON.stringify(liste));
+    // setItem('liste', JSON.stringify(liste));
 }
+
+
+
+async function loadAllUsers() {
+  users = JSON.parse(await getItem('contacts'));
+}
+
+async function setItem(key, value) {
+  const payload = { key, value, token: STORAGE_TOKEN };
+  return fetch(STORAGE_URL, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  }).then(response => response.json());
+}
+
+async function getItem(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  return fetch(url)
+    .then(response => response.json())
+    .then(response => response.data.value);
+}
+
+
 
 
 function options() {
     let field = document.getElementById("options");
     let listeOption = listeOptions.map((a) => a["name"]);
+    let initial = listeOptions.map((a) => a["initials"]);
     field.innerHTML = "";
     for (let i = 0; i < listeOption.length; i++) {
       const option = listeOption[i];
       field.innerHTML += /*html*/ `
       <div class="option" id="cont${i}" onclick="updateBtn(${i});changeCheckState(${i})">
-      <button id="btn-${i}" class="bi">BI</button> 
+      <button id="btn-${i}" class="bi">${initial[i]}</button> 
         <span id="name${i}">${option}</span> 
       <img id="checkBox${i}" src="./checkBox.svg" alt="">
     </div>

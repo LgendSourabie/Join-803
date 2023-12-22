@@ -476,7 +476,7 @@ select:hover {
 
 
 
-/* .dropdown {
+.dropdown {
   margin-left: 2rem;
   margin-top: 2rem;
   padding-inline: 1rem;
@@ -518,7 +518,7 @@ select:hover {
 .newColor {
   color: white;
   background-color: blue;
-} */
+}
 
 
 
