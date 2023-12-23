@@ -88,7 +88,7 @@ function templateAddTask() {
 
         <div class="addTaskContainerLeftRight">
 
-            <div class="addTaskContainerOne">
+            <div class="addTaskContainerOneflyin">
                 <div class="test1">
                 <div class="groupButtonForm">
                     <div class="test2">
@@ -200,6 +200,8 @@ function templateAddTask() {
     `;
 }
 
+
+
 function templateBoard() {
   return /*html*/ `
         <div class="mainSection">
@@ -211,7 +213,7 @@ function templateBoard() {
                         <input id="taskInput" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
                         <img src="/icons/search.svg" alt="">
                     </div>
-                    <button>Add Task <img src="/icons/add.svg" alt=""></button>
+                    <button onclick="openAddtask()">Add Task <img src="/icons/add.svg" alt=""></button>
                 </div>
             </div>
             <div class="tablecolumn">
@@ -257,6 +259,7 @@ function templateBoard() {
         
     </div>
     <div id="showtodowindow"></div>
+    <div id="add-task-bg" class="d-none"></div>
     `;
 }
 
