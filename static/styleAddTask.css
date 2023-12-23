@@ -115,6 +115,8 @@ body {
   background-color: rgb(246, 247, 248);
   display: flex;
   flex-direction: column;
+  padding-top: 7rem;
+  padding-left: 7rem;
 }
 
 .addTaskContainerLeftRight {

@@ -78,7 +78,7 @@ function templateSummary() {
 
 function templateAddTask() {
   return /*html*/ `
-        <div class="addTaskContainer">
+        <!-- <div class="addTaskContainer"> -->
 
 <!-- <div class="seperatorAddTask"></div> -->
 
@@ -196,7 +196,7 @@ function templateAddTask() {
         </div>
     </form>
 </div>
-</div>
+<!-- </div> -->
     `;
 }
 
