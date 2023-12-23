@@ -286,10 +286,18 @@ function options() {
     }
   };
 
-
   function changeBorderColor(element) {
-    element.style.borderColor = '#29ABE2';
+    if (element.style.borderColor === 'rgb(41, 171, 226)') {
+      element.style.borderColor = '';
+    } else {
+      element.style.borderColor = '#29ABE2';
+    }
   }
+
+  function handleDropdownClick(element) {
+    changeBorderColor(element);
+    showOptions('options', 'd-none');
+}
 
 
 

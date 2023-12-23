@@ -106,14 +106,14 @@ function templateAddTask() {
                         </div>
                         <div class="descriptionAddTask addTaskOverview">
                             <span class="containerLeftSpan">Description</span>
-                            <textarea id="description" class="textAreaAddTask" placeholder="Enter a Description"></textarea>
+                            <textarea onclick="changeBorderColor(this)" id="description" class="textAreaAddTask" placeholder="Enter a Description"></textarea>
                         </div>
                         <div class="assignedAddTask addTaskOverview">
                             <span class="containerLeftSpan">Assigned to</span>
                             <!-- <select id="select"></select> -->
                             <!-- <input id="select" type="text">
                             <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt=""> -->
-                            <div id="dropdown" class="dropdown" onclick="showOptions('options','d-none')">Select contacts to assign</div>
+                            <div id="dropdown" class="dropdown" onclick="handleDropdownClick(this)">Select contacts to assign</div>
                                 <div id="options" class="options d-none"></div>
                                 <div id="btn-grp" class="btn"></div>
                         </div>
@@ -128,32 +128,13 @@ function templateAddTask() {
                             <span class="containerLeftSpan">Due date
                                 <span class="star">*</span>
                             </span>    
-                            <input id="date" class="inputAddTask" type="date">
+                            <input onclick="changeBorderColor(this)" id="date" class="inputAddTask" type="date">
                         </div>
                         <div class="addTaskOverview">
                             <span class="containerLeftSpan">Prio</span>
                             <div id="prio" class="prioSelection">
-                                <!-- <div onclick="changeColorPrio('colorUrgent','bgUrgent')" id="colorUrgent" class="prioUrgent allPrio">
-                                    <span onclick="prio('Urgent')" class="prio">Urgent</span>
-                                        <div class="img" id="img-urgent"> -->
-                                            <!-- <img id="colorUrgentImg" class="prio prioUrgentIMG" src="../img/img/urgent.svg" alt=""> -->
-                                        <!-- </div>
-                                </div> -->
                                 <img id="colorUrgentImg"  onclick="prio('Urgent');changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
-                                <!-- <div onclick="changeColorPrio('colorMedium','bgMedium')" id="colorMedium" class="prioMedium allPrio">
-                                    <span onclick="prio('Medium')" class="prio">Medium</span>
-                                        <div class="img" id="img-medium">
-                                            <img id="colorMediumImg1" class="prio prioMediumIMG" src="../img/img/Vector_medium.svg" alt="">
-                                            <img id="colorMediumImg2" class="prio prioMediumIMG" src="../img/img/Vector_medium.svg" alt="">
-                                        </div>
-                                </div> -->
                                 <img id="colorMediumImg"   onclick="prio('Medium');changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
-                                <!-- <div onclick="changeColorPrio('colorLow','bgLow')" id="colorLow" class="prioLow allPrio">
-                                    <span onclick="prio('Low')" class="prio">Low</span>
-                                        <div class="img" id="img-low">
-                                            <img id="colorLowImg" class="prio prioLowIMG" src="../img/img/Vector_low2.svg" alt="">
-                                        </div>
-                                </div> -->
                                 <img id="colorLowImg"  onclick="prio('Low');changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
                             </div>
                         </div>
@@ -161,7 +142,7 @@ function templateAddTask() {
                             <span class="containerLeftSpan">Category
                                 <span class="star">*</span>
                             </span>    
-                            <select id="selectCategory">
+                            <select onclick="changeBorderColor(this)" id="selectCategory">
                                 <!-- <input type="text" id="selectCategory">
                                 <img class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt=""> -->
                             </select>

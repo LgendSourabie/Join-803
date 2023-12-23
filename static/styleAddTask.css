@@ -166,8 +166,13 @@ textarea {
   border-radius: 10px;
   border: 1px solid #A8A8A8;
   padding: 16px;
+  outline: none;
   cursor: pointer;
 }
+
+/* textarea:focus {
+  border: 1px solid red;
+} */
 
 .containerLeft {
   display: flex;
@@ -187,9 +192,10 @@ select {
   background-image: url('../img/img/arrow_drop_down.svg');
   background-repeat: no-repeat;
   background-position-y: center;
-  padding-right: 2rem;
+  padding-right: 1rem;
   background-position-x: right;
   background-origin: content-box;
+  outline: none;
 }
 
 
@@ -203,7 +209,7 @@ select:hover {
   height: 14px;
   position: absolute;
   margin-top: 61px;
-  margin-left: 390px;
+  margin-left: 24rem;
 }
 
 .subtasksPlusIMG:hover {
