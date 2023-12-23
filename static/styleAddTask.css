@@ -520,6 +520,10 @@ select:hover {
     margin-bottom: 20px;
   }
 
+  .addTaskContainer {
+    padding: 0;
+  }
+
   .groupButtonForm {
     align-items: center;
     width: 100%;
@@ -609,19 +613,7 @@ select:hover {
     padding-left: 0;
   }
 
-  /* .footerAddTask {
-    width: 60%;
-  } */
-
 }
-
-/* @media (max-width: 853px) {
-
-  .footerAddTask {
-    width: 65%;
-  }
-
-} */
 
 @media (max-width: 768px) {
 
