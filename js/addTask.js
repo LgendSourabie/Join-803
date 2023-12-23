@@ -238,7 +238,7 @@ function options() {
       <div class="option" id="cont${i}" onclick="updateBtn(${i});changeCheckState(${i})">
       <button id="btn-${i}" class="bi">${initial[i]}</button> 
         <span id="name${i}">${option}</span> 
-      <img id="checkBox${i}" src="./checkBox.svg" alt="">
+      <img id="checkBox${i}" src="../img/img/checkBox.svg" alt="">
     </div>
       `;
     }
@@ -252,11 +252,11 @@ function options() {
     let field = document.getElementById(`checkBox${index}`);
     let currentState = field.getAttribute("src");
     
-    if (currentState ===("./checkBox.svg")) {
-      field.setAttribute("src", "./Check_button-white.svg");
+    if (currentState ===("..img/img/check-box.svg")) {
+      field.setAttribute("src", "..img/img/Check_button-white.svg");
     } 
     else {
-      field.setAttribute("src", "./checkBox.svg");
+      field.setAttribute("src", "..img/img/check-box.svg");
     };
 
   }
@@ -285,6 +285,11 @@ function options() {
       btnUserProfile.innerHTML += `<button id="optBtn${i}"  class="btn-grp">${btn.initial}</button>`;
     }
   };
+
+
+  function changeBorderColor(element) {
+    element.style.borderColor = '#29ABE2';
+  }
 
 
 

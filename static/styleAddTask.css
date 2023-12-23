@@ -200,8 +200,8 @@ select:hover {
   width: 14px;
   height: 14px;
   position: absolute;
-  margin-top: 58px;
-  margin-left: 410px;
+  margin-top: 61px;
+  margin-left: 390px;
 }
 
 .subtasksPlusIMG:hover {
@@ -241,22 +241,6 @@ select:hover {
   justify-content: space-between;
   gap: 16px;
 }
-
-/* .allPrio {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 136px;
-  height: 56px;
-  border-radius: 10px;
-  padding: 16px, 10px, 16px, 10px;
-  background-color: #ffffff;
-  cursor: pointer;
-} */
-
-/* .allPrio:hover {
-  box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
-} */
 
 .prio {
   display: flex;
@@ -474,12 +458,7 @@ select:hover {
   border-radius: 50%;
 }
 
-
-
-
 .dropdown {
-  /* padding-inline: 1rem;
-  padding-block: 0.3rem; */
   padding: 16px;
   border: 1px solid #A8A8A8;
   width: 100%;
@@ -487,18 +466,23 @@ select:hover {
   cursor: pointer;
   background-color: #FFFFFF;
 }
+
 .options {
-  width: 30%;
-  margin-left: 2rem;
-  border: 1px solid #222;
+  width: 100%;
+  border: 1px solid white;
+  background-color: #FFFFFF;
+  border-radius: 10px;
 }
+
 .option {
   padding-block: 2px;
   cursor: pointer;
 }
+
 .d-none {
   display: none;
 }
+
 .bi {
   width: 2rem;
   height: 2rem;
@@ -518,11 +502,8 @@ select:hover {
 
 .newColor {
   color: white;
-  background-color: blue;
+  background-color: rgb(42, 54, 71);
 }
-
-
-
 
 @media (max-width: 1295px) {
 
