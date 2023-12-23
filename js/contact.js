@@ -310,6 +310,9 @@ function openAddContact() {
   let addContact = document.getElementById("add-contact-bg");
   addContact.classList.remove("d-none");
   addContact.innerHTML = addAndEditTemplate();
+  setTimeout(() => {
+    document.getElementById('fly-in-container').classList.add('fly-in-add-edit')
+  }, 50);
 }
 
 
@@ -322,6 +325,7 @@ function initialsTemplate(bg){
 
 function addAndEditTemplate() {
   return /*html*/ `
+  <div id="fly-in-container" class="">
     <div id="add-contact">
         <div class="add-contact-slogan">
             <img src="../icons/logo.svg" alt="logo">
@@ -353,6 +357,7 @@ function addAndEditTemplate() {
               </div>
               
         </div>
+      </div>
     </div>
     `;
 }
@@ -384,7 +389,12 @@ function contentEditContact(headline, subheadline, button) {
 }
 
 function closeAddContact() {
-  document.getElementById("add-contact-bg").classList.add("d-none");
+  flyIn = document.getElementById('fly-in-container'); 
+  flyIn.classList.remove('fly-in-add-edit')
+  flyIn.ontransitionend = function(){
+    document.getElementById("add-contact-bg").classList.add("d-none");
+    flyIn.ontransitionend = null;
+  }
   setEditToFalse();
 }
 
