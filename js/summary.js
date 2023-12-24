@@ -8,7 +8,7 @@ const showSubmenu = function () {
 const dueDateNextTask = function () {
   // Parameter wird noch vergeben
   let today = new Date(); // wird später geändert
-  let dateArray = today.split(' ');
+  let dateArray = today.toDateString().split(' ');
   let day = dateArray[2];
   let monthNumeric = today.getMonth(); //dateArray[1];
   let year = dateArray[3];
@@ -30,8 +30,16 @@ const dueDateNextTask = function () {
   return `${monthArray[monthNumeric]} ${day}, ${year}`;
 };
 
-const renderTask = function (todo, done, urgent, dueDate, board, progress, feedback) {
-  const NO_TODO_TASK = todo.length;
+let taskArray = todos.map(todo => todo['taskboard']);
+let toDo = taskArray.filter(a => a === 'todo');
+let feedback = taskArray.filter(a => a === 'awaitfeedback');
+let urgent = taskArray.filter(a => a === 'urgent');
+let board = taskArray.filter(a => a === 'board');
+let progress = taskArray.filter(a => a === 'inprogress');
+let done = taskArray.filter(a => a === 'done');
+
+const renderTask = function () {
+  const NO_TODO_TASK = toDo.length;
   const NO_DONE_TASK = done.length;
   const NO_URGENT_TASK = urgent.length;
   const DUE_DATE_NEXT_TASK = dueDateNextTask();
@@ -46,3 +54,7 @@ const renderTask = function (todo, done, urgent, dueDate, board, progress, feedb
   document.getElementById('progress-task-number').innerHTML = `${NO_PROGRESS_TASK}`;
   document.getElementById('feedback-task-number').innerHTML = `${NO_AWAITING_FEEDBAK_TASK}`;
 };
+
+// const renderAlltask=function(){
+
+// }

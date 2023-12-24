@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html-scroll-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,36 +26,36 @@
     <!-- END FAVICON -->
     <title>Dashboard</title>
   </head>
-  <body class="summary-body" onload="init()">
+  <body class="summary-body" onload="init() ;renderTask()">
     <div class="container-summary disp-flex">
       <div class="left-side-section disp-flex">
         <div class="section-1">
-          <img class="logo-summary" src="/icons/logo.svg" alt="Logo" />
+          <img class="logo-summary" src="../icons/logo.svg" alt="Logo" />
         </div>
         <div class="section-2">
-          <div id="first-bg" class="sub-menu-container disp-flex bg-summary" onclick="render(templateSummary());toggleButtonColor('first-bg','../icons/summary_white.svg','../icons/summary.svg') ">
-            <img class="icons-left-side-section cursor-ptr" src="/icons/summary_white.svg" alt="Summary" />
-            <p id="summary-text" class="para-summary ft-sz-400 clr-white cursor-ptr">Summary</p>
+          <div id="first-bg" class="sub-menu-container disp-flex bg-summary" onclick="userAction('summary');toggleButtonColor('first-bg','summary-text','summary-img','../icons/summary_white.svg') ">
+            <img id="summary-img" class="icons-left-side-section cursor-ptr" src="../icons/summary_white.svg" alt="Summary" />
+            <p id="summary-text" class="para-summary gray-text ft-sz-400 clr-white cursor-ptr">Summary</p>
           </div>
 
-          <div id="second-bg" class="sub-menu-container disp-flex" onclick="render(templateAddTask()) ; toggleButtonColor('second-bg','../icons/addTask.svg','../icons/addTask-white.svg')">
-            <img class="icons-left-side-section cursor-ptr" src="/icons/addTask.svg" alt="Task" />
+          <div id="second-bg" class="sub-menu-container disp-flex" onclick="render(templateAddTask()) ; toggleButtonColor('second-bg','addTask-text','addTask-img','../icons/addTask-white.svg')">
+            <img id="addTask-img" class="icons-left-side-section cursor-ptr" src="../icons/addTask.svg" alt="Task" />
             <p id="addTask-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
-          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','../icons/board.svg','../icons/board-white.svg'); renderToDos()">
-            <img class="icons-left-side-section cursor-ptr" src="/icons/board.svg" alt="Board" />
+          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+            <img id="bord-img" class="icons-left-side-section cursor-ptr" src="../icons/board.svg" alt="Board" />
             <p id="bord-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
 
-          <div id="fourth-bg" class="sub-menu-container disp-flex" onclick="render(templateContacts()); renderContactSection() ; toggleButtonColor('fourth-bg','../icons/contact.svg','../icons/contact-white.svg')">
-            <img class="icons-left-side-section cursor-ptr" src="/icons/contact.svg" alt="Contacts" />
+          <div id="fourth-bg" class="sub-menu-container disp-flex" onclick="render(templateContacts()); renderContactSection() ; toggleButtonColor('fourth-bg','contact-text','contact-img','../icons/contact-white.svg')">
+            <img id="contact-img" class="icons-left-side-section cursor-ptr" src="../icons/contact.svg" alt="Contacts" />
             <p id="contact-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Contacts</p>
           </div>
         </div>
         <div class="section-3">
-          <a class="gray-text links" onclick="userAction('privacy')">Privacy Policy</a>
-          <a class="gray-text links" onclick="userAction('legal_notice')">Legal Notice</a>
+          <a id="privacy-bg" class="gray-text links" onclick="showRenderSection('privacy-render');setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a>
+          <a id="legal-notice-bg" class="gray-text links" onclick="showRenderSection('legale-notice-render');setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a>
         </div>
       </div>
       <div class="right-side-section">
@@ -63,13 +63,14 @@
           <img class="mobile-logo" src="../icons/logo_blue.svg" alt="Logo" />
           <div class="kanban-tool ft-sz-400">Kanban Project Management Tool</div>
           <div class="menu-icons-group disp-flex">
-            <img id="help-icon" class="help" src="/icons/help.svg" alt="Help" onclick="userAction('help')" />
+            <img id="help-icon" class="help" src="../icons/help.svg" alt="Help" onclick="showRenderSection('help-render')" />
+            <!-- <img id="help-icon" class="help" src="../icons/help.svg" alt="Help" onclick="userAction('help')" /> -->
             <button id="loginBtn" class="login" onclick="showSubmenu()"></button>
           </div>
         </header>
         <div id="submenu-user" class="submenu-user d-none">
-          <a class="list-item ft-sz-400" onclick="userAction('legal_notice')"> Legal Notice</a>
-          <a class="list-item ft-sz-400" onclick="userAction('privacy')">Privacy Policy</a>
+          <a class="list-item ft-sz-400" onclick="showRenderSection('legale-notice-render');setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a>
+          <a class="list-item ft-sz-400" onclick="showRenderSection('privacy-render');setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a>
           <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
         </div>
         <div id="render-container">
@@ -90,14 +91,14 @@
                 </div>
                 <div class="first-line-task disp-flex">
                   <div class="todo do-task disp-flex">
-                    <img class="task-icons-blue" src="/icons/edit.svg" alt="TO-DO" />
+                    <img class="task-icons-blue" src="../icons/edit.svg" alt="TO-DO" />
                     <div class="middle">
                       <span id="todo" class="var-task">0</span>
                       <span class="task-text ft-sz-400">To-do</span>
                     </div>
                   </div>
                   <div class="done do-task disp-flex">
-                    <img class="task-icons-blue" src="/icons/check.svg" alt="TO-DO" />
+                    <img class="task-icons-blue" src="../icons/check.svg" alt="TO-DO" />
                     <div class="middle">
                       <span id="done" class="var-task">0</span>
                       <span class="task-text ft-sz-400">Done</span>
@@ -106,7 +107,7 @@
                 </div>
                 <div class="second-line-task disp-flex">
                   <div class="urgent disp-flex task-due-common">
-                    <img class="task-icons" src="/icons/urgent.svg" alt="Urgent" />
+                    <img class="task-icons" src="../icons/urgent.svg" alt="Urgent" />
                     <div class="middle">
                       <span id="urgent" class="var-task">0</span>
                       <span class="task-text ft-sz-400">Urgent</span>
@@ -145,17 +146,240 @@
               </div>
             </div>
           </span>
+          </div>
+          <div id="privacy-render" class="task-info-section d-none-summary">
+            <span id="privacy-page" class="virtualClass help-page">
+              <div class="title-help">Privacy Policy</div>
+              <a href="../html/summary.html"
+                ><img id="return-btn" class="return-btn" src="../icons/arrow-left-line.svg" alt="Exit"
+              /></a>
+              <div class="qa-join">Subtitle</div>
+              <div class="help-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, ex cumque alias accusantium reiciendis
+                deserunt ut iusto doloremque corrupti rem, consequatur pariatur repellat illum, quibusdam quam
+                exercitationem numquam. Dolore, consequuntur?
+              </div>
+              <div class="qa-join">Subtitle</div>
+              <div class="help-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur soluta amet iusto facilis quam, totam
+                blanditiis. Totam tenetur rem aut quasi provident tempore non modi officiis molestias, laboriosam repellat
+                excepturi.
+              </div>
+            </span>
+          </div>
+          <div id="legale-notice-render" class="task-info-section d-none-summary">
+            <span id="legal-notice-page" class="virtualClass help-page">
+              <div class="title-help">Legal Notice</div>
+              <a href="../html/summary.html"
+                ><img id="return-btn" class="return-btn" src="../icons/arrow-left-line.svg" alt="Exit"
+              /></a>
+              <span class="qa-join">Imprint</span>
+              <div class="help-text">
+                <ul class="list-email">
+                  <li class="list-notice">
+                    <a class="mail-links" href="#">Ibrahima-Pascal-Henrik-Thomas</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href="mailto:join803@ibrahima.de">join803@da.de</a>
+                  </li>
+                  <li class="list-notice">
+                    <a class="mail-links" href="#">Musterstraße 10, Munich</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <span class="help-topic-title">Exploring the Board</span>
+                <div class="help-text">
+                  <ul class="list-email">
+                    <li class="list-notice">
+                      Email:
+                      <a class="mail-links" href="mailto:join803@ibrahima.de">join803@ibrahima.de</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <span class="help-topic-title">Acceptance of terms</span>
+                <div class="help-text">
+                  Acceptance of terms By accessing and using
+                  <span class="blue-join">Join</span> (Product), you acknowledge and agree to the following terms and
+                  conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time
+                  to time. We, the listed students, may update or change the terms and conditions from time to time
+                  without notice.
+                </div>
+              </div>
+              <div>
+                <span class="help-topic-title">Scope and ownership of the product</span>
+                <div class="help-text">
+                  <span class="blue-join">Join</span> has been developed as part of a student group project in a web
+                  development bootcamp at the <span class="blue-join">Developer Akademie GmbH</span>. It has an
+                  educational purpose and is not intended for extensive personal & business usage. As such, we cannot
+                  guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this
+                  Product. The design of <span class="blue-join">Join</span> is owned by the
+                  <span class="blue-join">Developer Akademie GmbH</span>. Unauthorized use, reproduction, modification,
+                  distribution, or replication of the design is strictly prohibited.
+                </div>
+              </div>
+              <div>
+                <span class="help-topic-title">Proprietary rights</span>
+                <div class="help-text">
+                  Aside from the design owned by
+                  <span class="blue-join">Developer Akademie GmbH</span>, we, the listed students, retain all proprietary
+                  rights in <span class="blue-join">Join</span>, including any associated copyrighted material,
+                  trademarks, and other proprietary information.
+                </div>
+              </div>
+              <div>
+                <span class="help-topic-title">Use of the product</span>
+                <div class="help-text">
+                  <span class="blue-join">Join</span> is intended to be used for lawful purposes only, in accordance with
+                  all applicable laws and regulations. Any use of <span class="blue-join">Join</span> for illegal
+                  activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are
+                  solely responsible for your interactions with other users of <span class="blue-join">Join</span>.
+                </div>
+              </div>
+  
+              <div>
+                <span class="help-topic-title">Disclaimer of warranties and limitation of liability</span>
+                <div class="help-text">
+                  <span class="blue-join">Join</span> is provided "as is" without warranty of any kind, whether express or
+                  implied, including but not limited to the implied warranties of merchantability, fitness for a
+                  particular purpose, and non-infringement. In no event will we, the listed students, or the
+                  <span class="blue-join">Developer Akademie</span>, be liable for any direct, indirect, incidental,
+                  special, consequential or exemplary damages, including but not limited to, damages for loss of profits,
+                  goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such
+                  damages, arising out of or in connection with the use or performance of
+                  <span class="blue-join">Join</span>.
+                </div>
+              </div>
+              <div>
+                <span class="help-topic-title">Indemnity</span>
+                <div class="help-text">
+                  You agree to indemnify, defend and hold harmless us, the listed students, the
+                  <span class="blue-join">Developer Akademie</span>, and our affiliates, partners, officers, directors,
+                  agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including
+                  reasonable legal fees) arising out of or relating to your use of
+                  <span class="blue-join">Join</span> and/or your breach of this Legal Notice.
+                </div>
+              </div>
+              <!-- </div> -->
+              <div class="help-text">
+                For any questions or notices, please contact us at
+                <a class="mail-links" href="mailto:join803@da.de">join803@da.de</a>.
+              </div>
+              <div class="date-legal-notice">Date: December 05, 2023</div>
+            </span>
+          </div>
+          <div id="help-render" class="task-info-section d-none-summary">
+            <span id="help-page" class="help-page">
+              <div class="title-help">Help</div>
+              <a href="../html/summary.html"
+                ><img id="return-btn" class="return-btn" src="../icons/arrow-left-line.svg" alt="Exit"
+              /></a>
+              <div class="help-text">
+                Welcome to the help page for <span class="blue-join">Join</span>, your guide to using our kanban project
+                management tool. Here, we'll provide an overview of what <span class="blue-join">Join</span> is, how it
+                can benefit you, and how to use it.
+              </div>
+              <span class="qa-join">What is Join?</span>
+              <div class="help-text">
+                <span class="blue-join">Join</span> is a kanban-based project management tool designed and built by a
+                group of dedicated students as part of their web development bootcamp at the Developer Akademie.
+              </div>
+              <div class="help-text">
+                Kanban, a Japanese term meaning "billboard", is a highly effective method to visualize work, limit
+                work-in-progress, and maximize efficiency (or flow).
+                <span class="blue-join">Join</span> leverages the principles of kanban to help users manage their tasks
+                and projects in an intuitive, visual interface.
+              </div>
+              <div class="help-text">
+                It is important to note that
+                <span class="blue-join">Join</span> is designed as an educational exercise and is not intended for
+                extensive business usage. While we strive to ensure the best possible user experience, we cannot guarantee
+                consistent availability, reliability, accuracy, or other aspects of quality regarding
+                <span class="blue-join">Join</span>.
+              </div>
+              <span class="qa-join">How to use it?</span>
+              <div class="help-text">
+                Here is a step-by-step guide on how to use
+                <span class="blue-join">Join</span>:
+              </div>
+              <div class="num-grp">
+                <div class="qa-join numerotation">1.</div>
+                <div>
+                  <span class="help-topic-title">Exploring the Board</span>
+                  <div class="help-text">
+                    When you log in to <span class="blue-join">Join</span>, you'll find a default board. This board
+                    represents your project and contains four default lists: "To Do", "In Progress", “Await feedback” and
+                    "Done".
+                  </div>
+                </div>
+              </div>
+  
+              <div class="num-grp">
+                <div class="qa-join numerotation">2.</div>
+                <div>
+                  <span class="help-topic-title">Creating Cards</span>
+                  <div class="help-text">
+                    In <span class="blue-join">Join</span>, you can add contacts to collaborate on your projects. Go to
+                    the "Contacts" section, click on "New contact", and fill in the required information. Once added,
+                    these contacts can be assigned tasks and they can interact with the tasks on the board.
+                  </div>
+                </div>
+              </div>
+  
+              <div class="num-grp">
+                <div class="qa-join numerotation">3.</div>
+                <div>
+                  <span class="help-topic-title">Adding Cards</span>
+                  <div class="help-text">
+                    Now that you've added your contacts, you can start adding cards. Cards represent individual tasks.
+                    Click the "+" button under the appropriate list to create a new card. Fill in the task details in the
+                    card, like task name, description, due date, assignees, etc.
+                  </div>
+                </div>
+              </div>
+  
+              <div class="num-grp">
+                <div class="qa-join numerotation">4.</div>
+                <div>
+                  <span class="help-topic-title">Moving Cards</span>
+                  <div class="help-text">
+                    As the task moves from one stage to another, you can reflect that on the board by dragging and
+                    dropping the card from one list to another.
+                  </div>
+                </div>
+              </div>
+  
+              <div class="num-grp">
+                <div class="qa-join numerotation">5.</div>
+                <div>
+                  <span class="help-topic-title">Deleting Cards</span>
+                  <div class="help-text">
+                    Once a task is completed, you can either move it to the "Done" list or delete it. Deleting a card will
+                    permanently remove it from the board. Please exercise caution when deleting cards, as this action is
+                    irreversible. <br />
+                    Remember that using
+                    <span class="blue-join">Join</span> effectively requires consistent updates from you and your team to
+                    ensure the board reflects the current state of your project. <br />
+                    Have more questions about <span class="blue-join">Join</span>? Feel free to contact us at
+                    [join803.gmail.com]. We're here to help you!
+                  </div>
+                </div>
+              </div>
+              <div class="qa-join">Enjoy using Join!</div>
+            </span>
+          </div>
         </div>
       </div>
-    </div>
 
     <!-- script summary -->
-    <script src="../js/summary.js"></script>
     <script src="../js/login_out.js"></script>
     <!-- script addTask -->
     <script src="../js/addTask.js"></script>
     <!-- script board -->
     <script src="/js/board.js"></script>
+    <script src="../js/summary.js"></script>
     <!-- script contacts -->
     <script src="../js/contact.js"></script>
     <!-- template -->

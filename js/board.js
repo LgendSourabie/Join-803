@@ -1,139 +1,133 @@
 let todos = [
-    {
-        'title': 'test note für den Zweck der Testung.',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priomedium.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test2'],
-        'progress' : 1,
-        'id' : 0,
-        'taskboard' : 'todo'
-    },
-    {
-        'title': 'test note1',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 2,
-        'id' : 1,
-        'taskboard' : 'todo'
-    }, 
-    {
-        'title': 'test note2',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 1,
-        'id' : 2,
-        'taskboard' : 'awaitfeedback'
-    }, 
-    {
-        'title': 'test note3',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 0,
-        'id' : 3,
-        'taskboard' : 'awaitfeedback'
-    }, 
-    {
-        'title': 'test note4',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 0,
-        'id' : 4,
-        'taskboard' : 'inprogress'
-    }, 
-    {
-        'title': 'test note5',
-        'discription': 'we test it',
-        'assigned to': 'Pascal',
-        'due date': '13.12.23',
-        'prio': '/icons/priolow.svg',
-        'category': 'Technical Task',
-        'subtasks': ['test1', 'test2'],
-        'progress' : 0,
-        'id' : 5,
-        'taskboard' : 'done'
-    }
+  {
+    title: 'test note für den Zweck der Testung.',
+    discription: 'we test it',
+    'assigned to': 'Pascal',
+    'due date': '13.12.23',
+    prio: '/icons/priomedium.svg',
+    category: 'Technical Task',
+    subtasks: ['test2'],
+    progress: 1,
+    id: 0,
+    taskboard: 'todo',
+  },
+  {
+    title: 'test note1',
+    discription: 'we test it',
+    'assigned to': 'Pascal',
+    'due date': '13.12.23',
+    prio: '/icons/priolow.svg',
+    category: 'Technical Task',
+    subtasks: ['test1', 'test2'],
+    progress: 2,
+    id: 1,
+    taskboard: 'todo',
+  },
+  {
+    title: 'test note2',
+    discription: 'we test it',
+    'assigned to': 'Pascal',
+    'due date': '13.12.23',
+    prio: '/icons/priolow.svg',
+    category: 'Technical Task',
+    subtasks: ['test1', 'test2'],
+    progress: 1,
+    id: 2,
+    taskboard: 'awaitfeedback',
+  },
+  {
+    title: 'test note3',
+    discription: 'we test it',
+    'assigned to': 'Pascal',
+    'due date': '13.12.23',
+    prio: '/icons/priolow.svg',
+    category: 'Technical Task',
+    subtasks: ['test1', 'test2'],
+    progress: 0,
+    id: 3,
+    taskboard: 'awaitfeedback',
+  },
+  {
+    title: 'test note4',
+    discription: 'we test it',
+    'assigned to': 'Pascal',
+    'due date': '13.12.23',
+    prio: '/icons/priolow.svg',
+    category: 'Technical Task',
+    subtasks: ['test1', 'test2'],
+    progress: 0,
+    id: 4,
+    taskboard: 'inprogress',
+  },
+  {
+    title: 'test note5',
+    discription: 'we test it',
+    'assigned to': 'Pascal',
+    'due date': '13.12.23',
+    prio: '/icons/priolow.svg',
+    category: 'Technical Task',
+    subtasks: ['test1', 'test2'],
+    progress: 0,
+    id: 5,
+    taskboard: 'done',
+  },
 ];
 
 let currentDraggedElement;
 
-
-
 function renderToDos() {
+  forlooprender('todo');
 
-    forlooprender('todo');
+  forlooprender('inprogress');
 
-    forlooprender('inprogress');
+  forlooprender('awaitfeedback');
 
-    forlooprender('awaitfeedback');
-
-    forlooprender('done');
-
+  forlooprender('done');
 }
 
-function forlooprender(test){
-    let todo = todos.filter(t => t['taskboard'] == test);
+function forlooprender(test) {
+  let todo = todos.filter(t => t['taskboard'] == test);
 
-    document.getElementById(test).innerHTML = '';
+  document.getElementById(test).innerHTML = '';
 
-    for (let index = 0; index < todo.length; index++) {
-        const element = todo[index];
-        document.getElementById(test).innerHTML += todotemplate(element, index);
-    }
+  for (let index = 0; index < todo.length; index++) {
+    const element = todo[index];
+    document.getElementById(test).innerHTML += todotemplate(element, index);
+  }
 }
 
 function filterTodosByTitle() {
-    let input = document.getElementById('taskInput');
-    let filter = input.value.toLowerCase();
+  let input = document.getElementById('taskInput');
+  let filter = input.value.toLowerCase();
 
-    let filteredTodos = todos.filter(function(todo) {
-        return todo.title.toLowerCase().includes(filter);
-    });
+  let filteredTodos = todos.filter(function (todo) {
+    return todo.title.toLowerCase().includes(filter);
+  });
 
-    renderFilteredTodos(filteredTodos);
+  renderFilteredTodos(filteredTodos);
 }
 
 function renderFilteredTodos(filteredTodos) {
+  document.getElementById('todo').innerHTML = '';
+  document.getElementById('inprogress').innerHTML = '';
+  document.getElementById('awaitfeedback').innerHTML = '';
+  document.getElementById('done').innerHTML = '';
 
-    document.getElementById('todo').innerHTML = '';
-    document.getElementById('inprogress').innerHTML = '';
-    document.getElementById('awaitfeedback').innerHTML = '';
-    document.getElementById('done').innerHTML = '';
-
-    for (let index = 0; index < filteredTodos.length; index++) {
-        const element = filteredTodos[index];
-        document.getElementById(element.taskboard).innerHTML += todotemplate(element, index);
-    }
+  for (let index = 0; index < filteredTodos.length; index++) {
+    const element = filteredTodos[index];
+    document.getElementById(element.taskboard).innerHTML += todotemplate(element, index);
+  }
 }
 
-
 function todotemplate(array, i) {
-    return /*html*/`
+  return /*html*/ `
  <div class="todocard" draggable="true" ondragstart="startDragging(${array['id']})" onclick="showtodowindow(${i})">
     <button>${array.category}</button>
     <b>${array.title}</b>
     <span>${array.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${array.progress / array.subtasks.length * 100}%">
+            <div class="progress" style="width: ${(array.progress / array.subtasks.length) * 100}%">
             </div>
         </div>  
         <div>${array.progress}/${array.subtasks.length}Subtasks</div> 
@@ -143,41 +137,40 @@ function todotemplate(array, i) {
         <img src="${array.prio}" alt="">
     </div>
 </div>
-`
+`;
 }
 
-
 function startDragging(id) {
-    currentDraggedElement = id;
+  currentDraggedElement = id;
 }
 
 function allowDrop(ev) {
-    ev.preventDefault();
+  ev.preventDefault();
 }
 
 function moveTo(category) {
-    todos[currentDraggedElement]['taskboard'] = category;
-    removeHighlight(category);
-    renderToDos();
+  todos[currentDraggedElement]['taskboard'] = category;
+  removeHighlight(category);
+  renderToDos();
 }
 
 function highlight(id) {
-    document.getElementById(id).classList.add('drag-area-highlight');
+  document.getElementById(id).classList.add('drag-area-highlight');
 }
 
 function removeHighlight(id) {
-    document.getElementById(id).classList.remove('drag-area-highlight');
+  document.getElementById(id).classList.remove('drag-area-highlight');
 }
 
-function showtodowindow(i){
-    let todowindow = document.getElementById('showtodowindow');
-    todowindow.classList.add('showtodowindow');
-    todowindow.innerHTML = todowindowtemplate(i);
-    createSubtasks(i);
+function showtodowindow(i) {
+  let todowindow = document.getElementById('showtodowindow');
+  todowindow.classList.add('showtodowindow');
+  todowindow.innerHTML = todowindowtemplate(i);
+  createSubtasks(i);
 }
 
-function todowindowtemplate(i){
-    return /*html*/`
+function todowindowtemplate(i) {
+  return /*html*/ `
     <div class="overlay">
         <div class="overlaybutton">
             <button>${todos[i].category}</button>
@@ -219,51 +212,47 @@ function todowindowtemplate(i){
 `;
 }
 
-
-function createSubtasks(i){
-    for (let j = 0; j < todos[i].subtasks.length; j++) {
-        const element = todos[i].subtasks[j];
-        document.getElementById('subtasks').innerHTML += /*html*/`
+function createSubtasks(i) {
+  for (let j = 0; j < todos[i].subtasks.length; j++) {
+    const element = todos[i].subtasks[j];
+    document.getElementById('subtasks').innerHTML += /*html*/ `
         <div>
             <img id="checkbox${j}" src="/icons/uncheckBox.svg" alt="" onclick="changecheckbox('checkbox${j}' , ${i})">
            <span>${element}</span> 
         </div>
-    `
-    }
+    `;
+  }
 }
 
-function closetodowindow(){
-    document.getElementById('showtodowindow').classList.remove('showtodowindow');
-    document.getElementById('showtodowindow').innerHTML = '';
-
+function closetodowindow() {
+  document.getElementById('showtodowindow').classList.remove('showtodowindow');
+  document.getElementById('showtodowindow').innerHTML = '';
 }
 
-function changecheckbox(j , i) {
-    const checkbox = document.getElementById(j);
-    const checkButtonPath = '/icons/uncheckBox.svg';
+function changecheckbox(j, i) {
+  const checkbox = document.getElementById(j);
+  const checkButtonPath = '/icons/uncheckBox.svg';
 
-    if (checkbox.src.endsWith(checkButtonPath)) {
-        checkbox.src = '/icons/checkButton.svg';
-        todos[i].progress + 1
-    } else {
-        checkbox.src = checkButtonPath;
-        todos[i].progress - 1
-    }
+  if (checkbox.src.endsWith(checkButtonPath)) {
+    checkbox.src = '/icons/checkButton.svg';
+    todos[i].progress + 1;
+  } else {
+    checkbox.src = checkButtonPath;
+    todos[i].progress - 1;
+  }
 }
-
 
 function openAddtask() {
-    let addtask = document.getElementById("add-task-bg");
-    addtask.classList.remove("d-none");
-    addtask.innerHTML = templateOpenaddtask();
-    setTimeout(() => {
-      document.getElementById('fly-in-container').classList.add('fly-in-add-edit')
-    }, 50);
-  }
-
+  let addtask = document.getElementById('add-task-bg');
+  addtask.classList.remove('d-none');
+  addtask.innerHTML = templateOpenaddtask();
+  setTimeout(() => {
+    document.getElementById('fly-in-container').classList.add('fly-in-add-edit');
+  }, 50);
+}
 
 function templateOpenaddtask() {
-    return /*html*/`
+  return /*html*/ `
     <div id="fly-in-container">
         <div class="addTaskContainerFlyin">
 
@@ -380,5 +369,5 @@ function templateOpenaddtask() {
 </form>
 </div>
 </div>
-    `
+    `;
 }

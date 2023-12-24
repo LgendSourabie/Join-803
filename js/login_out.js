@@ -18,17 +18,11 @@ function registerUser() {
 
 async function saveUser(name, email, pwd, confirmPwd) {
   if (!existEmail(email)[1]) {
-    // document.getElementById('register-user-email').style.border = '';
-    // document.getElementById('emailExist').innerHTML = '';
     resetInputFieldStyle();
     if (pwd === confirmPwd) {
-      // document.getElementById('confirm-pwd').style.border = '';
-      // document.getElementById('confirmPwdError').innerHTML = '';
-      // users.push(new User(name, email, pwd));
-      // document.getElementById('blue-btn-signup-success').classList.add('show-success-btn');
-      // await setItem('users', JSON.stringify(users));
-      await registerUser(name, email, pwd);
-      setTimeout(userAction('login'), 7000);
+      document.getElementById('blue-btn-signup-success').style.zIndex = '0';
+      await validateUserData(name, email, pwd);
+      setTimeout(userAction('login'), 1000);
     } else {
       errorMessage('confirm-pwd', 'confirmPwdError', "Ups! Your password doesn't match");
     }
@@ -37,11 +31,10 @@ async function saveUser(name, email, pwd, confirmPwd) {
   }
 }
 
-async function registerUser(name, email, pwd) {
+async function validateUserData(name, email, pwd) {
   document.getElementById('confirm-pwd').style.border = '';
   document.getElementById('confirmPwdError').innerHTML = '';
   users.push(new User(name, email, pwd));
-  document.getElementById('blue-btn-signup-success').classList.add('show-success-btn');
   await setItem('users', JSON.stringify(users));
 }
 
@@ -56,18 +49,11 @@ function User(name, email, pwd) {
   this.password = pwd;
 }
 
-const loadUsers = function () {
-  let existUsers = localStorage.getItem('users');
-  if (existUsers) {
-    users = JSON.parse(existUsers);
-  }
-};
-
 const errorMessage = function (id1, id2, msg) {
   let fieldInput = document.getElementById(id1);
   let confirmPwd = document.getElementById(id2);
   confirmPwd.innerHTML = msg;
-  fieldInput.style.border = '2px solid red';
+  fieldInput.style.border = '1px solid red';
 };
 
 const existEmail = function (email) {
@@ -77,7 +63,6 @@ const existEmail = function (email) {
 };
 
 const enableSignUP = function () {
-  // let ischecked = document.getElementById("check-box-signup").checked;
   if (ischecked) {
     document.getElementById('sign-up-btn').disabled = false;
   } else {
@@ -103,23 +88,62 @@ const removeClass = function (id, musterClass) {
     element.classList.remove(musterClass);
   }
 };
+const addClass = function (id, musterClass) {
+  let element = document.getElementById(id);
+  if (element.classList.contains(musterClass)) {
+    element.classList.add(musterClass);
+  }
+};
 
-const toggleButtonColor = function (id, srcCurrent, srcNew) {
-  checkButton(id, srcCurrent, srcNew);
-  let el1 = document.getElementById('summary-text');
-  let el2 = document.getElementById('first-bg');
-  if (el1.classList.contains('clr-white')) {
-    el1.classList.remove('clr-white');
-  }
-  if (el2.classList.contains('bg-summary')) {
-    el2.classList.remove('bg-summary');
-  }
-  document.getElementById('summary-text').classList.add('gray-text');
-  document.getElementById('addTask-text').classList.add('gray-text');
-  document.getElementById('bord-text').classList.add('gray-text');
-  document.getElementById('contact-text').classList.add('gray-text');
-  document.getElementById(id).classList.add('clr-white');
-  document.getElementById(id).classList.add('bg-summary');
+function showRenderSection(id) {
+  document.getElementById('summary-page').style.display = 'none';
+  document.getElementById('privacy-render').style.display = 'none';
+  document.getElementById('legale-notice-render').style.display = 'none';
+  document.getElementById('help-render').style.display = 'none';
+  document.getElementById(id).style.display = 'flex';
+}
+
+function removeAllTextColor() {
+  removeClass('summary-text', 'clr-white');
+  removeClass('addTask-text', 'clr-white');
+  removeClass('bord-text', 'clr-white');
+  removeClass('contact-text', 'clr-white');
+  removeClass('privacy-bg', 'clr-white');
+  removeClass('legal-notice-bg', 'clr-white');
+}
+
+function removeAllBackgroundColor() {
+  removeClass('first-bg', 'bg-summary');
+  removeClass('second-bg', 'bg-summary');
+  removeClass('third-bg', 'bg-summary');
+  removeClass('fourth-bg', 'bg-summary');
+  removeClass('privacy-bg', 'bg-summary');
+  removeClass('legal-notice-bg', 'bg-summary');
+}
+
+function resetAllIcons() {
+  document.getElementById('summary-img').setAttribute('src', '../icons/summary.svg');
+  document.getElementById('addTask-img').setAttribute('src', '../icons/addTask.svg');
+  document.getElementById('bord-img').setAttribute('src', '../icons/board.svg');
+  document.getElementById('contact-img').setAttribute('src', '../icons/contact.svg');
+}
+
+function setBdgTextcolor(id, idText) {
+  let el = document.getElementById(id);
+  let elText = document.getElementById(idText);
+  removeAllBackgroundColor();
+  removeAllTextColor();
+  resetAllIcons();
+  el.classList.add('bg-summary');
+  elText.classList.add('clr-white');
+}
+
+const toggleButtonColor = function (id, idText, idImg, src) {
+  let elImg = document.getElementById(idImg);
+  removeAllBackgroundColor();
+  removeAllTextColor();
+  setBdgTextcolor(id, idText);
+  elImg.setAttribute('src', src);
 };
 
 async function init() {
@@ -127,7 +151,7 @@ async function init() {
     await loadAllUsers();
     greetUserWithName();
   } catch (e) {
-    console.warn('No users available');
+    return;
   }
 }
 
@@ -151,6 +175,39 @@ async function getItem(key) {
 }
 
 /////////////// LOG in /////////////////////////////////////////////////
+
+const showPassword = function (id) {
+  // let btnEl = document.getElementById(id1);
+  let inputField = document.getElementById(id);
+  let inputType = inputField.getAttribute('type');
+  if (inputType === 'password') {
+    inputField.setAttribute('type', 'text');
+  } else {
+    inputField.setAttribute('type', 'password');
+  }
+};
+
+const toggleVisibleIcon = function (id) {
+  let element = document.getElementById(id);
+  let currentState = element.getAttribute('src');
+  if (currentState === '../icons/visibility_off.svg' || currentState === '../icons/visibility.svg') {
+    if (currentState === '../icons/visibility_off.svg') {
+      element.setAttribute('src', '../icons/visibility.svg');
+    } else {
+      element.setAttribute('src', '../icons/visibility_off.svg');
+    }
+  }
+};
+
+const handlePwdIcon = function (idInput, idImg) {
+  let inputField = document.getElementById(idInput);
+  let el = document.getElementById(idImg);
+  if (inputField.value !== '') {
+    el.setAttribute('src', '../icons/visibility_off.svg');
+  } else {
+    el.setAttribute('src', '../icons/lock.svg');
+  }
+};
 
 const checkUserData = function () {
   let email = document.getElementById('email');
@@ -185,8 +242,7 @@ const greetUserWithName = function () {
   greetUser('greet-user-responsive');
   document.getElementById('current-user-name').innerHTML = currentUser.length !== 0 ? `${nameUser}` : '';
   document.getElementById('current-user-name-responsive').innerHTML = currentUser.length !== 0 ? `${nameUser}` : '';
-  document.getElementById('loginBtn').innerHTML =
-    currentUser.length !== 0 ? `${fullName(nameUser)[1]}${fullName(nameUser)[0]}` : 'G';
+  document.getElementById('loginBtn').innerHTML = currentUser.length !== 0 ? `${fullName(nameUser)}` : 'G';
 };
 
 const greetUser = function (id) {
@@ -194,19 +250,23 @@ const greetUser = function (id) {
   let now = new Date();
   let hoursNow = now.getHours();
   if (5 <= hoursNow && hoursNow <= 11) {
-    greetField.innerHTML = currentUser.length !== 0 ? `Good morning` : `Good morning!`;
+    greetField.innerHTML = currentUser.length !== 0 ? `Good morning,` : `Good morning!`;
   } else if (12 <= hoursNow && hoursNow <= 17) {
-    greetField.innerHTML = currentUser.length !== 0 ? `Good afternoon` : `Good afternoon!`;
+    greetField.innerHTML = currentUser.length !== 0 ? `Good afternoon,` : `Good afternoon!`;
   } else {
-    greetField.innerHTML = currentUser.length !== 0 ? `Good evening` : `Good evening!`;
+    greetField.innerHTML = currentUser.length !== 0 ? `Good evening,` : `Good evening!`;
   }
 };
 
 const fullName = function (name) {
-  let nameArray = name.split(' ');
-  let fisrtName = nameArray[0];
-  let lastName = nameArray[1];
-  return [fisrtName[0].toUpperCase(), lastName[0].toUpperCase()];
+  if (name.includes(' ')) {
+    let nameArray = name.split(' ');
+    let fisrtName = nameArray[0];
+    let lastName = nameArray[1];
+    return `${lastName[0].toUpperCase()}${fisrtName[0].toUpperCase()}`;
+  } else {
+    return `${name[0].toUpperCase()}`;
+  }
 };
 
 function isPasswordValid(givenPassword, currentPassword) {
@@ -231,10 +291,10 @@ const generateError = (errorType, errorMsg) => {
   let emailField = document.getElementById('email');
   let passwordField = document.getElementById('password');
   if (errorType == 'email') {
-    emailField.style.border = '2px solid red';
+    emailField.style.border = '1px solid red';
     emailError.innerHTML = errorMsg;
   } else if (errorType == 'password') {
-    passwordField.style.border = '2px solid red';
+    passwordField.style.border = '1px solid red';
     passwordError.innerHTML = errorMsg;
   }
 };
