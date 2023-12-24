@@ -115,6 +115,8 @@ body {
   background-color: rgb(246, 247, 248);
   display: flex;
   flex-direction: column;
+  padding-top: 7rem;
+  padding-left: 7rem;
 }
 
 .addTaskContainerLeftRight {
@@ -157,14 +159,20 @@ h2 {
   border: 1px solid #A8A8A8;
   padding: 16px;
   cursor: pointer;
+  background-color: #FFFFFF;
 }
 
 textarea {
   border-radius: 10px;
   border: 1px solid #A8A8A8;
   padding: 16px;
+  outline: none;
   cursor: pointer;
 }
+
+/* textarea:focus {
+  border: 1px solid red;
+} */
 
 .containerLeft {
   display: flex;
@@ -184,9 +192,10 @@ select {
   background-image: url('../img/img/arrow_drop_down.svg');
   background-repeat: no-repeat;
   background-position-y: center;
-  padding-right: 2rem;
+  padding-right: 1rem;
   background-position-x: right;
   background-origin: content-box;
+  outline: none;
 }
 
 
@@ -199,8 +208,8 @@ select:hover {
   width: 14px;
   height: 14px;
   position: absolute;
-  margin-top: 58px;
-  margin-left: 410px;
+  margin-top: 61px;
+  margin-left: 24rem;
 }
 
 .subtasksPlusIMG:hover {
@@ -240,22 +249,6 @@ select:hover {
   justify-content: space-between;
   gap: 16px;
 }
-
-/* .allPrio {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 136px;
-  height: 56px;
-  border-radius: 10px;
-  padding: 16px, 10px, 16px, 10px;
-  background-color: #ffffff;
-  cursor: pointer;
-} */
-
-/* .allPrio:hover {
-  box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
-} */
 
 .prio {
   display: flex;
@@ -473,31 +466,31 @@ select:hover {
   border-radius: 50%;
 }
 
-
-
-
-/* .dropdown {
-  margin-left: 2rem;
-  margin-top: 2rem;
-  padding-inline: 1rem;
-  padding-block: 0.3rem;
-  border: 2px solid #222;
-  width: 30%;
-  border-radius: 5px;
+.dropdown {
+  padding: 16px;
+  border: 1px solid #A8A8A8;
+  width: 100%;
+  border-radius: 10px;
   cursor: pointer;
+  background-color: #FFFFFF;
 }
+
 .options {
-  width: 30%;
-  margin-left: 2rem;
-  border: 1px solid #222;
+  width: 100%;
+  border: 1px solid white;
+  background-color: #FFFFFF;
+  border-radius: 10px;
 }
+
 .option {
   padding-block: 2px;
   cursor: pointer;
 }
+
 .d-none {
   display: none;
 }
+
 .bi {
   width: 2rem;
   height: 2rem;
@@ -517,17 +510,18 @@ select:hover {
 
 .newColor {
   color: white;
-  background-color: blue;
-} */
-
-
-
+  background-color: rgb(42, 54, 71);
+}
 
 @media (max-width: 1295px) {
 
   h2 {
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  .addTaskContainer {
+    padding: 0;
   }
 
   .groupButtonForm {
@@ -619,19 +613,7 @@ select:hover {
     padding-left: 0;
   }
 
-  /* .footerAddTask {
-    width: 60%;
-  } */
-
 }
-
-/* @media (max-width: 853px) {
-
-  .footerAddTask {
-    width: 65%;
-  }
-
-} */
 
 @media (max-width: 768px) {
 

@@ -48,6 +48,7 @@ let btns = [];
 let liste = [];
 let tasks = [];
 // let users = [];
+// let users = [];
 let prios = [];
 let subtasks = 0;
 let usersSelect = [];
@@ -204,9 +205,9 @@ function options() {
     const option = listeOption[i];
     field.innerHTML += /*html*/ `
       <div class="option" id="cont${i}" onclick="updateBtn(${i});changeCheckState(${i})">
-      <button id="btn-${i}" class="bi">BI</button> 
+      <button id="btn-${i}" class="bi">${initial[i]}</button> 
         <span id="name${i}">${option}</span> 
-      <img id="checkBox${i}" src="./checkBox.svg" alt="">
+      <img id="checkBox${i}" src="../img/img/checkBox.svg" alt="">
     </div>
       `;
   }
