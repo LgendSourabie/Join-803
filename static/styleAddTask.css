@@ -451,6 +451,7 @@ select:hover {
 .testPrio {
   width: 136px;
   height: 56px;
+  border-radius: 10px;
 }
 
 .testPrio:hover {
@@ -562,7 +563,7 @@ select:hover {
   }
 
   .addTaskContainerTwo {
-    margin-top: 20px;
+    margin-top: 130px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -613,12 +614,20 @@ select:hover {
     padding-left: 0;
   }
 
+  .addTaskContainerTwo {
+    margin-top: 175px;
+  }
+
 }
 
 @media (max-width: 768px) {
 
   .addTaskContainerOne {
     padding-top: 3rem;
+  }
+
+  .addTaskContainerTwo {
+    margin-top: 110px;
   }
 
   h2 {
@@ -689,6 +698,10 @@ select:hover {
     position: fixed;
   }
 
+  .addTaskContainerTwo {
+    margin-top: 65px;
+  }
+
 }
 
 @media (max-width: 400px) {
@@ -719,10 +732,6 @@ select:hover {
 
   h2 {
     font-size: 48px;
-  }
-
-  .addTaskContainerTwo {
-    margin-top: 35px;
   }
 
 }

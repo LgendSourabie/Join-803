@@ -150,7 +150,7 @@ function templateAddTask() {
                         <div class="subtasksAddTask addTaskOverview">
                             <span class="spanSubtasks">Subtasks</span>
                             <input onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
-                            <img onclick="addNewSubtask()" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
+                            <!-- <img onclick="addNewSubtask()" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt=""> -->
                         </div> 
                     </div>
                 </div>
