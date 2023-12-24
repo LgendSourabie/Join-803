@@ -348,7 +348,7 @@ a {
     justify-content: center;
   }
 
-  .overlay {
+  .overlay-startpage {
     animation-name: overlayBlue;
     animation-duration: 2s;
     animation-timing-function: linear;

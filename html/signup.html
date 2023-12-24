@@ -9,28 +9,10 @@
     <script src="../sensitive/url.js"></script>
 
     <!-- FAVICON -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../favicon/favicon-16x16.png"
-    />
-    <link
-      rel="mask-icon"
-      href="../favicon/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <!-- END FAVICON -->
@@ -40,16 +22,8 @@
   <body class="login-body disp-flex" onload="init()">
     <img class="singup-logo" src="/icons/logo_blue.svg" alt="Logo" />
     <div class="container-signup">
-      <form
-        class="user-log-data-section-signup disp-flex"
-        onsubmit="registerUser();return false"
-      >
-        <img
-          class="exit-arrow"
-          src="../icons/arrow-left-line.svg"
-          alt="Exit"
-          onclick="userAction('login')"
-        />
+      <form class="user-log-data-section-signup disp-flex" onsubmit="registerUser();return false">
+        <img class="exit-arrow" src="../icons/arrow-left-line.svg" alt="Exit" onclick="userAction('login')" />
         <div class="title-join-underline disp-flex">
           <div class="log-title">Sign up</div>
           <div class="btm-bar"></div>
@@ -96,39 +70,23 @@
                 id="checkbox-sign-up"
                 src="../icons/checkBox.svg"
                 alt="Check"
-                onclick="checkButton('checkbox-sign-up'); enableSignUP()"
+                onclick="checkButton('checkbox-sign-up','../icons/checkBox.svg','../icons/check-checked.svg'); enableSignUP()"
               />
               <span class="remember ft-sz-400">I accepted the </span
-              ><a class="consent-policy" onclick="userAction('privacy_signup')"
-                >Privacy Policy</a
-              >
+              ><a class="consent-policy" onclick="userAction('privacy_signup')">Privacy Policy</a>
             </div>
           </div>
         </div>
 
         <div class="btn-line disp-flex">
-          <button
-            id="sign-up-btn"
-            class="blue-btn-signup log-guest-btn"
-            disabled
-          >
-            Sign up
-          </button>
+          <button id="sign-up-btn" class="blue-btn-signup log-guest-btn" disabled>Sign up</button>
         </div>
       </form>
       <div class="privacy-link-login">
-        <a class="links-login ft-sz-400" onclick="userAction('privacy_signup')"
-          >Privacy Policy</a
-        >
-        <a
-          class="links-login ft-sz-400 legal-notice"
-          onclick="userAction('legal_notice_signup')"
-          >Legal Notice</a
-        >
+        <a class="links-login ft-sz-400" onclick="userAction('privacy_signup')">Privacy Policy</a>
+        <a class="links-login ft-sz-400 legal-notice" onclick="userAction('legal_notice_signup')">Legal Notice</a>
       </div>
-      <button id="blue-btn-signup-success" class="blue-btn-signup-success">
-        You signed up successfully
-      </button>
+      <button id="blue-btn-signup-success" class="blue-btn-signup-success">You signed up successfully</button>
     </div>
     <script src="../js/login_out.js"></script>
   </body>

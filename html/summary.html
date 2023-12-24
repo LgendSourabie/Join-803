@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../static/help.css" />
     <link rel="stylesheet" href="../static/font.css" />
 
-    <link rel="stylesheet" href="../static/styleAddTask.css">
+    <link rel="stylesheet" href="../static/styleAddTask.css" />
 
-    <link rel="stylesheet" href="../static/board.css">
+    <link rel="stylesheet" href="../static/board.css" />
 
-    <link rel="stylesheet" href="../static/contact.css">
+    <link rel="stylesheet" href="../static/contact.css" />
 
     <script src="../sensitive/token.js"></script>
     <script src="../sensitive/url.js"></script>
@@ -24,7 +24,7 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <!-- END FAVICON -->
-    <title>Summary</title>
+    <title>Dashboard</title>
   </head>
   <body class="summary-body" onload="init()">
     <div class="container-summary disp-flex">
@@ -33,24 +33,24 @@
           <img class="logo-summary" src="/icons/logo.svg" alt="Logo" />
         </div>
         <div class="section-2">
-          <div class="sub-menu-container disp-flex bg-summary" onclick="render(templateSummary())">
+          <div id="first-bg" class="sub-menu-container disp-flex bg-summary" onclick="render(templateSummary());toggleButtonColor('first-bg','../icons/summary_white.svg','../icons/summary.svg') ">
             <img class="icons-left-side-section cursor-ptr" src="/icons/summary_white.svg" alt="Summary" />
-            <p class="para-summary gray-text ft-sz-400 clr-white cursor-ptr">Summary</p>
+            <p id="summary-text" class="para-summary ft-sz-400 clr-white cursor-ptr">Summary</p>
           </div>
 
-          <div class="sub-menu-container disp-flex" onclick="render(templateAddTask())">
+          <div id="second-bg" class="sub-menu-container disp-flex" onclick="render(templateAddTask()) ; toggleButtonColor('second-bg','../icons/addTask.svg','../icons/addTask-white.svg')">
             <img class="icons-left-side-section cursor-ptr" src="/icons/addTask.svg" alt="Task" />
-            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
+            <p id="addTask-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
-          <div class="sub-menu-container disp-flex" onclick="render(templateBoard()); renderToDos()">
+          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','../icons/board.svg','../icons/board-white.svg'); renderToDos()">
             <img class="icons-left-side-section cursor-ptr" src="/icons/board.svg" alt="Board" />
-            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
+            <p id="bord-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
 
-          <div class="sub-menu-container disp-flex" onclick="render(templateContacts()); renderContactSection()">
+          <div id="fourth-bg" class="sub-menu-container disp-flex" onclick="render(templateContacts()); renderContactSection() ; toggleButtonColor('fourth-bg','../icons/contact.svg','../icons/contact-white.svg')">
             <img class="icons-left-side-section cursor-ptr" src="/icons/contact.svg" alt="Contacts" />
-            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Contacts</p>
+            <p id="contact-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Contacts</p>
           </div>
         </div>
         <div class="section-3">
@@ -73,7 +73,7 @@
           <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
         </div>
         <div id="render-container">
-          <span id="summary-page" class="summary-page">
+          <div id="summary-page" class="summary-page">
             <div class="marketing-slogan disp-flex">
               <div class="title">Join 360</div>
               <div class="blue-separator-line"></div>
@@ -148,8 +148,7 @@
         </div>
       </div>
     </div>
-    
-    
+
     <!-- script summary -->
     <script src="../js/summary.js"></script>
     <script src="../js/login_out.js"></script>

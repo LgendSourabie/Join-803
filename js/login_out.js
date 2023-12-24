@@ -85,16 +85,41 @@ const enableSignUP = function () {
   }
 };
 
-const checkButton = function (id) {
+const checkButton = function (id, srcCurrent, srcNew) {
   let element = document.getElementById(id);
   let currentState = element.getAttribute('src');
-  if (currentState === '../icons/checkBox.svg') {
-    element.setAttribute('src', '../icons/check-checked.svg');
+  if (currentState === srcCurrent) {
+    element.setAttribute('src', srcNew);
     ischecked = true;
   } else {
-    element.setAttribute('src', '../icons/checkBox.svg');
+    element.setAttribute('src', srcCurrent);
     ischecked = false;
   }
+};
+
+const removeClass = function (id, musterClass) {
+  let element = document.getElementById(id);
+  if (element.classList.contains(musterClass)) {
+    element.classList.remove(musterClass);
+  }
+};
+
+const toggleButtonColor = function (id, srcCurrent, srcNew) {
+  checkButton(id, srcCurrent, srcNew);
+  let el1 = document.getElementById('summary-text');
+  let el2 = document.getElementById('first-bg');
+  if (el1.classList.contains('clr-white')) {
+    el1.classList.remove('clr-white');
+  }
+  if (el2.classList.contains('bg-summary')) {
+    el2.classList.remove('bg-summary');
+  }
+  document.getElementById('summary-text').classList.add('gray-text');
+  document.getElementById('addTask-text').classList.add('gray-text');
+  document.getElementById('bord-text').classList.add('gray-text');
+  document.getElementById('contact-text').classList.add('gray-text');
+  document.getElementById(id).classList.add('clr-white');
+  document.getElementById(id).classList.add('bg-summary');
 };
 
 async function init() {
@@ -158,9 +183,10 @@ const greetUserWithName = function () {
   let nameUser = loggedUser[0];
   greetUser('greet-user');
   greetUser('greet-user-responsive');
-  document.getElementById('current-user-name').innerHTML = `${nameUser}`;
-  document.getElementById('current-user-name-responsive').innerHTML = `${nameUser}`;
-  document.getElementById('loginBtn').innerHTML = `${fullName(nameUser)[1]}${fullName(nameUser)[0]}`;
+  document.getElementById('current-user-name').innerHTML = currentUser.length !== 0 ? `${nameUser}` : '';
+  document.getElementById('current-user-name-responsive').innerHTML = currentUser.length !== 0 ? `${nameUser}` : '';
+  document.getElementById('loginBtn').innerHTML =
+    currentUser.length !== 0 ? `${fullName(nameUser)[1]}${fullName(nameUser)[0]}` : 'G';
 };
 
 const greetUser = function (id) {
@@ -168,11 +194,11 @@ const greetUser = function (id) {
   let now = new Date();
   let hoursNow = now.getHours();
   if (5 <= hoursNow && hoursNow <= 11) {
-    greetField.innerHTML = `Good morning`;
+    greetField.innerHTML = currentUser.length !== 0 ? `Good morning` : `Good morning!`;
   } else if (12 <= hoursNow && hoursNow <= 17) {
-    greetField.innerHTML = `Good afternoon`;
+    greetField.innerHTML = currentUser.length !== 0 ? `Good afternoon` : `Good afternoon!`;
   } else {
-    greetField.innerHTML = `Good evening`;
+    greetField.innerHTML = currentUser.length !== 0 ? `Good evening` : `Good evening!`;
   }
 };
 
