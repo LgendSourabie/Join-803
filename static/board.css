@@ -19,11 +19,10 @@ body {
 }
 
 /* header {
-/* header {
     background-color: #FFFFFF;
     height: 96px;
     flex: 1;
-}
+} */
 
 .header {
   padding-top: 20px;
@@ -101,7 +100,7 @@ body {
   width: 48px;
 }
 
-input {
+.searchtask input {
   height: 48px;
   width: 232px;
   border: none;
@@ -282,4 +281,28 @@ input {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
+}
+
+.addTaskContainerFlyin {
+  background-color: white;
+  border-radius: 20px;
+}
+
+.addTaskOverviewContainerFlyin {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 0 20px 20px;
+}
+
+.test1flyin {
+  margin: 0;
+}
+
+.addTaskContainerOneFlyin {
+  margin: 0 40px 40px 0;
+  display: flex;
+  flex-direction: column;
+  padding-left: 7rem;
+  padding-top: 7rem;
 }
