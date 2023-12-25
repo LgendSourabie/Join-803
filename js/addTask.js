@@ -65,6 +65,8 @@ function load() {
 
 // This function serves as an initializer, orchestrating various tasks to set up the application.
 function initialize() {
+  options()
+  load() 
   addContacts();
   addCategory();
   defaultPrio();
@@ -138,7 +140,24 @@ function addCategory() {
 // Function to clear and reset the content of the subtasks element
 function addNewSubtask() {
   let subtask = document.getElementById('subtasks');
-  subtask.innerHTML = '';
+}
+
+function changeSubtaskImg() {
+  let plusSubtask = document.getElementById('subtasksCancelIMG');
+  plusSubtask.style.display = 'block';
+  subtaskIMGS();
+}
+
+function subtaskIMGS() {
+    let element = document.getElementById('subtasksPlusIMG');
+    let plusSubtask = document.getElementById('subtasksCancelIMG');
+    let currentIMG = element.getAttribute('src');
+    if (currentIMG === '../img/img/subtasksPlus.svg') {
+        element.setAttribute('src', '../img/img/subtasks_check.svg');
+    } else {
+        element.setAttribute('src', '../img/img/subtasksPlus.svg');
+        plusSubtask.style.display = 'none';
+    }
 }
 
 // Function to create and save a new task with user input
@@ -200,6 +219,8 @@ function saveLocalStorage(val1, val2, val3, val4, val5, prios, val6) {
 function options() {
   let field = document.getElementById('options');
   let listeOption = listeOptions.map(a => a['name']);
+  let initial = listeOptions.map(a => a['initials']);
+  let colors = listeOptions.map(a => a['bgColor']);
   field.innerHTML = '';
   for (let i = 0; i < listeOption.length; i++) {
     const option = listeOption[i];
@@ -209,7 +230,10 @@ function options() {
         <span id="name${i}">${option}</span> 
       <img id="checkBox${i}" src="../img/img/checkBox.svg" alt="">
     </div>
+    <!-- DIV CONTAINER EINFÜGEN =>  mit display none--> 
       `;
+      ///Farbe einfügen
+      document.getElementById(`btn-${i}`).style.backgroundColor = `${colors[i]}`;
   }
 }
 
@@ -221,16 +245,17 @@ function changeCheckState(index) {
   let field = document.getElementById(`checkBox${index}`);
   let currentState = field.getAttribute('src');
 
-  if (currentState === './checkBox.svg') {
-    field.setAttribute('src', './Check_button-white.svg');
+  if (currentState === '../img/img/check-box.svg') {
+    field.setAttribute('src', '../img/img/Check_button-white.svg');
   } else {
-    field.setAttribute('src', './checkBox.svg');
+    field.setAttribute('src', '../img/img/check-box.svg');
   }
 }
 
 function updateBtn(index) {
   let btnUserProfile = document.getElementById('btn-grp');
   let initial = document.getElementById(`btn-${index}`).innerHTML;
+  // let colorB = document.getElementById(`btn-${index}`).innerHTML;
   let namePerson = document.getElementById(`name${index}`).innerHTML;
 
   let existingIndex = btns.findIndex(btn => btn.name === namePerson);
@@ -238,7 +263,7 @@ function updateBtn(index) {
     btns.splice(existingIndex, 1);
     showOptions(`cont${index}`, 'newColor');
   } else {
-    btns.push({ initial: initial, name: namePerson });
+    btns.push({ initial: initial, name: namePerson, bgColor });
     showOptions(`cont${index}`, 'newColor');
   }
   renderBtn();
@@ -251,11 +276,10 @@ const renderBtn = function () {
     const btn = btns[i];
     btnUserProfile.innerHTML += `<button id="optBtn${i}"  class="btn-grp">${btn.initial}</button>`;
   }
-};
+}
 
 
 function changeBorderColor(element) {
-  element.style.borderColor = '#29ABE2';
   if (element.style.borderColor === 'rgb(41, 171, 226)') {
     element.style.borderColor = '';
   } else {
