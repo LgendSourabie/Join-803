@@ -206,9 +206,9 @@ select:hover {
 
 .subtasksPlusIMG {
   width: 23px;
-  height: 38px;
+  height: 23px;
   position: absolute;
-  margin-top: 35px;
+  margin-top: 41px;
   margin-left: 24rem;
 }
 
@@ -396,11 +396,17 @@ select:hover {
 
 .subtasksCancelIMG {
   width: 23px;
-  height: 38px;
+  height: 23px;
   position: absolute;
-  margin-top: 35px;
-  margin-left: 21rem;
+  margin-top: 41px;
+  margin-left: 22rem;
   display: none;
+}
+
+.subtasksCancelIMG:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  border-radius: 50%;
 }
 
 /* .subtasksCheckIMG {
