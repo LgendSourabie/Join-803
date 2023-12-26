@@ -112,10 +112,15 @@ function templateAddTask() {
                             <span class="containerLeftSpan">Assigned to</span>
                             <!-- <select id="select"></select> -->
                             <!-- <input id="select" type="text">  -->
+                            <!-- <div class="test6">
                             <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
+                            </div> -->
                             <div id="dropdown" class="dropdown" onclick="handleDropdownClick(this)">Select contacts to assign</div>
-                                <div id="options" class="options d-none"></div>
-                                <div id="btn-grp" class="btn"></div>
+                              <div class="test6">
+                                <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
+                              </div>
+                            <div id="options" class="options d-none"></div>
+                              <div id="btn-grp" class="btn"></div>
                         </div>
                         
                     </div>
@@ -152,7 +157,9 @@ function templateAddTask() {
                             <input onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
                             <img onclick="subtaskIMGS()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt="">
                             <!-- <img id="" class="subtasksCheckIMG" src="../img/img/subtasks_check.svg" alt=""> -->
+                            <div class="test7">
                             <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
+                            </div>
                         </div> 
                     </div>
                 </div>

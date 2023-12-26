@@ -200,13 +200,13 @@ select:hover {
   border-color: grey;
 }
 
-.subtasksPlusIMG {
+/* .subtasksPlusIMG {
   width: 23px;
   height: 23px;
   position: absolute;
   margin-top: 41px;
   margin-left: 24rem;
-}
+} */
 
 .subtasksPlusIMG:hover {
   cursor: pointer;
@@ -365,13 +365,13 @@ select:hover {
   display: flex;
 }
 
-.dropDownImg {
+/* .dropDownImg {
   width: 24px;
   height: 24px;
   margin-top: 41px;
   margin-left: 381px;
   position: absolute;
-}
+} */
 
 .dropDownImg:hover {
   cursor: pointer;
@@ -490,6 +490,7 @@ select:hover {
   border: 1px solid white;
   background-color: #FFFFFF;
   border-radius: 10px;
+  margin-top: 13px;
 }
 
 .option {
@@ -515,6 +516,15 @@ select:hover {
   align-items: center;
 }
 
+.test6, .test7 {
+  display: flex;
+  justify-content: end;
+  max-width: 850px;
+  margin-top: -44px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .d-none {
   display: none;
 }
@@ -538,6 +548,7 @@ select:hover {
   width: 2rem;
   border-radius: 50%;
   height: 2rem;
+  margin-top: 15px;
 }
 
 .btn {
