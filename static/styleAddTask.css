@@ -170,10 +170,6 @@ textarea {
   cursor: pointer;
 }
 
-/* textarea:focus {
-  border: 1px solid red;
-} */
-
 .containerLeft {
   display: flex;
   flex-direction: column;
@@ -290,7 +286,6 @@ select:hover {
   height: 56px;
   width: 110px;
   border-radius: 10px;
-  /* padding: 16px; */
   gap: 4px;
   font-size: 20px;
   border: 1px solid rgb(42, 54, 71);
@@ -373,8 +368,8 @@ select:hover {
 .dropDownImg {
   width: 24px;
   height: 24px;
-  margin-top: -42px;
-  margin-left: 410px;
+  margin-top: 41px;
+  margin-left: 381px;
 }
 
 .dropDownImg:hover {
@@ -408,16 +403,6 @@ select:hover {
   background-color: lightgrey;
   border-radius: 50%;
 }
-
-/* .subtasksCheckIMG {
-  width: 23px;
-  height: 38px;
-  position: absolute;
-  margin-top: 35px;
-  margin-left: 21rem;
-  display: none;
-} */
-
 
 /* RESPONSIVE DESIGN */
 
@@ -507,8 +492,26 @@ select:hover {
 }
 
 .option {
-  padding-block: 2px;
+  gap: 8px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.spanOption {
+  margin-left: 10px;
+}
+
+.test4 {
+  width: 50%;
+  display: flex;
+  justify-content: end;
+}
+
+.test5 {
+  display: flex;
+  align-items: center;
 }
 
 .d-none {
@@ -527,6 +530,7 @@ select:hover {
   height: 2rem;
   border-radius: 50%;
   margin-left: 0.3rem;
+  color: #FFFFFF;
 }
 
 .btn-grp {
@@ -542,6 +546,8 @@ select:hover {
 .newColor {
   color: white;
   background-color: rgb(42, 54, 71);
+  border-radius: 10px;
+  padding: 4px;
 }
 
 @media (max-width: 1295px) {

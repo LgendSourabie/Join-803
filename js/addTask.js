@@ -227,8 +227,12 @@ function options() {
     field.innerHTML += /*html*/ `
       <div class="option" id="cont${i}" onclick="updateBtn(${i});changeCheckState(${i})">
       <button id="btn-${i}" class="bi">${initial[i]}</button> 
-        <span id="name${i}">${option}</span> 
+        <span class="spanOption" id="name${i}">${option}</span> 
+        <div class="test4">
+        <div class="test5">
       <img id="checkBox${i}" src="../img/img/checkBox.svg" alt="">
+      </div>
+      </div>
     </div>
     <!-- DIV CONTAINER EINFÜGEN =>  mit display none--> 
       `;
@@ -263,7 +267,7 @@ function updateBtn(index) {
     btns.splice(existingIndex, 1);
     showOptions(`cont${index}`, 'newColor');
   } else {
-    btns.push({ initial: initial, name: namePerson, bgColor });
+    btns.push({ initial: initial, name: namePerson, });
     showOptions(`cont${index}`, 'newColor');
   }
   renderBtn();
