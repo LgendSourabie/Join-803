@@ -370,6 +370,7 @@ select:hover {
   height: 24px;
   margin-top: 41px;
   margin-left: 381px;
+  position: absolute;
 }
 
 .dropDownImg:hover {

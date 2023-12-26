@@ -250,10 +250,10 @@ function changeCheckState(index) {
   let currentState = field.getAttribute('src');
 
   if (currentState === '../img/img/check-box.svg') {
-    field.setAttribute('src', '../img/img/Check_button-white.svg');
-  } else {
     field.setAttribute('src', '../img/img/check-box.svg');
-  }
+  } else {
+    field.setAttribute('src', '../img/img/Check_button-white.svg');
+  } 
 }
 
 function updateBtn(index) {
@@ -278,7 +278,7 @@ const renderBtn = function () {
   btnUserProfile.innerHTML = '';
   for (let i = 0; i < btns.length; i++) {
     const btn = btns[i];
-    btnUserProfile.innerHTML += `<button id="optBtn${i}"  class="btn-grp">${btn.initial}</button>`;
+    btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
   }
 }
 
