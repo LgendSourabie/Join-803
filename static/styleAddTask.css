@@ -485,6 +485,13 @@ select:hover {
   background-color: #FFFFFF;
 }
 
+.container-btn-name-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .options {
   width: 100%;
   border: 1px solid white;
@@ -498,13 +505,15 @@ select:hover {
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-bottom: 2px;
+  justify-content: space-around;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.spanOption {
-  margin-left: 10px;
+.spanContainer {
+  display: flex;
+  width: 35%;
 }
-
 .test4 {
   width: 50%;
   display: flex;

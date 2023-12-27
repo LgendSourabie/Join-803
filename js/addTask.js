@@ -226,11 +226,15 @@ function options() {
     const option = listeOption[i];
     field.innerHTML += /*html*/ `
       <div class="option" id="cont${i}" onclick="updateBtn(${i});changeCheckState(${i})">
+      <div class="container-btn-name-box">
       <button id="btn-${i}" class="bi">${initial[i]}</button> 
+      <div class="spanContainer">
         <span class="spanOption" id="name${i}">${option}</span> 
+        </div>
         <div class="test4">
         <div class="test5">
       <img id="checkBox${i}" src="../img/img/checkBox.svg" alt="">
+      </div>
       </div>
       </div>
     </div>
