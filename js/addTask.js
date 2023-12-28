@@ -274,7 +274,7 @@ function updateBtn(index) {
   let initial = document.getElementById(`btn-${index}`).innerHTML;
   // let colorButton = document.getElementById(`btn-${index}`).innerHTML;
   let namePerson = document.getElementById(`name${index}`).innerHTML;
-  let bgColor = document.getElementById(`btn-${index}`).style.backgroundColor
+  let bgColor = document.getElementById(`btn-${index}`).style.backgroundColor;
 
   let existingIndex = btns.findIndex(btn => btn.name === namePerson);
   if (existingIndex !== -1) {
@@ -292,7 +292,7 @@ const renderBtn = function () {
   for (let i = 0; i < btns.length; i++) {
     const btn = btns[i];
     btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
-    document.getElementById(`optBtn${i}`).style.backgroundColor = btns[i]['bgColor']
+    document.getElementById(`optBtn${i}`).style.backgroundColor = btns[i]['bgColor'];
   }
 }
 
