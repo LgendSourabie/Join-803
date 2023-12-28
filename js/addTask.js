@@ -274,15 +274,15 @@ function updateBtn(index) {
   let initial = document.getElementById(`btn-${index}`).innerHTML;
   // let colorButton = document.getElementById(`btn-${index}`).innerHTML;
   let namePerson = document.getElementById(`name${index}`).innerHTML;
+  let bgColor = document.getElementById(`btn-${index}`).style.backgroundColor
 
   let existingIndex = btns.findIndex(btn => btn.name === namePerson);
   if (existingIndex !== -1) {
     btns.splice(existingIndex, 1);
-    showOptions(`cont${index}`, 'newColor');
   } else {
-    btns.push({ initial: initial, name: namePerson, });
-    showOptions(`cont${index}`, 'newColor');
+    btns.push({ initial: initial, name: namePerson, bgColor: bgColor});
   }
+  showOptions(`cont${index}`, 'newColor');
   renderBtn();
 }
 
@@ -292,6 +292,7 @@ const renderBtn = function () {
   for (let i = 0; i < btns.length; i++) {
     const btn = btns[i];
     btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
+    document.getElementById(`optBtn${i}`).style.backgroundColor = btns[i]['bgColor']
   }
 }
 
