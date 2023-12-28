@@ -306,6 +306,7 @@ function renderAddContact() {
   insertContentAddEdit("add");
 }
 
+
 function openAddContact() {
   let addContact = document.getElementById("add-contact-bg");
   addContact.classList.remove("d-none");
@@ -439,9 +440,6 @@ async function deleteContact(i) {
 let x = window.matchMedia('(max-width: 1000px)')
 
 function showContactResponsiv(jsonIndex) {
-  // let name = contacts[jsonIndex]["name"];
-  // let email = contacts[jsonIndex]["email"];
-  // let telephone = contacts[jsonIndex]["telephone"];
   if (x.matches) { // If media query matches
     document.getElementById('contact-single-view').classList.add('d-none');
     document.getElementById('render-container').innerHTML = /*html*/`
