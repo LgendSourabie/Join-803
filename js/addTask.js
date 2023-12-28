@@ -262,10 +262,10 @@ function changeCheckState(index) {
   let field = document.getElementById(`checkBox${index}`);
   let currentState = field.getAttribute('src');
 
-  if (currentState === '../img/img/check-box.svg') {
+  if (currentState === '../img/img/checkBox.svg') {
     field.setAttribute('src', '../img/img/Check_button-white.svg');
   } if (currentState === '../img/img/Check_button-white.svg') {
-    field.setAttribute('src', '../img/img/check-box.svg');
+    field.setAttribute('src', '../img/img/checkBox.svg');
   } 
 }
 
