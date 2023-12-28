@@ -587,6 +587,10 @@ select:hover {
     padding: 0;
   }
 
+  .assignedAddTask {
+    margin-bottom: 10px;
+  }
+
   .groupButtonForm {
     align-items: center;
     width: 100%;
