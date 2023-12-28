@@ -508,6 +508,7 @@ select:hover {
   justify-content: space-around;
   margin-top: 5px;
   margin-bottom: 5px;
+  padding: 7px 16px 7px 16px;
 }
 
 .spanContainer {
@@ -560,15 +561,15 @@ select:hover {
   margin-top: 15px;
 }
 
-.btn {
+/* .btn {
   margin-left: 2rem;
-}
+} */
 
 .newColor {
   color: white;
   background-color: rgb(42, 54, 71);
   border-radius: 10px;
-  padding: 4px;
+  padding: 7px 16px 7px 16px;
 }
 
 @media (max-width: 1295px) {

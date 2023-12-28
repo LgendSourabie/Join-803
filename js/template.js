@@ -122,7 +122,6 @@ function templateAddTask() {
                             <div id="options" class="options d-none"></div>
                               <div id="btn-grp" class="btn"></div>
                         </div>
-                        
                     </div>
 
                     <div class="seperatorContainer"></div>
