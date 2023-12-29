@@ -121,8 +121,8 @@ body {
 
 .addTaskContainerLeftRight {
   display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .addTaskContainerOne {
@@ -174,7 +174,7 @@ textarea {
   display: flex;
   flex-direction: column;
   width: 440px;
-  height: 376px;
+  /* height: 376px; */
   gap: 8px;
   padding-right: 24px;
 }
@@ -224,7 +224,7 @@ select:hover {
   display: flex;
   flex-direction: column;
   width: 440px;
-  height: 376px;
+  /* height: 376px; */
   gap: 8px;
   padding-left: 24px;
 }
@@ -497,7 +497,7 @@ select:hover {
   border: 1px solid white;
   background-color: #FFFFFF;
   border-radius: 10px;
-  margin-top: 13px;
+  margin-top: 12px;
 }
 
 .option {
@@ -588,7 +588,9 @@ select:hover {
   }
 
   .assignedAddTask {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    /* position: relative; */
+    /* top: 70px; */
   }
 
   .groupButtonForm {
@@ -612,15 +614,14 @@ select:hover {
 
   .containerLeft {
     padding-right: 0;
-    height: 285px;
+    /* height: 285px; */
     justify-content: center;
     width: 80%;
-    
   }
 
   .containerRight {
     padding-left: 0;
-    height: 340px;
+    /* height: 340px; */
     width: 80%;
   }
 
@@ -638,6 +639,19 @@ select:hover {
   .footerAddTask {
     width: 80%;
   }
+
+  .options {
+    margin-top: 13px;
+  }
+
+  .btn-grp {
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+
+  /* .dropdown {
+    margin-bottom: 10px;
+  } */
 }
 
 @media (max-width: 1024px) {
