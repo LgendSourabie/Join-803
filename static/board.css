@@ -4,10 +4,10 @@ body {
   font-family: 'inter';
 }
 
-.sidebar-left {
+/* .sidebar-left {
   background-color: #2a3647;
   height: 100vh;
-  width: 232px;
+  width: 14.5rem;
   position: absolute;
   z-index: 2;
   float: left;
@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 /* header {
     background-color: #FFFFFF;
@@ -24,15 +24,15 @@ body {
     flex: 1;
 } */
 
-.header {
-  padding-top: 20px;
+/* .header {
+  padding-top: 1.25rem;
   padding-right: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
   padding-left: 348px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 .mainSection {
   background-color: #f6f7f8;
@@ -40,7 +40,7 @@ body {
 }
 
 .section1 h1 {
-  font-size: 61px;
+  font-size: 3.18rem;
   font-weight: 700;
 }
 
@@ -48,45 +48,45 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1056px;
+  width: 66rem;
   height: 73px;
-  margin-top: 79.5px;
-  margin-left: 64px;
+  margin-top: 4.97rem;
+  margin-left: 4rem;
 }
 
 .addandsearch {
   display: flex;
   align-items: center;
   height: 48px;
-  width: 504px;
-  gap: 32px;
+  width: 31.5rem;
+  gap: 2rem;
 }
 
 .addandsearch button {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 160px;
+  width: 10rem;
   height: 48px;
-  padding: 8px 16px 8px 16px;
-  border-radius: 10px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 0.63rem;
   border: 1px;
-  gap: 4px;
+  gap: 0.25rem;
   background-color: #2a3647;
   color: white;
-  font-size: 19px;
+  font-size: 1.19rem;
   font-weight: 700;
 }
 
 .addandsearch button img {
-  height: 20px;
-  width: 20px;
+  height: 32px;
+  width: 2rem;
 }
 
 .searchtask {
-  width: 312px;
+  width: 19.5rem;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 0.63rem;
   border-width: 2px;
   border-style: solid;
   border-color: #a8a8a8;
@@ -95,61 +95,60 @@ body {
 }
 
 .searchtask img {
-  margin-left: 16px;
-  height: 27px;
-  width: 45px;
+  margin-left: 1rem;
+  height: 32px;
+  width: 3rem;
 }
 
 .searchtask input {
   height: 48px;
-  width: 232px;
+  width: 14.5rem;
   border: none;
   border-radius: 10px;
-  padding-left: 1rem;
 }
 
 .tablecolumn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 24px;
-  margin-top: 55.5px;
-  padding: 0px 64px 0px 64px;
+  height: 1.5rem;
+  margin-top: 3.47rem;
+  padding: 0px 4rem 0px 4rem;
 }
 
 .tablecolumntitle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 244px;
+  width: 15.25rem;
   height: 24px;
 }
 
 .todosplit {
-  width: 252px;
+  width: 15.25rem;
   height: 688px;
 }
 
 .todosection {
   display: flex;
   justify-content: space-between;
-  padding: 0px 64px 0px 64px;
+  padding: 0px 4rem 0px 4rem;
 }
 
 .todoscontainer {
-  padding-top: 20px;
+  padding-top: 1.25rem;
   min-height: 600px;
 }
 
 .todocard {
   background-color: white;
-  gap: 10px;
-  border-radius: 24px;
-  padding: 16px;
+  gap: 0.36rem;
+  border-radius: 1.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
-  box-shadow: 0px 0px 10px 3px #00000014;
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 0.36rem 0.19rem #00000014;
 }
 
 .todocard span {
@@ -159,21 +158,21 @@ body {
 .todocard button {
   background-color: #1fd7c1;
   color: white;
-  width: 144px;
+  width: 9rem;
   height: 27px;
-  padding: 4px 16px 4px 16px;
-  border-radius: 8px;
+  padding: 0.25rem 1rem 0.25rem 1rem;
+  border-radius: 0.5rem;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   border: none;
 }
 
 .progress-container {
   height: 8px;
-  width: 128px;
+  width: 8rem;
   border-radius: 0.4rem;
   background: #f4f4f4;
-  margin-right: 16px;
+  margin-right: 1rem;
 }
 
 .progress-container .progress {
@@ -217,83 +216,83 @@ body {
 
 .overlay {
   background-color: white;
-  border-radius: 30px;
-  padding: 48px 40px 48px 40px;
+  border-radius: 1.88rem;
+  padding: 3rem 2.5rem 3rem 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 }
 
 .overlaybutton {
-  width: 445px;
+  width: 27.81rem;
   display: flex;
   justify-content: space-between;
 }
 
 .overlaybutton button {
   height: 36px;
-  padding: 4px 24px 4px 24px;
-  border-radius: 8px;
-  gap: 10px;
+  padding: 0.25rem 1.5rem 0.25rem 1.5rem;
+  border-radius: 0.5rem;
+  gap: 0.63rem;
   background-color: #1fd7c1;
   font-family: 'open sans';
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 27.6px;
   color: #ffffff;
   border: none;
 }
 
 .overlaybutton img {
-  width: 32px;
+  width: 2rem;
   height: 32px;
-  padding: 4px;
-  border-radius: 56px;
+  padding: 0.25rem;
+  border-radius: 3.5rem;
 }
 
 .overlay h1 {
-  width: 445px;
+  width: 27.81rem;
   font-weight: 700;
-  font-size: 61px;
+  font-size: 3.81rem;
   line-height: 73.2px;
   margin-block-start: 0;
   margin-block-end: 0;
 }
 
 .overlaydiscription {
-  width: 445px;
+  width: 27.81rem;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 24px;
 }
 
 .overlaytable {
   display: flex;
-  gap: 25px;
+  gap: 1.56rem;
 }
 
 .overlayassigned {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .overlaychange {
   display: flex;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .addTaskContainerFlyin {
   background-color: white;
-  border-radius: 20px;
+  border-radius: 1.25rem;
 }
 
 .addTaskOverviewContainerFlyin {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 0 0 20px 20px;
+  padding: 0 0 1.25rem 1.25rem;
 }
 
 .test1flyin {
@@ -301,9 +300,10 @@ body {
 }
 
 .addTaskContainerOneFlyin {
-  margin: 0 40px 40px 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-left: 7rem;
   padding-top: 7rem;
 }

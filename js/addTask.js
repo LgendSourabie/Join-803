@@ -65,6 +65,8 @@ function load() {
 
 // This function serves as an initializer, orchestrating various tasks to set up the application.
 function initialize() {
+  options()
+  load() 
   addContacts();
   addCategory();
   defaultPrio();
@@ -125,12 +127,12 @@ function addContacts() {
 // Function to populate a dropdown list with task categories
 function addCategory() {
   let select = document.getElementById('selectCategory');
-  select.innerHTML = `<option id="category" value="">Select task Category</option>`;
+  select.innerHTML = `<option id="selectCategory" value="">Select task Category</option>`;
 
   for (let i = 0; i < categories.length; i++) {
     let currentCategory = categories[i];
     select.innerHTML += /*html*/ `
-            <option id="category-${i}" value="${currentCategory}">${currentCategory}</option>
+            <option id="selectCategory-${i}" value="${currentCategory}">${currentCategory}</option>
     `;
   }
 }
@@ -138,7 +140,34 @@ function addCategory() {
 // Function to clear and reset the content of the subtasks element
 function addNewSubtask() {
   let subtask = document.getElementById('subtasks');
-  subtask.innerHTML = '';
+}
+
+function changeSubtaskImg() {
+  let plusSubtask = document.getElementById('subtasksCancelIMG');
+  plusSubtask.style.display = 'block';
+  subtaskIMGS();
+}
+
+function subtaskIMGS() {
+    let element = document.getElementById('subtasksPlusIMG');
+    let plusSubtask = document.getElementById('subtasksCancelIMG');
+    let currentIMG = element.getAttribute('src');
+    if (currentIMG === '../img/img/subtasksPlus.svg') {
+        element.setAttribute('src', '../img/img/subtasks_check.svg');
+    } else {
+        element.setAttribute('src', '../img/img/subtasksPlus.svg');
+        plusSubtask.style.display = 'none';
+    }
+}
+
+function checkNewSubtask() {
+  let checkSubtask = document.getElementById('subtasks');
+
+  checkSubtask.innerHTML += /*html*/`
+    <div class="containerNewSubtask">
+      <li></li>
+    </div>
+  `
 }
 
 // Function to create and save a new task with user input
@@ -200,16 +229,28 @@ function saveLocalStorage(val1, val2, val3, val4, val5, prios, val6) {
 function options() {
   let field = document.getElementById('options');
   let listeOption = listeOptions.map(a => a['name']);
+  let initial = listeOptions.map(a => a['initials']);
+  let colors = listeOptions.map(a => a['bgColor']);
   field.innerHTML = '';
   for (let i = 0; i < listeOption.length; i++) {
     const option = listeOption[i];
     field.innerHTML += /*html*/ `
       <div class="option" id="cont${i}" onclick="updateBtn(${i});changeCheckState(${i})">
+      <div class="container-btn-name-box">
       <button id="btn-${i}" class="bi">${initial[i]}</button> 
-        <span id="name${i}">${option}</span> 
-      <img id="checkBox${i}" src="../img/img/checkBox.svg" alt="">
+      <div class="spanContainer">
+        <span class="spanOption" id="name${i}">${option}</span> 
+      </div>
+        <div class="test4">
+          <div class="test5">
+            <img id="checkBox${i}" src="../img/img/checkBox.svg" alt="">
+          </div>
+        </div>
+      </div>
     </div>
       `;
+      ///Farbe einfügen
+      document.getElementById(`btn-${i}`).style.backgroundColor = `${colors[i]}`;
   }
 }
 
@@ -221,26 +262,27 @@ function changeCheckState(index) {
   let field = document.getElementById(`checkBox${index}`);
   let currentState = field.getAttribute('src');
 
-  if (currentState === './checkBox.svg') {
-    field.setAttribute('src', './Check_button-white.svg');
-  } else {
-    field.setAttribute('src', './checkBox.svg');
-  }
+  if (currentState === '../img/img/checkBox.svg') {
+    field.setAttribute('src', '../img/img/Check_button-white.svg');
+  } if (currentState === '../img/img/Check_button-white.svg') {
+    field.setAttribute('src', '../img/img/checkBox.svg');
+  } 
 }
 
 function updateBtn(index) {
   let btnUserProfile = document.getElementById('btn-grp');
   let initial = document.getElementById(`btn-${index}`).innerHTML;
+  // let colorButton = document.getElementById(`btn-${index}`).innerHTML;
   let namePerson = document.getElementById(`name${index}`).innerHTML;
+  let bgColor = document.getElementById(`btn-${index}`).style.backgroundColor;
 
   let existingIndex = btns.findIndex(btn => btn.name === namePerson);
   if (existingIndex !== -1) {
     btns.splice(existingIndex, 1);
-    showOptions(`cont${index}`, 'newColor');
   } else {
-    btns.push({ initial: initial, name: namePerson });
-    showOptions(`cont${index}`, 'newColor');
+    btns.push({ initial: initial, name: namePerson, bgColor: bgColor});
   }
+  showOptions(`cont${index}`, 'newColor');
   renderBtn();
 }
 
@@ -249,13 +291,13 @@ const renderBtn = function () {
   btnUserProfile.innerHTML = '';
   for (let i = 0; i < btns.length; i++) {
     const btn = btns[i];
-    btnUserProfile.innerHTML += `<button id="optBtn${i}"  class="btn-grp">${btn.initial}</button>`;
+    btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
+    document.getElementById(`optBtn${i}`).style.backgroundColor = btns[i]['bgColor'];
   }
-};
+}
 
 
 function changeBorderColor(element) {
-  element.style.borderColor = '#29ABE2';
   if (element.style.borderColor === 'rgb(41, 171, 226)') {
     element.style.borderColor = '';
   } else {
