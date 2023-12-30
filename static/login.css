@@ -258,18 +258,10 @@ a {
   transition: transform 125ms ease-in-out;
   margin-top: -1rem;
 }
-/* .show-success-btn {
-  transform: translateY(-54vh);
-  animation-name: showSuccesBtn;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
-} */
 
 .blue-btn-signup-success {
   position: absolute;
-  transform: translateY(20vh);
+  transform: translateY(-10vh);
   background-color: #2a3647;
   border: none;
   color: white;
@@ -278,17 +270,6 @@ a {
   padding-block: 2rem;
   border-radius: 8px;
   font-size: 15px;
-  /* opacity: 0; */
-  /* display: none; */
-}
-
-@keyframes showSuccesBtn {
-  0% {
-    transform: translateY(-54vh);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
 
 .log-guest-btn {

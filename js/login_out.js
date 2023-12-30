@@ -20,9 +20,7 @@ async function saveUser(name, email, pwd, confirmPwd) {
   if (!existEmail(email)[1]) {
     resetInputFieldStyle();
     if (pwd === confirmPwd) {
-      document.getElementById('blue-btn-signup-success').style.zIndex = '0';
-      await validateUserData(name, email, pwd);
-      setTimeout(userAction('login'), 1000);
+      triggerSuccessMsg(name, email, pwd).then(() => setTimeout(userAction('login'), 1000));
     } else {
       errorMessage('confirm-pwd', 'confirmPwdError', "Ups! Your password doesn't match");
     }
@@ -30,6 +28,11 @@ async function saveUser(name, email, pwd, confirmPwd) {
     errorMessage('register-user-email', 'emailExist', 'Ups! Email already exists');
   }
 }
+
+const triggerSuccessMsg = async (name, email, pwd) => {
+  document.getElementById('blue-btn-signup-success').style.zIndex = '0';
+  await validateUserData(name, email, pwd);
+};
 
 async function validateUserData(name, email, pwd) {
   document.getElementById('confirm-pwd').style.border = '';
@@ -97,6 +100,9 @@ const addClass = function (id, musterClass) {
 
 function showRenderSection(id) {
   document.getElementById('summary-page').style.display = 'none';
+  // document.getElementById('add-task-page').style.display = 'none';
+  // document.getElementById('board-page').style.display = 'none';
+  // document.getElementById('contact-page').style.display = 'none';
   document.getElementById('privacy-render').style.display = 'none';
   document.getElementById('legale-notice-render').style.display = 'none';
   document.getElementById('help-render').style.display = 'none';

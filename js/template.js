@@ -82,7 +82,7 @@ function templateAddTask() {
 
 <!-- <div class="seperatorAddTask"></div> -->
 
-<div class="addTaskContainer">
+<div id="add-task-page" class="addTaskContainer">
 
     <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
 
@@ -181,11 +181,9 @@ function templateAddTask() {
     `;
 }
 
-
-
 function templateBoard() {
   return /*html*/ `
-        <div class="mainSection">
+        <div id="board-page" class="mainSection">
         <div class="section1">
             <div class="headline">
                 <h1>Board</h1>
