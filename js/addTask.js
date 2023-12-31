@@ -67,7 +67,7 @@ function load() {
 function initialize() {
   options()
   load() 
-  addContacts();
+  // addContacts();
   addCategory();
   defaultPrio();
 }
@@ -111,18 +111,18 @@ function defaultPrio() {
   prio('Medium');
 }
 
-// Function to populate a dropdown list with contacts
-function addContacts() {
-  let select = document.getElementById('select');
-  select.innerHTML = `<option id="assigned" value="">Selected contacts to assign</option>`;
+// // Function to populate a dropdown list with contacts
+// function addContacts() {
+//   let select = document.getElementById('dropdown');
+//   select.innerHTML = `<option id="assigned" value="">Selected contacts to assign</option>`;
 
-  for (let i = 0; i < user.length; i++) {
-    let currentUser = user[i].name;
-    select.innerHTML += /*html*/ `
-             <option id="assigned-${i}" value="${currentUser}"><button class="contactsButton"></button> ${currentUser}  <img src="" alt=""></option>
-    `;
-  }
-}
+//   for (let i = 0; i < listeOptions.length; i++) {
+//     let currentUser = listeOptions[i].name;
+//     // select.innerHTML += /*html*/ `
+//     //          <option id="assigned-${i}" value="${currentUser}"><button class="contactsButton"></button> ${currentUser}  <img src="" alt=""></option>
+//     // `;
+//   }
+// }
 
 // Function to populate a dropdown list with task categories
 function addCategory() {
