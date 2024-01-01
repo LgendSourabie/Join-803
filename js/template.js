@@ -153,12 +153,18 @@ function templateAddTask() {
                         </div> 
                         <div class="subtasksAddTask addTaskOverview">
                             <span class="spanSubtasks">Subtasks</span>
-                            <input onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
-                            <img onclick="subtaskIMGS()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt="">
-                            <!-- <img id="" class="subtasksCheckIMG" src="../img/img/subtasks_check.svg" alt=""> -->
-                            <div class="test7" id='test7'>
-                            <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
+                            <div class="test_test">
+                              <input type="text" onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
+                              <button class="buttonSubtask" id="buttonSubtask">
+                              <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
+                              </button>
                             </div>
+                            <!-- <input onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
+                            <img onclick="subtaskIMGS()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> -->
+                            <!-- <img id="" class="subtasksCheckIMG" src="../img/img/subtasks_check.svg" alt=""> -->
+                            <!-- <div class="test7" id='test7'>
+                            <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
+                            </div> -->
                         </div> 
                     </div>
                 </div>

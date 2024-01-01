@@ -160,6 +160,7 @@ h2 {
   padding: 16px;
   cursor: pointer;
   background-color: #FFFFFF;
+  width: 100%;
 }
 
 textarea {
