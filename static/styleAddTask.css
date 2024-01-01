@@ -424,6 +424,17 @@ select:hover {
   border-radius: 50%;
 }
 
+#subtasksList {
+  margin-top: 5px;
+}
+
+#subtasksList:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 4px;
+  border-radius: 10px;
+}
+
 /* RESPONSIVE DESIGN */
 
 .sidebarContainerResponsive {

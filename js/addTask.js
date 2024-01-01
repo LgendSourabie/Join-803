@@ -65,8 +65,8 @@ function load() {
 
 // This function serves as an initializer, orchestrating various tasks to set up the application.
 function initialize() {
-  options()
-  load() 
+  options();
+  load() ;
   // addContacts();
   addCategory();
   defaultPrio();
@@ -152,7 +152,7 @@ function subtaskIMGS() {
     let element = document.getElementById('subtasksPlusIMG');
     let plusSubtask = document.getElementById('subtasksCancelIMG');
     let currentIMG = element.getAttribute('src');
-    checkNewSubtask()
+    checkNewSubtask();
     if (currentIMG === '../img/img/subtasksPlus.svg') {
         element.setAttribute('src', '../img/img/subtasks_check.svg');
     } else {
@@ -165,21 +165,28 @@ function checkNewSubtask() {
   let element = document.getElementById('subtasksPlusIMG');
   let currentIMG = element.getAttribute('src');
   if (currentIMG !=='../img/img/subtasks_check.svg') return
-  let subtaskField = document.getElementById('subtasks-list');
+  let subtaskField = document.getElementById('subtasksList');
   let singleSubtask = document.getElementById('subtasks');
- if(singleSubtask.value.length ===0) return
-  subtasks.push(singleSubtask.value)
-  subtaskField.innerHTML +=`${singleSubtask.value}`
-  singleSubtask.value=''
+ if(singleSubtask.value.length ===0) return;
+  subtasks.push(singleSubtask.value);
+  subtaskField.innerHTML +=`${singleSubtask.value}`;
+  singleSubtask.value='';
 }
 
 const renderSubtask = function () {
-  let subtaskField = document.getElementById('subtasks-list');
+  let subtaskField = document.getElementById('subtasksList');
   subtaskField.innerHTML = '';
   for (let i = 0; i < subtasks.length; i++) {
     const subtask = subtasks[i];
-    subtaskField.innerHTML += ` <li>${subtask} </li>`;
+    subtaskField.innerHTML += /*html*/`
+      <li>${subtask}<img src="../img/img/penSubtasks.svg" alt=""><img src="../img/img/deleteSubtasks.svg" alt=""></li>
+    `;
   }
+}
+
+function deleteSubtask(i) {
+  subtasks.splice(i, 1);
+  load();
 }
 
 
@@ -189,7 +196,7 @@ try {
   let title = document.getElementById('title').value;
   let description = document.getElementById('description').value;
   let date = document.getElementById('date').value;
-  let assignedTo = btns.map(btn=>btn.name)
+  let assignedTo = btns.map(btn=>btn.name);
   let category = document.getElementById('selectCategory').value;
   // let subtasks = document.getElementById('subtasks').value;
 
