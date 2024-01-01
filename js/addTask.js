@@ -50,7 +50,7 @@ let tasks = [];
 // let users = [];
 // let users = [];
 let prios = [];
-let subtasks = 0;
+let subtasks = [];
 let usersSelect = [];
 let usersAssigned = [];
 let categories = ['Technical Task', 'User Story'];
@@ -152,6 +152,7 @@ function subtaskIMGS() {
     let element = document.getElementById('subtasksPlusIMG');
     let plusSubtask = document.getElementById('subtasksCancelIMG');
     let currentIMG = element.getAttribute('src');
+    checkNewSubtask()
     if (currentIMG === '../img/img/subtasksPlus.svg') {
         element.setAttribute('src', '../img/img/subtasks_check.svg');
     } else {
@@ -161,29 +162,45 @@ function subtaskIMGS() {
 }
 
 function checkNewSubtask() {
-  let checkSubtask = document.getElementById('subtasks');
-
-  checkSubtask.innerHTML += /*html*/`
-    <div class="containerNewSubtask">
-      <li></li>
-    </div>
-  `
+  let element = document.getElementById('subtasksPlusIMG');
+  let currentIMG = element.getAttribute('src');
+  if (currentIMG !=='../img/img/subtasks_check.svg') return
+  let subtaskField = document.getElementById('subtasks-list');
+  let singleSubtask = document.getElementById('subtasks');
+ if(singleSubtask.value.length ===0) return
+  subtasks.push(singleSubtask.value)
+  subtaskField.innerHTML +=`${singleSubtask.value}`
+  singleSubtask.value=''
 }
+
+const renderSubtask = function () {
+  let subtaskField = document.getElementById('subtasks-list');
+  subtaskField.innerHTML = '';
+  for (let i = 0; i < subtasks.length; i++) {
+    const subtask = subtasks[i];
+    subtaskField.innerHTML += ` <li>${subtask} </li>`;
+  }
+}
+
 
 // Function to create and save a new task with user input
 function createTask() {
+try {
   let title = document.getElementById('title').value;
   let description = document.getElementById('description').value;
   let date = document.getElementById('date').value;
-  let assignedTo = document.getElementById('select').value;
+  let assignedTo = btns.map(btn=>btn.name)
   let category = document.getElementById('selectCategory').value;
-  let subtasks = document.getElementById('subtasks').value;
+  // let subtasks = document.getElementById('subtasks').value;
 
   if (!categories.includes(category)) {
     categories.push(category);
   }
 
   saveLocalStorage(title, description, date, assignedTo, category, prios, subtasks);
+} catch (err) {
+  console.warn('I found a mistake here:',err)
+}
 }
 
 // Function to clear/reset values in the task creation form
