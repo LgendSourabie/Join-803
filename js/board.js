@@ -127,7 +127,7 @@ function todotemplate(array, i) {
     <span>${array.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${(array.progress / array.subtasks.length) * 100}%">
+            <div class="progress" style="width: ${(array.progress.length / array.subtasks.length) * 100}%">
             </div>
         </div>  
         <div>${array.progress}/${array.subtasks.length}Subtasks</div> 
@@ -238,7 +238,7 @@ function changecheckbox(j, i) {
     todos[i].progress.push(todos[i].subtasks[j]);
   } else {
     checkbox.src = checkButtonPath;
-    todos[i].progress.splice(1, j);
+    todos[i].progress.splice(1);
   }
 }
 
