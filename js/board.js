@@ -7,7 +7,7 @@ let todos = [
     prio: '/icons/priomedium.svg',
     category: 'Technical Task',
     subtasks: ['test2'],
-    progress: 1,
+    progress: [],
     id: 0,
     taskboard: 'todo',
   },
@@ -19,7 +19,7 @@ let todos = [
     prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2'],
-    progress: 2,
+    progress: [],
     id: 1,
     taskboard: 'todo',
   },
@@ -31,7 +31,7 @@ let todos = [
     prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2'],
-    progress: 1,
+    progress: [],
     id: 2,
     taskboard: 'awaitfeedback',
   },
@@ -43,7 +43,7 @@ let todos = [
     prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2'],
-    progress: 0,
+    progress: [],
     id: 3,
     taskboard: 'awaitfeedback',
   },
@@ -55,7 +55,7 @@ let todos = [
     prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2'],
-    progress: 0,
+    progress: [],
     id: 4,
     taskboard: 'inprogress',
   },
@@ -67,7 +67,7 @@ let todos = [
     prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2'],
-    progress: 0,
+    progress: [],
     id: 5,
     taskboard: 'done',
   },
@@ -235,10 +235,10 @@ function changecheckbox(j, i) {
 
   if (checkbox.src.endsWith(checkButtonPath)) {
     checkbox.src = '/icons/checkButton.svg';
-    todos[i].progress + 1;
+    todos[i].progress.push(todos[i].subtasks[j]);
   } else {
     checkbox.src = checkButtonPath;
-    todos[i].progress - 1;
+    todos[i].progress.splice(1, j);
   }
 }
 
