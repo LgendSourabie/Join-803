@@ -179,9 +179,18 @@ const renderSubtask = function () {
   for (let i = 0; i < subtasks.length; i++) {
     const subtask = subtasks[i];
     subtaskField.innerHTML += /*html*/`
-      <li>${subtask}<img src="../img/img/penSubtasks.svg" alt=""><img src="../img/img/deleteSubtasks.svg" alt=""></li>
-    `;
+    
+      <li>${subtask}</li>
+        
+    
+   `;
   }
+}
+
+function editSubtask() {
+  document.getElementById('subtasksList');
+
+  
 }
 
 function deleteSubtask(i) {

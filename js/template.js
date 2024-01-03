@@ -159,7 +159,7 @@ function templateAddTask() {
                               <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
                             </button>
                               <button type="button" class="buttonSubtask" id="buttonSubtask" >
-                              <img onclick="subtaskIMGS(); deleteSubtask()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> 
+                              <img onclick="subtaskIMGS()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> 
                             </button>
                             </div>
                             <!-- <input onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
@@ -168,8 +168,15 @@ function templateAddTask() {
                             <!-- <div class="test7" id='test7'>
                             <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
                             </div> -->
-                            <ul id="subtasksList" ></ul>
-                            <!-- onclick="checkNewSubtask()" -->
+                            <div class="newSubtaskContainerOne">
+                              <ul id="subtasksList">
+                              
+                              </ul>
+                              <div class="newSubtaskContainerTwo">
+                                  <img class="subtaskNewContainerImgs" onclick="editSubtask()" src="../img/img/penSubtasks.svg" alt="">
+                                  <img class="subtaskNewContainerImgs" onclick="deleteSubtask()" src="../img/img/deleteSubtasks.svg" alt="">
+                                </div>
+                            </div>                   
                         </div> 
                     </div>
                 </div>

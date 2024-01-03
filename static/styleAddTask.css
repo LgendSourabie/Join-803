@@ -426,6 +426,9 @@ select:hover {
 
 #subtasksList {
   margin-top: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #subtasksList:hover {
@@ -433,7 +436,33 @@ select:hover {
   background-color: rgba(0, 0, 0, 0.05);
   padding: 4px;
   border-radius: 10px;
+  align-items: center;
 }
+
+.newSubtaskContainerOne {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtaskNewContainerImgs {
+  display: none;
+}
+
+.subtaskNewContainerImgs:hover {
+  cursor: pointer;
+}
+
+#subtasksList:hover .subtaskNewContainerImgs {
+  display: block;
+}
+
+.newSubtaskContainerTwo {
+  display: flex;
+}
+
+
+
+
 
 /* RESPONSIVE DESIGN */
 
