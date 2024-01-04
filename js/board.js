@@ -54,7 +54,7 @@ let todos = [
     'due date': '13.12.23',
     prio: '/icons/priolow.svg',
     category: 'Technical Task',
-    subtasks: ['test1', 'test2'],
+    subtasks: ['test1', 'test2','klappts?'],
     progress: [],
     id: 4,
     taskboard: 'inprogress',
@@ -115,51 +115,29 @@ function renderFilteredTodos(filteredTodos) {
 
   for (let index = 0; index < filteredTodos.length; index++) {
     const element = filteredTodos[index];
-    document.getElementById(element.taskboard).innerHTML += todotemplate(element, index);
+    document.getElementById(element.taskboard).innerHTML += todotemplate(element);
   }
 }
 
-function todotemplate(array, i) {
+function todotemplate(currentElement) {
   return /*html*/ `
- <div class="todocard" draggable="true" ondragstart="startDragging(${array['id']})" onclick="showtodowindow(${i})">
-    <button>${array.category}</button>
-    <b>${array.title}</b>
-    <span>${array.discription}</span>
+ <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${currentElement.id})">
+    <button>${currentElement.category}</button>
+    <b>${currentElement.title}</b>
+    <span>${currentElement.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${(array.progress.length / array.subtasks.length) * 100}%">
+            <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100}%">
             </div>
         </div>  
-        <div>${array.progress}/${array.subtasks.length}Subtasks</div> 
+        <div>${currentElement.progress.length}/${currentElement.subtasks.length}Subtasks</div> 
     </div>
     <div class="assignedprio">
         <div>contacts</div>
-        <img src="${array.prio}" alt="">
+        <img src="${currentElement.prio}" alt="">
     </div>
 </div>
 `;
-}
-
-function startDragging(id) {
-  currentDraggedElement = id;
-}
-
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function moveTo(category) {
-  todos[currentDraggedElement]['taskboard'] = category;
-  removeHighlight(category);
-  renderToDos();
-}
-
-function highlight(id) {
-  document.getElementById(id).classList.add('drag-area-highlight');
-}
-
-function removeHighlight(id) {
-  document.getElementById(id).classList.remove('drag-area-highlight');
 }
 
 function showtodowindow(i) {
@@ -167,6 +145,7 @@ function showtodowindow(i) {
   todowindow.classList.add('showtodowindow');
   todowindow.innerHTML = todowindowtemplate(i);
   createSubtasks(i);
+  console.log(i)
 }
 
 function todowindowtemplate(i) {
@@ -224,11 +203,6 @@ function createSubtasks(i) {
   }
 }
 
-function closetodowindow() {
-  document.getElementById('showtodowindow').classList.remove('showtodowindow');
-  document.getElementById('showtodowindow').innerHTML = '';
-}
-
 function changecheckbox(j, i) {
   const checkbox = document.getElementById(j);
   const checkButtonPath = '/icons/uncheckBox.svg';
@@ -241,6 +215,35 @@ function changecheckbox(j, i) {
     todos[i].progress.splice(1);
   }
 }
+
+function startDragging(id) {
+  currentDraggedElement = id;
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function moveTo(category) {
+  todos[currentDraggedElement]['taskboard'] = category;
+  removeHighlight(category);
+  renderToDos();
+}
+
+function highlight(id) {
+  document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+function removeHighlight(id) {
+  document.getElementById(id).classList.remove('drag-area-highlight');
+}
+
+function closetodowindow() {
+  document.getElementById('showtodowindow').classList.remove('showtodowindow');
+  document.getElementById('showtodowindow').innerHTML = '';
+}
+
+
 
 function openAddtask() {
   let addtask = document.getElementById('add-task-bg');
