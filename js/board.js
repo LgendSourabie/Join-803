@@ -10,6 +10,7 @@ let todos = [
     progress: [],
     id: 0,
     taskboard: 'todo',
+    checkboxStates: []
   },
   {
     title: 'test note1',
@@ -22,6 +23,7 @@ let todos = [
     progress: [],
     id: 1,
     taskboard: 'todo',
+    checkboxStates: []
   },
   {
     title: 'test note2',
@@ -34,6 +36,7 @@ let todos = [
     progress: [],
     id: 2,
     taskboard: 'awaitfeedback',
+    checkboxStates: []
   },
   {
     title: 'test note3',
@@ -46,6 +49,7 @@ let todos = [
     progress: [],
     id: 3,
     taskboard: 'awaitfeedback',
+    checkboxStates: []
   },
   {
     title: 'test note4',
@@ -58,6 +62,7 @@ let todos = [
     progress: [],
     id: 4,
     taskboard: 'inprogress',
+    checkboxStates: []
   },
   {
     title: 'test note5',
@@ -70,6 +75,7 @@ let todos = [
     progress: [],
     id: 5,
     taskboard: 'done',
+    checkboxStates: []
   },
 ];
 
@@ -190,30 +196,46 @@ function todowindowtemplate(i) {
     </div>
 `;
 }
+// Function to initialize checkbox states
+function initializeCheckboxStates() {
+  todos.forEach(todo => {
+    todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
+  });
+}
+
+// Call the function to initialize checkbox states
+initializeCheckboxStates();
 
 function createSubtasks(i) {
   for (let j = 0; j < todos[i].subtasks.length; j++) {
     const element = todos[i].subtasks[j];
     document.getElementById('subtasks').innerHTML += /*html*/ `
         <div>
-            <img id="checkbox${j}" src="/icons/uncheckBox.svg" alt="" onclick="changecheckbox('checkbox${j}' , ${i})">
+            <img id="checkbox${j}" src="${todos[i].checkboxStates[j] ? '/icons/checkButton.svg' : '/icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
            <span>${element}</span> 
         </div>
     `;
   }
 }
-
-function changecheckbox(j, i) {
+function changecheckbox(j, i, subtaskIndex) {
   const checkbox = document.getElementById(j);
-  const checkButtonPath = '/icons/uncheckBox.svg';
 
-  if (checkbox.src.endsWith(checkButtonPath)) {
+  if (checkbox.src.endsWith('/icons/uncheckBox.svg')) {
     checkbox.src = '/icons/checkButton.svg';
-    todos[i].progress.push(todos[i].subtasks[j]);
+    todos[i].checkboxStates[subtaskIndex] = true;
+    todos[i].progress.push(todos[i].subtasks[subtaskIndex]);
   } else {
-    checkbox.src = checkButtonPath;
-    todos[i].progress.splice(1);
-  }
+    checkbox.src = '/icons/uncheckBox.svg';
+    todos[i].checkboxStates[subtaskIndex] = false;
+    // Remove the subtask from progress array
+    const subtaskToRemove = todos[i].subtasks[subtaskIndex];
+    const indexToRemove = todos[i].progress.indexOf(subtaskToRemove);
+    if (indexToRemove !== -1) {
+      todos[i].progress.splice(indexToRemove, 1);
+    }
+  };
+
+  renderToDos();
 }
 
 function startDragging(id) {
