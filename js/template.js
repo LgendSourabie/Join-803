@@ -169,13 +169,11 @@ function templateAddTask() {
                             <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
                             </div> -->
                             <div class="newSubtaskContainerOne">
-                              <ul id="subtasksList">
-                              
-                              </ul>
+                              <ul id="subtasksList"> </ul>
                               <div class="newSubtaskContainerTwo">
-                                  <img class="subtaskNewContainerImgs" onclick="editSubtask()" src="../img/img/penSubtasks.svg" alt="">
-                                  <img class="subtaskNewContainerImgs" onclick="deleteSubtask()" src="../img/img/deleteSubtasks.svg" alt="">
-                                </div>
+                                <img class="subtaskNewContainerImgs" onclick="editSubtask()" src="../img/img/penSubtasks.svg" alt="">
+                                <img class="subtaskNewContainerImgs" onclick="deleteSubtask()" src="../img/img/deleteSubtasks.svg" alt="">
+                              </div>
                             </div>                   
                         </div> 
                     </div>
