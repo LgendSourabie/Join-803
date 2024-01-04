@@ -42,7 +42,6 @@ body {
   cursor: pointer;
 }
 
-
 .sidebarContainer {
   width: 232px;
   height: 100vh;
@@ -133,8 +132,6 @@ body {
 }
 
 .addTaskContainerTwo{
-  /* padding-left: 328px; */
-  /* padding-right: 648px; */
   margin-top: 270px;
   width: 880px;
 }
@@ -142,12 +139,10 @@ body {
 .groupButtonForm{
   display: flex;
   flex-direction: column;
-  /* padding-left: 328px; */
 }
 
 h2 {
   font-size: 73px;
-  /* padding-left: 328px; */
 }
 
 .star {
@@ -178,7 +173,6 @@ h2 {
   position:relative;
   border: 1px solid #A8A8A8;
   border-radius: 10px;
-  /* height: 3rem; */
   background: #FFFFFF;
 }
 
@@ -194,7 +188,6 @@ textarea {
   display: flex;
   flex-direction: column;
   width: 440px;
-  /* height: 376px; */
   gap: 8px;
   padding-right: 24px;
 }
@@ -214,19 +207,9 @@ select {
   outline: none;
 }
 
-
-
 select:hover {
   border-color: grey;
 }
-
-/* .subtasksPlusIMG {
-  width: 23px;
-  height: 23px;
-  position: absolute;
-  margin-top: 41px;
-  margin-left: 24rem;
-} */
 
 .subtasksPlusIMG:hover {
   cursor: pointer;
@@ -244,7 +227,6 @@ select:hover {
   display: flex;
   flex-direction: column;
   width: 440px;
-  /* height: 376px; */
   gap: 8px;
   padding-left: 24px;
 }
@@ -385,14 +367,6 @@ select:hover {
   display: flex;
 }
 
-/* .dropDownImg {
-  width: 24px;
-  height: 24px;
-  margin-top: 41px;
-  margin-left: 381px;
-  position: absolute;
-} */
-
 .dropDownImg:hover {
   cursor: pointer;
   background-color: lightgrey;
@@ -424,15 +398,14 @@ select:hover {
   border-radius: 50%;
 }
 
-#subtasksList {
-  margin-top: 5px;
-  width: 100%;
+.newSubtaskContainerOne {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 
-#subtasksList:hover {
+.newSubtaskContainerOne:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 4px;
@@ -440,30 +413,21 @@ select:hover {
   align-items: center;
 }
 
-.newSubtaskContainerOne {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* .subtaskNewContainerImgs {
+.subtaskNewContainerImgs {
   display: none;
-} */
+}
 
 .subtaskNewContainerImgs:hover {
   cursor: pointer;
 }
 
-/* #subtasksList:hover .subtaskNewContainerImgs {
+.newSubtaskContainerOne:hover .subtaskNewContainerImgs {
   display: block;
-} */
+}
 
 .newSubtaskContainerTwo {
   display: flex;
 }
-
-
-
-
 
 /* RESPONSIVE DESIGN */
 
@@ -599,13 +563,6 @@ select:hover {
   display: none;
 }
 
-/* .option:hover icon1,icon2{
-  display: block;
-}
-.icon1,.icon2{
-  display: none;
-} */
-
 .bi {
   width: 2rem;
   height: 2rem;
@@ -624,10 +581,6 @@ select:hover {
   height: 42px;
   width: 42px;
 }
-
-/* .btn {
-  margin-left: 2rem;
-} */
 
 .newColor {
   color: white;
@@ -649,8 +602,6 @@ select:hover {
 
   .assignedAddTask {
     margin-bottom: 20px;
-    /* position: relative; */
-    /* top: 70px; */
   }
 
   .groupButtonForm {
@@ -674,14 +625,12 @@ select:hover {
 
   .containerLeft {
     padding-right: 0;
-    /* height: 285px; */
     justify-content: center;
     width: 80%;
   }
 
   .containerRight {
     padding-left: 0;
-    /* height: 340px; */
     width: 80%;
   }
 
@@ -708,10 +657,6 @@ select:hover {
     margin-top: 20px;
     margin-bottom: 25px;
   }
-
-  /* .dropdown {
-    margin-bottom: 10px;
-  } */
 }
 
 @media (max-width: 1024px) {

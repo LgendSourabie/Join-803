@@ -1,18 +1,3 @@
-// let user = [
-//     {
-//         name: "Pascal Wagner"
-//     },
-//     {
-//         name: "Henrik Sorg"
-//     },
-//     {
-//         name: "Ibrahima Sourabie"
-//     },
-//     {
-//         name: "Thomas Jilge"
-//     },
-// ];
-
 let listeOptions = [
   {
     name: 'Ibrahima Sourabie',
@@ -89,17 +74,6 @@ function changeColorPrio(id, id2, id3, currentsrc, src, src2, src3) {
   }
 }
 
-// function chang(id) {
-//     let element = document.getElementById(id);
-//     if (StateButton === currentsrc) {
-//         element.setAttribute('src', src);
-//     } else {
-//         element.setAttribute('src', currentsrc); // ein Kreuz
-//         element.setAttribute('src', currentsrc); // ein Checkmark
-
-//     }
-// }
-
 // Function to add priority to the array
 function prio(id) {
   prios.push(id);
@@ -107,7 +81,6 @@ function prio(id) {
 
 // Function to set the default priority
 function defaultPrio() {
-  // changeColorPrio('colorMedium', 'bgMedium');
   prio('Medium');
 }
 
@@ -180,18 +153,18 @@ const renderSubtask = function () {
     const subtask = subtasks[i];
     subtaskField.innerHTML += /*html*/`
     
-      <li>${subtask}</li>
+      <!-- <li>${subtask}</li> -->
         
     
    `;
   }
 }
 
-// function editSubtask(i) {
-//   let subtaskList = document.getElementById('subtasksList');
-//   subtaskList.value.push(subtasks[i]);
-//   renderSubtask();
-// }
+function editSubtask(i) {
+  let subtaskList = document.getElementById('subtasks');
+  subtaskList.value.push(subtasks[i]);
+  renderSubtask();
+}
 
 function deleteSubtask(i) {
   subtasks.splice(i, 1);
