@@ -132,6 +132,7 @@ body {
 .todosection {
   display: flex;
   justify-content: space-between;
+  margin-top: 3.47rem;
   padding: 0px 4rem 0px 4rem;
 }
 
@@ -306,4 +307,31 @@ body {
   align-items: center;
   padding-left: 7rem;
   padding-top: 7rem;
+}
+
+.hiddenheadline {
+  display: none;
+}
+
+@media (width<=760px) {
+  .todosection {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .todosplit {
+    width: 15.25rem;
+    height: fit-content;
+  }
+  .todoscontainer {
+    padding-top: 1.25rem;
+    min-height: fit-content;
+  }
+  .headline {
+    display: none;
+  }
+  .hiddenheadline {
+    display: flex;
+    flex-direction: column;
+  }
 }

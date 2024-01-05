@@ -265,8 +265,6 @@ function closetodowindow() {
   document.getElementById('showtodowindow').innerHTML = '';
 }
 
-
-
 function openAddtask() {
   let addtask = document.getElementById('add-task-bg');
   addtask.classList.remove('d-none');
