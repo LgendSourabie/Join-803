@@ -452,23 +452,6 @@ function templateBoard() {
                     <button onclick="openAddtask()">Add Task <img src="/icons/add.svg" alt=""></button>
                 </div>
             </div>
-            <!-- <div class="tablecolumn">
-                <div class="tablecolumntitle">
-                    <span>To do</span>
-                    <img src="/icons/plusButton.svg" alt="">
-                </div>
-                <div class="tablecolumntitle">
-                    <span>In Progress</span>
-                    <img src="/icons/plusButton.svg" alt="">
-                </div>
-                <div class="tablecolumntitle">
-                    <span>Await Feedback</span>
-                    <img src="/icons/plusButton.svg" alt="">
-                </div>
-                <div class="tablecolumntitle">
-                    <span>Done</span>
-                </div>
-            </div> -->
         </div>
         <div class="todosection">
             <div class="todosplit">
@@ -477,7 +460,7 @@ function templateBoard() {
                     <img src="/icons/plusButton.svg" alt="">
                 </div>
                 <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')"
-                    ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
+                    ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"><img class="notaks" src="/icons/notasktodo.svg" alt=""></div>
             </div>
             <div class="todosplit">
                 <div class="tablecolumntitle">

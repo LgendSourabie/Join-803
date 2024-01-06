@@ -284,6 +284,10 @@ body {
   display: none;
 }
 
+.notask{
+  z-index: -3;
+}
+
 @media (width<=760px) {
   .todosection {
     flex-direction: column;
