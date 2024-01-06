@@ -285,7 +285,7 @@ body {
 }
 
 .notask{
-  z-index: -3;
+  width: 15.25rem;
 }
 
 @media (width<=760px) {

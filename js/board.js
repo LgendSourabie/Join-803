@@ -91,16 +91,23 @@ function renderToDos() {
   forlooprender('done');
 }
 
+
 function forlooprender(test) {
   let todo = todos.filter(t => t['taskboard'] == test);
 
-  document.getElementById(test).innerHTML = '';
+  const container = document.getElementById(test);
+  container.innerHTML = '';
 
-  for (let index = 0; index < todo.length; index++) {
-    const element = todo[index];
-    document.getElementById(test).innerHTML += todotemplate(element, index);
+  if (todo.length === 0) {
+    container.innerHTML = `<img class="notask" src="/icons/notasktodo.svg" alt="Empty">`;
+  } else {
+    for (let index = 0; index < todo.length; index++) {
+      const element = todo[index];
+      container.innerHTML += todotemplate(element, index);
+    }
   }
 }
+
 
 function filterTodosByTitle() {
   let input = document.getElementById('taskInput');
@@ -196,14 +203,12 @@ function todowindowtemplate(i) {
     </div>
 `;
 }
-// Function to initialize checkbox states
 function initializeCheckboxStates() {
   todos.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
   });
 }
 
-// Call the function to initialize checkbox states
 initializeCheckboxStates();
 
 function createSubtasks(i) {
