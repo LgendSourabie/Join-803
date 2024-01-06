@@ -153,7 +153,7 @@ const renderSubtask = function () {
 }
 
 // Function to edit subtasks
-function editSubtask(i) {
+function editSubtask() {
   let subtaskList = document.getElementById('subtasksList');
   subtaskList.innerText = '';
   load();
@@ -162,7 +162,7 @@ function editSubtask(i) {
 
 // Function to delete subtasks
 function deleteSubtask(i) {
-  subtasks.splice(i, 1);
+  subtasks.splice(i);
   load();
   renderSubtask();
 }
