@@ -412,10 +412,13 @@ select:hover {
   border-radius: 10px;
   align-items: center;
 }
-
-.subtaskNewContainerImgs {
-  display: none;
+ul{
+  width: 100%;
 }
+
+/* .subtaskNewContainerImgs {
+  display: none;
+} */
 
 .subtaskNewContainerImgs:hover {
   cursor: pointer;
@@ -427,6 +430,7 @@ select:hover {
 
 .newSubtaskContainerTwo {
   display: flex;
+  gap: 0.5rem;
 }
 
 /* RESPONSIVE DESIGN */

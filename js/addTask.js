@@ -114,13 +114,37 @@ function subtaskIMGS() {
     let element = document.getElementById('subtasksPlusIMG');
     let plusSubtask = document.getElementById('subtasksCancelIMG');
     let currentIMG = element.getAttribute('src');
-    checkNewSubtask();
+    checkNewSubtask()
     if (currentIMG === '../img/img/subtasksPlus.svg') {
         element.setAttribute('src', '../img/img/subtasks_check.svg');
     } else {
         element.setAttribute('src', '../img/img/subtasksPlus.svg');
         plusSubtask.style.display = 'none';
     }
+   
+}
+function subtaskIMGSA() {
+    let element = document.getElementById('subtasksPlusIMG');
+    let plusSubtask = document.getElementById('subtasksCancelIMG');
+    let currentIMG = element.getAttribute('src');
+    checkNewSubtask()
+    if (currentIMG === '../img/img/subtasksPlus.svg') {
+        element.setAttribute('src', '../img/img/subtasks_check.svg');
+    } else {
+        element.setAttribute('src', '../img/img/subtasksPlus.svg');
+        plusSubtask.style.display = 'none';
+    }
+   
+}
+
+function changeButton(index){
+  let element = document.getElementById(`test_test${index}`);
+  let listEl = document.getElementById(`list${index}`);
+  let inputEdit = document.getElementById(`input-edit-${index}`);
+  let inputsSubtask = document.getElementById(`link-${index}`);
+  inputEdit.value = inputsSubtask.innerHTML
+  element.classList.remove('d-none')
+  listEl.classList.add('d-none')
 }
 
 
@@ -133,7 +157,7 @@ function checkNewSubtask() {
   let singleSubtask = document.getElementById('subtasks');
  if(singleSubtask.value.length ===0) return;
   subtasks.push(singleSubtask.value);
-  subtaskField.innerHTML +=`${singleSubtask.value}`;
+  renderSubtask()
   singleSubtask.value='';
 }
 
@@ -144,8 +168,29 @@ const renderSubtask = function () {
   for (let i = 0; i < subtasks.length; i++) {
     const subtask = subtasks[i];
     subtaskField.innerHTML += /*html*/`
+      
+      <div class="newSubtaskContainerTwo" id="list${i}">
+        <li id="link-${i}"> ${subtask} </li>
+        <div>
+          <img class="subtaskNewContainerImgs" id="edit-${i}" onclick="editSubtask(${i})" src="../img/img/penSubtasks.svg" alt="">
+          <img class="subtaskNewContainerImgs"  onclick="deleteSubtask(${i})" src="../img/img/deleteSubtasks.svg" alt="">
+
+          
+          
+          
+        </div>
+      </div>
+
+      <div id="test_test${i}" class="test_test d-none">
+        <input type="text" onclick="changeBorderColor(this)" id="input-edit-${i}" class="inputAddTaskSubtask" type="text" placeholder="Add new subtask">
+        <button type="button" class="buttonSubtask"  >
+        <!-- <img onclick="addNewSubtask(); changeSubtaskImg()"  class="subtasksPlusIMG" src="../img/img/deleteSubtasks.svg" alt=""> -->
+      </button>
+        <button type="button" class="buttonSubtask" >
+        <img onclick=" checkNewSubtask()"   src="../img/img/subtasks_check.svg" alt=""> 
+      </button>
+      </div>
     
-      <!-- <li>${subtask}</li> -->
         
     
    `;
@@ -153,17 +198,19 @@ const renderSubtask = function () {
 }
 
 // Function to edit subtasks
-function editSubtask() {
-  let subtaskList = document.getElementById('subtasksList');
-  subtaskList.innerText = '';
-  load();
-  renderSubtask();
+function editSubtask(i) {
+  changeButton(i)
+  // let subtaskList = document.getElementById('subtasksList');
+  // subtaskList.innerText = '';
+  // load();
+  // renderSubtask();
 }
 
 // Function to delete subtasks
 function deleteSubtask(i) {
-  subtasks.splice(i);
-  load();
+
+  subtasks.splice(i,1);
+  // load();
   renderSubtask();
 }
 
@@ -197,7 +244,7 @@ function clearTask() {
   document.getElementById('selectCategory').value = '';
   document.getElementById('subtasks').value = '';
   document.getElementById('subtasksList').value = '';
-  document.getElementById('prio') = '';
+  // document.getElementById('prio') = '';
 
   document.querySelectorAll('.allPrio').forEach(option => {
     option.style.backgroundColor = 'white';
