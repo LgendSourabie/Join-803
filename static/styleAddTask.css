@@ -398,39 +398,55 @@ select:hover {
   border-radius: 50%;
 }
 
-.newSubtaskContainerOne {
+/* .newSubtaskContainerOne {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
-.newSubtaskContainerOne:hover {
+.newSubtaskContainerTwo:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 4px;
   border-radius: 10px;
-  align-items: center;
 }
-ul{
+
+ul {
   width: 100%;
 }
 
-/* .subtaskNewContainerImgs {
+li {
+  margin-left: 20px;
+}
+
+.subtaskNewContainerImgs {
   display: none;
-} */
+}
 
 .subtaskNewContainerImgs:hover {
   cursor: pointer;
 }
 
-.newSubtaskContainerOne:hover .subtaskNewContainerImgs {
+.newSubtaskContainerTwo:hover .subtaskNewContainerImgs {
   display: block;
 }
 
 .newSubtaskContainerTwo {
   display: flex;
-  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 0.5rem; */
+}
+
+.hoverSubtask {
+  display: flex;
+}
+
+.inputEdit {
+  border-bottom-color: #29ABE2;
+  height: 32px;
+  cursor: pointer;
 }
 
 /* RESPONSIVE DESIGN */

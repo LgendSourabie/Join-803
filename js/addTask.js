@@ -127,7 +127,7 @@ function subtaskIMGSA() {
     let element = document.getElementById('subtasksPlusIMG');
     let plusSubtask = document.getElementById('subtasksCancelIMG');
     let currentIMG = element.getAttribute('src');
-    checkNewSubtask()
+    checkNewSubtask();
     if (currentIMG === '../img/img/subtasksPlus.svg') {
         element.setAttribute('src', '../img/img/subtasks_check.svg');
     } else {
@@ -142,9 +142,9 @@ function changeButton(index){
   let listEl = document.getElementById(`list${index}`);
   let inputEdit = document.getElementById(`input-edit-${index}`);
   let inputsSubtask = document.getElementById(`link-${index}`);
-  inputEdit.value = inputsSubtask.innerHTML
-  element.classList.remove('d-none')
-  listEl.classList.add('d-none')
+  inputEdit.value = inputsSubtask.innerHTML;
+  element.classList.remove('d-none');
+  listEl.classList.add('d-none');
 }
 
 
@@ -157,7 +157,7 @@ function checkNewSubtask() {
   let singleSubtask = document.getElementById('subtasks');
  if(singleSubtask.value.length ===0) return;
   subtasks.push(singleSubtask.value);
-  renderSubtask()
+  renderSubtask();
   singleSubtask.value='';
 }
 
@@ -170,23 +170,19 @@ const renderSubtask = function () {
     subtaskField.innerHTML += /*html*/`
       
       <div class="newSubtaskContainerTwo" id="list${i}">
-        <li id="link-${i}"> ${subtask} </li>
-        <div>
-          <img class="subtaskNewContainerImgs" id="edit-${i}" onclick="editSubtask(${i})" src="../img/img/penSubtasks.svg" alt="">
-          <img class="subtaskNewContainerImgs"  onclick="deleteSubtask(${i})" src="../img/img/deleteSubtasks.svg" alt="">
-
-          
-          
-          
-        </div>
+        <li id="link-${i}">${subtask}</li>
+          <div class="hoverSubtask">
+            <img class="subtaskNewContainerImgs" id="edit-${i}" onclick="editSubtask(${i})" src="../img/img/penSubtasks.svg" alt="">
+            <img class="subtaskNewContainerImgs"  onclick="deleteSubtask(${i})" src="../img/img/deleteSubtasks.svg" alt="">
+          </div>
       </div>
 
       <div id="test_test${i}" class="test_test d-none">
-        <input type="text" onclick="changeBorderColor(this)" id="input-edit-${i}" class="inputAddTaskSubtask" type="text" placeholder="Add new subtask">
-        <button type="button" class="buttonSubtask"  >
+        <input type="text" onclick="changeBorderColor(this)" id="input-edit-${i}" class="inputEdit" type="text" placeholder="Add new subtask">
+        <button type="button" class="buttonSubtask">
         <!-- <img onclick="addNewSubtask(); changeSubtaskImg()"  class="subtasksPlusIMG" src="../img/img/deleteSubtasks.svg" alt=""> -->
       </button>
-        <button type="button" class="buttonSubtask" >
+        <button type="button" class="buttonSubtask">
         <img onclick=" checkNewSubtask()"   src="../img/img/subtasks_check.svg" alt=""> 
       </button>
       </div>
@@ -217,7 +213,6 @@ function deleteSubtask(i) {
 
 // Function to create and save a new task with user input
 function createTask() {
-try {
   let title = document.getElementById('title').value;
   let description = document.getElementById('description').value;
   let date = document.getElementById('date').value;
@@ -228,11 +223,7 @@ try {
   if (!categories.includes(category)) {
     categories.push(category);
   }
-
   saveLocalStorage(title, description, date, assignedTo, category, prios, subtasks);
-} catch (err) {
-  console.warn('I found a mistake here:',err)
-}
 }
 
 // Function to clear/reset values in the task creation form
