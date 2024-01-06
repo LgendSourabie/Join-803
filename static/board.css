@@ -4,36 +4,6 @@ body {
   font-family: 'inter';
 }
 
-/* .sidebar-left {
-  background-color: #2a3647;
-  height: 100vh;
-  width: 14.5rem;
-  position: absolute;
-  z-index: 2;
-  float: left;
-  padding-top: 64px;
-  padding-bottom: 64px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} */
-
-/* header {
-    background-color: #FFFFFF;
-    height: 96px;
-    flex: 1;
-} */
-
-/* .header {
-  padding-top: 1.25rem;
-  padding-right: 40px;
-  padding-bottom: 1.25rem;
-  padding-left: 348px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
-
 .mainSection {
   background-color: #f6f7f8;
   height: 100%;
@@ -48,10 +18,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 66rem;
   height: 73px;
   margin-top: 4.97rem;
   margin-left: 4rem;
+  margin-right: 4rem;
 }
 
 .addandsearch {
@@ -126,7 +96,8 @@ body {
 
 .todosplit {
   width: 15.25rem;
-  height: 688px;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
 }
 
 .todosection {
@@ -134,11 +105,11 @@ body {
   justify-content: space-between;
   margin-top: 3.47rem;
   padding: 0px 4rem 0px 4rem;
+  flex-wrap: wrap;
 }
 
 .todoscontainer {
   padding-top: 1.25rem;
-  min-height: 600px;
 }
 
 .todocard {
@@ -313,6 +284,10 @@ body {
   display: none;
 }
 
+.notask{
+  width: 15.25rem;
+}
+
 @media (width<=760px) {
   .todosection {
     flex-direction: column;
@@ -320,12 +295,21 @@ body {
     align-items: center;
   }
   .todosplit {
-    width: 15.25rem;
+    width: 100%;
     height: fit-content;
+    margin-right: 0;
+    width: 100%;
   }
   .todoscontainer {
     padding-top: 1.25rem;
     min-height: fit-content;
+  }
+
+  .tablecolumntitle{
+    width: 100%;
+  }
+  .todocard{
+    width: 15.25rem;
   }
   .headline {
     display: none;
