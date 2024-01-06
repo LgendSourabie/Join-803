@@ -444,9 +444,19 @@ li {
 }
 
 .inputEdit {
-  border-bottom-color: #29ABE2;
   height: 32px;
   cursor: pointer;
+  
+}
+
+.editContainerSubtask {
+  /* border: none; */
+  border-bottom-color: #29ABE2;
+  border-left-style: none;
+  border-right-style: none;
+  border-top-style: none;
+  padding-left: 16px;
+  border-radius: 0%;
 }
 
 /* RESPONSIVE DESIGN */

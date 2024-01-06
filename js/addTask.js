@@ -177,13 +177,15 @@ const renderSubtask = function () {
           </div>
       </div>
 
-      <div id="test_test${i}" class="test_test d-none">
+      <div id="test_test${i}" class="test_test editContainerSubtask d-none">
         <input type="text" onclick="changeBorderColor(this)" id="input-edit-${i}" class="inputEdit" type="text" placeholder="Add new subtask">
         <button type="button" class="buttonSubtask">
         <!-- <img onclick="addNewSubtask(); changeSubtaskImg()"  class="subtasksPlusIMG" src="../img/img/deleteSubtasks.svg" alt=""> -->
       </button>
         <button type="button" class="buttonSubtask">
+          <div>
         <img onclick=" checkNewSubtask()"   src="../img/img/subtasks_check.svg" alt=""> 
+        </div>
       </button>
       </div>
     
