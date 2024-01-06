@@ -117,7 +117,7 @@ function templateAddTask() {
                             </div> -->
                             <div id="dropdown" class="dropdown" onclick="handleDropdownClick(this)">Select contacts to assign</div>
                               <div class="test6" onclick="handleDropdownClick(this)">
-                                <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
+                                <img class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
                               </div>
                             <div id="options" class="options d-none"></div>
                               <div id="btn-grp" class="btn"></div>

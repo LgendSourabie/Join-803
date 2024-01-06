@@ -84,19 +84,6 @@ function defaultPrio() {
   prio('Medium');
 }
 
-// // Function to populate a dropdown list with contacts
-// function addContacts() {
-//   let select = document.getElementById('dropdown');
-//   select.innerHTML = `<option id="assigned" value="">Selected contacts to assign</option>`;
-
-//   for (let i = 0; i < listeOptions.length; i++) {
-//     let currentUser = listeOptions[i].name;
-//     // select.innerHTML += /*html*/ `
-//     //          <option id="assigned-${i}" value="${currentUser}"><button class="contactsButton"></button> ${currentUser}  <img src="" alt=""></option>
-//     // `;
-//   }
-// }
-
 // Function to populate a dropdown list with task categories
 function addCategory() {
   let select = document.getElementById('selectCategory');
@@ -110,17 +97,19 @@ function addCategory() {
   }
 }
 
-// Function to clear and reset the content of the subtasks element
+// Function to get the ID of the subtasks
 function addNewSubtask() {
-  let subtask = document.getElementById('subtasks');
+  document.getElementById('subtasks');
 }
 
+// Function to change the display of the element with the ID 'subtasksCancelIMG' to 'block' and then calls the subtaskIMGS function.
 function changeSubtaskImg() {
   let plusSubtask = document.getElementById('subtasksCancelIMG');
   plusSubtask.style.display = 'block';
   subtaskIMGS();
 }
 
+// Function to change the images
 function subtaskIMGS() {
     let element = document.getElementById('subtasksPlusIMG');
     let plusSubtask = document.getElementById('subtasksCancelIMG');
@@ -134,6 +123,8 @@ function subtaskIMGS() {
     }
 }
 
+
+// Function to check the ID and the subtask Img
 function checkNewSubtask() {
   let element = document.getElementById('subtasksPlusIMG');
   let currentIMG = element.getAttribute('src');
@@ -146,6 +137,7 @@ function checkNewSubtask() {
   singleSubtask.value='';
 }
 
+// Function to render the subtasks by updating the content of the element with the ID 'subtasksList'.
 const renderSubtask = function () {
   let subtaskField = document.getElementById('subtasksList');
   subtaskField.innerHTML = '';
@@ -160,12 +152,15 @@ const renderSubtask = function () {
   }
 }
 
+// Function to edit subtasks
 function editSubtask(i) {
-  let subtaskList = document.getElementById('subtasks');
-  subtaskList.value.push(subtasks[i]);
+  let subtaskList = document.getElementById('subtasksList');
+  subtaskList.innerText = '';
+  load();
   renderSubtask();
 }
 
+// Function to delete subtasks
 function deleteSubtask(i) {
   subtasks.splice(i, 1);
   load();
@@ -197,10 +192,12 @@ try {
 function clearTask() {
   document.getElementById('title').value = '';
   document.getElementById('description').value = '';
-  document.getElementById('select').value = '';
+  document.getElementById('dropdown').value = '';
   document.getElementById('date').value = '';
   document.getElementById('selectCategory').value = '';
   document.getElementById('subtasks').value = '';
+  document.getElementById('subtasksList').value = '';
+  document.getElementById('prio') = '';
 
   document.querySelectorAll('.allPrio').forEach(option => {
     option.style.backgroundColor = 'white';
@@ -233,6 +230,7 @@ function saveLocalStorage(val1, val2, val3, val4, val5, prios, val6) {
   localStorage.setItem('liste', JSON.stringify(liste));
 }
 
+// Function to show the users
 function options() {
   let field = document.getElementById('options');
   let listeOption = listeOptions.map(a => a['name']);
@@ -256,15 +254,16 @@ function options() {
       </div>
     </div>
       `;
-      ///Farbe einfügen
-      document.getElementById(`btn-${i}`).style.backgroundColor = `${colors[i]}`;
+    document.getElementById(`btn-${i}`).style.backgroundColor = `${colors[i]}`;
   }
 }
 
+// Function to switches the CSS class of the element with the specified ID to show or hide options
 function showOptions(id, className) {
   document.getElementById(id).classList.toggle(className);
 }
 
+// Function to change the checkbox
 function changeCheckState(index) {
   let field = document.getElementById(`checkBox${index}`);
   let currentState = field.getAttribute('src');
@@ -276,10 +275,10 @@ function changeCheckState(index) {
   } 
 }
 
+// Function to update the button
 function updateBtn(index) {
   let btnUserProfile = document.getElementById('btn-grp');
   let initial = document.getElementById(`btn-${index}`).innerHTML;
-  // let colorButton = document.getElementById(`btn-${index}`).innerHTML;
   let namePerson = document.getElementById(`name${index}`).innerHTML;
   let bgColor = document.getElementById(`btn-${index}`).style.backgroundColor;
 
@@ -293,6 +292,7 @@ function updateBtn(index) {
   renderBtn();
 }
 
+// Function to update the buttons under the options
 const renderBtn = function () {
   let btnUserProfile = document.getElementById('btn-grp');
   btnUserProfile.innerHTML = '';
@@ -303,7 +303,7 @@ const renderBtn = function () {
   }
 }
 
-
+// Function to change the border color
 function changeBorderColor(element) {
   if (element.style.borderColor === 'rgb(41, 171, 226)') {
     element.style.borderColor = '';
@@ -312,6 +312,7 @@ function changeBorderColor(element) {
   }
 }
 
+// Function that calls the functions changeBorderColor and showOptions
 function handleDropdownClick(element) {
   changeBorderColor(element);
   showOptions('options', 'd-none');
