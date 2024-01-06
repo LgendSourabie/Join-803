@@ -437,8 +437,8 @@ function templateBoard() {
                 <h1>Board</h1>
                 <button onclick="openAddtask()"><img src="/icons/add.svg" alt=""></button>
               </div>
-              <div class="searchtask">
-                <input id="taskInput" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
+              <div class="searchtaskhidden">
+                <input id="taskInputhidden" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
                 <img src="/icons/search.svg" alt="">
               </div>
             </div>
@@ -460,7 +460,7 @@ function templateBoard() {
                     <img src="/icons/plusButton.svg" alt="">
                 </div>
                 <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')"
-                    ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"><img class="notaks" src="/icons/notasktodo.svg" alt=""></div>
+                    ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
             </div>
             <div class="todosplit">
                 <div class="tablecolumntitle">

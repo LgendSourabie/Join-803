@@ -109,7 +109,8 @@ body {
 }
 
 .todoscontainer {
-  padding-top: 1.25rem;
+  padding: 1.25rem 0 1.25rem 0;
+  border-radius: 10px;
 }
 
 .todocard {
@@ -288,11 +289,41 @@ body {
   width: 15.25rem;
 }
 
+.hiddenheadline{
+  margin: 2rem;
+}
+
+.searchtaskhidden {
+  width: 100%;
+  background-color: white;
+  border-radius: 0.63rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #a8a8a8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchtaskhidden img {
+  margin-left: 1rem;
+  height: 32px;
+  width: 3rem;
+}
+
+.searchtaskhidden input {
+  height: 48px;
+  width: 14.5rem;
+  border: none;
+  border-radius: 10px;
+}
+
 @media (width<=760px) {
   .todosection {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding: 0 2rem 0 2rem;
   }
   .todosplit {
     width: 100%;
@@ -311,6 +342,35 @@ body {
   .todocard{
     width: 15.25rem;
   }
+}
+
+@media (width<=1050px) {
+  .section1 h1{
+    font-size: 2.5rem;
+  }
+
+  .addandsearch{
+    width: auto;
+  }
+  .searchtask{
+    width: 15rem;
+  }
+  .searchtask input{
+    width: auto;
+  }
+  .searchtask img{
+    width: auto;
+  }
+  .addandsearch button {
+    width: auto;
+    font-size: 1rem;
+  }
+  .addandsearch button img {
+    width: auto;
+  }
+}
+
+@media (width<=900px){
   .headline {
     display: none;
   }
