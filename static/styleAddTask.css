@@ -446,7 +446,7 @@ li {
 .inputEdit {
   height: 32px;
   cursor: pointer;
-  
+  width: 100%;
 }
 
 .editContainerSubtask {
@@ -457,6 +457,13 @@ li {
   border-top-style: none;
   padding-left: 16px;
   border-radius: 0%;
+  width: 100%;
+}
+
+.newSubtaskImgs {
+  position: absolute;
+  top: -7px;
+  right: 0px;
 }
 
 /* RESPONSIVE DESIGN */

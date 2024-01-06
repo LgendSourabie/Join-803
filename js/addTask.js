@@ -183,7 +183,7 @@ const renderSubtask = function () {
         <!-- <img onclick="addNewSubtask(); changeSubtaskImg()"  class="subtasksPlusIMG" src="../img/img/deleteSubtasks.svg" alt=""> -->
       </button>
         <button type="button" class="buttonSubtask">
-          <div>
+          <div class="newSubtaskImgs">
         <img onclick=" checkNewSubtask()"   src="../img/img/subtasks_check.svg" alt=""> 
         </div>
       </button>
