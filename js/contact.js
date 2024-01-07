@@ -63,6 +63,9 @@ let selectedContact;
 let edit = false;
 let contactIndex = -1;
 
+// Create a MediaQueryList object
+let x = window.matchMedia('(max-width: 1300px)')
+
 
 async function renderContactSection() {
   contacts = JSON.parse(await getItem("contacts"));
@@ -470,8 +473,6 @@ async function deleteContact(i, cResponsive) {
   renderContactSection();
 }
 
-// Create a MediaQueryList object
-let x = window.matchMedia('(max-width: 1000px)')
 
 function showContactResponsiv(jsonIndex) {
   if (x.matches) { // If media query matches
@@ -509,7 +510,6 @@ async function loadAllContacts() {
   contacts = JSON.parse(await getItem("contacts"));
 }
 
-// setItem("contacts", JSON.stringify(contacts));
 
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
@@ -519,15 +519,13 @@ async function setItem(key, value) {
   }).then((response) => response.json());
 }
 
+
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   return await fetch(url)
     .then((response) => response.json())
     .then((response) => response.data.value);
 }
-
-// contacts =  JSON.parse(await getItem("contacts"));
-// setItem("contacts", JSON.stringify(contacts));
 
 
 //standard funktionen

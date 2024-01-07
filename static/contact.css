@@ -392,11 +392,6 @@ input {
     font-size: 16px;
 }
 
-/* single view */
-/* .contact-single-view {
-    flex: 1;
-} */
-
 .contacts-headline {
     display: flex;
     margin-top: 120px;
@@ -417,7 +412,7 @@ input {
     display: flex;
     align-items: center;
     font-size: 27px;
-    padding-right: 40px;
+    padding-right: 44px;
 }
 
 .contact-single-view-info {
@@ -525,7 +520,11 @@ input {
     display: none;
 }
 
-@media(max-width:1000px) {
+.contact-single-view{
+    overflow: hidden;
+}
+
+@media(max-width:1300px) {
 
     /* add Contact */
     .sidebar {
@@ -649,6 +648,7 @@ input {
         margin-left: 0;
         flex-direction: column;
         gap: 16px;
+        margin-left: -20px;
     }
 
     .contacts-headline h2 {
