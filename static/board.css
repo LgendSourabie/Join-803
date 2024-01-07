@@ -94,6 +94,10 @@ body {
   height: 24px;
 }
 
+.tablecolumntitle img:hover {
+  cursor: pointer;
+}
+
 .todosplit {
   width: 15.25rem;
   margin-right: 1rem;
@@ -285,11 +289,11 @@ body {
   display: none;
 }
 
-.notask{
+.notask {
   width: 15.25rem;
 }
 
-.hiddenheadline{
+.hiddenheadline {
   margin: 2rem;
 }
 
@@ -325,55 +329,64 @@ body {
     align-items: center;
     padding: 0 2rem 0 2rem;
   }
+
   .todosplit {
     width: 100%;
     height: fit-content;
     margin-right: 0;
     width: 100%;
   }
+
   .todoscontainer {
     padding-top: 1.25rem;
     min-height: fit-content;
   }
 
-  .tablecolumntitle{
+  .tablecolumntitle {
     width: 100%;
   }
-  .todocard{
+
+  .todocard {
     width: 15.25rem;
   }
 }
 
 @media (width<=1050px) {
-  .section1 h1{
+  .section1 h1 {
     font-size: 2.5rem;
   }
 
-  .addandsearch{
+  .addandsearch {
     width: auto;
   }
-  .searchtask{
+
+  .searchtask {
     width: 15rem;
   }
-  .searchtask input{
+
+  .searchtask input {
     width: auto;
   }
-  .searchtask img{
+
+  .searchtask img {
     width: auto;
   }
+
   .addandsearch button {
     width: auto;
     font-size: 1rem;
   }
+
   .addandsearch button img {
     width: auto;
   }
 }
 
-@media (width<=900px){
+@media (width<=900px) {
   .headline {
     display: none;
   }
+
   .hiddenheadline {
     display: flex;
     flex-direction: column;

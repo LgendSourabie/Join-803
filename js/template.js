@@ -429,7 +429,7 @@ function templateBoard() {
             <div class="todosplit">
                 <div class="tablecolumntitle">
                     <span>To do</span>
-                    <img src="/icons/plusButton.svg" alt="">
+                    <img onclick="openAddtask()" src="/icons/plusButton.svg" alt="">
                 </div>
                 <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')"
                     ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
@@ -437,7 +437,7 @@ function templateBoard() {
             <div class="todosplit">
                 <div class="tablecolumntitle">
                     <span>In Progress</span>
-                    <img src="/icons/plusButton.svg" alt="">
+                    <img onclick="openAddtask()" src="/icons/plusButton.svg" alt="">
                 </div>
                 <div id="inprogress" class="todoscontainer" ondragover="allowDrop(event); highlight('inprogress')"
                     ondrop="moveTo('inprogress')" ondragleave="removeHighlight('inprogress')"></div>
@@ -445,7 +445,7 @@ function templateBoard() {
             <div class="todosplit">
                 <div class="tablecolumntitle">
                     <span>Await Feedback</span>
-                    <img src="/icons/plusButton.svg" alt="">
+                    <img onclick="openAddtask()" src="/icons/plusButton.svg" alt="">
                 </div>
                 <div id="awaitfeedback" class="todoscontainer" ondragover="allowDrop(event); highlight('awaitfeedback')"
                     ondrop="moveTo('awaitfeedback')" ondragleave="removeHighlight('awaitfeedback')"></div>
