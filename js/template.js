@@ -506,6 +506,7 @@ function templateContacts() {
             <div class="contact-single-view" id="contact-single-view">
                 <div class="contacts-headline">
                     <h2>Contacts</h2><span>Better with a team</span>
+                    <div id="contact-success" class="contact-success">Contact succesfully created</div>
                 </div>
                 <div class="contact-single-view-info" id="current-contact"> </div>
                 <div class="contact-single-view-info" id="new-contact"> </div>
@@ -513,8 +514,6 @@ function templateContacts() {
         </div>
     </div>
     <div id="add-contact-bg" class="d-none"></div>
-    
-    <div id="contact-success-container"><div id="contact-success" class="contact-success">Contact succesfully created</div></div>
     `;
 }
 
