@@ -116,8 +116,8 @@ function templateAddTask() {
                             <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
                             </div> -->
                             <div id="dropdown" class="dropdown" onclick="handleDropdownClick(this)">Select contacts to assign</div>
-                              <div class="test6">
-                                <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
+                              <div class="test6" onclick="handleDropdownClick(this)">
+                                <img class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
                               </div>
                             <div id="options" class="options d-none"></div>
                               <div id="btn-grp" class="btn"></div>
@@ -153,12 +153,28 @@ function templateAddTask() {
                         </div> 
                         <div class="subtasksAddTask addTaskOverview">
                             <span class="spanSubtasks">Subtasks</span>
-                            <input onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
-                            <img onclick="subtaskIMGS()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt="">
-                            <!-- <img id="" class="subtasksCheckIMG" src="../img/img/subtasks_check.svg" alt=""> -->
-                            <div class="test7">
-                            <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
+                            <div class="test_test">
+                              <input type="text" onclick="changeBorderColor(this)" id="subtasks" class="inputAddTaskSubtask" type="text" placeholder="Add new subtask">
+                              <button type="button" class="buttonSubtask" id="buttonSubtask" >
+                              <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
+                            </button>
+                              <button type="button" class="buttonSubtask" id="buttonSubtask" >
+                              <img onclick="subtaskIMGS()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> 
+                            </button>
                             </div>
+                            <!-- <input onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
+                            <img onclick="subtaskIMGS()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> -->
+                            <!-- <img id="" class="subtasksCheckIMG" src="../img/img/subtasks_check.svg" alt=""> -->
+                            <!-- <div class="test7" id='test7'>
+                            <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
+                            </div> -->
+                          <!-- <div class="newSubtaskContainerOne"> -->
+                            <ul id="subtasksList"></ul>
+                              <!-- <div class="newSubtaskContainerTwo">
+                                <img class="subtaskNewContainerImgs" onclick="editSubtask()" src="../img/img/penSubtasks.svg" alt="">
+                                <img class="subtaskNewContainerImgs" onclick="deleteSubtask()" src="../img/img/deleteSubtasks.svg" alt="">
+                              </div> -->
+                            <!-- </div>                    -->
                         </div> 
                     </div>
                 </div>
@@ -416,6 +432,16 @@ function templateBoard() {
   return /*html*/ `
         <div id="board-page" class="mainSection">
         <div class="section1">
+            <div class="hiddenheadline">
+              <div>
+                <h1>Board</h1>
+                <button onclick="openAddtask()"><img src="/icons/add.svg" alt=""></button>
+              </div>
+              <div class="searchtaskhidden">
+                <input id="taskInputhidden" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
+                <img src="/icons/search.svg" alt="">
+              </div>
+            </div>
             <div class="headline">
                 <h1>Board</h1>
                 <div class="addandsearch">
@@ -426,42 +452,36 @@ function templateBoard() {
                     <button onclick="openAddtask()">Add Task <img src="/icons/add.svg" alt=""></button>
                 </div>
             </div>
-            <div class="tablecolumn">
+        </div>
+        <div class="todosection">
+            <div class="todosplit">
                 <div class="tablecolumntitle">
                     <span>To do</span>
                     <img src="/icons/plusButton.svg" alt="">
                 </div>
-                <div class="tablecolumntitle">
-                    <span>In Progress</span>
-                    <img src="/icons/plusButton.svg" alt="">
-                </div>
-                <div class="tablecolumntitle">
-                    <span>Await Feedback</span>
-                    <img src="/icons/plusButton.svg" alt="">
-                </div>
-                <div class="tablecolumntitle">
-                    <span>Done</span>
-                </div>
-            </div>
-        </div>
-        <div class="todosection">
-            <div class="todosplit">
-
                 <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')"
                     ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
             </div>
             <div class="todosplit">
-
+                <div class="tablecolumntitle">
+                    <span>In Progress</span>
+                    <img src="/icons/plusButton.svg" alt="">
+                </div>
                 <div id="inprogress" class="todoscontainer" ondragover="allowDrop(event); highlight('inprogress')"
                     ondrop="moveTo('inprogress')" ondragleave="removeHighlight('inprogress')"></div>
             </div>
             <div class="todosplit">
-
+                <div class="tablecolumntitle">
+                    <span>Await Feedback</span>
+                    <img src="/icons/plusButton.svg" alt="">
+                </div>
                 <div id="awaitfeedback" class="todoscontainer" ondragover="allowDrop(event); highlight('awaitfeedback')"
                     ondrop="moveTo('awaitfeedback')" ondragleave="removeHighlight('awaitfeedback')"></div>
             </div>
             <div class="todosplit">
-
+                <div class="tablecolumntitle">
+                    <span>Done</span>
+                </div>
                 <div id="done" class="todoscontainer" ondragover="allowDrop(event); highlight('done')"
                     ondrop="moveTo('done')" ondragleave="removeHighlight('done')"></div>
             </div>
