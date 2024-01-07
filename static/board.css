@@ -264,6 +264,9 @@ body {
   background-color: white;
   border-radius: 1.25rem;
 }
+.addTaskContainerFlyin form{
+  margin: 2rem;
+}
 
 .addTaskOverviewContainerFlyin {
   display: flex;
