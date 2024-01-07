@@ -617,6 +617,12 @@ li {
   padding: 7px 16px 7px 16px;
 }
 
+.subtasksPlusIMGNew {
+  position: absolute;
+  top: -7px;
+  right: 30px;
+}
+
 @media (max-width: 1295px) {
 
   h2 {

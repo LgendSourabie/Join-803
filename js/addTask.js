@@ -98,18 +98,18 @@ function subtaskIMGS() {
    
 }
 
-// function subtaskIMGSA() {
-//     let element = document.getElementById('subtasksPlusIMG');
-//     let plusSubtask = document.getElementById('subtasksCancelIMG');
-//     let currentIMG = element.getAttribute('src');
-//     checkNewSubtask();
-//     if (currentIMG === '../img/img/subtasksPlus.svg') {
-//         element.setAttribute('src', '../img/img/subtasks_check.svg');
-//     } else {
-//         element.setAttribute('src', '../img/img/subtasksPlus.svg');
-//         plusSubtask.style.display = 'none';
-//     }  
-// }
+function NewSubtaskIMGS() {
+    let element = document.getElementById('subtasksPlusIMG');
+    let plusSubtask = document.getElementById('subtasksCancelIMG');
+    let currentIMG = element.getAttribute('src');
+    checkNewSubtask();
+    if (currentIMG === '../img/img/subtasksPlus.svg') {
+        element.setAttribute('src', '../img/img/subtasks_check.svg');
+    } else {
+        element.setAttribute('src', '../img/img/subtasksPlus.svg');
+        plusSubtask.style.display = 'none';
+    }  
+}
 
 function changeButton(index){
   let element = document.getElementById(`test_test${index}`);
@@ -154,7 +154,7 @@ const renderSubtask = function () {
       <div id="test_test${i}" class="test_test editContainerSubtask d-none">
         <input type="text" onclick="changeBorderColor(this)" id="input-edit-${i}" class="inputEdit" type="text" placeholder="Add new subtask">
         <button type="button" class="buttonSubtask">
-        <!-- <img onclick="addNewSubtask(); changeSubtaskImg()"  class="subtasksPlusIMG" src="../img/img/deleteSubtasks.svg" alt=""> -->
+        <img onclick="addNewSubtask(); changeSubtaskImg(); deleteSubtask()"  class="subtasksPlusIMGNew" src="../img/img/deleteSubtasks.svg" alt="">
       </button>
         <button type="button" class="buttonSubtask">
           <div class="newSubtaskImgs">
