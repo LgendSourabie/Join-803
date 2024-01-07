@@ -1,5 +1,4 @@
 let btns = [];
-
 let liste = [];
 let tasks = [];
 // let users = [];
@@ -163,9 +162,6 @@ const renderSubtask = function () {
         </div>
       </button>
       </div>
-    
-        
-    
    `;
   }
 }
@@ -173,22 +169,16 @@ const renderSubtask = function () {
 // Function to edit subtasks
 function editSubtask(i) {
   changeButton(i);
-  // let subtaskList = document.getElementById('subtasksList');
-  // subtaskList.innerText = '';
-  // load();
-  // renderSubtask();
 }
 
 function deleteSubtaskInput() {
  document.getElementById('subtasks').value = '';
-//  deleteInput.value = '';
-//  renderSubtask();
+ renderSubtask();
 }
 
 // Function to delete subtasks
 function deleteSubtask(i) {
   subtasks.splice(i,1);
-  // load();
   renderSubtask();
 }
 
@@ -200,7 +190,6 @@ function deleteSubtask(i) {
   let date = document.getElementById('date').value;
   let assignedTo = btns.map(btn=>btn.name);
   let category = document.getElementById('selectCategory').value;
-  // let subtasks = document.getElementById('subtasks').value;
 
   if (!categories.includes(category)) {
     categories.push(category);
@@ -245,8 +234,6 @@ function saveArray(val1, val2, val3, val4, val5, prios, val6) {
     taskboard: 'todo',
     checkboxStates: [],
   };
-
-  // localStorage.setItem('liste', JSON.stringify(liste));
 }
 
 // Function to show the users
@@ -336,13 +323,3 @@ function handleDropdownClick(element) {
   changeBorderColor(element);
   showOptions('options', 'd-none');
 }
-
-
-// async function setItem(key, value) {
-//   const payload = { key, value, token: STORAGE_TOKEN };
-//   return fetch(STORAGE_URL, {
-//     method: "POST",
-//     body: JSON.stringify(payload),
-//   }).then((response) => response.json());
-
-// }
