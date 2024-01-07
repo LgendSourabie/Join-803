@@ -124,7 +124,7 @@ function subtaskIMGS() {
    
 }
 
-// function newSubtaskIMGS() {
+// function subtaskIMGSA() {
 //     let element = document.getElementById('subtasksPlusIMG');
 //     let plusSubtask = document.getElementById('subtasksCancelIMG');
 //     let currentIMG = element.getAttribute('src');
@@ -204,9 +204,10 @@ function editSubtask(i) {
   // renderSubtask();
 }
 
-// Function to delete the Subtask Input
 function deleteSubtaskInput() {
  document.getElementById('subtasks').value = '';
+//  deleteInput.value = '';
+//  renderSubtask();
 }
 
 // Function to delete subtasks
@@ -234,27 +235,28 @@ function createTask() {
 
 // Function to clear/reset values in the task creation form
 function clearTask() {
-  document.getElementById('title').value = '';
-  document.getElementById('description').value = '';
-  document.getElementById('dropdown').value = '';
-  document.getElementById('date').value = '';
-  document.getElementById('selectCategory').value = '';
-  document.getElementById('subtasks').value = '';
-  document.getElementById('subtasksList').value = '';
-  // document.getElementById('link-').value = '';
-  // document.getElementById('prio') = '';
-  // document.getElementById('options') = '';
-  // showOptions('options', 'd-none');
-  
+  btns.splice(0, btns.length);
+  renderBtn();
+  options();
+  render(templateAddTask());
+  initialize();
+  // document.getElementById('title').value = '';
+  // document.getElementById('description').value = '';
+  // document.getElementById('dropdown').value = '';
+  // document.getElementById('date').value = '';
+  // document.getElementById('selectCategory').value = '';
+  // document.getElementById('subtasks').value = '';
+  // document.getElementById('subtasksList').value = '';
+  // // document.getElementById('prio') = '';
 
-  document.querySelectorAll('.allPrio').forEach(option => {
-    option.style.backgroundColor = 'white';
-    option.style.color = 'black';
-  });
+  // document.querySelectorAll('.allPrio').forEach(option => {
+  //   option.style.backgroundColor = 'white';
+  //   option.style.color = 'black';
+  // });
 
-  document.getElementById('colorUrgentImg').style.fontWeight = '400';
-  document.getElementById('colorMediumImg').style.fontWeight = '400';
-  document.getElementById('colorLowImg').style.fontWeight = '400';
+  // document.getElementById('colorUrgentImg').style.fontWeight = '400';
+  // document.getElementById('colorMediumImg').style.fontWeight = '400';
+  // document.getElementById('colorLowImg').style.fontWeight = '400';
 }
 
 // Function to load an HTML page
