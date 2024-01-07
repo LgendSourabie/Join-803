@@ -1,4 +1,4 @@
-let todos = [
+let tasks = [
   {
     title: 'test note für den Zweck der Testung.',
     discription: 'we test it',
@@ -93,7 +93,7 @@ function renderToDos() {
 
 
 function forlooprender(test) {
-  let todo = todos.filter(t => t['taskboard'] == test);
+  let todo = tasks.filter(t => t['taskboard'] == test);
 
   const container = document.getElementById(test);
   container.innerHTML = '';
@@ -113,7 +113,7 @@ function filterTodosByTitle() {
   let input = document.getElementById('taskInput');
   let filter = input.value.toLowerCase();
 
-  let filteredTodos = todos.filter(function (todo) {
+  let filteredTodos = tasks.filter(function (todo) {
     return todo.title.toLowerCase().includes(filter);
   });
 
@@ -164,20 +164,20 @@ function todowindowtemplate(i) {
   return /*html*/ `
     <div class="overlay">
         <div class="overlaybutton">
-            <button>${todos[i].category}</button>
+            <button>${tasks[i].category}</button>
             <img src="../icons/close.svg" alt="" onclick="closetodowindow()">
         </div>
-        <h1>${todos[i].title}</h1>
-        <span class="overlaydiscription">${todos[i].discription}</span>
+        <h1>${tasks[i].title}</h1>
+        <span class="overlaydiscription">${tasks[i].discription}</span>
         <div class="overlaytable">
             <span>Due date:</span>
-            <span>${todos[i]['due date']}</span>
+            <span>${tasks[i]['due date']}</span>
         </div>
         <div class="overlaytable">
             <span>Priority</span>
             <div>
-                <span>${todos[i].category}</span>
-                <img src="${todos[i].prio}" alt="">
+                <span>${tasks[i].category}</span>
+                <img src="${tasks[i].prio}" alt="">
             </div>
         </div>
         <div class="overlayassigned">
@@ -203,7 +203,7 @@ function todowindowtemplate(i) {
 `;
 }
 function initializeCheckboxStates() {
-  todos.forEach(todo => {
+  tasks.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
   });
 }
@@ -211,11 +211,11 @@ function initializeCheckboxStates() {
 initializeCheckboxStates();
 
 function createSubtasks(i) {
-  for (let j = 0; j < todos[i].subtasks.length; j++) {
-    const element = todos[i].subtasks[j];
+  for (let j = 0; j < tasks[i].subtasks.length; j++) {
+    const element = tasks[i].subtasks[j];
     document.getElementById('subtasks').innerHTML += /*html*/ `
         <div>
-            <img id="checkbox${j}" src="${todos[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
+            <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
            <span>${element}</span> 
         </div>
     `;
@@ -226,16 +226,16 @@ function changecheckbox(j, i, subtaskIndex) {
 
   if (checkbox.src.endsWith('../icons/uncheckBox.svg')) {
     checkbox.src = '../icons/checkButton.svg';
-    todos[i].checkboxStates[subtaskIndex] = true;
-    todos[i].progress.push(todos[i].subtasks[subtaskIndex]);
+    tasks[i].checkboxStates[subtaskIndex] = true;
+    tasks[i].progress.push(tasks[i].subtasks[subtaskIndex]);
   } else {
     checkbox.src = '../icons/uncheckBox.svg';
-    todos[i].checkboxStates[subtaskIndex] = false;
+    tasks[i].checkboxStates[subtaskIndex] = false;
     // Remove the subtask from progress array
-    const subtaskToRemove = todos[i].subtasks[subtaskIndex];
-    const indexToRemove = todos[i].progress.indexOf(subtaskToRemove);
+    const subtaskToRemove = tasks[i].subtasks[subtaskIndex];
+    const indexToRemove = tasks[i].progress.indexOf(subtaskToRemove);
     if (indexToRemove !== -1) {
-      todos[i].progress.splice(indexToRemove, 1);
+      tasks[i].progress.splice(indexToRemove, 1);
     }
   };
 
@@ -251,7 +251,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
-  todos[currentDraggedElement]['taskboard'] = category;
+  tasks[currentDraggedElement]['taskboard'] = category;
   removeHighlight(category);
   renderToDos();
 }
@@ -386,7 +386,7 @@ function edittask(i) {
   todowindow.innerHTML = edittasktemplate(i);
 }
 
-function edittasktemplate(i){
+function edittasktemplate(i) {
   return /*html*/`
             <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
         <div class="addTaskContainerLeftRight">
