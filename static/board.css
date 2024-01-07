@@ -326,7 +326,7 @@ body {
   border-radius: 10px;
 }
 
-@media (width<=760px) {
+@media (width<=800px) {
   .todosection {
     flex-direction: column;
     justify-content: flex-start;
@@ -344,6 +344,8 @@ body {
   .todoscontainer {
     padding-top: 1.25rem;
     min-height: fit-content;
+    display: flex;
+    gap: 1rem;
   }
 
   .tablecolumntitle {

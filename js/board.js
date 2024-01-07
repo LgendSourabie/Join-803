@@ -4,7 +4,7 @@ let tasks = [
     discription: 'we test it',
     'assigned to': 'Pascal',
     'due date': '13.12.23',
-    prio: '../icons/priomedium.svg',
+    prio: '/icons/priomedium.svg',
     category: 'Technical Task',
     subtasks: ['test2'],
     progress: [],
@@ -17,7 +17,7 @@ let tasks = [
     discription: 'we test it',
     'assigned to': 'Pascal',
     'due date': '13.12.23',
-    prio: '../icons/priolow.svg',
+    prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2'],
     progress: [],
@@ -30,7 +30,7 @@ let tasks = [
     discription: 'we test it',
     'assigned to': 'Pascal',
     'due date': '13.12.23',
-    prio: '../icons/priolow.svg',
+    prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2'],
     progress: [],
@@ -43,7 +43,7 @@ let tasks = [
     discription: 'we test it',
     'assigned to': 'Pascal',
     'due date': '13.12.23',
-    prio: '../icons/priolow.svg',
+    prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2'],
     progress: [],
@@ -56,7 +56,7 @@ let tasks = [
     discription: 'we test it',
     'assigned to': 'Pascal',
     'due date': '13.12.23',
-    prio: '../icons/priolow.svg',
+    prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2', 'klappts?'],
     progress: [],
@@ -69,7 +69,7 @@ let tasks = [
     discription: 'we test it',
     'assigned to': 'Pascal',
     'due date': '13.12.23',
-    prio: '../icons/priolow.svg',
+    prio: '/icons/priolow.svg',
     category: 'Technical Task',
     subtasks: ['test1', 'test2'],
     progress: [],
@@ -211,9 +211,12 @@ function initializeCheckboxStates() {
 initializeCheckboxStates();
 
 function createSubtasks(i) {
+  const subtasksContainer = document.getElementById('subtasks');
+  subtasksContainer.innerHTML = ''; // Clear the content before appending
+
   for (let j = 0; j < tasks[i].subtasks.length; j++) {
     const element = tasks[i].subtasks[j];
-    document.getElementById('subtasks').innerHTML += /*html*/ `
+    subtasksContainer.innerHTML += /*html*/ `
         <div>
             <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
            <span>${element}</span> 
@@ -221,6 +224,7 @@ function createSubtasks(i) {
     `;
   }
 }
+
 function changecheckbox(j, i, subtaskIndex) {
   const checkbox = document.getElementById(j);
 
