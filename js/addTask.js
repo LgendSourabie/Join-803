@@ -124,7 +124,7 @@ function subtaskIMGS() {
    
 }
 
-// function subtaskIMGSA() {
+// function newSubtaskIMGS() {
 //     let element = document.getElementById('subtasksPlusIMG');
 //     let plusSubtask = document.getElementById('subtasksCancelIMG');
 //     let currentIMG = element.getAttribute('src');
@@ -204,10 +204,9 @@ function editSubtask(i) {
   // renderSubtask();
 }
 
+// Function to delete the Subtask Input
 function deleteSubtaskInput() {
  document.getElementById('subtasks').value = '';
-//  deleteInput.value = '';
-//  renderSubtask();
 }
 
 // Function to delete subtasks
@@ -242,7 +241,11 @@ function clearTask() {
   document.getElementById('selectCategory').value = '';
   document.getElementById('subtasks').value = '';
   document.getElementById('subtasksList').value = '';
+  // document.getElementById('link-').value = '';
   // document.getElementById('prio') = '';
+  // document.getElementById('options') = '';
+  // showOptions('options', 'd-none');
+  
 
   document.querySelectorAll('.allPrio').forEach(option => {
     option.style.backgroundColor = 'white';

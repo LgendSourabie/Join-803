@@ -740,7 +740,7 @@ li {
   }
 
   .addTaskContainerTwo {
-    margin-top: 110px;
+    margin-top: 60px;
   }
 
   h2 {
@@ -811,17 +811,13 @@ li {
     position: fixed;
   }
 
-  /* .addTaskContainerTwo {
-    margin-top: 65px;
-  } */
-
 }
 
 @media (max-width: 430px) {
 
-  .addTaskContainerTwo {
-    margin-top: 5px;
-  }
+  /* .addTaskContainerTwo {
+    margin-top: 20px;
+  } */
 
 }
 
