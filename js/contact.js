@@ -175,24 +175,27 @@ function showContactTemplate(i) {
             </div>
         </div>
         <div id="open-menu-contact-responsive"><button class="responsiv-contact-button" onclick="openMenuContactResponsive(${i})"><img src="../icons/three_points.svg" alt=""></button></div>
-        
+        <div id="close-menu-contact-responsive" class="d-none" onclick="closeMenuContactResponsive(${i})"></div>
     `;
 }
 
 function openMenuContactResponsive(i){
+  document.getElementById('close-menu-contact-responsive').classList.remove('d-none')
   document.getElementById('open-menu-contact-responsive').innerHTML = /*html*/`
     <div onclick="editContact(${i})"><img src="../icons/editContact.svg">Edit</div>
     <div onclick="deleteContact(${i}, true)"><img src="../icons/delete.svg">Delete</div>
+    
   `
-  document.getElementById('.right-side-section').addEventListener("click", closeMenuContactResponsive(i))
 }
 
 
 function  closeMenuContactResponsive(i){
-  document.getElementById('open-menu-contact-responsive').innerHTML = /*html*/`
+  if(document.getElementById('close-menu-contact-responsive') != null){
+    document.getElementById('close-menu-contact-responsive').classList.add('d-none')
+    document.getElementById('open-menu-contact-responsive').innerHTML = /*html*/`
     <div id="open-menu-contact-responsive"><button class="responsiv-contact-button" onclick="openMenuContactResponsive(${i})"><img src="../icons/three_points.svg" alt=""></button></div>
   `
-  document.getElementById('.right-side-section').removeEventListener("click", closeMenuContactResponsive(i))
+  }
 }
 
 
@@ -292,7 +295,6 @@ async function createOrEditContact(name, telephone, email, initials) {
 
 
 function popUpContactCreated(){
-  debugger
   if (contactIndex = -1) {
     document.getElementById('contact-success').classList.add('contact-success-fly-in')
     setTimeout(() => {
@@ -428,6 +430,7 @@ function closeAddContact() {
 }
 
 function editContact(i) {
+  closeMenuContactResponsive();
   saveContactIndex(i);
   openAddContact();
   insertContentAddEdit("edit");
@@ -443,6 +446,7 @@ function setEditToFalse() {
   contactIndex = -1;
 }
 
+
 function getInputValueContact() {
   let getName = document.getElementById("name-single-view").innerHTML;
   let getEmail = document.getElementById("email-single-view").innerHTML;
@@ -454,6 +458,7 @@ function getInputValueContact() {
   document.getElementById('initial-edit-contact').innerHTML = initials;
 }
 
+
 async function deleteContact(i, cResponsive) {
   contacts.splice(i, 1);
   await setItem("contacts", JSON.stringify(contacts));
@@ -464,9 +469,6 @@ async function deleteContact(i, cResponsive) {
   }
   renderContactSection();
 }
-
-// renderContactSection();
-
 
 // Create a MediaQueryList object
 let x = window.matchMedia('(max-width: 1000px)')
@@ -494,7 +496,6 @@ function showContactResponsiv(jsonIndex) {
 }
 
 function closeContactResponsiv(i) {
-  debugger
   if (x.matches) {
     // document.getElementById('render-container').innerHTML = templateContacts();
     render(templateContacts())
