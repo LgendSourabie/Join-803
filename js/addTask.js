@@ -1,33 +1,3 @@
-let listeOptions = [
-  {
-    name: 'Ibrahima Sourabie',
-    telephone: '0123456789',
-    email: 'ibrahima@join803.de',
-    initials: 'IS',
-    bgColor: '#298c2b',
-  },
-  {
-    name: 'Pascal Wagner',
-    telephone: '0123456789',
-    email: 'pascal@join803.de',
-    initials: 'PW',
-    bgColor: '#cb636e',
-  },
-  {
-    name: 'Thomas Jilge',
-    telephone: '0123456789',
-    email: 'thomas@join803.de',
-    initials: 'TJ',
-    bgColor: '#ae3ad5',
-  },
-  {
-    name: 'Henrik Sorg',
-    telephone: '0123456789',
-    email: 'henrik@join803.de',
-    initials: 'HS',
-    bgColor: '#50e04c',
-  },
-];
 let btns = [];
 
 let liste = [];
@@ -40,6 +10,10 @@ let usersSelect = [];
 let usersAssigned = [];
 let categories = ['Technical Task', 'User Story'];
 
+async function loadContacts() {
+  contacts = JSON.parse(await getItem("contacts"));
+}
+
 // This function is responsible for loading data from local storage.
 function load() {
   let des = localStorage.getItem('liste');
@@ -49,7 +23,8 @@ function load() {
 }
 
 // This function serves as an initializer, orchestrating various tasks to set up the application.
-function initialize() {
+async function initialize() {
+  await loadContacts();
   options();
   load() ;
   // addContacts();
@@ -219,7 +194,7 @@ function deleteSubtask(i) {
 
 
 // Function to create and save a new task with user input
-function createTask() {
+ async function createTask() {
   let title = document.getElementById('title').value;
   let description = document.getElementById('description').value;
   let date = document.getElementById('date').value;
@@ -230,7 +205,9 @@ function createTask() {
   if (!categories.includes(category)) {
     categories.push(category);
   }
-  saveLocalStorage(title, description, date, assignedTo, category, prios, subtasks);
+
+  tasks = saveArray(title, description, date, assignedTo, category, prios, subtasks);
+  await setItem('tasks', JSON.stringify(tasks));
 }
 
 // Function to clear/reset values in the task creation form
@@ -240,23 +217,6 @@ function clearTask() {
   options();
   render(templateAddTask());
   initialize();
-  // document.getElementById('title').value = '';
-  // document.getElementById('description').value = '';
-  // document.getElementById('dropdown').value = '';
-  // document.getElementById('date').value = '';
-  // document.getElementById('selectCategory').value = '';
-  // document.getElementById('subtasks').value = '';
-  // document.getElementById('subtasksList').value = '';
-  // // document.getElementById('prio') = '';
-
-  // document.querySelectorAll('.allPrio').forEach(option => {
-  //   option.style.backgroundColor = 'white';
-  //   option.style.color = 'black';
-  // });
-
-  // document.getElementById('colorUrgentImg').style.fontWeight = '400';
-  // document.getElementById('colorMediumImg').style.fontWeight = '400';
-  // document.getElementById('colorLowImg').style.fontWeight = '400';
 }
 
 // Function to load an HTML page
@@ -267,25 +227,34 @@ function loadHTML(page) {
 }
 
 // Function to save task details to local storage
-function saveLocalStorage(val1, val2, val3, val4, val5, prios, val6) {
-  liste.push({
-    titles: `${val1}`,
-    descriptions: `${val2}`,
-    dates: `${val3}`,
-    categories: `${val4}`,
-    assignedTos: `${val5}`,
+function saveArray(val1, val2, val3, val4, val5, prios, val6) {
+
+  let identification = tasks.length;
+
+  
+    return {
+    title: `${val1}`,
+    discription: `${val2}`,
+    dueDate: `${val3}`,
+    category: `${val4}`,
+    assignedTo: `${val5}`,
     prio: `${prios[prios.length - 1]}`,
     subtasks: `${val6}`,
-  });
-  localStorage.setItem('liste', JSON.stringify(liste));
+    progress: [],
+    id: identification,
+    taskboard: 'todo',
+    checkboxStates: [],
+  };
+
+  // localStorage.setItem('liste', JSON.stringify(liste));
 }
 
 // Function to show the users
 function options() {
   let field = document.getElementById('options');
-  let listeOption = listeOptions.map(a => a['name']);
-  let initial = listeOptions.map(a => a['initials']);
-  let colors = listeOptions.map(a => a['bgColor']);
+  let listeOption = contacts.map(a => a['name']);
+  let initial = contacts.map(a => a['initials']);
+  let colors = contacts.map(a => a['bgColor']);
   field.innerHTML = '';
   for (let i = 0; i < listeOption.length; i++) {
     const option = listeOption[i];
@@ -367,3 +336,13 @@ function handleDropdownClick(element) {
   changeBorderColor(element);
   showOptions('options', 'd-none');
 }
+
+
+// async function setItem(key, value) {
+//   const payload = { key, value, token: STORAGE_TOKEN };
+//   return fetch(STORAGE_URL, {
+//     method: "POST",
+//     body: JSON.stringify(payload),
+//   }).then((response) => response.json());
+
+// }
