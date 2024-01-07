@@ -78,16 +78,10 @@ function templateSummary() {
 
 function templateAddTask() {
   return /*html*/ `
-        <!-- <div class="addTaskContainer"> -->
-
-<!-- <div class="seperatorAddTask"></div> -->
 
 <div id="add-task-page" class="addTaskContainer">
-
     <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
-
         <div class="addTaskContainerLeftRight">
-
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
                 <div class="groupButtonForm">
@@ -110,11 +104,6 @@ function templateAddTask() {
                         </div>
                         <div class="assignedAddTask addTaskOverview">
                             <span class="containerLeftSpan">Assigned to</span>
-                            <!-- <select id="select"></select> -->
-                            <!-- <input id="select" type="text">  -->
-                            <!-- <div class="test6">
-                            <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
-                            </div> -->
                             <div id="dropdown" class="dropdown" onclick="handleDropdownClick(this)">Select contacts to assign</div>
                               <div class="test6" onclick="handleDropdownClick(this)">
                                 <img class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
@@ -123,10 +112,7 @@ function templateAddTask() {
                               <div id="btn-grp" class="btn"></div>
                         </div>
                     </div>
-
                     <div class="seperatorContainer"></div>
-
-                    
                     <div class="containerRight">
                         <div class="dateAddTask addTaskOverview">
                             <span class="containerLeftSpan">Due date
@@ -147,8 +133,6 @@ function templateAddTask() {
                                 <span class="star">*</span>
                             </span>    
                             <select onclick="changeBorderColor(this)" id="selectCategory">
-                                <!-- <input type="text" id="selectCategory">
-                                <img class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt=""> -->
                             </select>
                         </div> 
                         <div class="subtasksAddTask addTaskOverview">
@@ -159,22 +143,10 @@ function templateAddTask() {
                               <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
                             </button>
                               <button type="button" class="buttonSubtask" id="buttonSubtask" >
-                              <img onclick="subtaskIMGS()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> 
+                              <img onclick="subtaskIMGS(); deleteSubtaskInput()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> 
                             </button>
-                            </div>
-                            <!-- <input onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
-                            <img onclick="subtaskIMGS()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> -->
-                            <!-- <img id="" class="subtasksCheckIMG" src="../img/img/subtasks_check.svg" alt=""> -->
-                            <!-- <div class="test7" id='test7'>
-                            <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
-                            </div> -->
-                          <!-- <div class="newSubtaskContainerOne"> -->
+                            </div>                      
                             <ul id="subtasksList"></ul>
-                              <!-- <div class="newSubtaskContainerTwo">
-                                <img class="subtaskNewContainerImgs" onclick="editSubtask()" src="../img/img/penSubtasks.svg" alt="">
-                                <img class="subtaskNewContainerImgs" onclick="deleteSubtask()" src="../img/img/deleteSubtasks.svg" alt="">
-                              </div> -->
-                            <!-- </div>                    -->
                         </div> 
                     </div>
                 </div>

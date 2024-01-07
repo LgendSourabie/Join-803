@@ -398,13 +398,6 @@ select:hover {
   border-radius: 50%;
 }
 
-/* .newSubtaskContainerOne {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-} */
-
 .newSubtaskContainerTwo:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
@@ -436,7 +429,6 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* gap: 0.5rem; */
 }
 
 .hoverSubtask {
@@ -450,7 +442,6 @@ li {
 }
 
 .editContainerSubtask {
-  /* border: none; */
   border-bottom-color: #29ABE2;
   border-left-style: none;
   border-right-style: none;

@@ -123,19 +123,19 @@ function subtaskIMGS() {
     }
    
 }
-function subtaskIMGSA() {
-    let element = document.getElementById('subtasksPlusIMG');
-    let plusSubtask = document.getElementById('subtasksCancelIMG');
-    let currentIMG = element.getAttribute('src');
-    checkNewSubtask();
-    if (currentIMG === '../img/img/subtasksPlus.svg') {
-        element.setAttribute('src', '../img/img/subtasks_check.svg');
-    } else {
-        element.setAttribute('src', '../img/img/subtasksPlus.svg');
-        plusSubtask.style.display = 'none';
-    }
-   
-}
+
+// function subtaskIMGSA() {
+//     let element = document.getElementById('subtasksPlusIMG');
+//     let plusSubtask = document.getElementById('subtasksCancelIMG');
+//     let currentIMG = element.getAttribute('src');
+//     checkNewSubtask();
+//     if (currentIMG === '../img/img/subtasksPlus.svg') {
+//         element.setAttribute('src', '../img/img/subtasks_check.svg');
+//     } else {
+//         element.setAttribute('src', '../img/img/subtasksPlus.svg');
+//         plusSubtask.style.display = 'none';
+//     }  
+// }
 
 function changeButton(index){
   let element = document.getElementById(`test_test${index}`);
@@ -197,16 +197,21 @@ const renderSubtask = function () {
 
 // Function to edit subtasks
 function editSubtask(i) {
-  changeButton(i)
+  changeButton(i);
   // let subtaskList = document.getElementById('subtasksList');
   // subtaskList.innerText = '';
   // load();
   // renderSubtask();
 }
 
+function deleteSubtaskInput() {
+ let deleteInput = document.getElementById('subtasks');
+ deleteInput.value = '';
+ renderSubtask();
+}
+
 // Function to delete subtasks
 function deleteSubtask(i) {
-
   subtasks.splice(i,1);
   // load();
   renderSubtask();
@@ -244,9 +249,9 @@ function clearTask() {
     option.style.color = 'black';
   });
 
-  document.getElementById('colorUrgent').style.fontWeight = '400';
-  document.getElementById('colorMedium').style.fontWeight = '400';
-  document.getElementById('colorLow').style.fontWeight = '400';
+  document.getElementById('colorUrgentImg').style.fontWeight = '400';
+  document.getElementById('colorMediumImg').style.fontWeight = '400';
+  document.getElementById('colorLowImg').style.fontWeight = '400';
 }
 
 // Function to load an HTML page
