@@ -270,6 +270,14 @@ async function createOrEditContact(name, telephone, email, initials) {
   i = highlightedContact.slice(-1);
   showContact(i);
   setHighligtContact();
+  popUpContactCreated();
+}
+
+
+function popUpContactCreated(){
+  if (contactIndex != -1) {
+    document.getElementById('contact-success').classList.add('contact-success-fly-in')
+  }
 }
 
 

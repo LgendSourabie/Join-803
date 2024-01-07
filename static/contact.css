@@ -192,7 +192,24 @@ input {
     color: #33AFE3;
 }
 
+.contact-success{
+    font-size: 20px;
+    color: white;
+    background-color: #2A3647;
+    padding: 20px 20px;
+}
 
+
+#contact-success-container{
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .sidebar {
