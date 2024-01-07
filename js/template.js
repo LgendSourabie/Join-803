@@ -496,3 +496,22 @@ function templateContacts() {
 
     `;
 }
+
+function templateHelp() {
+  return /*html*/ `
+    
+
+    `;
+}
+function templatePrivacy() {
+  return /*html*/ `
+    
+
+    `;
+}
+function templateLegalNotice() {
+  return /*html*/ `
+    
+
+    `;
+}
