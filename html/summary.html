@@ -38,12 +38,12 @@
             <p id="summary-text" class="para-summary gray-text ft-sz-400 clr-white cursor-ptr">Summary</p>
           </div>
 
-          <div id="second-bg" class="sub-menu-container disp-flex" onclick="render(templateAddTask()) ;  initialize(); toggleButtonColor('second-bg','addTask-text','addTask-img','../icons/addTask-white.svg')">
+          <div id="second-bg" class="sub-menu-container disp-flex" onclick="render(templateAddTask()); clearTask();  initialize(); toggleButtonColor('second-bg','addTask-text','addTask-img','../icons/addTask-white.svg')">
             <img id="addTask-img" class="icons-left-side-section cursor-ptr" src="../icons/addTask.svg" alt="Task" />
             <p id="addTask-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
-          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard());;toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
             <img id="bord-img" class="icons-left-side-section cursor-ptr" src="../icons/board.svg" alt="Board" />
             <p id="bord-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
