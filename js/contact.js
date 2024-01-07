@@ -54,7 +54,7 @@ let contacts = [
     email: "henrik@join803.de",
     initials: "HS",
     bgColor: '#50e04c'
-  },
+  }
 ];
 
 let highlightedContact;
@@ -65,7 +65,7 @@ let contactIndex = -1;
 
 
 async function renderContactSection() {
-  contacts =  JSON.parse(await getItem("contacts"));
+  contacts = JSON.parse(await getItem("contacts"));
   renderContacts();
 }
 
@@ -95,25 +95,25 @@ function hideContact() {
 
 
 // function showContact(i) {
-  
+
 //   let contactCont = document.getElementById("new-contact");
 //   contactCont.classList.add('d-none');
 //   contactCont.classList.remove('fly-in-contact');
 //   contactCont.classList.remove('d-none');
-  
+
 //   setTimeout(() => {
-    
+
 //     contactCont.innerHTML = showContactTemplate(i);
-    
+
 //     contactCont.classList.add('fly-in-contact');
 //   }, 100);
-  
-  
+
+
 //   currentContact = i;
 // }
 
 
-function showContact(i){
+function showContact(i) {
   let newContact = document.getElementById("new-contact");
   let currentContact = document.getElementById("current-contact")
   currentContact.innerHTML = ''
@@ -121,7 +121,7 @@ function showContact(i){
   newContact.innerHTML = showContactTemplate(i);
   newContact.classList.add('fly-in-contact');
 
-  newContact.ontransitionend = function(){
+  newContact.ontransitionend = function () {
     updateContactContainer(newContact, currentContact)
     newContact.ontransitionend = null;
   }
@@ -129,7 +129,7 @@ function showContact(i){
 }
 
 
-function updateContactContainer(newContact, currentContact){
+function updateContactContainer(newContact, currentContact) {
   currentContact.innerHTML = newContact.innerHTML;
   newContact.innerHTML = ''
   newContact.classList.remove('fly-in-contact')
@@ -180,6 +180,7 @@ function showContactTemplate(i) {
 
 
 function insertDirectory() {
+  document.getElementById("contacts-overview").innerHTML = '';
   for (let i = 0; i < alphabet.length; i++) {
     const letter = alphabet[i];
     document.getElementById("contacts-overview").innerHTML +=
@@ -247,42 +248,41 @@ function removeHighligtContact() {
 
 
 function createContact() {
+  event.preventDefault();
   let name = document.getElementById("name-input").value;
   let telephone = document.getElementById("telephone-input").value;
   let email = document.getElementById("email-input").value;
   let initials = getInitials(name);
-  
   createOrEditContact(name, telephone, email, initials);
   setEditToFalse();
 }
 
 
 async function createOrEditContact(name, telephone, email, initials) {
-  // ev.preventDefault()
   if (contactIndex != -1) {
-    editExistingContact(name, telephone, email, initials);
-    
+    await editExistingContact(name, telephone, email, initials);
     // xxxxxx
   } else {
     await createNewContact(name, telephone, email, initials);
   }
   closeAddContact();
-  renderContactSection();
-  setHighligtContact();
+  await renderContactSection();
   i = highlightedContact.slice(-1);
   showContact(i);
+  setHighligtContact();
 }
 
 
 async function createNewContact(name, telephone, email, initials) {
   let bg = randomColorGenerator();
-  contacts.push({ name: name,
-     telephone: telephone,
-     email: email,
-     initials: initials,
-     bgColor: bg
-    });
-    await setItem("contacts", JSON.stringify(contacts));
+  contacts.push({
+    name: name,
+    telephone: telephone,
+    email: email,
+    initials: initials,
+    bgColor: bg
+  });
+  await setItem('contacts', JSON.stringify(contacts));
   lastIndex = contacts.length - 1;
   highlightedContact = "contact-" + lastIndex;
 }
@@ -297,7 +297,7 @@ async function editExistingContact(name, telephone, email, initials) {
     initials: initials,
     bgColor: bg
   });
-  // await setItem('contacts', contacts)
+  await setItem('contacts', JSON.stringify(contacts));
 }
 
 
@@ -317,7 +317,7 @@ function openAddContact() {
 }
 
 
-function initialsTemplate(bg){
+function initialsTemplate(bg) {
   return /*html*/`
   <div id="initial-edit-contact" style="background: ${bg}">HS</div>
 `
@@ -338,7 +338,7 @@ function addAndEditTemplate() {
           <div class="profile-icon-container" id="profile-icon-container">
             <img src="../icons/profileImageContacts.svg" alt="profile icon">
           </div>
-              <div class="add-contact-data-inputs">
+              <form class="add-contact-data-inputs"  onsubmit="createContact()" action="#">
                 <div class="d-flex add-contact-input-container">
                   <input type="text" minlength="2"  placeholder="Name" class="add-contact-input" id="name-input" required>
                   <img src="../icons/name.svg" alt="telephone-icon">
@@ -353,13 +353,12 @@ function addAndEditTemplate() {
                 </div>
                 <div class="d-flex">
                   <button type="button" class="cancel-contact-button" onclick="closeAddContact()">Cancel</button>
-                  <button type="submit" class="create-contact-button" id="button-add-edit" onclick="createContact()"></button> 
+                  <button type="submit" class="create-contact-button" id="button-add-edit"></button> 
                 </div>
-              </div>
-              
+              </form>
         </div>
       </div>
-    </div>
+  </div>
     `;
 }
 
@@ -390,9 +389,9 @@ function contentEditContact(headline, subheadline, button) {
 }
 
 function closeAddContact() {
-  flyIn = document.getElementById('fly-in-container'); 
+  flyIn = document.getElementById('fly-in-container');
   flyIn.classList.remove('fly-in-add-edit')
-  flyIn.ontransitionend = function(){
+  flyIn.ontransitionend = function () {
     document.getElementById("add-contact-bg").classList.add("d-none");
     flyIn.ontransitionend = null;
   }
@@ -460,8 +459,8 @@ function showContactResponsiv(jsonIndex) {
   }
 }
 
-function closeContactResponsiv(i){
-  if (x.matches){
+function closeContactResponsiv(i) {
+  if (x.matches) {
     renderContactSection();
   }
 }
@@ -495,13 +494,13 @@ async function getItem(key) {
 
 //standard funktionen
 function getInitials(nameAsString) {
-  let initials = (fullname=>fullname.map((n, i)=>(i==0||i==fullname.length-1)&&n[0]).filter(n=>n).join("")) 
-  (nameAsString.split(" ")).toUpperCase();
-  
+  let initials = (fullname => fullname.map((n, i) => (i == 0 || i == fullname.length - 1) && n[0]).filter(n => n).join(""))
+    (nameAsString.split(" ")).toUpperCase();
+
   return initials
 }
 
-function randomColorGenerator(){
+function randomColorGenerator() {
   let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
   return randomColor
 }
