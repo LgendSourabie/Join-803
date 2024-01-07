@@ -205,9 +205,9 @@ function editSubtask(i) {
 }
 
 function deleteSubtaskInput() {
- let deleteInput = document.getElementById('subtasks');
- deleteInput.value = '';
- renderSubtask();
+ document.getElementById('subtasks').value = '';
+//  deleteInput.value = '';
+//  renderSubtask();
 }
 
 // Function to delete subtasks

@@ -143,7 +143,7 @@ function templateAddTask() {
                               <img onclick="addNewSubtask(); changeSubtaskImg()" id="subtasksPlusIMG" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt="">
                             </button>
                               <button type="button" class="buttonSubtask" id="buttonSubtask" >
-                              <img onclick="subtaskIMGS(); deleteSubtaskInput()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> 
+                              <img onclick="deleteSubtaskInput()" id="subtasksCancelIMG" class="subtasksCancelIMG" src="../img/img/subtasks_cancel.svg" alt=""> 
                             </button>
                             </div>                      
                             <ul id="subtasksList"></ul>
