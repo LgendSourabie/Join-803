@@ -513,7 +513,7 @@ function templateContacts() {
         </div>
     </div>
     <div id="add-contact-bg" class="d-none"></div>
-
+    <div id="contact-success" class="contact-success d-none">Contact succesfully created</div>
     `;
 }
 
