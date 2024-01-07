@@ -43,7 +43,7 @@
             <p id="addTask-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
-          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard());;toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
             <img id="bord-img" class="icons-left-side-section cursor-ptr" src="../icons/board.svg" alt="Board" />
             <p id="bord-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
@@ -54,8 +54,10 @@
           </div>
         </div>
         <div class="section-3">
-          <a id="privacy-bg" class="gray-text links" onclick="showRenderSection('privacy-render','summary-page');setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a>
-          <a id="legal-notice-bg" class="gray-text links" onclick="showRenderSection('legale-notice-render','summary-page');setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a>
+          <!-- <a id="privacy-bg" class="gray-text links" onclick="showRenderSection('privacy-render','summary-page');setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a> -->
+          <a id="privacy-bg" class="gray-text links" onclick="render(templatePrivacy());setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a>
+          <a id="legal-notice-bg" class="gray-text links" onclick="render(templateLegalNotice());setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a>
+          <!-- <a id="legal-notice-bg" class="gray-text links" onclick="showRenderSection('legale-notice-render','summary-page');setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a> -->
         </div>
       </div>
       <div class="right-side-section">
@@ -63,7 +65,7 @@
           <img class="mobile-logo" src="../icons/logo_blue.svg" alt="Logo" />
           <div class="kanban-tool ft-sz-400">Kanban Project Management Tool</div>
           <div class="menu-icons-group disp-flex">
-            <img id="help-icon" class="help" src="../icons/help.svg" alt="Help" onclick="showRenderSection('help-render','summary-page')" />
+            <img id="help-icon" class="help" src="../icons/help.svg" alt="Help" onclick="render(templateHelp())" />
             <!-- <img id="help-icon" class="help" src="../icons/help.svg" alt="Help" onclick="userAction('help')" /> -->
             <button id="loginBtn" class="login" onclick="showSubmenu()"></button>
           </div>
@@ -90,14 +92,14 @@
                   <span id="current-user-name-responsive" class="current-user-name"></span>
                 </div>
                 <div class="first-line-task disp-flex">
-                  <div class="todo do-task disp-flex">
+                  <div class="todo do-task disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
                     <img class="task-icons-blue" src="../icons/edit.svg" alt="TO-DO" />
                     <div class="middle">
                       <span id="todo" class="var-task">0</span>
                       <span class="task-text ft-sz-400">To-do</span>
                     </div>
                   </div>
-                  <div class="done do-task disp-flex">
+                  <div class="done do-task disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
                     <img class="task-icons-blue" src="../icons/check.svg" alt="TO-DO" />
                     <div class="middle">
                       <span id="done" class="var-task">0</span>
@@ -105,7 +107,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="second-line-task disp-flex">
+                <div class="second-line-task disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
                   <div class="urgent disp-flex task-due-common">
                     <img class="task-icons" src="../icons/urgent.svg" alt="Urgent" />
                     <div class="middle">
@@ -120,17 +122,17 @@
                   </div>
                 </div>
                 <div class="third-line-task disp-flex">
-                  <div class="boar-progress-feedback disp-flex">
+                  <div class="boar-progress-feedback disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
                     <span id="board-task-number" class="var-task">0</span
                     ><span class="task-text ft-sz-400">Tasks In</span>
                     <span class="task-text ft-sz-400">Board</span>
                   </div>
-                  <div class="boar-progress-feedback disp-flex">
+                  <div class="boar-progress-feedback disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
                     <span id="progress-task-number" class="var-task">0</span
                     ><span class="task-text ft-sz-400">Tasks In</span>
                     <span class="task-text ft-sz-400">Progress</span>
                   </div>
-                  <div class="boar-progress-feedback disp-flex">
+                  <div class="boar-progress-feedback disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
                     <span id="feedback-task-number" class="var-task">0</span
                     ><span class="task-text ft-sz-400">Awaiting</span>
                     <span class="task-text ft-sz-400">Feedback</span>
@@ -147,7 +149,7 @@
             </div>
           </span>
           </div>
-          <div id="privacy-render" class="task-info-section d-none-summary">
+          <!-- <div id="privacy-render" class="task-info-section d-none-summary">
             <span id="privacy-page" class="virtualClass help-page">
               <div class="title-help">Privacy Policy</div>
               <a href="../html/summary.html"
@@ -166,8 +168,8 @@
                 excepturi.
               </div>
             </span>
-          </div>
-          <div id="legale-notice-render" class="task-info-section d-none-summary">
+          </div> -->
+          <!-- <div id="legale-notice-render" class="task-info-section d-none-summary">
             <span id="legal-notice-page" class="virtualClass help-page">
               <div class="title-help">Legal Notice</div>
               <a href="../html/summary.html"
@@ -262,15 +264,14 @@
                   <span class="blue-join">Join</span> and/or your breach of this Legal Notice.
                 </div>
               </div>
-              <!-- </div> -->
               <div class="help-text">
                 For any questions or notices, please contact us at
                 <a class="mail-links" href="mailto:join803@da.de">join803@da.de</a>.
               </div>
               <div class="date-legal-notice">Date: December 05, 2023</div>
             </span>
-          </div>
-          <div id="help-render" class="task-info-section d-none-summary">
+          </div> -->
+          <!-- <div id="help-render" class="task-info-section d-none-summary">
             <span id="help-page" class="help-page">
               <div class="title-help">Help</div>
               <a href="../html/summary.html"
@@ -369,10 +370,10 @@
               </div>
               <div class="qa-join">Enjoy using Join!</div>
             </span>
-          </div>
+          </div> -->
         </div>
       </div>
-
+      
     <!-- script summary -->
     <script src="../js/login_out.js"></script>
     <!-- script addTask -->

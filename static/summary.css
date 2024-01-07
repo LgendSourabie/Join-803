@@ -17,6 +17,11 @@ body {
 .container-summary {
   height: 100vh;
 }
+.do-task,
+.second-line-task,
+.boar-progress-feedback {
+  cursor: pointer;
+}
 
 .disp-flex {
   display: flex;
@@ -621,7 +626,7 @@ a {
   }
   .boar-progress-feedback {
     width: 103.33px;
-    height: 142px;
+    height: 118px;
   }
   .gray-separator-line {
     height: 82.02px;
@@ -687,6 +692,9 @@ a {
   }
   .current-user-name {
     font-size: 40px;
+  }
+  .task-overview {
+    width: 95%;
   }
 
   .marketing-slogan {

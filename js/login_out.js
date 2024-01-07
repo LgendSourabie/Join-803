@@ -127,6 +127,12 @@ function removeAllBackgroundColor() {
   removeClass('legal-notice-bg', 'bg-summary');
 }
 
+function resetAll() {
+  removeAllBackgroundColor();
+  removeAllTextColor();
+  resetAllIcons();
+}
+
 function resetAllIcons() {
   document.getElementById('summary-img').setAttribute('src', '../icons/summary.svg');
   document.getElementById('addTask-img').setAttribute('src', '../icons/addTask.svg');
@@ -137,9 +143,7 @@ function resetAllIcons() {
 function setBdgTextcolor(id, idText) {
   let el = document.getElementById(id);
   let elText = document.getElementById(idText);
-  removeAllBackgroundColor();
-  removeAllTextColor();
-  resetAllIcons();
+  resetAll();
   el.classList.add('bg-summary');
   elText.classList.add('clr-white');
 }
