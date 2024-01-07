@@ -174,8 +174,25 @@ function showContactTemplate(i) {
                 </span>
             </div>
         </div>
-        <button class="responsiv-contact-button" onclick="renderAddContact()"><img src="../icons/three_points.svg" alt=""></button>
+        <div id="open-menu-contact-responsive"><button class="responsiv-contact-button" onclick="openMenuContactResponsive(${i})"><img src="../icons/three_points.svg" alt=""></button></div>
+        
     `;
+}
+
+function openMenuContactResponsive(i){
+  document.getElementById('open-menu-contact-responsive').innerHTML = /*html*/`
+    <div onclick="editContact(${i})"><img src="../icons/editContact.svg">Edit</div>
+    <div onclick="deleteContact(${i}, true)"><img src="../icons/delete.svg">Delete</div>
+  `
+  document.getElementById('.right-side-section').addEventListener("click", closeMenuContactResponsive(i))
+}
+
+
+function  closeMenuContactResponsive(i){
+  document.getElementById('open-menu-contact-responsive').innerHTML = /*html*/`
+    <div id="open-menu-contact-responsive"><button class="responsiv-contact-button" onclick="openMenuContactResponsive(${i})"><img src="../icons/three_points.svg" alt=""></button></div>
+  `
+  document.getElementById('.right-side-section').removeEventListener("click", closeMenuContactResponsive(i))
 }
 
 
@@ -275,8 +292,12 @@ async function createOrEditContact(name, telephone, email, initials) {
 
 
 function popUpContactCreated(){
-  if (contactIndex != -1) {
+  debugger
+  if (contactIndex = -1) {
     document.getElementById('contact-success').classList.add('contact-success-fly-in')
+    setTimeout(() => {
+    document.getElementById('contact-success').classList.remove('contact-success-fly-in')
+    }, 1000);
   }
 }
 
@@ -433,10 +454,14 @@ function getInputValueContact() {
   document.getElementById('initial-edit-contact').innerHTML = initials;
 }
 
-async function deleteContact(i) {
+async function deleteContact(i, cResponsive) {
   contacts.splice(i, 1);
   await setItem("contacts", JSON.stringify(contacts));
-  removeHighligtContact();
+  if(cResponsive != true){
+    removeHighligtContact();
+  }else{
+    render(templateContacts())
+  }
   renderContactSection();
 }
 
@@ -461,6 +486,7 @@ function showContactResponsiv(jsonIndex) {
         </div>
         <div class="contact-single-view-info" id="new-contact"> 
       </div>
+      <div id="add-contact-bg" class="d-none"></div>
     `;
     document.getElementById('contact-single-view').style = 'display: unset'
     document.getElementById('contact-single-view').innerHTML += showContactTemplate(jsonIndex);
@@ -468,7 +494,10 @@ function showContactResponsiv(jsonIndex) {
 }
 
 function closeContactResponsiv(i) {
+  debugger
   if (x.matches) {
+    // document.getElementById('render-container').innerHTML = templateContacts();
+    render(templateContacts())
     renderContactSection();
   }
 }
