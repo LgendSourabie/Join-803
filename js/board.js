@@ -58,7 +58,7 @@ let todos = [
     'due date': '13.12.23',
     prio: '/icons/priolow.svg',
     category: 'Technical Task',
-    subtasks: ['test1', 'test2','klappts?'],
+    subtasks: ['test1', 'test2', 'klappts?'],
     progress: [],
     id: 4,
     taskboard: 'inprogress',
@@ -158,7 +158,6 @@ function showtodowindow(i) {
   todowindow.classList.add('showtodowindow');
   todowindow.innerHTML = todowindowtemplate(i);
   createSubtasks(i);
-  console.log(i)
 }
 
 function todowindowtemplate(i) {
@@ -195,7 +194,7 @@ function todowindowtemplate(i) {
                 <span>Delete</span>
             </div>
             <span>|</span>
-            <div class="overlayedit">
+            <div class="overlayedit" onclick="edittask(${i})">
                 <img src="/icons/editcontact.svg" alt="">
                 <span>Edit</span>
             </div>
@@ -379,4 +378,16 @@ function templateOpenaddtask() {
 </div>
 </div>
     `;
+}
+
+function edittask(i) {
+  let todowindow = document.getElementById('showtodowindow');
+  todowindow.classList.add('showtodowindow');
+  todowindow.innerHTML = edittasktemplate(i);
+}
+
+function edittasktemplate(i){
+  return /*html*/`
+    
+  `
 }
