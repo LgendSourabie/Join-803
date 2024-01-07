@@ -58,7 +58,14 @@
           </div>
           <div class="remember-line disp-flex ft-sz-400">
             <div class="remember-me disp-flex">
-              <input class="check-box" type="checkbox" /><span class="remember ft-sz-400">Remember me</span>
+              <!-- <input class="check-box" type="checkbox" /> -->
+              <img
+                id="checkbox-login"
+                src="../icons/checkBox.svg"
+                alt="Check"
+                onclick="checkButton('checkbox-login','../icons/checkBox.svg','../icons/check-checked.svg')"
+              />
+              <span class="remember ft-sz-400">Remember me</span>
             </div>
             <span class="forgot-pwd">I forgot my password</span>
           </div>
@@ -66,7 +73,7 @@
 
         <div class="btn-line disp-flex">
           <button class="blue-btn log-guest-btn">Log in</button
-          ><a href="../html/guest.html" class="white-btn log-guest-btn">Guest Log in</a>
+          ><a href="../html/summary.html" class="white-btn log-guest-btn">Guest Log in</a>
         </div>
       </form>
       <div class="privacy-link-login">
