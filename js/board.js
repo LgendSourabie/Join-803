@@ -99,7 +99,7 @@ function forlooprender(test) {
   container.innerHTML = '';
 
   if (todo.length === 0) {
-    container.innerHTML = `<img class="notask" src="/icons/notasktodo.svg" alt="Empty">`;
+    container.innerHTML = `<img class="notask" src="../icons/notasktodo.svg" alt="Empty">`;
   } else {
     for (let index = 0; index < todo.length; index++) {
       const element = todo[index];
@@ -165,7 +165,7 @@ function todowindowtemplate(i) {
     <div class="overlay">
         <div class="overlaybutton">
             <button>${todos[i].category}</button>
-            <img src="/icons/close.svg" alt="" onclick="closetodowindow()">
+            <img src="../icons/close.svg" alt="" onclick="closetodowindow()">
         </div>
         <h1>${todos[i].title}</h1>
         <span class="overlaydiscription">${todos[i].discription}</span>
@@ -190,12 +190,12 @@ function todowindowtemplate(i) {
         </div>
         <div class="overlaychange">
             <div class="overlaydelete">
-                <img src="/icons/delete.svg" alt="">
+                <img src="../icons/delete.svg" alt="">
                 <span>Delete</span>
             </div>
             <span>|</span>
             <div class="overlayedit" onclick="edittask(${i})">
-                <img src="/icons/editcontact.svg" alt="">
+                <img src="../icons/editcontact.svg" alt="">
                 <span>Edit</span>
             </div>
         </div>
@@ -215,7 +215,7 @@ function createSubtasks(i) {
     const element = todos[i].subtasks[j];
     document.getElementById('subtasks').innerHTML += /*html*/ `
         <div>
-            <img id="checkbox${j}" src="${todos[i].checkboxStates[j] ? '/icons/checkButton.svg' : '/icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
+            <img id="checkbox${j}" src="${todos[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
            <span>${element}</span> 
         </div>
     `;
@@ -224,12 +224,12 @@ function createSubtasks(i) {
 function changecheckbox(j, i, subtaskIndex) {
   const checkbox = document.getElementById(j);
 
-  if (checkbox.src.endsWith('/icons/uncheckBox.svg')) {
-    checkbox.src = '/icons/checkButton.svg';
+  if (checkbox.src.endsWith('../icons/uncheckBox.svg')) {
+    checkbox.src = '../icons/checkButton.svg';
     todos[i].checkboxStates[subtaskIndex] = true;
     todos[i].progress.push(todos[i].subtasks[subtaskIndex]);
   } else {
-    checkbox.src = '/icons/uncheckBox.svg';
+    checkbox.src = '../icons/uncheckBox.svg';
     todos[i].checkboxStates[subtaskIndex] = false;
     // Remove the subtask from progress array
     const subtaskToRemove = todos[i].subtasks[subtaskIndex];

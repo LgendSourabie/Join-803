@@ -406,11 +406,11 @@ function templateBoard() {
             <div class="hiddenheadline">
               <div>
                 <h1>Board</h1>
-                <button onclick="openAddtask()"><img src="/icons/add.svg" alt=""></button>
+                <button onclick="openAddtask()"><img src="../icons/add.svg" alt=""></button>
               </div>
               <div class="searchtaskhidden">
                 <input id="taskInputhidden" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
-                <img src="/icons/search.svg" alt="">
+                <img src="../icons/search.svg" alt="">
               </div>
             </div>
             <div class="headline">
@@ -418,9 +418,9 @@ function templateBoard() {
                 <div class="addandsearch">
                     <div class="searchtask">
                         <input id="taskInput" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
-                        <img src="/icons/search.svg" alt="">
+                        <img src="../icons/search.svg" alt="">
                     </div>
-                    <button onclick="openAddtask()">Add Task <img src="/icons/add.svg" alt=""></button>
+                    <button onclick="openAddtask()">Add Task <img src="../icons/add.svg" alt=""></button>
                 </div>
             </div>
         </div>
@@ -428,7 +428,7 @@ function templateBoard() {
             <div class="todosplit">
                 <div class="tablecolumntitle">
                     <span>To do</span>
-                    <img src="/icons/plusButton.svg" alt="">
+                    <img src="../icons/plusButton.svg" alt="">
                 </div>
                 <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')"
                     ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
@@ -436,7 +436,7 @@ function templateBoard() {
             <div class="todosplit">
                 <div class="tablecolumntitle">
                     <span>In Progress</span>
-                    <img src="/icons/plusButton.svg" alt="">
+                    <img src="../icons/plusButton.svg" alt="">
                 </div>
                 <div id="inprogress" class="todoscontainer" ondragover="allowDrop(event); highlight('inprogress')"
                     ondrop="moveTo('inprogress')" ondragleave="removeHighlight('inprogress')"></div>
@@ -444,7 +444,7 @@ function templateBoard() {
             <div class="todosplit">
                 <div class="tablecolumntitle">
                     <span>Await Feedback</span>
-                    <img src="/icons/plusButton.svg" alt="">
+                    <img src="../icons/plusButton.svg" alt="">
                 </div>
                 <div id="awaitfeedback" class="todoscontainer" ondragover="allowDrop(event); highlight('awaitfeedback')"
                     ondrop="moveTo('awaitfeedback')" ondragleave="removeHighlight('awaitfeedback')"></div>
