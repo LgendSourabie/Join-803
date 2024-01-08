@@ -457,6 +457,18 @@ li {
   right: 0px;
 }
 
+.subtasksPlusIMGNew:hover, .newSubtaskImgsHover:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  border-radius: 50%;
+}
+
+/* .newSubtaskImgsHover:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  border-radius: 50%;
+} */
+
 /* RESPONSIVE DESIGN */
 
 .sidebarContainerResponsive {

@@ -158,13 +158,35 @@ const renderSubtask = function () {
       </button>
         <button type="button" class="buttonSubtask">
           <div class="newSubtaskImgs">
-        <img onclick=" checkNewSubtask()"   src="../img/img/subtasks_check.svg" alt=""> 
+        <img class="newSubtaskImgsHover" onclick="addNewSubtaskTest()"   src="../img/img/subtasks_check.svg" alt=""> 
         </div>
       </button>
       </div>
    `;
   }
 }
+
+// function addNewSubtaskTest(i) {
+//   let noDisplay = document.getElementById(`test_test${i}`);
+//   noDisplay.style.display = "none";
+// }
+
+function addNewSubtaskTest(i) {
+  let noDisplay = document.getElementById(`test_test${i}`);
+
+  // Überprüfen, ob das Element gefunden wurde
+  if (noDisplay !== null) {
+    // Überprüfen, ob das Element eine 'style'-Eigenschaft hat
+    if (noDisplay.style !== undefined) {
+      noDisplay.style.display = "none";
+    } else {
+      console.error(`Element mit der ID 'test_test${i}' hat keine 'style'-Eigenschaft.`);
+    }
+  } else {
+    console.error(`Element mit der ID 'test_test${i}' wurde nicht gefunden.`);
+  }
+}
+
 
 // Function to edit subtasks
 function editSubtask(i) {
