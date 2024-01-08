@@ -1,5 +1,6 @@
 'use strict';
 
+
 const showSubmenu = function () {
   let element = document.getElementById('submenu-user');
   element.classList.toggle('d-none');
@@ -30,7 +31,7 @@ const dueDateNextTask = function () {
   return `${monthArray[monthNumeric]} ${day}, ${year}`;
 };
 
-let taskArray = todos.map(todo => todo['taskboard']);
+let taskArray = tasks.map(todo => todo['taskboard']);
 let toDo = taskArray.filter(a => a === 'todo');
 let feedback = taskArray.filter(a => a === 'awaitfeedback');
 let urgent = taskArray.filter(a => a === 'urgent');
@@ -54,6 +55,10 @@ const renderTask = function () {
   document.getElementById('progress-task-number').innerHTML = `${NO_PROGRESS_TASK}`;
   document.getElementById('feedback-task-number').innerHTML = `${NO_AWAITING_FEEDBAK_TASK}`;
 };
+
+async function loadTasks() {
+  tasks = JSON.parse(await getItem("tasks"));
+}
 
 // const renderAlltask=function(){
 

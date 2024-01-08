@@ -160,8 +160,10 @@ async function init() {
   try {
     await loadAllUsers();
     greetUserWithName();
+    await loadTasks();
   } catch (e) {
-    return;
+    // return;
+    console.log(e)
   }
 }
 

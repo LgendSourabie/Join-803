@@ -195,7 +195,7 @@ function deleteSubtask(i) {
     categories.push(category);
   }
 
-  tasks = saveArray(title, description, date, assignedTo, category, prios, subtasks);
+  let  tasks = saveArray(title, description, date, assignedTo, category, prios, subtasks);
   await setItem('tasks', JSON.stringify(tasks));
 }
 
@@ -220,7 +220,6 @@ function saveArray(val1, val2, val3, val4, val5, prios, val6) {
 
   let identification = tasks.length;
 
-  
     return {
     title: `${val1}`,
     discription: `${val2}`,

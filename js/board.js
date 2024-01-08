@@ -1,83 +1,83 @@
-let tasks = [
-  {
-    title: 'test note für den Zweck der Testung.',
-    discription: 'we test it',
-    'assigned to': 'Pascal',
-    'due date': '13.12.23',
-    prio: '/icons/priomedium.svg',
-    category: 'Technical Task',
-    subtasks: ['test2'],
-    progress: [],
-    id: 0,
-    taskboard: 'todo',
-    checkboxStates: []
-  },
-  {
-    title: 'test note1',
-    discription: 'we test it',
-    'assigned to': 'Pascal',
-    'due date': '13.12.23',
-    prio: '/icons/priolow.svg',
-    category: 'Technical Task',
-    subtasks: ['test1', 'test2'],
-    progress: [],
-    id: 1,
-    taskboard: 'todo',
-    checkboxStates: []
-  },
-  {
-    title: 'test note2',
-    discription: 'we test it',
-    'assigned to': 'Pascal',
-    'due date': '13.12.23',
-    prio: '/icons/priolow.svg',
-    category: 'Technical Task',
-    subtasks: ['test1', 'test2'],
-    progress: [],
-    id: 2,
-    taskboard: 'awaitfeedback',
-    checkboxStates: []
-  },
-  {
-    title: 'test note3',
-    discription: 'we test it',
-    'assigned to': 'Pascal',
-    'due date': '13.12.23',
-    prio: '/icons/priolow.svg',
-    category: 'Technical Task',
-    subtasks: ['test1', 'test2'],
-    progress: [],
-    id: 3,
-    taskboard: 'awaitfeedback',
-    checkboxStates: []
-  },
-  {
-    title: 'test note4',
-    discription: 'we test it',
-    'assigned to': 'Pascal',
-    'due date': '13.12.23',
-    prio: '/icons/priolow.svg',
-    category: 'Technical Task',
-    subtasks: ['test1', 'test2', 'klappts?'],
-    progress: [],
-    id: 4,
-    taskboard: 'inprogress',
-    checkboxStates: []
-  },
-  {
-    title: 'test note5',
-    discription: 'we test it',
-    'assigned to': 'Pascal',
-    'due date': '13.12.23',
-    prio: '/icons/priolow.svg',
-    category: 'Technical Task',
-    subtasks: ['test1', 'test2'],
-    progress: [],
-    id: 5,
-    taskboard: 'done',
-    checkboxStates: []
-  },
-];
+// let tasks = [
+//   {
+//     title: 'test note für den Zweck der Testung.',
+//     discription: 'we test it',
+//     'assigned to': 'Pascal',
+//     'due date': '13.12.23',
+//     prio: '/icons/priomedium.svg',
+//     category: 'Technical Task',
+//     subtasks: ['test2'],
+//     progress: [],
+//     id: 0,
+//     taskboard: 'todo',
+//     checkboxStates: []
+//   },
+//   {
+//     title: 'test note1',
+//     discription: 'we test it',
+//     'assigned to': 'Pascal',
+//     'due date': '13.12.23',
+//     prio: '/icons/priolow.svg',
+//     category: 'Technical Task',
+//     subtasks: ['test1', 'test2'],
+//     progress: [],
+//     id: 1,
+//     taskboard: 'todo',
+//     checkboxStates: []
+//   },
+//   {
+//     title: 'test note2',
+//     discription: 'we test it',
+//     'assigned to': 'Pascal',
+//     'due date': '13.12.23',
+//     prio: '/icons/priolow.svg',
+//     category: 'Technical Task',
+//     subtasks: ['test1', 'test2'],
+//     progress: [],
+//     id: 2,
+//     taskboard: 'awaitfeedback',
+//     checkboxStates: []
+//   },
+//   {
+//     title: 'test note3',
+//     discription: 'we test it',
+//     'assigned to': 'Pascal',
+//     'due date': '13.12.23',
+//     prio: '/icons/priolow.svg',
+//     category: 'Technical Task',
+//     subtasks: ['test1', 'test2'],
+//     progress: [],
+//     id: 3,
+//     taskboard: 'awaitfeedback',
+//     checkboxStates: []
+//   },
+//   {
+//     title: 'test note4',
+//     discription: 'we test it',
+//     'assigned to': 'Pascal',
+//     'due date': '13.12.23',
+//     prio: '/icons/priolow.svg',
+//     category: 'Technical Task',
+//     subtasks: ['test1', 'test2', 'klappts?'],
+//     progress: [],
+//     id: 4,
+//     taskboard: 'inprogress',
+//     checkboxStates: []
+//   },
+//   {
+//     title: 'test note5',
+//     discription: 'we test it',
+//     'assigned to': 'Pascal',
+//     'due date': '13.12.23',
+//     prio: '/icons/priolow.svg',
+//     category: 'Technical Task',
+//     subtasks: ['test1', 'test2'],
+//     progress: [],
+//     id: 5,
+//     taskboard: 'done',
+//     checkboxStates: []
+//   },
+// ];
 
 let currentDraggedElement;
 
@@ -202,8 +202,9 @@ function todowindowtemplate(i) {
     </div>
 `;
 }
-function initializeCheckboxStates() {
-  tasks.forEach(todo => {
+async function initializeCheckboxStates() {
+   await loadTasks();
+   tasks.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
   });
 }
@@ -485,4 +486,8 @@ function edittasktemplate(i) {
         </div>
     </form>
   `
+}
+
+async function loadTasks() {
+  tasks = JSON.parse(await getItem("tasks"));
 }
