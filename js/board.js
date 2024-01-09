@@ -79,6 +79,7 @@
 //   },
 // ];
 
+
 let currentDraggedElement;
 
 function renderToDos() {
@@ -202,13 +203,13 @@ function todowindowtemplate(i) {
     </div>
 `;
 }
+
 function initializeCheckboxStates() {
    tasks.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
   });
 }
 
-initializeCheckboxStates();
 
 function createSubtasks(i) {
   const subtasksContainer = document.getElementById('subtasks');
@@ -217,8 +218,8 @@ function createSubtasks(i) {
   for (let j = 0; j < tasks[i].subtasks.length; j++) {
     const element = tasks[i].subtasks[j];
     subtasksContainer.innerHTML += /*html*/ `
-        <div>
-            <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
+        <div onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
+            <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="">
            <span>${element}</span> 
         </div>
     `;
@@ -226,9 +227,10 @@ function createSubtasks(i) {
 }
 
 function changecheckbox(j, i, subtaskIndex) {
+  console.log('Function triggered with:', j, i, subtaskIndex);
   const checkbox = document.getElementById(j);
-
-  if (checkbox.src.endsWith('../icons/uncheckBox.svg')) {
+  console.log(checkbox.src)
+  if (checkbox.src.includes('uncheckBox.svg')) {
     checkbox.src = '../icons/checkButton.svg';
     tasks[i].checkboxStates[subtaskIndex] = true;
     tasks[i].progress.push(tasks[i].subtasks[subtaskIndex]);
@@ -243,6 +245,8 @@ function changecheckbox(j, i, subtaskIndex) {
     }
   };
 
+  console.log('Updated checkboxStates:', tasks[i].checkboxStates);
+  console.log('Updated progress array:', tasks[i].progress);
   renderToDos();
 }
 
