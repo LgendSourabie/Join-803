@@ -83,6 +83,7 @@
 let currentDraggedElement;
 
 function renderToDos() {
+
   forlooprender('todo');
 
   forlooprender('inprogress');
