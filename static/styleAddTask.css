@@ -63,15 +63,15 @@ body {
   height: 121.97px;
 }
 
-.sidesContainer {
+/* .sidesContainer {
   display: flex;
   justify-content: center;
   flex-direction: column;
   height: 229px;
   gap: 15px;
-}
+} */
 
-.sides {
+/* .sides {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,36 +79,36 @@ body {
   height: 46px;
   gap: 8px;
   cursor: pointer;
-}
+} */
 
-.sides:hover {
+/* .sides:hover {
   cursor: pointer;
-}
+} */
 
-.sidebarFooter {
+/* .sidebarFooter {
   display: flex;
   flex-direction: column;
   text-align: center;
   color: rgb(137, 140, 144);
   margin-bottom: 52px;
   gap: 4px;
-}
+} */
 
-.spanSidebarFooter {
+/* .spanSidebarFooter {
   padding: 8px;
   gap: 8px;
-}
+} */
 
-.spanSidebarFooter:hover {
+/* .spanSidebarFooter:hover {
   cursor: pointer;
   color: #29ABE2;
-}
+} */
 
-.seperatorAddTask {
+/* .seperatorAddTask {
   width: 100%;
   height: 3px;
   background-color: rgb(227, 228, 229);
-}
+} */
 
 .addTaskContainer {
   background-color: rgb(246, 247, 248);
@@ -354,10 +354,10 @@ select:hover {
   font-weight: 400;
 }
 
-.sidebarSpan {
+/* .sidebarSpan {
   font-size: 20px;
   font-weight: 400;
-}
+} */
 
 .spanSubtasks {
   font-size: 20px;
@@ -471,38 +471,38 @@ li {
 
 /* RESPONSIVE DESIGN */
 
-.sidebarContainerResponsive {
+/* .sidebarContainerResponsive {
   display: none;
   justify-content: center;
   background-color: #2a3647;
   height: 80px;
   gap: 15px;
-}
+} */
 
-.sidesContainerResponsive {
+/* .sidesContainerResponsive {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-around;
   color: rgb(174, 176, 179);
-}
+} */
 
-.sidesResponsive {
+/* .sidesResponsive {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-}
+} */
 
-.sidesResponsive:hover {
+/* .sidesResponsive:hover {
   cursor: pointer;
-}
+} */
 
-.sidesImgResponsive {
+/* .sidesImgResponsive {
   width: 24px;
   height: 24px;
-}
+} */
 
 .addTaskHeadlineResponsive {
   display: none;
@@ -713,17 +713,17 @@ li {
     margin-bottom: 10px;
   }
 
-  .sidebarContainer {
+  /* .sidebarContainer {
     display: none;
-  }
+  } */
 
-  .sidebarContainerResponsive {
+  /* .sidebarContainerResponsive {
     display: flex;
     justify-content: center;
     background-color: #2a3647;
     height: 80px;
     gap: 15px;
-  }
+  } */
 
   .addTaskHeadline {
     display: none;
@@ -790,9 +790,9 @@ li {
     display: none;
   }
 
-  .sidebarSpanResponsive {
+  /* .sidebarSpanResponsive {
     font-size: 14px;
-  }
+  } */
 
   .prioSelection {
     gap: 8px;
@@ -829,6 +829,10 @@ li {
     position: fixed;
   }
 
+  .spanOption {
+    margin-left: 10px;
+  }
+
 }
 
 @media (max-width: 430px) {
@@ -836,6 +840,10 @@ li {
   /* .addTaskContainerTwo {
     margin-top: 20px;
   } */
+
+  .addTaskContainerTwo {
+    margin-top: 0;
+  }
 
 }
 
