@@ -393,31 +393,28 @@ function edittask(i) {
   let todowindow = document.getElementById('showtodowindow');
   todowindow.classList.add('showtodowindow');
   todowindow.innerHTML = edittasktemplate(i);
+  document.getElementById('edittitle').value = tasks[i].title;
+  document.getElementById('editdescription').value = tasks[i].discription;
+  document.getElementById('edittitle').value = tasks[i].title;
 }
 
 function edittasktemplate(i) {
   return /*html*/`
-            <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
+            <form class="addTaskOverviewContainered edittaskOverview" onsubmit="createTask(); return false" >
         <div class="addTaskContainerLeftRight">
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
-                <div class="groupButtonForm">
-                    <div class="test2">
-                    <div class="h2Container">
-                        <h2>Add Task</h2>
-                    </div>
-                </div>
                 <div class="test3">
                     <div class="containerLeft">
                         <div class="titleAddTask addTaskOverview">
                             <span class="containerLeftSpan">Title
                                 <span class="star">*</span>
                             </span>
-                            <input onclick="changeBorderColor(this)" id="title" class="inputAddTask" type="text" placeholder="Enter a title" required>
+                            <input onclick="changeBorderColor(this)" id="edittitle" class="inputAddTask" type="text" placeholder="Enter a title" required>
                         </div>
                         <div class="descriptionAddTask addTaskOverview">
                             <span class="containerLeftSpan">Description</span>
-                            <textarea onclick="changeBorderColor(this)" id="description" class="textAreaAddTask" placeholder="Enter a Description"></textarea>
+                            <textarea onclick="changeBorderColor(this)" id="editdescription" class="textAreaAddTask" placeholder="Enter a Description"></textarea>
                         </div>
                         <div class="assignedAddTask addTaskOverview">
                             <span class="containerLeftSpan">Assigned to</span>
@@ -476,11 +473,8 @@ function edittasktemplate(i) {
                                 <span>This field is required</span>
                             </div>
                             <div class="footerAddTaskButtons">
-                                <div onclick="closeAddContact()" id="clearButton" class="clearButton">
-                                  <span>Cancel X</span>
-                                </div>
-                                <button id="createTaskButton" class="createTaskButton">
-                                    <span>Create Task</span>
+                                <button onclick="changetodo()" id="createTaskButton" class="createTaskButton">
+                                    <span>OK</span>
                                     <img class="imgCheck" src="../img/img/check.svg" alt="">
                                 </button>
                             </div>
