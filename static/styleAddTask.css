@@ -700,6 +700,13 @@ li {
 
   .options {
     margin-top: 13px;
+    position: absolute;
+    top: 415px;
+    width: 83%;
+  }
+
+  #dropdown {
+    position: relative;
   }
 
   .btn-grp {
@@ -849,6 +856,10 @@ li {
     margin-top: 60px;
   }
 
+  .options {
+    width: 75%;
+  }
+
 }
 
 @media (max-width: 430px) {
@@ -881,6 +892,14 @@ li {
     font-size: 40px;
     margin-top: 5px;
     margin-bottom: 5px;
+  }
+
+  .options {
+    width: 84%;
+  }
+
+  #dropdown {
+    top: 386px;
   }
 
 }
