@@ -214,6 +214,18 @@ function checkNewSubtask() {
   singleSubtask.value='';
 }
 
+function checkNewSubtaskEdit(i) {
+  let element = document.getElementById('newSubtaskImgsHover');
+  let currentIMG = element.getAttribute('src');
+  if (currentIMG !=='../img/img/subtasks_check.svg') return
+  let subtaskField = document.getElementById('subtasksList');
+  let singleSubtask = document.getElementById(`input-edit-${i}`);
+ if(singleSubtask.value.length ===0) return;
+  subtasks.push(singleSubtask.value);
+  renderSubtask();
+  singleSubtask.value='';
+}
+
 // Function to render the subtasks by updating the content of the element with the ID 'subtasksList'.
 const renderSubtask = function () {
   let subtaskField = document.getElementById('subtasksList');
@@ -233,11 +245,11 @@ const renderSubtask = function () {
       <div id="test_test${i}" class="test_test editContainerSubtask d-none">
         <input type="text" onclick="changeBorderColor(this)" id="input-edit-${i}" class="inputEdit" type="text" placeholder="Add new subtask">
         <button type="button" class="buttonSubtask">
-        <img onclick="addNewSubtask(); changeSubtaskImg(); deleteSubtask()"  class="subtasksPlusIMGNew" src="../img/img/deleteSubtasks.svg" alt="">
+        <img onclick="changeSubtaskImg(); deleteSubtask()"  class="subtasksPlusIMGNew" src="../img/img/deleteSubtasks.svg" alt="">
       </button>
         <button type="button" class="buttonSubtask">
           <div class="newSubtaskImgs">
-        <img class="newSubtaskImgsHover" onclick="addNewSubtask()"   src="../img/img/subtasks_check.svg" alt=""> 
+        <img id="newSubtaskImgsHover" class="newSubtaskImgsHover" onclick="checkNewSubtaskEdit(${i})"   src="../img/img/subtasks_check.svg" alt=""> 
         </div>
       </button>
       </div>
@@ -245,7 +257,7 @@ const renderSubtask = function () {
   }
 }
 
-// function addNewSubtask(i) {
+// function addNewSubtaskEdit(i) {
 //   let editContainer = document.getElementById(`test_test${i}`);
 //   editContainer.style.display = "none";
 // }
@@ -253,6 +265,7 @@ const renderSubtask = function () {
 
 // Function to edit subtasks
 function editSubtask(i) {
+  subtasks.splice(i,1);
   changeButton(i);
 }
 
