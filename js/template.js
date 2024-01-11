@@ -409,7 +409,7 @@ function templateBoard() {
                 <button onclick="openAddtask()"><img src="../icons/add.svg" alt=""></button>
               </div>
               <div class="searchtaskhidden">
-                <input id="taskInputhidden" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
+                <input id="taskInputhidden" type="" placeholder="Find Task" oninput="filterTodosByTitle('taskInputhidden')">
                 <img src="../icons/search.svg" alt="">
               </div>
             </div>
@@ -417,7 +417,7 @@ function templateBoard() {
                 <h1>Board</h1>
                 <div class="addandsearch">
                     <div class="searchtask">
-                        <input id="taskInput" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
+                        <input id="taskInput" type="" placeholder="Find Task" oninput="filterTodosByTitle('taskInput')">
                         <img src="../icons/search.svg" alt="">
                     </div>
                     <button onclick="openAddtask()">Add Task <img src="../icons/add.svg" alt=""></button>
