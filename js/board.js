@@ -111,8 +111,8 @@ function forlooprender(test) {
 }
 
 
-function filterTodosByTitle() {
-  let input = document.getElementById('taskInput');
+function filterTodosByTitle(input) {
+  let input = document.getElementById(input);
   let filter = input.value.toLowerCase();
 
   let filteredTodos = tasks.filter(function (todo) {
