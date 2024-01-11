@@ -701,13 +701,13 @@ li {
   .options {
     margin-top: 13px;
     position: absolute;
-    top: 415px;
-    width: 83%;
+    top: 456px;
+    width: 67%;
   }
 
-  #dropdown {
+  /* #dropdown {
     position: relative;
-  }
+  } */
 
   .btn-grp {
     margin-top: 20px;
@@ -790,6 +790,11 @@ li {
   .footerAddTask {
     width: 80%;
     margin-top: 100px;
+  }
+
+  .options {
+    top: 415px;
+    width: 64%;
   }
 
 }
@@ -896,9 +901,6 @@ li {
 
   .options {
     width: 84%;
-  }
-
-  #dropdown {
     top: 386px;
   }
 
