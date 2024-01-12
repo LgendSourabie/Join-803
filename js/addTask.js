@@ -232,8 +232,13 @@ const renderSubtask = function () {
   subtaskField.innerHTML = '';
   for (let i = 0; i < subtasks.length; i++) {
     const subtask = subtasks[i];
-    subtaskField.innerHTML += /*html*/`
-      
+    subtaskField.innerHTML += renderSubtaskHTMLTemplate(i, subtask);
+  }
+}
+
+
+function renderSubtaskHTMLTemplate(i, subtask) {
+  return /*html*/`
       <div class="newSubtaskContainerTwo" id="list${i}">
         <li id="link-${i}">${subtask}</li>
           <div class="hoverSubtask">
@@ -241,7 +246,6 @@ const renderSubtask = function () {
             <img class="subtaskNewContainerImgs"  onclick="deleteSubtask(${i})" src="../img/img/deleteSubtasks.svg" alt="">
           </div>
       </div>
-
       <div id="test_test${i}" class="test_test editContainerSubtask d-none">
         <input type="text" onclick="changeBorderColor(this)" id="input-edit-${i}" class="inputEdit" type="text" placeholder="Add new subtask">
         <button type="button" class="buttonSubtask">
@@ -253,8 +257,7 @@ const renderSubtask = function () {
         </div>
       </button>
       </div>
-   `;
-  }
+  `;
 }
 
 // function addNewSubtaskEdit(i) {
@@ -342,8 +345,14 @@ function options() {
   field.innerHTML = '';
   for (let i = 0; i < listeOption.length; i++) {
     const option = listeOption[i];
-    field.innerHTML += /*html*/ `
-      <div class="option" id="cont${i}" onclick="updateBtn(${i});changeCheckState(${i})">
+    field.innerHTML += optionsHTMLTemplate(i, option, initial, colors);
+    document.getElementById(`btn-${i}`).style.backgroundColor = `${colors[i]}`;
+  }
+}
+
+function optionsHTMLTemplate(i, option, initial, color) {
+  return /*html*/`
+    <div class="option" id="cont${i}" onclick="updateBtn(${i});changeCheckState(${i})">
       <div class="container-btn-name-box">
       <button id="btn-${i}" class="bi">${initial[i]}</button> 
       <div class="spanContainer">
@@ -356,9 +365,7 @@ function options() {
         </div>
       </div>
     </div>
-      `;
-    document.getElementById(`btn-${i}`).style.backgroundColor = `${colors[i]}`;
-  }
+  `;
 }
 
 // Function to switches the CSS class of the element with the specified ID to show or hide options
