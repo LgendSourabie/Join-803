@@ -82,7 +82,7 @@
 
 let currentDraggedElement;
 
-function renderToDos() {
+async function renderToDos() {
 
   forlooprender('todo');
 
@@ -91,6 +91,8 @@ function renderToDos() {
   forlooprender('awaitfeedback');
 
   forlooprender('done');
+
+  await loadContacts();
 }
 
 
@@ -389,14 +391,31 @@ function templateOpenaddtask() {
     `;
 }
 
-function edittask(i) {
+async function edittask(i) {
   let todowindow = document.getElementById('showtodowindow');
   todowindow.classList.add('showtodowindow');
+ 
   todowindow.innerHTML = edittasktemplate(i);
+
   document.getElementById('edittitle').value = tasks[i].title;
   document.getElementById('editdescription').value = tasks[i].discription;
   document.getElementById('edittitle').value = tasks[i].title;
+
+  options();
+  renderAssignedTo(i);
 }
+
+
+const renderAssignedTo = function (index) {
+  let btnUserProfile = document.getElementById('btn-grp');
+  btnUserProfile.innerHTML = '';
+  for (let i = 0; i < tasks[index].assignedTo.length; i++) {
+    const btn = tasks[index].assignedTo[i];
+    btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
+    document.getElementById(`optBtn${i}`).style.backgroundColor = tasks[index].assignedTo[i]['bgColor'];
+  }
+}
+
 
 function edittasktemplate(i) {
   return /*html*/`
