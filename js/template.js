@@ -1,80 +1,80 @@
-function templateSummary() {
-  return /*html*/ `
- 
-    <span id="summary-page" class="summary-page">
-            <div class="marketing-slogan disp-flex">
-              <div class="title">Join 360</div>
-              <div class="blue-separator-line"></div>
-              <div class="slogan ft-sz-400">Key Metrics at a Glance</div>
-              <div class="blue-separator-line-responsive"></div>
-            </div>
-            <div class="task disp-flex">
-              <div class="task-overview disp-flex">
-                <div class="greeting-responsive">
-                  <div>
-                    <span id="greet-user-responsive" class="greeting"></span>
-                  </div>
-                  <span id="current-user-name-responsive" class="current-user-name"></span>
-                </div>
-                <div class="first-line-task disp-flex">
-                  <div class="todo do-task disp-flex">
-                    <img class="task-icons-blue" src="/icons/edit.svg" alt="TO-DO" />
-                    <div class="middle">
-                      <span id="todo" class="var-task">0</span>
-                      <span class="task-text ft-sz-400">To-do</span>
-                    </div>
-                  </div>
-                  <div class="done do-task disp-flex">
-                    <img class="task-icons-blue" src="/icons/check.svg" alt="TO-DO" />
-                    <div class="middle">
-                      <span id="done" class="var-task">0</span>
-                      <span class="task-text ft-sz-400">Done</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="second-line-task disp-flex">
-                  <div class="urgent disp-flex task-due-common">
-                    <img class="task-icons" src="/icons/urgent.svg" alt="Urgent" />
-                    <div class="middle">
-                      <span id="urgent" class="var-task">0</span>
-                      <span class="task-text ft-sz-400">Urgent</span>
-                    </div>
-                  </div>
-                  <div class="gray-separator-line"></div>
-                  <div class="upcomming-deadline disp-flex task-due-common">
-                    <span id="due-date" class="due-date">October 16, 2022</span>
-                    <span class="task-text ft-sz-400">Upcomming Deadline</span>
-                  </div>
-                </div>
-                <div class="third-line-task disp-flex">
-                  <div class="boar-progress-feedback disp-flex">
-                    <span id="board-task-number" class="var-task">0</span
-                    ><span class="task-text ft-sz-400">Tasks In</span>
-                    <span class="task-text ft-sz-400">Board</span>
-                  </div>
-                  <div class="boar-progress-feedback disp-flex">
-                    <span id="progress-task-number" class="var-task">0</span
-                    ><span class="task-text ft-sz-400">Tasks In</span>
-                    <span class="task-text ft-sz-400">Progress</span>
-                  </div>
-                  <div class="boar-progress-feedback disp-flex">
-                    <span id="feedback-task-number" class="var-task">0</span
-                    ><span class="task-text ft-sz-400">Awaiting</span>
-                    <span class="task-text ft-sz-400">Feedback</span>
-                  </div>
-                </div>
-              </div>
-              <div class="right-greeting disp-flex">
-                <div>
-                  <span id="greet-user" class="greeting"></span>
-                  <span id="comma" class="greeting"></span><br />
-                </div>
-                <span id="current-user-name" class="current-user-name"></span>
-              </div>
-            </div>
-          </span>
-    `;
-}
+// function templateSummary() {
+//   return /*html*/ `
+
+//     <span id="summary-page" class="summary-page">
+//             <div class="marketing-slogan disp-flex">
+//               <div class="title">Join 360</div>
+//               <div class="blue-separator-line"></div>
+//               <div class="slogan ft-sz-400">Key Metrics at a Glance</div>
+//               <div class="blue-separator-line-responsive"></div>
+//             </div>
+//             <div class="task disp-flex">
+//               <div class="task-overview disp-flex">
+//                 <div class="greeting-responsive">
+//                   <div>
+//                     <span id="greet-user-responsive" class="greeting"></span>
+//                   </div>
+//                   <span id="current-user-name-responsive" class="current-user-name"></span>
+//                 </div>
+//                 <div class="first-line-task disp-flex">
+//                   <div class="todo do-task disp-flex">
+//                     <img class="task-icons-blue" src="/icons/edit.svg" alt="TO-DO" />
+//                     <div class="middle">
+//                       <span id="todo" class="var-task">0</span>
+//                       <span class="task-text ft-sz-400">To-do</span>
+//                     </div>
+//                   </div>
+//                   <div class="done do-task disp-flex">
+//                     <img class="task-icons-blue" src="/icons/check.svg" alt="TO-DO" />
+//                     <div class="middle">
+//                       <span id="done" class="var-task">0</span>
+//                       <span class="task-text ft-sz-400">Done</span>
+//                     </div>
+//                   </div>
+//                 </div>
+//                 <div class="second-line-task disp-flex">
+//                   <div class="urgent disp-flex task-due-common">
+//                     <img class="task-icons" src="/icons/urgent.svg" alt="Urgent" />
+//                     <div class="middle">
+//                       <span id="urgent" class="var-task">0</span>
+//                       <span class="task-text ft-sz-400">Urgent</span>
+//                     </div>
+//                   </div>
+//                   <div class="gray-separator-line"></div>
+//                   <div class="upcomming-deadline disp-flex task-due-common">
+//                     <span id="due-date" class="due-date">October 16, 2022</span>
+//                     <span class="task-text ft-sz-400">Upcomming Deadline</span>
+//                   </div>
+//                 </div>
+//                 <div class="third-line-task disp-flex">
+//                   <div class="boar-progress-feedback disp-flex">
+//                     <span id="board-task-number" class="var-task">0</span
+//                     ><span class="task-text ft-sz-400">Tasks In</span>
+//                     <span class="task-text ft-sz-400">Board</span>
+//                   </div>
+//                   <div class="boar-progress-feedback disp-flex">
+//                     <span id="progress-task-number" class="var-task">0</span
+//                     ><span class="task-text ft-sz-400">Tasks In</span>
+//                     <span class="task-text ft-sz-400">Progress</span>
+//                   </div>
+//                   <div class="boar-progress-feedback disp-flex">
+//                     <span id="feedback-task-number" class="var-task">0</span
+//                     ><span class="task-text ft-sz-400">Awaiting</span>
+//                     <span class="task-text ft-sz-400">Feedback</span>
+//                   </div>
+//                 </div>
+//               </div>
+//               <div class="right-greeting disp-flex">
+//                 <div>
+//                   <span id="greet-user" class="greeting"></span>
+//                   <span id="comma" class="greeting"></span><br />
+//                 </div>
+//                 <span id="current-user-name" class="current-user-name"></span>
+//               </div>
+//             </div>
+//           </span>
+//     `;
+// }
 
 function templateAddTask() {
   return /*html*/ `
@@ -410,7 +410,7 @@ function templateBoard() {
               </div>
               <div class="searchtaskhidden">
                 <input id="taskInputhidden" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
-                <img src="../icons/search.svg" alt="">
+                <button><img src="../icons/search.svg" alt=""></button> 
               </div>
             </div>
             <div class="headline">
@@ -427,15 +427,16 @@ function templateBoard() {
         <div class="todosection">
             <div class="todosplit">
                 <div class="tablecolumntitle">
-                    <span>To do</span>
+                    <span class="bold-task-title">To do</span>
                     <img src="../icons/plusButton.svg" alt="">
                 </div>
                 <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')"
-                    ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
+                    ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')">
+                </div>
             </div>
             <div class="todosplit">
                 <div class="tablecolumntitle">
-                    <span>In Progress</span>
+                    <span class="bold-task-title">In Progress</span>
                     <img src="../icons/plusButton.svg" alt="">
                 </div>
                 <div id="inprogress" class="todoscontainer" ondragover="allowDrop(event); highlight('inprogress')"
@@ -443,7 +444,7 @@ function templateBoard() {
             </div>
             <div class="todosplit">
                 <div class="tablecolumntitle">
-                    <span>Await Feedback</span>
+                    <span class="bold-task-title">Await Feedback</span>
                     <img src="../icons/plusButton.svg" alt="">
                 </div>
                 <div id="awaitfeedback" class="todoscontainer" ondragover="allowDrop(event); highlight('awaitfeedback')"
@@ -451,7 +452,7 @@ function templateBoard() {
             </div>
             <div class="todosplit">
                 <div class="tablecolumntitle">
-                    <span>Done</span>
+                    <span class="bold-task-title">Done</span>
                 </div>
                 <div id="done" class="todoscontainer" ondragover="allowDrop(event); highlight('done')"
                     ondrop="moveTo('done')" ondragleave="removeHighlight('done')"></div>

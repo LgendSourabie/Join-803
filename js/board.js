@@ -91,7 +91,6 @@ function renderToDos() {
   forlooprender('done');
 }
 
-
 function forlooprender(test) {
   let todo = tasks.filter(t => t['taskboard'] == test);
 
@@ -107,7 +106,6 @@ function forlooprender(test) {
     }
   }
 }
-
 
 function filterTodosByTitle() {
   let input = document.getElementById('taskInput');
@@ -134,13 +132,17 @@ function renderFilteredTodos(filteredTodos) {
 
 function todotemplate(currentElement) {
   return /*html*/ `
- <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${currentElement.id})">
+ <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${
+    currentElement.id
+  })">
     <button>${currentElement.category}</button>
     <b>${currentElement.title}</b>
     <span>${currentElement.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100}%">
+            <div class="progress" style="width: ${
+              (currentElement.progress.length / currentElement.subtasks.length) * 100
+            }%">
             </div>
         </div>  
         <div>${currentElement.progress.length}/${currentElement.subtasks.length}Subtasks</div> 
@@ -170,22 +172,22 @@ function todowindowtemplate(i) {
         <h1>${tasks[i].title}</h1>
         <span class="overlaydiscription">${tasks[i].discription}</span>
         <div class="overlaytable">
-            <span>Due date:</span>
+            <span class="gray-clr">Due date:</span>
             <span>${tasks[i]['due date']}</span>
         </div>
         <div class="overlaytable">
-            <span>Priority</span>
-            <div>
+            <span class="gray-clr">Priority</span>
+            <div class='align-item-center'>
                 <span>${tasks[i].category}</span>
                 <img src="${tasks[i].prio}" alt="">
             </div>
         </div>
         <div class="overlayassigned">
-            <div>Assinged to:</div>
+            <div class="gray-clr">Assinged to:</div>
             <div id="contacts"></div>
         </div>
         <div class="overlayassigned">
-            <span>Subtasks</span>
+            <span class="gray-clr">Subtasks</span>
             <div id="subtasks"></div>
         </div>
         <div class="overlaychange">
@@ -203,8 +205,8 @@ function todowindowtemplate(i) {
 `;
 }
 async function initializeCheckboxStates() {
-   await loadTasks();
-   tasks.forEach(todo => {
+  await loadTasks();
+  tasks.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
   });
 }
@@ -218,8 +220,10 @@ function createSubtasks(i) {
   for (let j = 0; j < tasks[i].subtasks.length; j++) {
     const element = tasks[i].subtasks[j];
     subtasksContainer.innerHTML += /*html*/ `
-        <div>
-            <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
+        <div class="align-horizontally">
+            <img id="checkbox${j}" src="${
+      tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'
+    }" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
            <span>${element}</span> 
         </div>
     `;
@@ -242,7 +246,7 @@ function changecheckbox(j, i, subtaskIndex) {
     if (indexToRemove !== -1) {
       tasks[i].progress.splice(indexToRemove, 1);
     }
-  };
+  }
 
   renderToDos();
 }
@@ -392,7 +396,7 @@ function edittask(i) {
 }
 
 function edittasktemplate(i) {
-  return /*html*/`
+  return /*html*/ `
             <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
         <div class="addTaskContainerLeftRight">
             <div class="addTaskContainerOneflyin">
@@ -485,9 +489,52 @@ function edittasktemplate(i) {
             </div>
         </div>
     </form>
-  `
+  `;
 }
 
 async function loadTasks() {
-  tasks = JSON.parse(await getItem("tasks"));
+  tasks = JSON.parse(await getItem('tasks'));
+}
+
+// horizontal scrolling functionality
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+function sliderEffect(id) {
+  const slider = document.getElementById(id);
+  slider.addEventListener('mousedown', e => mouseDown(e));
+  slider.addEventListener('mouseleave', e => mouseLeave(e));
+  slider.addEventListener('mouseup', e => mouseUp(e));
+  slider.addEventListener('mousemove', e => mouseMove(e));
+
+  function mouseDown(e) {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  }
+
+  function mouseLeave(e) {
+    isDown = false;
+  }
+
+  function mouseUp(e) {
+    isDown = false;
+  }
+
+  function mouseMove(e) {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const scrollContainer = (x - startX) * 2;
+    slider.scrollLeft = scrollLeft - scrollContainer;
+  }
+}
+
+function sliderScroll() {
+  sliderEffect('todo');
+  sliderEffect('inprogress');
+  sliderEffect('awaitfeedback');
+  sliderEffect('done');
 }
