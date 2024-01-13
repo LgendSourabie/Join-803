@@ -79,11 +79,9 @@
 //   },
 // ];
 
-
 let currentDraggedElement;
 
 async function renderToDos() {
-
   forlooprender('todo');
 
   forlooprender('inprogress');
@@ -94,7 +92,6 @@ async function renderToDos() {
 
   await loadContacts();
 }
-
 
 function forlooprender(test) {
   let todo = tasks.filter(t => t['taskboard'] == test);
@@ -111,7 +108,6 @@ function forlooprender(test) {
     }
   }
 }
-
 
 function filterTodosByTitle(inputfield) {
   let input = document.getElementById(inputfield);
@@ -138,13 +134,17 @@ function renderFilteredTodos(filteredTodos) {
 
 function todotemplate(currentElement) {
   return /*html*/ `
- <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${currentElement.id})">
+ <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${
+    currentElement.id
+  })">
     <button>${currentElement.category}</button>
     <b>${currentElement.title}</b>
     <span>${currentElement.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100}%">
+            <div class="progress" style="width: ${
+              (currentElement.progress.length / currentElement.subtasks.length) * 100
+            }%">
             </div>
         </div>  
         <div>${currentElement.progress.length}/${currentElement.subtasks.length}Subtasks</div> 
@@ -174,22 +174,22 @@ function todowindowtemplate(i) {
         <h1>${tasks[i].title}</h1>
         <span class="overlaydiscription">${tasks[i].discription}</span>
         <div class="overlaytable">
-            <span>Due date:</span>
+            <span class="gray-clr">Due date:</span>
             <span>${tasks[i]['due date']}</span>
         </div>
         <div class="overlaytable">
-            <span>Priority</span>
-            <div>
+            <span class="gray-clr">Priority</span>
+            <div class='align-item-center'>
                 <span>${tasks[i].category}</span>
                 <img src="${tasks[i].prio}" alt="">
             </div>
         </div>
         <div class="overlayassigned">
-            <div>Assinged to:</div>
+            <div class="gray-clr">Assinged to:</div>
             <div id="contacts"></div>
         </div>
         <div class="overlayassigned">
-            <span>Subtasks</span>
+            <span class="gray-clr">Subtasks</span>
             <div id="subtasks"></div>
         </div>
         <div class="overlaychange">
@@ -213,7 +213,6 @@ function initializeCheckboxStates() {
   });
 }
 
-
 function createSubtasks(i) {
   const subtasksContainer = document.getElementById('subtasks');
   subtasksContainer.innerHTML = ''; // Clear the content before appending
@@ -221,8 +220,10 @@ function createSubtasks(i) {
   for (let j = 0; j < tasks[i].subtasks.length; j++) {
     const element = tasks[i].subtasks[j];
     subtasksContainer.innerHTML += /*html*/ `
-        <div onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
-            <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="">
+        <div class="align-horizontally">
+            <img id="checkbox${j}" src="${
+      tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'
+    }" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
            <span>${element}</span> 
         </div>
     `;
@@ -232,7 +233,7 @@ function createSubtasks(i) {
 function changecheckbox(j, i, subtaskIndex) {
   console.log('Function triggered with:', j, i, subtaskIndex);
   const checkbox = document.getElementById(j);
-  console.log(checkbox.src)
+  console.log(checkbox.src);
   if (checkbox.src.includes('uncheckBox.svg')) {
     checkbox.src = '../icons/checkButton.svg';
     tasks[i].checkboxStates[subtaskIndex] = true;
@@ -246,7 +247,7 @@ function changecheckbox(j, i, subtaskIndex) {
     if (indexToRemove !== -1) {
       tasks[i].progress.splice(indexToRemove, 1);
     }
-  };
+  }
 
   console.log('Updated checkboxStates:', tasks[i].checkboxStates);
   console.log('Updated progress array:', tasks[i].progress);
@@ -399,23 +400,26 @@ async function edittask(i) {
 
   document.getElementById('edittitle').value = tasks[i].title;
   document.getElementById('editdescription').value = tasks[i].discription;
-  document.getElementById('edittitle').value = tasks[i].title;
+  document.getElementById('date').value = tasks[i].dueDate;
+  document.getElementById('selectCategory').value = tasks[i].category;
 
+  btns = tasks[i].assignedTo;
   options();
-  renderAssignedTo(i);
+  renderBtn();
+  askcheckstate();
 }
 
+function askcheckstate() {}
 
-const renderAssignedTo = function (index) {
-  let btnUserProfile = document.getElementById('btn-grp');
-  btnUserProfile.innerHTML = '';
-  for (let i = 0; i < tasks[index].assignedTo.length; i++) {
-    const btn = tasks[index].assignedTo[i];
-    btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
-    document.getElementById(`optBtn${i}`).style.backgroundColor = tasks[index].assignedTo[i]['bgColor'];
-  }
-}
-
+// const renderAssignedTo = function (index) {
+//   let btnUserProfile = document.getElementById('btn-grp');
+//   btnUserProfile.innerHTML = '';
+//   for (let i = 0; i < tasks[index].assignedTo.length; i++) {
+//     const btn = tasks[index].assignedTo[i];
+//     btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
+//     document.getElementById(`optBtn${i}`).style.backgroundColor = tasks[index].assignedTo[i]['bgColor'];
+//   }
+// }
 
 function renderOptionsAssignedTo() {
 
@@ -423,8 +427,8 @@ function renderOptionsAssignedTo() {
 
 
 function edittasktemplate(i) {
-  return /*html*/`
-            <form class="addTaskOverviewContainered edittaskOverview" onsubmit="createTask(); return false" >
+  return /*html*/ `
+            <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
         <div class="addTaskContainerLeftRight">
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
@@ -507,9 +511,52 @@ function edittasktemplate(i) {
             </div>
         </div>
     </form>
-  `
+  `;
 }
 
 async function loadTasks() {
-  tasks = JSON.parse(await getItem("tasks"));
+  tasks = JSON.parse(await getItem('tasks'));
+}
+
+// horizontal scrolling functionality
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+function sliderEffect(id) {
+  const slider = document.getElementById(id);
+  slider.addEventListener('mousedown', e => mouseDown(e));
+  slider.addEventListener('mouseleave', e => mouseLeave(e));
+  slider.addEventListener('mouseup', e => mouseUp(e));
+  slider.addEventListener('mousemove', e => mouseMove(e));
+
+  function mouseDown(e) {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  }
+
+  function mouseLeave(e) {
+    isDown = false;
+  }
+
+  function mouseUp(e) {
+    isDown = false;
+  }
+
+  function mouseMove(e) {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const scrollContainer = (x - startX) * 2;
+    slider.scrollLeft = scrollLeft - scrollContainer;
+  }
+}
+
+function sliderScroll() {
+  sliderEffect('todo');
+  sliderEffect('inprogress');
+  sliderEffect('awaitfeedback');
+  sliderEffect('done');
 }

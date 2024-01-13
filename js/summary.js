@@ -1,6 +1,5 @@
 'use strict';
 
-
 const showSubmenu = function () {
   let element = document.getElementById('submenu-user');
   element.classList.toggle('d-none');

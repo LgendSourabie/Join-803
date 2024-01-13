@@ -26,7 +26,12 @@
     <!-- END FAVICON -->
     <title>Dashboard</title>
   </head>
+<<<<<<< HEAD
+  <!-- renderTask() -->
+  <body class="summary-body" onload="init() "> 
+=======
   <body class="summary-body" onload="init(); loadTasks()">
+>>>>>>> c2192a8379b4c27d9fe3827a452a97280ce49db3
     <div class="container-summary disp-flex">
       <div class="left-side-section disp-flex">
         <div class="section-1">
@@ -43,7 +48,7 @@
             <p id="addTask-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
-          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard()); sliderScroll();toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
             <img id="bord-img" class="icons-left-side-section cursor-ptr" src="../icons/board.svg" alt="Board" />
             <p id="bord-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
@@ -95,14 +100,14 @@
                   <div class="todo do-task disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
                     <img class="task-icons-blue" src="../icons/edit.svg" alt="TO-DO" />
                     <div class="middle">
-                      <span id="todo" class="var-task">0</span>
+                      <span id="todoID" class="var-task">0</span>
                       <span class="task-text ft-sz-400">To-do</span>
                     </div>
                   </div>
                   <div class="done do-task disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
                     <img class="task-icons-blue" src="../icons/check.svg" alt="TO-DO" />
                     <div class="middle">
-                      <span id="done" class="var-task">0</span>
+                      <span id="doneID" class="var-task">0</span>
                       <span class="task-text ft-sz-400">Done</span>
                     </div>
                   </div>
@@ -111,13 +116,13 @@
                   <div class="urgent disp-flex task-due-common">
                     <img class="task-icons" src="../icons/urgent.svg" alt="Urgent" />
                     <div class="middle">
-                      <span id="urgent" class="var-task">0</span>
+                      <span id="urgentID" class="var-task">0</span>
                       <span class="task-text ft-sz-400">Urgent</span>
                     </div>
                   </div>
                   <div class="gray-separator-line"></div>
                   <div class="upcomming-deadline disp-flex task-due-common">
-                    <span id="due-date" class="due-date">October 16, 2022</span>
+                    <span id="due-dateID" class="due-date">October 16, 2022</span>
                     <span class="task-text ft-sz-400">Upcomming Deadline</span>
                   </div>
                 </div>
