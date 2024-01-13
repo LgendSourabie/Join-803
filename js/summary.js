@@ -1,6 +1,5 @@
 'use strict';
 
-
 const showSubmenu = function () {
   let element = document.getElementById('submenu-user');
   element.classList.toggle('d-none');
@@ -57,7 +56,7 @@ const dueDateNextTask = function () {
 // };
 
 async function loadTasks() {
-  tasks = JSON.parse(await getItem("tasks"));
+  tasks = JSON.parse(await getItem('tasks'));
 }
 
 // const renderAlltask=function(){
