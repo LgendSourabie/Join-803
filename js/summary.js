@@ -58,6 +58,7 @@ const dueDateNextTask = function () {
 
 async function loadTasks() {
   tasks = JSON.parse(await getItem("tasks"));
+  
 }
 
 // const renderAlltask=function(){

@@ -208,7 +208,7 @@ function todowindowtemplate(i) {
 }
 
 function initializeCheckboxStates() {
-   tasks.forEach(todo => {
+  tasks.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
   });
 }
@@ -394,7 +394,7 @@ function templateOpenaddtask() {
 async function edittask(i) {
   let todowindow = document.getElementById('showtodowindow');
   todowindow.classList.add('showtodowindow');
- 
+
   todowindow.innerHTML = edittasktemplate(i);
 
   document.getElementById('edittitle').value = tasks[i].title;
@@ -414,6 +414,11 @@ const renderAssignedTo = function (index) {
     btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
     document.getElementById(`optBtn${i}`).style.backgroundColor = tasks[index].assignedTo[i]['bgColor'];
   }
+}
+
+
+function renderOptionsAssignedTo() {
+
 }
 
 
