@@ -206,9 +206,6 @@ function todowindowtemplate(i) {
     </div>
 `;
 }
-async function initializeCheckboxStates() {
-  await loadTasks();
-  tasks.forEach(todo => {
 
 function initializeCheckboxStates() {
    tasks.forEach(todo => {
