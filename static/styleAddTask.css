@@ -68,7 +68,7 @@ body {
   display: flex;
   flex-direction: column;
   padding-top: 7rem;
-  padding-left: 7rem;
+  padding-left: 3.5rem;
 }
 
 .addTaskContainerLeftRight {
@@ -634,6 +634,11 @@ li {
     margin-top: 155px;
   }
 
+  .options {
+    top: 415px;
+    width: 64%;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -661,7 +666,7 @@ li {
 
   .options {
     top: 415px;
-    width: 64%;
+    width: 82%;
   }
 
 }
