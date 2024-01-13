@@ -289,9 +289,8 @@ function deleteSubtask(i) {
   let title = document.getElementById('title').value;
   let description = document.getElementById('description').value;
   let date = document.getElementById('date').value;
-  let assignedTo = btns.map(btn=>btn.name);
+  let assignedTo = btns;  //.map(btn=>btn.name)
   let category = document.getElementById('selectCategory').value;
-
   if (!categories.includes(category)) {
     categories.push(category);
   }
@@ -326,7 +325,7 @@ function saveArray(val1, val2, val3, val4, val5, prios, val6) {
     discription: `${val2}`,
     dueDate: `${val3}`,
     category: `${val4}`,
-    assignedTo: `${val5}`,
+    assignedTo: val5,
     prio: `${prios[prios.length - 1]}`,
     subtasks: `${val6}`,
     progress: [],
