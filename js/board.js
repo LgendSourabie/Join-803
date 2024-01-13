@@ -399,22 +399,30 @@ async function edittask(i) {
 
   document.getElementById('edittitle').value = tasks[i].title;
   document.getElementById('editdescription').value = tasks[i].discription;
-  document.getElementById('edittitle').value = tasks[i].title;
+  document.getElementById('date').value = tasks[i].dueDate;
+  document.getElementById('selectCategory').value = tasks[i].category;
 
+  btns = tasks[i].assignedTo;
   options();
-  renderAssignedTo(i);
+  renderBtn();
+  askcheckstate();
+}
+
+function askcheckstate(){
+
 }
 
 
-const renderAssignedTo = function (index) {
-  let btnUserProfile = document.getElementById('btn-grp');
-  btnUserProfile.innerHTML = '';
-  for (let i = 0; i < tasks[index].assignedTo.length; i++) {
-    const btn = tasks[index].assignedTo[i];
-    btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
-    document.getElementById(`optBtn${i}`).style.backgroundColor = tasks[index].assignedTo[i]['bgColor'];
-  }
-}
+
+// const renderAssignedTo = function (index) {
+//   let btnUserProfile = document.getElementById('btn-grp');
+//   btnUserProfile.innerHTML = '';
+//   for (let i = 0; i < tasks[index].assignedTo.length; i++) {
+//     const btn = tasks[index].assignedTo[i];
+//     btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
+//     document.getElementById(`optBtn${i}`).style.backgroundColor = tasks[index].assignedTo[i]['bgColor'];
+//   }
+// }
 
 
 function edittasktemplate(i) {
