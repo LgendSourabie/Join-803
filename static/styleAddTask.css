@@ -63,53 +63,6 @@ body {
   height: 121.97px;
 }
 
-.sidesContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 229px;
-  gap: 15px;
-}
-
-.sides {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(174, 176, 179);
-  height: 46px;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.sides:hover {
-  cursor: pointer;
-}
-
-.sidebarFooter {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  color: rgb(137, 140, 144);
-  margin-bottom: 52px;
-  gap: 4px;
-}
-
-.spanSidebarFooter {
-  padding: 8px;
-  gap: 8px;
-}
-
-.spanSidebarFooter:hover {
-  cursor: pointer;
-  color: #29ABE2;
-}
-
-.seperatorAddTask {
-  width: 100%;
-  height: 3px;
-  background-color: rgb(227, 228, 229);
-}
-
 .addTaskContainer {
   background-color: rgb(246, 247, 248);
   display: flex;
@@ -132,7 +85,6 @@ body {
 }
 
 .addTaskContainerTwo{
-  margin-top: 270px;
   width: 880px;
 }
 
@@ -277,6 +229,7 @@ select:hover {
   display: flex;
   justify-content: space-between;
   width: 880px;
+  margin-top: 250px;
 }
 
 .footerAddTaskButtons {
@@ -350,11 +303,6 @@ select:hover {
 }
 
 .containerLeftSpan {
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.sidebarSpan {
   font-size: 20px;
   font-weight: 400;
 }
@@ -457,57 +405,13 @@ li {
   right: 0px;
 }
 
-/* RESPONSIVE DESIGN */
-
-.sidebarContainerResponsive {
-  display: none;
-  justify-content: center;
-  background-color: #2a3647;
-  height: 80px;
-  gap: 15px;
-}
-
-.sidesContainerResponsive {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-around;
-  color: rgb(174, 176, 179);
-}
-
-.sidesResponsive {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.sidesResponsive:hover {
+.subtasksPlusIMGNew:hover, .newSubtaskImgsHover:hover {
   cursor: pointer;
+  background-color: lightgrey;
+  border-radius: 50%;
 }
 
-.sidesImgResponsive {
-  width: 24px;
-  height: 24px;
-}
-
-.addTaskHeadlineResponsive {
-  display: none;
-}
-
-.joinLogoResponsive {
-  width: 32px;
-  height: 39.02px;
-}
-
-.activeResponsive {
-  background-color: #091931;
-  height: 76px;
-  width: 80px;
-  gap: 10px;
-  border-radius: 16px;
-}
+/* RESPONSIVE DESIGN */
 
 .testPrio {
   width: 136px;
@@ -550,6 +454,7 @@ li {
   background-color: #FFFFFF;
   border-radius: 10px;
   margin-top: 12px;
+  z-index: 200;
 }
 
 .option {
@@ -567,6 +472,7 @@ li {
   display: flex;
   width: 36%;
 }
+
 .test4 {
   width: 50%;
   display: flex;
@@ -673,7 +579,6 @@ li {
   }
 
   .addTaskContainerTwo {
-    margin-top: 130px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -681,10 +586,14 @@ li {
 
   .footerAddTask {
     width: 80%;
+    margin-top: 125px;
   }
 
   .options {
     margin-top: 13px;
+    position: absolute;
+    top: 456px;
+    width: 67%;
   }
 
   .btn-grp {
@@ -699,18 +608,6 @@ li {
     font-size: 56px;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
-
-  .sidebarContainer {
-    display: none;
-  }
-
-  .sidebarContainerResponsive {
-    display: flex;
-    justify-content: center;
-    background-color: #2a3647;
-    height: 80px;
-    gap: 15px;
   }
 
   .addTaskHeadline {
@@ -733,8 +630,8 @@ li {
     padding-left: 0;
   }
 
-  .addTaskContainerTwo {
-    margin-top: 175px;
+  .footerAddTask {
+    margin-top: 155px;
   }
 
 }
@@ -743,10 +640,6 @@ li {
 
   .addTaskContainerOne {
     padding-top: 3rem;
-  }
-
-  .addTaskContainerTwo {
-    margin-top: 60px;
   }
 
   h2 {
@@ -763,6 +656,12 @@ li {
 
   .footerAddTask {
     width: 80%;
+    margin-top: 100px;
+  }
+
+  .options {
+    top: 415px;
+    width: 64%;
   }
 
 }
@@ -776,10 +675,6 @@ li {
 
   .helpIMG {
     display: none;
-  }
-
-  .sidebarSpanResponsive {
-    font-size: 14px;
   }
 
   .prioSelection {
@@ -817,13 +712,17 @@ li {
     position: fixed;
   }
 
-}
+  .spanOption {
+    margin-left: 10px;
+  }
 
-@media (max-width: 430px) {
+  .footerAddTask {
+    margin-top: 60px;
+  }
 
-  /* .addTaskContainerTwo {
-    margin-top: 20px;
-  } */
+  .options {
+    width: 75%;
+  }
 
 }
 
@@ -845,6 +744,11 @@ li {
     font-size: 40px;
     margin-top: 5px;
     margin-bottom: 5px;
+  }
+
+  .options {
+    width: 84%;
+    top: 386px;
   }
 
 }

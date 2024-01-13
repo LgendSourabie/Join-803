@@ -81,7 +81,7 @@
 
 let currentDraggedElement;
 
-function renderToDos() {
+async function renderToDos() {
   forlooprender('todo');
 
   forlooprender('inprogress');
@@ -89,6 +89,8 @@ function renderToDos() {
   forlooprender('awaitfeedback');
 
   forlooprender('done');
+
+  await loadContacts();
 }
 
 function forlooprender(test) {
@@ -107,8 +109,8 @@ function forlooprender(test) {
   }
 }
 
-function filterTodosByTitle() {
-  let input = document.getElementById('taskInput');
+function filterTodosByTitle(inputfield) {
+  let input = document.getElementById(inputfield);
   let filter = input.value.toLowerCase();
 
   let filteredTodos = tasks.filter(function (todo) {
@@ -207,11 +209,12 @@ function todowindowtemplate(i) {
 async function initializeCheckboxStates() {
   await loadTasks();
   tasks.forEach(todo => {
+
+function initializeCheckboxStates() {
+   tasks.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
   });
 }
-
-initializeCheckboxStates();
 
 function createSubtasks(i) {
   const subtasksContainer = document.getElementById('subtasks');
@@ -231,9 +234,10 @@ function createSubtasks(i) {
 }
 
 function changecheckbox(j, i, subtaskIndex) {
+  console.log('Function triggered with:', j, i, subtaskIndex);
   const checkbox = document.getElementById(j);
-
-  if (checkbox.src.endsWith('../icons/uncheckBox.svg')) {
+  console.log(checkbox.src);
+  if (checkbox.src.includes('uncheckBox.svg')) {
     checkbox.src = '../icons/checkButton.svg';
     tasks[i].checkboxStates[subtaskIndex] = true;
     tasks[i].progress.push(tasks[i].subtasks[subtaskIndex]);
@@ -248,6 +252,8 @@ function changecheckbox(j, i, subtaskIndex) {
     }
   }
 
+  console.log('Updated checkboxStates:', tasks[i].checkboxStates);
+  console.log('Updated progress array:', tasks[i].progress);
   renderToDos();
 }
 
@@ -389,11 +395,34 @@ function templateOpenaddtask() {
     `;
 }
 
-function edittask(i) {
+async function edittask(i) {
   let todowindow = document.getElementById('showtodowindow');
   todowindow.classList.add('showtodowindow');
+
   todowindow.innerHTML = edittasktemplate(i);
+
+  document.getElementById('edittitle').value = tasks[i].title;
+  document.getElementById('editdescription').value = tasks[i].discription;
+  document.getElementById('date').value = tasks[i].dueDate;
+  document.getElementById('selectCategory').value = tasks[i].category;
+
+  btns = tasks[i].assignedTo;
+  options();
+  renderBtn();
+  askcheckstate();
 }
+
+function askcheckstate() {}
+
+// const renderAssignedTo = function (index) {
+//   let btnUserProfile = document.getElementById('btn-grp');
+//   btnUserProfile.innerHTML = '';
+//   for (let i = 0; i < tasks[index].assignedTo.length; i++) {
+//     const btn = tasks[index].assignedTo[i];
+//     btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
+//     document.getElementById(`optBtn${i}`).style.backgroundColor = tasks[index].assignedTo[i]['bgColor'];
+//   }
+// }
 
 function edittasktemplate(i) {
   return /*html*/ `
@@ -401,23 +430,17 @@ function edittasktemplate(i) {
         <div class="addTaskContainerLeftRight">
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
-                <div class="groupButtonForm">
-                    <div class="test2">
-                    <div class="h2Container">
-                        <h2>Add Task</h2>
-                    </div>
-                </div>
                 <div class="test3">
                     <div class="containerLeft">
                         <div class="titleAddTask addTaskOverview">
                             <span class="containerLeftSpan">Title
                                 <span class="star">*</span>
                             </span>
-                            <input onclick="changeBorderColor(this)" id="title" class="inputAddTask" type="text" placeholder="Enter a title" required>
+                            <input onclick="changeBorderColor(this)" id="edittitle" class="inputAddTask" type="text" placeholder="Enter a title" required>
                         </div>
                         <div class="descriptionAddTask addTaskOverview">
                             <span class="containerLeftSpan">Description</span>
-                            <textarea onclick="changeBorderColor(this)" id="description" class="textAreaAddTask" placeholder="Enter a Description"></textarea>
+                            <textarea onclick="changeBorderColor(this)" id="editdescription" class="textAreaAddTask" placeholder="Enter a Description"></textarea>
                         </div>
                         <div class="assignedAddTask addTaskOverview">
                             <span class="containerLeftSpan">Assigned to</span>
@@ -476,11 +499,8 @@ function edittasktemplate(i) {
                                 <span>This field is required</span>
                             </div>
                             <div class="footerAddTaskButtons">
-                                <div onclick="closeAddContact()" id="clearButton" class="clearButton">
-                                  <span>Cancel X</span>
-                                </div>
-                                <button id="createTaskButton" class="createTaskButton">
-                                    <span>Create Task</span>
+                                <button onclick="changetodo()" id="createTaskButton" class="createTaskButton">
+                                    <span>OK</span>
                                     <img class="imgCheck" src="../img/img/check.svg" alt="">
                                 </button>
                             </div>

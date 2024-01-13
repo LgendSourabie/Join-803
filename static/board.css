@@ -376,6 +376,12 @@ body {
   padding-left: 1rem;
 }
 
+.edittaskOverview{
+  background-color: white;
+  padding: 2rem 2rem 2rem 2rem;
+  border-radius: 1.2rem;
+}
+
 @media (width<=800px) {
   .todosection {
     flex-direction: column;
