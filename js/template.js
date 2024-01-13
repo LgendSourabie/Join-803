@@ -160,7 +160,7 @@ function templateAddTask() {
                             <div class="footerAddTaskButtons">
                                 <div onclick="clearTask()" id="clearButton" class="clearButton">
                                     <span>Clear X</span>
-                                    </div>
+                                  </div>
                                 <button id="createTaskButton" class="createTaskButton">
                                     <span>Create Task</span>
                                     <img class="imgCheck" src="../img/img/check.svg" alt="">
