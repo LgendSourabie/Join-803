@@ -1,17 +1,18 @@
 let btns = [];
 let liste = [];
 let tasks = [];
-// let users = [];
-// let users = [];
 let prios = [];
 let subtasks = [];
 let usersSelect = [];
 let usersAssigned = [];
 let categories = ['Technical Task', 'User Story'];
 
+
+// Function to load contacts by parsing a JSON string retrieved from storage
 async function loadContacts() {
   contacts = JSON.parse(await getItem("contacts"));
 }
+
 
 // This function is responsible for loading data from local storage.
 function load() {
@@ -20,6 +21,7 @@ function load() {
     liste = JSON.parse(des);
   }
 }
+
 
 // This function serves as an initializer, orchestrating various tasks to set up the application.
 async function initialize() {
@@ -30,6 +32,7 @@ async function initialize() {
   addCategory();
   defaultPrio();
 }
+
 
 // This function changes the source (image) attribute of three HTML elements based on their IDs.
 function changeColorPrio(id, id2, id3, currentsrc, src, src2, src3) {
@@ -48,21 +51,23 @@ function changeColorPrio(id, id2, id3, currentsrc, src, src2, src3) {
   }
 }
 
+
 // Function to add priority to the array
 function prio(id) {
   prios.push(id);
 }
+
 
 // Function to set the default priority
 function defaultPrio() {
   prio('Medium');
 }
 
+
 // Function to populate a dropdown list with task categories
 function addCategory() {
   let select = document.getElementById('selectCategory');
   select.innerHTML = `<option id="selectCategory" value="">Select task Category</option>`;
-
   for (let i = 0; i < categories.length; i++) {
     let currentCategory = categories[i];
     select.innerHTML += /*html*/ `
@@ -71,10 +76,12 @@ function addCategory() {
   }
 }
 
+
 // Function to get the ID of the subtasks
 function addNewSubtask() {
   document.getElementById('subtasks');
 }
+
 
 // Function to change the display of the element with the ID 'subtasksCancelIMG' to 'block' and then calls the subtaskIMGS function.
 function changeSubtaskImg() {
@@ -82,6 +89,7 @@ function changeSubtaskImg() {
   plusSubtask.style.display = 'block';
   subtaskIMGS();
 }
+
 
 // Function to change the images
 function subtaskIMGS() {
@@ -95,9 +103,10 @@ function subtaskIMGS() {
         element.setAttribute('src', '../img/img/subtasksPlus.svg');
         plusSubtask.style.display = 'none';
     }
-   
 }
 
+
+// Function to change two images and controls the display of an element based on a condition
 function NewSubtaskIMGS() {
     let element = document.getElementById('subtasksPlusIMG');
     let plusSubtask = document.getElementById('subtasksCancelIMG');
@@ -111,6 +120,8 @@ function NewSubtaskIMGS() {
     }  
 }
 
+
+// Function to switches the visibility of elements for editing based on the provided index
 function changeButton(index){
   let element = document.getElementById(`test_test${index}`);
   let listEl = document.getElementById(`list${index}`);
@@ -135,6 +146,8 @@ function checkNewSubtask() {
   singleSubtask.value='';
 }
 
+
+// Function for subtask input, adds to 'subtasks', renders updates, and clears input.
 function checkNewSubtaskEdit(i) {
   let element = document.getElementById('newSubtaskImgsHover');
   let currentIMG = element.getAttribute('src');
@@ -147,6 +160,7 @@ function checkNewSubtaskEdit(i) {
   singleSubtask.value='';
 }
 
+
 // Function to render the subtasks by updating the content of the element with the ID 'subtasksList'.
 const renderSubtask = function () {
   let subtaskField = document.getElementById('subtasksList');
@@ -158,6 +172,7 @@ const renderSubtask = function () {
 }
 
 
+// Function for HTML for the render Subtask
 function renderSubtaskHTMLTemplate(i, subtask) {
   return /*html*/`
       <div class="newSubtaskContainerTwo" id="list${i}">
@@ -181,11 +196,6 @@ function renderSubtaskHTMLTemplate(i, subtask) {
   `;
 }
 
-// function addNewSubtaskEdit(i) {
-//   let editContainer = document.getElementById(`test_test${i}`);
-//   editContainer.style.display = "none";
-// }
-
 
 // Function to edit subtasks
 function editSubtask(i) {
@@ -193,10 +203,13 @@ function editSubtask(i) {
   changeButton(i);
 }
 
+
+// Function to delete the Subtask Input
 function deleteSubtaskInput() {
  document.getElementById('subtasks').value = '';
  renderSubtask();
 }
+
 
 // Function to delete subtasks
 function deleteSubtask(i) {
@@ -215,10 +228,10 @@ function deleteSubtask(i) {
   if (!categories.includes(category)) {
     categories.push(category);
   }
-
   tasks.push (saveArray(title, description, date, category, assignedTo, prios, subtasks));
   await setItem('tasks', JSON.stringify(tasks));
 }
+
 
 // Function to clear/reset values in the task creation form
 function clearTask() {
@@ -229,6 +242,7 @@ function clearTask() {
   initialize();
 }
 
+
 // Function to load an HTML page
 function loadHTML(page) {
   windows.location.href = `
@@ -236,11 +250,10 @@ function loadHTML(page) {
     `;
 }
 
+
 // Function to save task details to local storage
 function saveArray(val1, val2, val3, val4, val5, prios, val6) {
-
   let identification = tasks.length;
-
     return {
     title: `${val1}`,
     discription: `${val2}`,
@@ -256,6 +269,7 @@ function saveArray(val1, val2, val3, val4, val5, prios, val6) {
   };
 }
 
+
 // Function to show the users
 function options() {
   let field = document.getElementById('options');
@@ -270,6 +284,8 @@ function options() {
   }
 }
 
+
+// Function for HTML for the options
 function optionsHTMLTemplate(i, option, initial, color) {
   return /*html*/`
     <div class="option" id="cont${i}" onclick="updateBtn(${i});changeCheckState(${i})">
@@ -288,16 +304,17 @@ function optionsHTMLTemplate(i, option, initial, color) {
   `;
 }
 
+
 // Function to switches the CSS class of the element with the specified ID to show or hide options
 function showOptions(id, className) {
   document.getElementById(id).classList.toggle(className);
 }
 
+
 // Function to change the checkbox
 function changeCheckState(index) {
   let field = document.getElementById(`checkBox${index}`);
   let currentState = field.getAttribute('src');
-
   if (currentState === '../img/img/checkBox.svg') {
     field.setAttribute('src', '../img/img/Check_button-white.svg');
   } if (currentState === '../img/img/Check_button-white.svg') {
@@ -305,13 +322,13 @@ function changeCheckState(index) {
   } 
 }
 
+
 // Function to update the button
 function updateBtn(index) {
   let btnUserProfile = document.getElementById('btn-grp');
   let initial = document.getElementById(`btn-${index}`).innerHTML;
   let namePerson = document.getElementById(`name${index}`).innerHTML;
   let bgColor = document.getElementById(`btn-${index}`).style.backgroundColor;
-
   let existingIndex = btns.findIndex(btn => btn.name === namePerson);
   if (existingIndex !== -1) {
     btns.splice(existingIndex, 1);
@@ -321,6 +338,7 @@ function updateBtn(index) {
   showOptions(`cont${index}`, 'newColor');
   renderBtn();
 }
+
 
 // Function to update the buttons under the options
 const renderBtn = function () {
@@ -333,6 +351,7 @@ const renderBtn = function () {
   }
 }
 
+
 // Function to change the border color
 function changeBorderColor(element) {
   if (element.style.borderColor === 'rgb(41, 171, 226)') {
@@ -341,6 +360,7 @@ function changeBorderColor(element) {
     element.style.borderColor = '#29ABE2';
   }
 }
+
 
 // Function that calls the functions changeBorderColor and showOptions
 function handleDropdownClick(element) {
