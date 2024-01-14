@@ -715,15 +715,15 @@ li {
 
   .footerAddTask {
     justify-content: center;
-    position: fixed;
+    margin-top: 65px;
+  }
+
+  .createTaskButton {
+    margin-bottom: 100px;
   }
 
   .spanOption {
     margin-left: 10px;
-  }
-
-  .footerAddTask {
-    margin-top: 60px;
   }
 
   .options {
@@ -755,6 +755,10 @@ li {
   .options {
     width: 84%;
     top: 386px;
+  }
+
+  .footerAddTask {
+    margin-bottom: 100px;
   }
 
 }

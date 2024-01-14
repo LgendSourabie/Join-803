@@ -192,7 +192,7 @@ function todowindowtemplate(i) {
             <div id="subtasks"></div>
         </div>
         <div class="overlaychange">
-            <div class="overlaydelete">
+            <div onclick="deletetask(${i})" class="overlaydelete">
                 <img src="../icons/delete.svg" alt="">
                 <span>Delete</span>
             </div>
@@ -579,6 +579,15 @@ function edittasktemplate(i) {
         </div>
 </div>
   `;
+}
+
+async function deletetask(i){
+  if (confirm("Sind Sie sicher?")== true) {
+    tasks.splice(i,1);
+    await setItem('tasks', JSON.stringify(tasks));
+    loadboard();
+  }
+  showtodowindow(i);
 }
 
 async function loadTasks() {
