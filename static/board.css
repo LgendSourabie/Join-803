@@ -382,6 +382,21 @@ body {
   border-radius: 1.2rem;
 }
 
+.addTaskContainerBoard{
+  background-color: white;
+    width: fit-content;
+    padding: 20px 30px;
+    border-radius: 30px;
+}
+
+.footerAddTaskBoard{
+  display: flex;
+  justify-content: space-between;
+  width: 880px;
+  margin-top: 50px;
+}
+
+
 @media (width<=800px) {
   .todosection {
     flex-direction: column;
