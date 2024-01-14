@@ -427,6 +427,16 @@ body {
   width: 100%;
 }
 
+.editTaskContainer{
+  background: white;
+  border-radius: 30px;
+  padding: 20px 20px;
+}
+
+
+
+
+
 
 @media (width<=800px) {
   .todosection {
@@ -457,6 +467,31 @@ body {
 
   .todocard {
     width: 15.25rem;
+  }
+
+  /* Edit HS */
+  
+  .footerEditTask{
+    margin-top: 0 !important;
+  }
+  
+  .btnGrpEditTask{
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  .btnEditTask button{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .prioSelection img{
+    width: 33%;
+  }
+
+  .editTaskTest1{
+    display: flex;
+    justify-content: center;
   }
 }
 

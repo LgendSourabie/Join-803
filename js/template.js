@@ -80,7 +80,7 @@ function templateAddTask() {
   return /*html*/ `
 <div id="add-task-page" class="addTaskContainer">
     <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
-        <div class="addTaskContainerLeftRight">
+        <div class=" addTaskContainerLeftRight">
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
                 <div class="groupButtonForm">

@@ -493,12 +493,12 @@ function renderOptionsAssignedTo() {
 
 function edittasktemplate(i) {
   return /*html*/ `
-            <div class="addTaskOverviewContainer">
+            <div class="addTaskOverviewContainer editTaskContainer">
             <img class="closeEdit" src="../icons/close.svg" alt="" onclick="closetodowindow()">
         <div class="addTaskContainerLeftRight">
 
             <div class="addTaskContainerOneflyin">
-                <div class="test1">
+                <div class="test1 editTaskTest1">
                 <div class="test3">
                     <div class="containerLeft">
                         <div class="titleAddTask addTaskOverview">
@@ -518,7 +518,7 @@ function edittasktemplate(i) {
                                 <img class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
                               </div>
                             <div id="options" class="options d-none"></div>
-                              <div id="btn-grp" class="btn"></div>
+                              <div id="btn-grp" class="btn btnEditTask"></div>
                         </div>
                     </div>
                     <div class="seperatorContainer"></div>
@@ -562,7 +562,7 @@ function edittasktemplate(i) {
                 </div>
             </div>
                 <div class="addTaskContainerTwo">
-                        <div class="footerAddTask">
+                        <div class="footerAddTask footerEditTask">
                             <div class="spanFooter">
                                 <span class="star">*</span>
                                 <span>This field is required</span>

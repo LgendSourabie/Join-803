@@ -124,7 +124,7 @@ function addAndEditTemplate() {
                       <input type="number" minlength="4" placeholder="Phone" class="add-contact-input" id="telephone-input" required>
                       <img src="../icons/telephone.svg" alt="telephone-icon">
                   </div>
-                  <div class="d-flex">
+                  <div class="buttons-create-contact d-flex">
                     <button type="button" class="cancel-contact-button" onclick="closeAddContact()">Cancel</button>
                     <button type="submit" class="create-contact-button" id="button-add-edit"></button> 
                   </div>
