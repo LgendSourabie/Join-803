@@ -148,7 +148,7 @@ function todotemplate(currentElement) {
         <div>${currentElement.progress.length}/${currentElement.subtasks.length}Subtasks</div> 
     </div>
     <div class="assignedprio">
-        <div>contacts</div>
+        <div id="btn-grp" class="btn"></div>
         <img src="${currentElement.prio}" alt="">
     </div>
 </div>
@@ -184,7 +184,7 @@ function todowindowtemplate(i) {
         </div>
         <div class="overlayassigned">
             <div class="gray-clr">Assinged to:</div>
-            <div id="contacts"></div>
+            <div id="btn-grp" class="btn"></div>
         </div>
         <div class="overlayassigned">
             <span class="gray-clr">Subtasks</span>
