@@ -291,7 +291,7 @@ function templateOpenaddtask() {
     <div id="fly-in-container">
         <div class="addTaskContainerFlyin">
 
-        <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
+        <form class="addTaskContainerBoard addTaskOverviewContainer" onsubmit="createTask(); return false">
         <div class="addTaskContainerLeftRight">
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
@@ -363,7 +363,7 @@ function templateOpenaddtask() {
                 </div>
                 </div>
             </div>
-                <div class="addTaskContainerTwo">
+                <div class="marginTop-200 addTaskContainerTwo">
                         <div class="footerAddTask">
                             <div class="spanFooter">
                                 <span class="star">*</span>

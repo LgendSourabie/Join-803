@@ -733,8 +733,4 @@ function loadboard(){
   sliderScroll();
   toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg');
   renderToDos();
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 454183d0eab23f926414bd069ba145b32e14fa4d
