@@ -268,7 +268,7 @@ function saveArray(val1, val2, val3, val4, val5, prios, val6) {
     dueDate: `${val3}`,
     category: `${val4}`,
     assignedTo: val5,
-    prio: `${tasks.length - 1}`,
+    prio: `${prios[prios.length - 1]}`,
     subtasks: val6,
     progress: [],
     id: identification,
