@@ -148,7 +148,7 @@ function todotemplate(currentElement) {
         <div>${currentElement.progress.length}/${currentElement.subtasks.length}Subtasks</div> 
     </div>
     <div class="assignedprio">
-        <div id="btn-grp" class="btn"></div>
+        <div id="" class="btn"></div>
         <img src="${currentElement.prio}" alt="">
     </div>
 </div>
@@ -404,9 +404,22 @@ async function edittask(i) {
   options();
   renderBtn();
   askcheckstate();
+  checkprio(i);
 }
 
 function askcheckstate() { }
+
+function checkprio(i){
+  if (tasks[i].prio.includes('../icons/priourgent.svg')) {
+    changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')
+  }
+  if (tasks[i].prio.includes('../icons/priomedium.svg')) {
+    changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')
+  }
+  if (tasks[i].prio.includes('../icons/priolow.svg')) {
+    changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')
+  }
+}
 
 // const renderAssignedTo = function (index) {
 //   let btnUserProfile = document.getElementById('btn-grp');
