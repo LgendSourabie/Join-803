@@ -473,6 +473,7 @@ body {
   
   .footerEditTask{
     margin-top: 0 !important;
+    margin-bottom: 0;
   }
   
   .btnGrpEditTask{
@@ -481,7 +482,6 @@ body {
   }
   
   .btnEditTask button{
-    margin-top: 0;
     margin-bottom: 0;
   }
 
@@ -492,6 +492,9 @@ body {
   .editTaskTest1{
     display: flex;
     justify-content: center;
+  }
+  .createTaskButtonEditTask{
+    margin-bottom: 0 !important;
   }
 }
 
