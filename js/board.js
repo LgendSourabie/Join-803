@@ -364,7 +364,7 @@ function templateOpenaddtask() {
                 </div>
             </div>
                 <div class="addTaskContainerTwo">
-                        <div class=".footerAddTaskBoard">
+                        <div class="footerAddTaskBoard">
                             <div class="spanFooter">
                                 <span class="star">*</span>
                                 <span>This field is required</span>

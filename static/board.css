@@ -340,6 +340,30 @@ body {
   display: none;
 }
 
+.headlineAndAddTask{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.headlineAndAddTask button{
+  background-color: #2a3647;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headlineAndAddTask h1{
+  font-size: 47px;
+}
+
+.headlineAndAddTask img{
+  height: 20px;
+}
+
 .notask {
   width: 15.25rem;
 }

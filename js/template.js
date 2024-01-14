@@ -404,7 +404,7 @@ function templateBoard() {
         <div id="board-page" class="mainSection">
         <div class="section1">
             <div class="hiddenheadline">
-              <div>
+              <div class="headlineAndAddTask">
                 <h1>Board</h1>
                 <button onclick="openAddtask()"><img src="../icons/add.svg" alt=""></button>
               </div>
