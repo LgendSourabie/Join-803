@@ -460,38 +460,8 @@ body {
   }
 }
 
+
 @media (width<=1050px) {
-  .section1 h1 {
-    font-size: 2.5rem;
-  }
-
-  .addandsearch {
-    width: auto;
-  }
-
-  .searchtask {
-    width: 15rem;
-  }
-
-  .searchtask input {
-    width: auto;
-  }
-
-  .searchtask img {
-    width: auto;
-  }
-
-  .addandsearch button {
-    width: auto;
-    font-size: 1rem;
-  }
-
-  .addandsearch button img {
-    width: auto;
-  }
-}
-
-@media (width<=900px) {
   .headline {
     display: none;
   }
