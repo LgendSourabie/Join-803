@@ -80,6 +80,7 @@
 // ];
 
 let currentDraggedElement;
+let edittodo = [];
 
 async function renderToDos() {
   forlooprender('todo');
@@ -205,6 +206,8 @@ function todowindowtemplate(i) {
 `;
 }
 
+
+
 function initializeCheckboxStates() {
   tasks.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
@@ -285,6 +288,7 @@ function openAddtask() {
   setTimeout(() => {
     document.getElementById('fly-in-container').classList.add('fly-in-add-edit');
   }, 50);
+  addCategory();
 }
 
 function templateOpenaddtask() {
@@ -406,7 +410,6 @@ async function edittask(i) {
   askcheckstate();
   checkprio(i);
   
-  addCategory();
   checkcategory(i);
 
   subtasks = tasks[i].subtasks;
@@ -425,14 +428,22 @@ async function saveEditTask(i) {
   if (!categories.includes(category)) {
     categories.push(category);
   }
-
-  tasks[i] = saveArray(title, description, date, category, assignedTo, prios, subtasks);
+  edittodo = [];
+  edittodo.push (saveArray(title, description, date, category, assignedTo, prios, subtasks));
+  tasks[i] = edittodo[0];
   await setItem('tasks', JSON.stringify(tasks));
+  loadboard();
 }
 
 function checkcategory(i){
   let select = document.getElementById('selectCategory');
   select.innerHTML = `<option id="selectCategory" value="${tasks[i].category}">${tasks[i].category}</option>`;
+  for (let i = 0; i < categories.length; i++) {
+    let currentCategory = categories[i];
+    select.innerHTML += /*html*/ `
+            <option id="selectCategory-${i}" value="${currentCategory}">${currentCategory}</option>
+    `;
+  }
 }
 
 function askcheckstate() { }
@@ -466,7 +477,7 @@ function renderOptionsAssignedTo() {
 
 function edittasktemplate(i) {
   return /*html*/ `
-            <form class="addTaskOverviewContainer" onsubmit="saveEditTask(i); return false">
+            <form class="addTaskOverviewContainer" onsubmit="saveEditTask(${i}); return false">
         <div class="addTaskContainerLeftRight">
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
