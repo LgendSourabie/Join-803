@@ -226,7 +226,7 @@ function createSubtasks(i) {
   }
 }
 
-function changecheckbox(j, i, subtaskIndex) {
+async function changecheckbox(j, i, subtaskIndex) {
   console.log('Function triggered with:', j, i, subtaskIndex);
   const checkbox = document.getElementById(j);
   console.log(checkbox.src);
@@ -248,6 +248,7 @@ function changecheckbox(j, i, subtaskIndex) {
   console.log('Updated checkboxStates:', tasks[i].checkboxStates);
   console.log('Updated progress array:', tasks[i].progress);
   renderToDos();
+  await setItem('tasks', JSON.stringify(tasks))
 }
 
 function startDragging(id) {
