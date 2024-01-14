@@ -430,10 +430,25 @@ async function saveEditTask(i) {
   if (!categories.includes(category)) {
     categories.push(category);
   }
-  edittodo = [];
-  tasks[i] = saveArray(title, description, date, category, assignedTo, prios, subtasks);
+  tasks[i] = saveEditArray(title, description, date, category, assignedTo, prios, subtasks, i);
   await setItem('tasks', JSON.stringify(tasks));
   loadboard();
+}
+
+function saveEditArray(val1, val2, val3, val4, val5, prios, val6, i) {
+    return {
+    title: `${val1}`,
+    discription: `${val2}`,
+    dueDate: `${val3}`,
+    category: `${val4}`,
+    assignedTo: val5,
+    prio: `${prios[prios.length - 1]}`,
+    subtasks: val6,
+    progress: tasks[i].progress,
+    id: i,
+    taskboard: tasks[i].taskboard,
+    checkboxStates: tasks[i].checkboxStates,
+  };
 }
 
 function checkcategory(i){
