@@ -158,10 +158,6 @@ select {
   outline: none;
 }
 
-select:hover {
-  border-color: grey;
-}
-
 .subtasksPlusIMG:hover {
   cursor: pointer;
   background-color: lightgrey;
