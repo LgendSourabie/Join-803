@@ -271,7 +271,7 @@ function saveArray(val1, val2, val3, val4, val5, prios, val6) {
     prio: `${prios[prios.length - 1]}`,
     subtasks: val6,
     progress: [],
-    id: identification,
+    id: identification-1,
     taskboard: 'todo',
     checkboxStates: [],
   };
