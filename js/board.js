@@ -219,8 +219,8 @@ function createSubtasks(i) {
     const element = tasks[i].subtasks[j];
     subtasksContainer.innerHTML += /*html*/ `
         <div class="align-horizontally">
-          <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
-          <span>${element}</span> 
+            <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
+           <span>${element}</span> 
         </div>
     `;
   }

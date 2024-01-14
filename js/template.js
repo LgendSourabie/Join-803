@@ -160,7 +160,7 @@ function templateAddTask() {
                             <div class="footerAddTaskButtons">
                                 <div onclick="clearTask()" id="clearButton" class="clearButton">
                                     <span>Clear X</span>
-                                    </div>
+                                  </div>
                                 <button id="createTaskButton" class="createTaskButton">
                                     <span>Create Task</span>
                                     <img class="imgCheck" src="../img/img/check.svg" alt="">
@@ -733,4 +733,8 @@ function loadboard(){
   sliderScroll();
   toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg');
   renderToDos();
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 454183d0eab23f926414bd069ba145b32e14fa4d

@@ -225,13 +225,21 @@ function deleteSubtask(i) {
   let date = document.getElementById('date').value;
   let assignedTo = btns;  //.map(btn=>btn.name)
   let category = document.getElementById('selectCategory').value;
+  let state = subtasks.map(returnfalse);
+
+  console.log(state)
   if (!categories.includes(category)) {
     categories.push(category);
   }
+
   tasks.push (saveArray(title, description, date, category, assignedTo, prios, subtasks));
   await setItem('tasks', JSON.stringify(tasks));
+  loadboard();
 }
 
+function returnfalse() {
+  return false; 
+}
 
 // Function to clear/reset values in the task creation form
 function clearTask() {
@@ -261,7 +269,7 @@ function saveArray(val1, val2, val3, val4, val5, prios, val6) {
     category: `${val4}`,
     assignedTo: val5,
     prio: `${prios[prios.length - 1]}`,
-    subtasks: `${val6}`,
+    subtasks: val6,
     progress: [],
     id: identification,
     taskboard: 'todo',
