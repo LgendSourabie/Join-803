@@ -339,9 +339,9 @@ function templateOpenaddtask() {
                         <div class="addTaskOverview">
                             <span class="containerLeftSpan">Prio</span>
                             <div id="prio" class="prioSelection">
-                                <img id="colorUrgentImg" onclick="prio('Urgent'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
-                                <img id="colorMediumImg" onclick="prio('Medium'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
-                                <img id="colorLowImg" onclick="prio('Low'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
+                                <img id="colorUrgentImg" onclick="prio('../icons/priourgent.svg'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
+                                <img id="colorMediumImg" onclick="prio('../icons/priomedium.svg'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
+                                <img id="colorLowImg" onclick="prio('../icons/priolow.svg'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
                             </div>
                         </div>
                         <div class="categoryAddTask addTaskOverview">
@@ -417,8 +417,8 @@ async function edittask(i) {
 }
 
 async function saveEditTask(i) {
-  let title = document.getElementById('title').value;
-  let description = document.getElementById('description').value;
+  let title = document.getElementById('edittitle').value;
+  let description = document.getElementById('editdescription').value;
   let date = document.getElementById('date').value;
   let assignedTo = btns;  //.map(btn=>btn.name)
   let category = document.getElementById('selectCategory').value;
@@ -429,8 +429,7 @@ async function saveEditTask(i) {
     categories.push(category);
   }
   edittodo = [];
-  edittodo.push (saveArray(title, description, date, category, assignedTo, prios, subtasks));
-  tasks[i] = edittodo[0];
+  tasks[i] = saveArray(title, description, date, category, assignedTo, prios, subtasks);
   await setItem('tasks', JSON.stringify(tasks));
   loadboard();
 }
@@ -477,7 +476,7 @@ function renderOptionsAssignedTo() {
 
 function edittasktemplate(i) {
   return /*html*/ `
-            <form class="addTaskOverviewContainer" onsubmit="saveEditTask(${i}); return false">
+            <div class="addTaskOverviewContainer">
             <img class="closeEdit" src="../icons/close.svg" alt="" onclick="closetodowindow()">
         <div class="addTaskContainerLeftRight">
 
@@ -516,9 +515,9 @@ function edittasktemplate(i) {
                         <div class="addTaskOverview">
                             <span class="containerLeftSpan">Prio</span>
                             <div id="prio" class="prioSelection">
-                                <img id="colorUrgentImg" onclick="prio('Urgent'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
-                                <img id="colorMediumImg" onclick="prio('Medium'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
-                                <img id="colorLowImg" onclick="prio('Low'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
+                                <img id="colorUrgentImg" onclick="prio('../icons/priourgent.svg'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
+                                <img id="colorMediumImg" onclick="prio('../icons/priomedium.svg'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
+                                <img id="colorLowImg" onclick="prio('../icons/priolow.svg'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
                             </div>
                         </div>
                         <div class="categoryAddTask addTaskOverview">
@@ -552,7 +551,7 @@ function edittasktemplate(i) {
                                 <span>This field is required</span>
                             </div>
                             <div class="footerAddTaskButtons">
-                                <button id="createTaskButton" class="createTaskButton">
+                                <button onclick="saveEditTask(${i})" id="createTaskButton" class="createTaskButton">
                                     <span>OK</span>
                                     <img class="imgCheck" src="../img/img/check.svg" alt="">
                                 </button>
@@ -561,7 +560,7 @@ function edittasktemplate(i) {
                 </div>
             </div>
         </div>
-    </form>
+</div>
   `;
 }
 
