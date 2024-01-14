@@ -340,6 +340,30 @@ body {
   display: none;
 }
 
+.headlineAndAddTask{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.headlineAndAddTask button{
+  background-color: #2a3647;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headlineAndAddTask h1{
+  font-size: 47px;
+}
+
+.headlineAndAddTask img{
+  height: 20px;
+}
+
 .notask {
   width: 15.25rem;
 }
@@ -381,6 +405,21 @@ body {
   padding: 2rem 2rem 2rem 2rem;
   border-radius: 1.2rem;
 }
+
+.addTaskContainerBoard{
+  background-color: white;
+    width: fit-content;
+    padding: 20px 30px;
+    border-radius: 30px;
+}
+
+.footerAddTaskBoard{
+  display: flex;
+  justify-content: space-between;
+  width: 880px;
+  margin-top: 50px;
+}
+
 
 @media (width<=800px) {
   .todosection {

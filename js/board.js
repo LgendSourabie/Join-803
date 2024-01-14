@@ -134,23 +134,21 @@ function renderFilteredTodos(filteredTodos) {
 
 function todotemplate(currentElement) {
   return /*html*/ `
- <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${
-    currentElement.id
-  })">
+ <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${currentElement.id
+    })">
     <button>${currentElement.category}</button>
     <b>${currentElement.title}</b>
     <span>${currentElement.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${
-              (currentElement.progress.length / currentElement.subtasks.length) * 100
-            }%">
+            <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100
+    }%">
             </div>
         </div>  
         <div>${currentElement.progress.length}/${currentElement.subtasks.length}Subtasks</div> 
     </div>
     <div class="assignedprio">
-        <div>contacts</div>
+        <div id="" class="btn"></div>
         <img src="${currentElement.prio}" alt="">
     </div>
 </div>
@@ -186,7 +184,7 @@ function todowindowtemplate(i) {
         </div>
         <div class="overlayassigned">
             <div class="gray-clr">Assinged to:</div>
-            <div id="contacts"></div>
+            <div id="btn-grp" class="btn"></div>
         </div>
         <div class="overlayassigned">
             <span class="gray-clr">Subtasks</span>
@@ -208,7 +206,7 @@ function todowindowtemplate(i) {
 }
 
 function initializeCheckboxStates() {
-   tasks.forEach(todo => {
+  tasks.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
   });
 }
@@ -228,7 +226,7 @@ function createSubtasks(i) {
   }
 }
 
-function changecheckbox(j, i, subtaskIndex) {
+async function changecheckbox(j, i, subtaskIndex) {
   console.log('Function triggered with:', j, i, subtaskIndex);
   const checkbox = document.getElementById(j);
   console.log(checkbox.src);
@@ -250,6 +248,7 @@ function changecheckbox(j, i, subtaskIndex) {
   console.log('Updated checkboxStates:', tasks[i].checkboxStates);
   console.log('Updated progress array:', tasks[i].progress);
   renderToDos();
+  await setItem('tasks', JSON.stringify(tasks))
 }
 
 function startDragging(id) {
@@ -293,7 +292,7 @@ function templateOpenaddtask() {
     <div id="fly-in-container">
         <div class="addTaskContainerFlyin">
 
-        <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
+        <form class="addTaskContainerBoard addTaskOverviewContainer" onsubmit="createTask(); return false">
         <div class="addTaskContainerLeftRight">
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
@@ -366,7 +365,7 @@ function templateOpenaddtask() {
                 </div>
             </div>
                 <div class="addTaskContainerTwo">
-                        <div class="footerAddTask">
+                        <div class="footerAddTaskBoard">
                             <div class="spanFooter">
                                 <span class="star">*</span>
                                 <span>This field is required</span>
@@ -405,9 +404,22 @@ async function edittask(i) {
   options();
   renderBtn();
   askcheckstate();
+  checkprio(i);
 }
 
-function askcheckstate() {}
+function askcheckstate() { }
+
+function checkprio(i){
+  if (tasks[i].prio.includes('../icons/priourgent.svg')) {
+    changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')
+  }
+  if (tasks[i].prio.includes('../icons/priomedium.svg')) {
+    changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')
+  }
+  if (tasks[i].prio.includes('../icons/priolow.svg')) {
+    changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')
+  }
+}
 
 // const renderAssignedTo = function (index) {
 //   let btnUserProfile = document.getElementById('btn-grp');
@@ -418,6 +430,11 @@ function askcheckstate() {}
 //     document.getElementById(`optBtn${i}`).style.backgroundColor = tasks[index].assignedTo[i]['bgColor'];
 //   }
 // }
+
+function renderOptionsAssignedTo() {
+
+}
+
 
 function edittasktemplate(i) {
   return /*html*/ `
