@@ -478,7 +478,9 @@ function renderOptionsAssignedTo() {
 function edittasktemplate(i) {
   return /*html*/ `
             <form class="addTaskOverviewContainer" onsubmit="saveEditTask(${i}); return false">
+            <img class="closeEdit" src="../icons/close.svg" alt="" onclick="closetodowindow()">
         <div class="addTaskContainerLeftRight">
+
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
                 <div class="test3">

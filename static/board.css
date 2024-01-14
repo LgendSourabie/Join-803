@@ -420,6 +420,13 @@ body {
   margin-top: 50px;
 }
 
+.closeEdit{
+  display: flex;
+  justify-content: flex-end;
+  height: 20px;
+  width: 100%;
+}
+
 
 @media (width<=800px) {
   .todosection {
