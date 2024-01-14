@@ -33,6 +33,10 @@ button, input {
     justify-content: space-between;
 }
 
+.justify-content-center{
+    justify-content: space-between;
+}
+
 .align-items-start{
     align-items: flex-start;
 }
@@ -708,4 +712,27 @@ button, input {
         display: none;
     }
 
+    
+}
+
+@media(max-width:4000px) {
+    .buttons-create-contact{
+        justify-content: center;
+    }
+
+    .add-contact-data-inputs{
+        max-width: 90vw;
+    }
+
+    .add-contact-data-inputs div{
+        max-width: 85vw;
+    }
+
+    .add-contact-data-inputs input{
+        max-width: 70vw;
+    }
+
+    .create-contact-button{
+        font-size: 19px;
+    }
 }
