@@ -289,6 +289,8 @@ function openAddtask() {
     document.getElementById('fly-in-container').classList.add('fly-in-add-edit');
   }, 50);
   addCategory();
+  options();
+  renderBtn();
 }
 
 function templateOpenaddtask() {
