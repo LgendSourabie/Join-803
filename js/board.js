@@ -413,6 +413,23 @@ async function edittask(i) {
   renderSubtask();
 }
 
+async function saveEditTask(i) {
+  let title = document.getElementById('title').value;
+  let description = document.getElementById('description').value;
+  let date = document.getElementById('date').value;
+  let assignedTo = btns;  //.map(btn=>btn.name)
+  let category = document.getElementById('selectCategory').value;
+  let state = subtasks.map(returnfalse);
+
+  console.log(state)
+  if (!categories.includes(category)) {
+    categories.push(category);
+  }
+
+  tasks[i] = saveArray(title, description, date, category, assignedTo, prios, subtasks);
+  await setItem('tasks', JSON.stringify(tasks));
+}
+
 function checkcategory(i){
   let select = document.getElementById('selectCategory');
   select.innerHTML = `<option id="selectCategory" value="${tasks[i].category}">${tasks[i].category}</option>`;
@@ -449,7 +466,7 @@ function renderOptionsAssignedTo() {
 
 function edittasktemplate(i) {
   return /*html*/ `
-            <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
+            <form class="addTaskOverviewContainer" onsubmit="saveEditTask(i); return false">
         <div class="addTaskContainerLeftRight">
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
@@ -522,7 +539,7 @@ function edittasktemplate(i) {
                                 <span>This field is required</span>
                             </div>
                             <div class="footerAddTaskButtons">
-                                <button onclick="changetodo()" id="createTaskButton" class="createTaskButton">
+                                <button id="createTaskButton" class="createTaskButton">
                                     <span>OK</span>
                                     <img class="imgCheck" src="../img/img/check.svg" alt="">
                                 </button>

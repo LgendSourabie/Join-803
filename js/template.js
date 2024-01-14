@@ -406,7 +406,7 @@ function templateBoard() {
             <div class="hiddenheadline">
               <div class="headlineAndAddTask">
                 <h1>Board</h1>
-                <button onclick="openAddtask()"><img src="../icons/add.svg" alt=""></button>
+                <button onclick="loadAddTask()"><img src="../icons/add.svg" alt=""></button>
               </div>
               <div class="searchtaskhidden">
                 <input id="taskInputhidden" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
@@ -733,4 +733,11 @@ function loadboard(){
   sliderScroll();
   toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg');
   renderToDos();
+}
+
+function loadAddTask(){
+  render(templateAddTask()); 
+  clearTask();  
+  initialize(); 
+  toggleButtonColor('second-bg','addTask-text','addTask-img','../icons/addTask-white.svg');
 }
