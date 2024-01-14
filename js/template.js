@@ -727,3 +727,10 @@ function templateLegalNotice() {
 
     `;
 }
+
+function loadboard(){
+  render(templateBoard());
+  sliderScroll();
+  toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg');
+  renderToDos();
+}

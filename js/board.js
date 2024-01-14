@@ -134,17 +134,15 @@ function renderFilteredTodos(filteredTodos) {
 
 function todotemplate(currentElement) {
   return /*html*/ `
- <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${
-    currentElement.id
-  })">
+ <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${currentElement.id
+    })">
     <button>${currentElement.category}</button>
     <b>${currentElement.title}</b>
     <span>${currentElement.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${
-              (currentElement.progress.length / currentElement.subtasks.length) * 100
-            }%">
+            <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100
+    }%">
             </div>
         </div>  
         <div>${currentElement.progress.length}/${currentElement.subtasks.length}Subtasks</div> 
@@ -221,10 +219,8 @@ function createSubtasks(i) {
     const element = tasks[i].subtasks[j];
     subtasksContainer.innerHTML += /*html*/ `
         <div class="align-horizontally">
-            <img id="checkbox${j}" src="${
-      tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'
-    }" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
-           <span>${element}</span> 
+          <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
+          <span>${element}</span> 
         </div>
     `;
   }
@@ -409,7 +405,7 @@ async function edittask(i) {
   askcheckstate();
 }
 
-function askcheckstate() {}
+function askcheckstate() { }
 
 // const renderAssignedTo = function (index) {
 //   let btnUserProfile = document.getElementById('btn-grp');
