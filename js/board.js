@@ -80,6 +80,7 @@
 // ];
 
 let currentDraggedElement;
+let edittodo = [];
 
 async function renderToDos() {
   forlooprender('todo');
@@ -205,6 +206,8 @@ function todowindowtemplate(i) {
 `;
 }
 
+
+
 function initializeCheckboxStates() {
   tasks.forEach(todo => {
     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
@@ -285,6 +288,9 @@ function openAddtask() {
   setTimeout(() => {
     document.getElementById('fly-in-container').classList.add('fly-in-add-edit');
   }, 50);
+  addCategory();
+  options();
+  renderBtn();
 }
 
 function templateOpenaddtask() {
@@ -335,9 +341,9 @@ function templateOpenaddtask() {
                         <div class="addTaskOverview">
                             <span class="containerLeftSpan">Prio</span>
                             <div id="prio" class="prioSelection">
-                                <img id="colorUrgentImg" onclick="prio('Urgent'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
-                                <img id="colorMediumImg" onclick="prio('Medium'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
-                                <img id="colorLowImg" onclick="prio('Low'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
+                                <img id="colorUrgentImg" onclick="prio('../icons/priourgent.svg'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
+                                <img id="colorMediumImg" onclick="prio('../icons/priomedium.svg'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
+                                <img id="colorLowImg" onclick="prio('../icons/priolow.svg'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
                             </div>
                         </div>
                         <div class="categoryAddTask addTaskOverview">
@@ -406,7 +412,6 @@ async function edittask(i) {
   askcheckstate();
   checkprio(i);
   
-  addCategory();
   checkcategory(i);
 
   subtasks = tasks[i].subtasks;
@@ -414,8 +419,8 @@ async function edittask(i) {
 }
 
 async function saveEditTask(i) {
-  let title = document.getElementById('title').value;
-  let description = document.getElementById('description').value;
+  let title = document.getElementById('edittitle').value;
+  let description = document.getElementById('editdescription').value;
   let date = document.getElementById('date').value;
   let assignedTo = btns;  //.map(btn=>btn.name)
   let category = document.getElementById('selectCategory').value;
@@ -425,14 +430,21 @@ async function saveEditTask(i) {
   if (!categories.includes(category)) {
     categories.push(category);
   }
-
+  edittodo = [];
   tasks[i] = saveArray(title, description, date, category, assignedTo, prios, subtasks);
   await setItem('tasks', JSON.stringify(tasks));
+  loadboard();
 }
 
 function checkcategory(i){
   let select = document.getElementById('selectCategory');
   select.innerHTML = `<option id="selectCategory" value="${tasks[i].category}">${tasks[i].category}</option>`;
+  for (let i = 0; i < categories.length; i++) {
+    let currentCategory = categories[i];
+    select.innerHTML += /*html*/ `
+            <option id="selectCategory-${i}" value="${currentCategory}">${currentCategory}</option>
+    `;
+  }
 }
 
 function askcheckstate() { }
@@ -466,8 +478,10 @@ function renderOptionsAssignedTo() {
 
 function edittasktemplate(i) {
   return /*html*/ `
-            <form class="addTaskOverviewContainer" onsubmit="saveEditTask(i); return false">
+            <div class="addTaskOverviewContainer">
+            <img class="closeEdit" src="../icons/close.svg" alt="" onclick="closetodowindow()">
         <div class="addTaskContainerLeftRight">
+
             <div class="addTaskContainerOneflyin">
                 <div class="test1">
                 <div class="test3">
@@ -503,9 +517,9 @@ function edittasktemplate(i) {
                         <div class="addTaskOverview">
                             <span class="containerLeftSpan">Prio</span>
                             <div id="prio" class="prioSelection">
-                                <img id="colorUrgentImg" onclick="prio('Urgent'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
-                                <img id="colorMediumImg" onclick="prio('Medium'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
-                                <img id="colorLowImg" onclick="prio('Low'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
+                                <img id="colorUrgentImg" onclick="prio('../icons/priourgent.svg'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
+                                <img id="colorMediumImg" onclick="prio('../icons/priomedium.svg'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
+                                <img id="colorLowImg" onclick="prio('../icons/priolow.svg'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
                             </div>
                         </div>
                         <div class="categoryAddTask addTaskOverview">
@@ -539,7 +553,7 @@ function edittasktemplate(i) {
                                 <span>This field is required</span>
                             </div>
                             <div class="footerAddTaskButtons">
-                                <button id="createTaskButton" class="createTaskButton">
+                                <button onclick="saveEditTask(${i})" id="createTaskButton" class="createTaskButton">
                                     <span>OK</span>
                                     <img class="imgCheck" src="../img/img/check.svg" alt="">
                                 </button>
@@ -548,7 +562,7 @@ function edittasktemplate(i) {
                 </div>
             </div>
         </div>
-    </form>
+</div>
   `;
 }
 
