@@ -405,6 +405,17 @@ async function edittask(i) {
   renderBtn();
   askcheckstate();
   checkprio(i);
+  
+  addCategory();
+  checkcategory(i);
+
+  subtasks = tasks[i].subtasks;
+  renderSubtask();
+}
+
+function checkcategory(i){
+  let select = document.getElementById('selectCategory');
+  select.innerHTML = `<option id="selectCategory" value="${tasks[i].category}">${tasks[i].category}</option>`;
 }
 
 function askcheckstate() { }
