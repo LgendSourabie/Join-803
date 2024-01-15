@@ -105,8 +105,7 @@ function forlooprender(test) {
   } else {
     for (let index = 0; index < todo.length; index++) {
       const element = todo[index];
-      container.innerHTML += todotemplate(element, index);
-      assigned(element.id, 'assignedCard');
+      container.innerHTML += todotemplate(element);
     }
   }
 }
@@ -131,25 +130,26 @@ function renderFilteredTodos(filteredTodos) {
   for (let index = 0; index < filteredTodos.length; index++) {
     const element = filteredTodos[index];
     document.getElementById(element.taskboard).innerHTML += todotemplate(element);
-    assigned(element.id, 'assignedCard');
   }
 }
 
 function todotemplate(currentElement) {
   return /*html*/ `
- <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement.id})" onclick="showtodowindow(${currentElement.id})">
+ <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${currentElement.id
+    })">
     <button>${currentElement.category}</button>
     <b>${currentElement.title}</b>
     <span>${currentElement.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100}%">
+            <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100
+    }%">
             </div>
         </div>  
         <div>${currentElement.progress.length}/${currentElement.subtasks.length}Subtasks</div> 
     </div>
     <div class="assignedprio">
-        <div id="assignedCard${currentElement.id}" class="btn"></div>
+        <div id="" class="btn"></div>
         <img src="${currentElement.prio}" alt="">
     </div>
 </div>
@@ -161,7 +161,6 @@ function showtodowindow(i) {
   todowindow.classList.add('showtodowindow');
   todowindow.innerHTML = todowindowtemplate(i);
   createSubtasks(i);
-  assigned(i, 'assigned');
 }
 
 function todowindowtemplate(i) {
@@ -175,7 +174,7 @@ function todowindowtemplate(i) {
         <span class="overlaydiscription">${tasks[i].discription}</span>
         <div class="overlaytable">
             <span class="gray-clr">Due date:</span>
-            <span>${tasks[i].dueDate}</span>
+            <span>${tasks[i]['due date']}</span>
         </div>
         <div class="overlaytable">
             <span class="gray-clr">Priority</span>
@@ -186,7 +185,7 @@ function todowindowtemplate(i) {
         </div>
         <div class="overlayassigned">
             <div class="gray-clr">Assinged to:</div>
-            <div id="assigned" class="btn"></div>
+            <div id="btn-grp" class="btn"></div>
         </div>
         <div class="overlayassigned">
             <span class="gray-clr">Subtasks</span>
@@ -208,22 +207,12 @@ function todowindowtemplate(i) {
 }
 
 
-function assigned(index , assigned) {
-  btns = tasks[index].assignedTo;
-  let btnUserProfile = document.getElementById(assigned+index);
-  btnUserProfile.innerHTML = '';
-  for (let i = 0; i < btns.length; i++) {
-    const btn = btns[i];
-    btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
-    document.getElementById(`optBtn${i}`).style.backgroundColor = btns[i]['bgColor'];
-  }
-}
 
-// function initializeCheckboxStates() {
-//   tasks.forEach(todo => {
-//     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
-//   });
-// }
+function initializeCheckboxStates() {
+  tasks.forEach(todo => {
+    todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
+  });
+}
 
 function createSubtasks(i) {
   const subtasksContainer = document.getElementById('subtasks');
@@ -273,10 +262,9 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-async function moveTo(category) {
+function moveTo(category) {
   tasks[currentDraggedElement]['taskboard'] = category;
   removeHighlight(category);
-  await setItem('tasks', JSON.stringify(tasks));
   renderToDos();
 }
 
@@ -580,7 +568,7 @@ function edittasktemplate(i) {
                                 <span>This field is required</span>
                             </div>
                             <div class="footerAddTaskButtons">
-                                <button onclick="saveEditTask(${i})" id="createTaskButton" class="createTaskButton">
+                                <button onclick="saveEditTask(${i})" id="createTaskButton" class="createTaskButton createTaskButtonEditTask">
                                     <span>OK</span>
                                     <img class="imgCheck" src="../img/img/check.svg" alt="">
                                 </button>
