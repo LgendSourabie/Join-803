@@ -60,7 +60,7 @@ function prio(id) {
 
 // Function to set the default priority
 function defaultPrio() {
-  prio('Medium');
+  prio('../icons/priomedium.svg');
 }
 
 
@@ -235,6 +235,7 @@ function deleteSubtask(i) {
   tasks.push (saveArray(title, description, date, category, assignedTo, prios, subtasks));
   await setItem('tasks', JSON.stringify(tasks));
   loadboard();
+  btns = [];
 }
 
 function returnfalse() {
@@ -271,7 +272,7 @@ function saveArray(val1, val2, val3, val4, val5, prios, val6) {
     prio: `${prios[prios.length - 1]}`,
     subtasks: val6,
     progress: [],
-    id: identification-1,
+    id: identification,
     taskboard: 'todo',
     checkboxStates: [],
   };
