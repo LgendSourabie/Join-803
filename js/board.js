@@ -83,6 +83,10 @@ let currentDraggedElement;
 let edittodo = [];
 
 async function renderToDos() {
+  await loadContacts();
+  
+  renewID();
+
   forlooprender('todo');
 
   forlooprender('inprogress');
@@ -91,7 +95,14 @@ async function renderToDos() {
 
   forlooprender('done');
 
-  await loadContacts();
+  
+}
+
+function renewID(){
+  for (let i= 0; i < tasks.length; i++) {
+    const element = tasks[i];
+    element.id = i; 
+  }
 }
 
 function forlooprender(test) {
@@ -99,13 +110,15 @@ function forlooprender(test) {
 
   const container = document.getElementById(test);
   container.innerHTML = '';
-
+  debugger
   if (todo.length === 0) {
     container.innerHTML = `<img class="notask" src="../icons/notasktodo.svg" alt="Empty">`;
   } else {
     for (let index = 0; index < todo.length; index++) {
       const element = todo[index];
-      container.innerHTML += todotemplate(element);
+      const id = element.id
+      container.innerHTML += todotemplate(element, id);
+      renderAssignedTo ('assigned'+index, index);
     }
   }
 }
@@ -133,23 +146,21 @@ function renderFilteredTodos(filteredTodos) {
   }
 }
 
-function todotemplate(currentElement) {
+function todotemplate(currentElement, i) {
   return /*html*/ `
- <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement['id']})" onclick="showtodowindow(${currentElement.id
-    })">
-    <button>${currentElement.category}</button>
+ <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement.id})" onclick="showtodowindow(${currentElement.id})">
+    <button class="todocardbutton">${currentElement.category}</button>
     <b>${currentElement.title}</b>
     <span>${currentElement.discription}</span>
     <div class="subtasks">
         <div class="progress-container">
-            <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100
-    }%">
+            <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100}%">
             </div>
         </div>  
         <div>${currentElement.progress.length}/${currentElement.subtasks.length}Subtasks</div> 
     </div>
     <div class="assignedprio">
-        <div id="" class="btn"></div>
+        <div id="assigned${i}" class="btn"></div>
         <img src="${currentElement.prio}" alt="">
     </div>
 </div>
@@ -161,6 +172,7 @@ function showtodowindow(i) {
   todowindow.classList.add('showtodowindow');
   todowindow.innerHTML = todowindowtemplate(i);
   createSubtasks(i);
+  renderAssignedTo ('assigned', i);
 }
 
 function todowindowtemplate(i) {
@@ -185,7 +197,7 @@ function todowindowtemplate(i) {
         </div>
         <div class="overlayassigned">
             <div class="gray-clr">Assinged to:</div>
-            <div id="btn-grp" class="btn"></div>
+            <div id="assigned" class="btn"></div>
         </div>
         <div class="overlayassigned">
             <span class="gray-clr">Subtasks</span>
@@ -206,13 +218,24 @@ function todowindowtemplate(i) {
 `;
 }
 
-
-
-function initializeCheckboxStates() {
-  tasks.forEach(todo => {
-    todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
-  });
+function renderAssignedTo (assigned, id) {
+  tasks[id].assignedTo
+  let btnUserProfile = document.getElementById(assigned);
+  btnUserProfile.innerHTML = '';
+  for (let j = 0; j < tasks[id].assignedTo.length; j++) {
+    const btn = tasks[id].assignedTo[j];
+    btnUserProfile.innerHTML += `<button id="optBtn${j}" class="btn-grp">${btn.initial}</button>`;
+    document.getElementById(`optBtn${j}`).style.backgroundColor = tasks[id].assignedTo[j]['bgColor'];
+  }
 }
+
+
+
+// function initializeCheckboxStates() {
+//   tasks.forEach(todo => {
+//     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
+//   });
+// }
 
 function createSubtasks(i) {
   const subtasksContainer = document.getElementById('subtasks');
