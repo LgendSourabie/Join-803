@@ -1,0 +1,5 @@
+@media (width<760px) {
+  .left-side-section {
+    display: none;
+  }
+}

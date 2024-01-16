@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/summary.css" />
+    <link rel="stylesheet" href="../static/legal-notice.css" />
+    <link rel="stylesheet" href="../static/help.css" />
+    <link rel="stylesheet" href="../static/font.css" />
+    <script src="../sensitive/token.js"></script>
+    <script src="../sensitive/url.js"></script>
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- END FAVICON -->
+    <title>Privacy Policy</title>
+  </head>
+  <body class="summary-body" onload="loadUsers()">
+    <div class="container-summary disp-flex">
+      <div class="left-side-section disp-flex">
+        <div class="section-1">
+          <img class="logo-summary" src="../icons/logo.svg" alt="Logo" />
+        </div>
+        <div class="section-2">
+          <div class="sub-menu-container disp-flex">
+            <!-- <img
+              class="icons-left-side-section"
+              src="/icons/summary.svg"
+              alt="Summary"
+            /> -->
+            <p class="para-summary gray-text ft-sz-400"></p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <!-- <img
+              class="icons-left-side-section"
+              src="/icons/addTask.svg"
+              alt="Task"
+            /> -->
+            <p class="para-summary gray-text ft-sz-400"></p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <!-- <img
+              class="icons-left-side-section"
+              src="/icons/board.svg"
+              alt="Board"
+            /> -->
+            <p class="para-summary gray-text ft-sz-400"></p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <!-- <img
+              class="icons-left-side-section"
+              src="/icons/contact.svg"
+              alt="Contacts"
+            /> -->
+            <p class="para-summary gray-text ft-sz-400"></p>
+          </div>
+        </div>
+        <div class="section-3">
+          <a class="gray-text links bg-links" onclick="userAction('privacy_login')">Privacy Policy</a>
+          <a class="gray-text links" onclick="userAction('legal_notice_login')">Legal notice</a>
+        </div>
+      </div>
+      <div class="right-side-section">
+        <header class="menu disp-flex">
+          <img class="mobile-logo" src="../icons/logo_blue.svg" alt="Logo" />
+          <div class="kanban-tool ft-sz-400">Kanban Project Management Tool</div>
+          <div class="menu-icons-group disp-flex">
+            <!-- <img
+              id="help-icon"
+              class="help"
+              src="/icons/help.svg"
+              alt="Help"
+              onclick="openHelp()"
+            />
+            <button id="loginBtn" class="login" onclick="showSubmenu()">
+              SM
+            </button> -->
+          </div>
+        </header>
+        <div id="submenu-user" class="submenu-user d-none">
+          <a class="list-item ft-sz-400"> Legal Notice</a>
+          <a class="list-item ft-sz-400">Privacy Policy</a>
+          <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
+        </div>
+        <div class="task-info-section">
+          <span id="privacy-page" class="virtualClass help-page">
+            <div class="title-help">Privacy Policy</div>
+            <a href="../html/login.html"
+              ><img id="return-btn" class="return-btn" src="../icons/arrow-left-line.svg" alt="Exit"
+            /></a>
+            <div class="qa-join">Subtitle</div>
+            <div class="help-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, ex cumque alias accusantium reiciendis
+              deserunt ut iusto doloremque corrupti rem, consequatur pariatur repellat illum, quibusdam quam
+              exercitationem numquam. Dolore, consequuntur?
+            </div>
+            <div class="qa-join">Subtitle</div>
+            <div class="help-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur soluta amet iusto facilis quam, totam
+              blanditiis. Totam tenetur rem aut quasi provident tempore non modi officiis molestias, laboriosam repellat
+              excepturi.
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="../js/summary.js"></script>
+    <script src="../js/login_out.js"></script>
+  </body>
+</html>

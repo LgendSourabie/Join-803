@@ -26,7 +26,7 @@
     <!-- END FAVICON -->
     <title>Dashboard</title>
   </head>
-  <body class="summary-body" onload="init(); loadTasks();renderTask()">
+  <body class="summary-body" onload="init() ;renderTask()">
     <div class="container-summary disp-flex">
       <div class="left-side-section disp-flex">
         <div class="section-1">
@@ -38,41 +38,39 @@
             <p id="summary-text" class="para-summary gray-text ft-sz-400 clr-white cursor-ptr">Summary</p>
           </div>
 
-          <div id="second-bg" class="sub-menu-container disp-flex" onclick="render(templateAddTask()); clearTask();  initialize(); toggleButtonColor('second-bg','addTask-text','addTask-img','../icons/addTask-white.svg')">
+          <div id="second-bg" class="sub-menu-container disp-flex" onclick="showRenderSection('add-task-page')"; toggleButtonColor('second-bg','addTask-text','addTask-img','../icons/addTask-white.svg')">
             <img id="addTask-img" class="icons-left-side-section cursor-ptr" src="../icons/addTask.svg" alt="Task" />
             <p id="addTask-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
           </div>
 
-          <div id="third-bg" class="sub-menu-container disp-flex" onclick="render(templateBoard()); sliderScroll();toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+          <div id="third-bg" class="sub-menu-container disp-flex" onclick="showRenderSection('board-page');toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
             <img id="bord-img" class="icons-left-side-section cursor-ptr" src="../icons/board.svg" alt="Board" />
             <p id="bord-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
           </div>
 
-          <div id="fourth-bg" class="sub-menu-container disp-flex" onclick="render(templateContacts()); renderContactSection() ; toggleButtonColor('fourth-bg','contact-text','contact-img','../icons/contact-white.svg')">
+          <div id="fourth-bg" class="sub-menu-container disp-flex" onclick="showRenderSection('contact-page'); renderContactSection() ; toggleButtonColor('fourth-bg','contact-text','contact-img','../icons/contact-white.svg')">
             <img id="contact-img" class="icons-left-side-section cursor-ptr" src="../icons/contact.svg" alt="Contacts" />
             <p id="contact-text" class="para-summary gray-text ft-sz-400 cursor-ptr">Contacts</p>
           </div>
         </div>
         <div class="section-3">
-          <!-- <a id="privacy-bg" class="gray-text links" onclick="showRenderSection('privacy-render','summary-page');setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a> -->
-          <a id="privacy-bg" class="gray-text links" onclick="render(templatePrivacy());setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a>
-          <a id="legal-notice-bg" class="gray-text links" onclick="render(templateLegalNotice());setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a>
-          <!-- <a id="legal-notice-bg" class="gray-text links" onclick="showRenderSection('legale-notice-render','summary-page');setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a> -->
+          <a id="privacy-bg" class="gray-text links" onclick="showRenderSection('privacy-render');setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a>
+          <a id="legal-notice-bg" class="gray-text links" onclick="showRenderSection('legale-notice-render');setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a>
         </div>
       </div>
-      <div class="right-side-section" id="right-side-section">
+      <div class="right-side-section">
         <header class="menu disp-flex">
           <img class="mobile-logo" src="../icons/logo_blue.svg" alt="Logo" />
           <div class="kanban-tool ft-sz-400">Kanban Project Management Tool</div>
           <div class="menu-icons-group disp-flex">
-            <img id="help-icon" class="help" src="../icons/help.svg" alt="Help" onclick="render(templateHelp())" />
+            <img id="help-icon" class="help" src="../icons/help.svg" alt="Help" onclick="showRenderSection('help-render')" />
             <!-- <img id="help-icon" class="help" src="../icons/help.svg" alt="Help" onclick="userAction('help')" /> -->
             <button id="loginBtn" class="login" onclick="showSubmenu()"></button>
           </div>
         </header>
         <div id="submenu-user" class="submenu-user d-none">
-          <a class="list-item ft-sz-400" onclick="showRenderSection('legale-notice-render','summary-page');setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a>
-          <a class="list-item ft-sz-400" onclick="showRenderSection('privacy-render','summary-page');setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a>
+          <a class="list-item ft-sz-400" onclick="showRenderSection('legale-notice-render');setBdgTextcolor('legal-notice-bg','legal-notice-bg')">Legal Notice</a>
+          <a class="list-item ft-sz-400" onclick="showRenderSection('privacy-render');setBdgTextcolor('privacy-bg','privacy-bg')">Privacy Policy</a>
           <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
         </div>
         <div id="render-container">
@@ -92,47 +90,47 @@
                   <span id="current-user-name-responsive" class="current-user-name"></span>
                 </div>
                 <div class="first-line-task disp-flex">
-                  <div class="todo do-task disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+                  <div class="todo do-task disp-flex">
                     <img class="task-icons-blue" src="../icons/edit.svg" alt="TO-DO" />
                     <div class="middle">
-                      <span id="todoID" class="var-task">0</span>
+                      <span id="todo" class="var-task">0</span>
                       <span class="task-text ft-sz-400">To-do</span>
                     </div>
                   </div>
-                  <div class="done do-task disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+                  <div class="done do-task disp-flex">
                     <img class="task-icons-blue" src="../icons/check.svg" alt="TO-DO" />
                     <div class="middle">
-                      <span id="doneID" class="var-task">0</span>
+                      <span id="done" class="var-task">0</span>
                       <span class="task-text ft-sz-400">Done</span>
                     </div>
                   </div>
                 </div>
-                <div class="second-line-task disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+                <div class="second-line-task disp-flex">
                   <div class="urgent disp-flex task-due-common">
                     <img class="task-icons" src="../icons/urgent.svg" alt="Urgent" />
                     <div class="middle">
-                      <span id="urgentID" class="var-task">0</span>
+                      <span id="urgent" class="var-task">0</span>
                       <span class="task-text ft-sz-400">Urgent</span>
                     </div>
                   </div>
                   <div class="gray-separator-line"></div>
                   <div class="upcomming-deadline disp-flex task-due-common">
-                    <span id="due-dateID" class="due-date">October 16, 2022</span>
+                    <span id="due-date" class="due-date">October 16, 2022</span>
                     <span class="task-text ft-sz-400">Upcomming Deadline</span>
                   </div>
                 </div>
                 <div class="third-line-task disp-flex">
-                  <div class="boar-progress-feedback disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+                  <div class="boar-progress-feedback disp-flex">
                     <span id="board-task-number" class="var-task">0</span
                     ><span class="task-text ft-sz-400">Tasks In</span>
                     <span class="task-text ft-sz-400">Board</span>
                   </div>
-                  <div class="boar-progress-feedback disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+                  <div class="boar-progress-feedback disp-flex">
                     <span id="progress-task-number" class="var-task">0</span
                     ><span class="task-text ft-sz-400">Tasks In</span>
                     <span class="task-text ft-sz-400">Progress</span>
                   </div>
-                  <div class="boar-progress-feedback disp-flex" onclick="render(templateBoard());toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg'); renderToDos()">
+                  <div class="boar-progress-feedback disp-flex">
                     <span id="feedback-task-number" class="var-task">0</span
                     ><span class="task-text ft-sz-400">Awaiting</span>
                     <span class="task-text ft-sz-400">Feedback</span>
@@ -149,7 +147,179 @@
             </div>
           </span>
           </div>
-          <!-- <div id="privacy-render" class="task-info-section d-none-summary">
+          <div id="add-task-page" class="addTaskContainer d-none-summary">
+
+            <form class="addTaskOverviewContainer" onsubmit="createTask(); return false">
+        
+                <div class="addTaskContainerLeftRight">
+        
+                    <div class="addTaskContainerOneflyin">
+                        <div class="test1">
+                        <div class="groupButtonForm">
+                            <div class="test2">
+                            <div class="h2Container">
+                                <h2>Add Task</h2>
+                            </div>
+                        </div>
+                        <div class="test3">
+                            <div class="containerLeft">
+                                <div class="titleAddTask addTaskOverview">
+                                    <span class="containerLeftSpan">Title
+                                        <span class="star">*</span>
+                                    </span>
+                                    <input onclick="changeBorderColor(this)" id="title" class="inputAddTask" type="text" placeholder="Enter a title" required>
+                                </div>
+                                <div class="descriptionAddTask addTaskOverview">
+                                    <span class="containerLeftSpan">Description</span>
+                                    <textarea onclick="changeBorderColor(this)" id="description" class="textAreaAddTask" placeholder="Enter a Description"></textarea>
+                                </div>
+                                <div class="assignedAddTask addTaskOverview">
+                                    <span class="containerLeftSpan">Assigned to</span>
+                                    <!-- <select id="select"></select> -->
+                                    <!-- <input id="select" type="text">
+                                    <img onclick="addContacts()" class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt=""> -->
+                                    <div id="dropdown" class="dropdown" onclick="handleDropdownClick(this)">Select contacts to assign</div>
+                                        <div id="options" class="options d-none"></div>
+                                        <div id="btn-grp" class="btn"></div>
+                                </div>
+                                
+                            </div>
+        
+                            <div class="seperatorContainer"></div>
+        
+                            
+                            <div class="containerRight">
+                                <div class="dateAddTask addTaskOverview">
+                                    <span class="containerLeftSpan">Due date
+                                        <span class="star">*</span>
+                                    </span>    
+                                    <input onclick="changeBorderColor(this)" id="date" class="inputAddTask" type="date">
+                                </div>
+                                <div class="addTaskOverview">
+                                    <span class="containerLeftSpan">Prio</span>
+                                    <div id="prio" class="prioSelection">
+                                        <img id="colorUrgentImg" onclick="prio('Urgent');changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
+                                        <img id="colorMediumImg" onclick="prio('Medium');changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
+                                        <img id="colorLowImg" onclick="prio('Low');changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categoryAddTask addTaskOverview">
+                                    <span class="containerLeftSpan">Category
+                                        <span class="star">*</span>
+                                    </span>    
+                                    <select onclick="changeBorderColor(this)" id="selectCategory">
+                                        <!-- <input type="text" id="selectCategory">
+                                        <img class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt=""> -->
+                                    </select>
+                                </div> 
+                                <div class="subtasksAddTask addTaskOverview">
+                                    <span class="spanSubtasks">Subtasks</span>
+                                    <input onclick="changeBorderColor(this)" id="subtasks" class="inputAddTask" type="text" placeholder="Add new subtask">
+                                    <!-- <img onclick="addNewSubtask()" class="subtasksPlusIMG" src="../img/img/subtasksPlus.svg" alt=""> -->
+                                </div> 
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                        <div class="addTaskContainerTwo">
+                                <div class="footerAddTask">
+                                    <div class="spanFooter">
+                                        <span class="star">*</span>
+                                        <span>This field is required</span>
+                                    </div>
+                                    <div class="footerAddTaskButtons">
+                                        <div onclick="clearTask()" id="clearButton" class="clearButton">
+                                            <span>Clear X</span>
+                                            </div>
+                                        <button id="createTaskButton" class="createTaskButton">
+                                            <span>Create Task</span>
+                                            <img class="imgCheck" src="../img/img/check.svg" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+          </div>
+          <div id="board-page" class="board-sec d-none-summary">
+            <div class="mainSection d-none-summary">
+              <div class="section1">
+                  <div class="headline">
+                      <h1>Board</h1>
+                      <div class="addandsearch">
+                          <div class="searchtask">
+                              <input id="taskInput" type="" placeholder="Find Task" oninput="filterTodosByTitle()">
+                              <img src="/icons/search.svg" alt="">
+                          </div>
+                          <button onclick="openAddtask()">Add Task <img src="/icons/add.svg" alt=""></button>
+                      </div>
+                  </div>
+                  <div class="tablecolumn">
+                      <div class="tablecolumntitle">
+                          <span>To do</span>
+                          <img src="/icons/plusButton.svg" alt="">
+                      </div>
+                      <div class="tablecolumntitle">
+                          <span>In Progress</span>
+                          <img src="/icons/plusButton.svg" alt="">
+                      </div>
+                      <div class="tablecolumntitle">
+                          <span>Await Feedback</span>
+                          <img src="/icons/plusButton.svg" alt="">
+                      </div>
+                      <div class="tablecolumntitle">
+                          <span>Done</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="todosection">
+                  <div class="todosplit">
+      
+                      <div id="todo" class="todoscontainer" ondragover="allowDrop(event); highlight('todo')"
+                          ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"></div>
+                  </div>
+                  <div class="todosplit">
+      
+                      <div id="inprogress" class="todoscontainer" ondragover="allowDrop(event); highlight('inprogress')"
+                          ondrop="moveTo('inprogress')" ondragleave="removeHighlight('inprogress')"></div>
+                  </div>
+                  <div class="todosplit">
+      
+                      <div id="awaitfeedback" class="todoscontainer" ondragover="allowDrop(event); highlight('awaitfeedback')"
+                          ondrop="moveTo('awaitfeedback')" ondragleave="removeHighlight('awaitfeedback')"></div>
+                  </div>
+                  <div class="todosplit">
+      
+                      <div id="done" class="todoscontainer" ondragover="allowDrop(event); highlight('done')"
+                          ondrop="moveTo('done')" ondragleave="removeHighlight('done')"></div>
+                  </div>
+              </div>
+              
+            </div>
+          <div id="showtodowindow"></div>
+          <div id="add-task-bg" class="d-none"></div>
+          </div>
+          <div id="contact-page" class="contact-sec d-none-summary">
+            <div class="d-flex">
+              <div class="contacts-scroll-container">
+                  <div class="contacts-overview-container">
+                      <button class="add-new-contact" onclick="renderAddContact()">Add new contact<img src="../icons/addNewContact.svg"></button>
+                      <div id="contacts-overview"></div>
+                      </div>
+                      <button class="responsiv-contact-button" onclick="renderAddContact()"><img src="../icons/addNewContact.svg" alt=""></button>
+                  </div>
+                  <div class="contact-single-view" id="contact-single-view">
+                      <div class="contacts-headline">
+                          <h2>Contacts</h2><span>Better with a team</span>
+                      </div>
+                      <div class="contact-single-view-info" id="current-contact"> </div>
+                      <div class="contact-single-view-info" id="new-contact"> </div>
+                  </div>
+              </div>
+              <div id="add-contact-bg" class="d-none"></div>
+          </div>
+          <div id="privacy-render" class="task-info-section d-none-summary">
             <span id="privacy-page" class="virtualClass help-page">
               <div class="title-help">Privacy Policy</div>
               <a href="../html/summary.html"
@@ -168,8 +338,8 @@
                 excepturi.
               </div>
             </span>
-          </div> -->
-          <!-- <div id="legale-notice-render" class="task-info-section d-none-summary">
+          </div>
+          <div id="legale-notice-render" class="task-info-section d-none-summary">
             <span id="legal-notice-page" class="virtualClass help-page">
               <div class="title-help">Legal Notice</div>
               <a href="../html/summary.html"
@@ -264,14 +434,15 @@
                   <span class="blue-join">Join</span> and/or your breach of this Legal Notice.
                 </div>
               </div>
+              <!-- </div> -->
               <div class="help-text">
                 For any questions or notices, please contact us at
                 <a class="mail-links" href="mailto:join803@da.de">join803@da.de</a>.
               </div>
               <div class="date-legal-notice">Date: December 05, 2023</div>
             </span>
-          </div> -->
-          <!-- <div id="help-render" class="task-info-section d-none-summary">
+          </div>
+          <div id="help-render" class="task-info-section d-none-summary">
             <span id="help-page" class="help-page">
               <div class="title-help">Help</div>
               <a href="../html/summary.html"
@@ -370,19 +541,18 @@
               </div>
               <div class="qa-join">Enjoy using Join!</div>
             </span>
-          </div> -->
+          </div>
         </div>
       </div>
-      
+
     <!-- script summary -->
     <script src="../js/login_out.js"></script>
     <!-- script addTask -->
-    <script defer src="../js/addTask.js"></script>
+    <script src="../js/addTask.js"></script>
     <!-- script board -->
-    <script src="../js/board.js"></script>
+    <script src="/js/board.js"></script>
     <script src="../js/summary.js"></script>
     <!-- script contacts -->
-    <script src="../js/contact_templates.js"></script>
     <script src="../js/contact.js"></script>
     <!-- template -->
     <script src="../js/template.js"></script>

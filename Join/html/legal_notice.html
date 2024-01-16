@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="html-scroll-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/summary.css" />
+    <link rel="stylesheet" href="../static/help.css" />
+    <link rel="stylesheet" href="../static/font.css" />
+    <script src="../sensitive/token.js"></script>
+    <script src="../sensitive/url.js"></script>
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- END FAVICON -->
+    <title>Legal Notice</title>
+  </head>
+  <body class="summary-body" onload="loadUsers()">
+    <div class="container-summary disp-flex">
+      <div class="left-side-section disp-flex">
+        <div class="section-1">
+          <img class="logo-summary" src="../icons/logo.svg" alt="Logo" />
+        </div>
+        <div class="section-2">
+          <div class="sub-menu-container disp-flex">
+            <img
+              class="icons-left-side-section cursor-ptr"
+              src="../icons/summary.svg"
+              alt="Summary"
+              onclick="userAction('summary')"
+            />
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr" onclick="userAction('summary')">Summary</p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <img class="icons-left-side-section cursor-ptr" src="../icons/addTask.svg" alt="Task" />
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Add Task</p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <img class="icons-left-side-section cursor-ptr" src="../icons/board.svg" alt="Board" />
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Board</p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <img class="icons-left-side-section cursor-ptr" src="../icons/contact.svg" alt="Contacts" />
+            <p class="para-summary gray-text ft-sz-400 cursor-ptr">Contacts</p>
+          </div>
+        </div>
+        <div class="section-3">
+          <a class="gray-text links" onclick="userAction('privacy')">Privacy Policy</a>
+          <a class="gray-text links bg-links" onclick="userAction('legal_notice')">Legal notice</a>
+        </div>
+      </div>
+      <div class="right-side-section">
+        <header class="menu disp-flex">
+          <img class="mobile-logo" src="../icons/logo_blue.svg" alt="Logo" />
+          <div class="kanban-tool ft-sz-400">Kanban Project Management Tool</div>
+          <div class="menu-icons-group disp-flex"></div>
+        </header>
+        <div id="submenu-user" class="submenu-user d-none">
+          <a class="list-item ft-sz-400"> Legal Notice</a>
+          <a class="list-item ft-sz-400">Privacy Policy</a>
+          <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
+        </div>
+        <div class="task-info-section">
+          <span id="legal-notice-page" class="virtualClass help-page">
+            <div class="title-help">Legal Notice</div>
+            <a href="../html/summary.html"
+              ><img id="return-btn" class="return-btn" src="../icons/arrow-left-line.svg" alt="Exit"
+            /></a>
+            <span class="qa-join">Imprint</span>
+            <div class="help-text">
+              <ul class="list-email">
+                <li class="list-notice">
+                  <a class="mail-links" href="#">Ibrahima-Pascal-Henrik-Thomas</a>
+                </li>
+                <li class="list-notice">
+                  <a class="mail-links" href="mailto:join803@ibrahima.de">join803@da.de</a>
+                </li>
+                <li class="list-notice">
+                  <a class="mail-links" href="#">Musterstraße 10, Munich</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <span class="help-topic-title">Exploring the Board</span>
+              <div class="help-text">
+                <ul class="list-email">
+                  <li class="list-notice">
+                    Email:
+                    <a class="mail-links" href="mailto:join803@ibrahima.de">join803@ibrahima.de</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title">Acceptance of terms</span>
+              <div class="help-text">
+                Acceptance of terms By accessing and using
+                <span class="blue-join">Join</span> (Product), you acknowledge and agree to the following terms and
+                conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time
+                to time. We, the listed students, may update or change the terms and conditions from time to time
+                without notice.
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title">Scope and ownership of the product</span>
+              <div class="help-text">
+                <span class="blue-join">Join</span> has been developed as part of a student group project in a web
+                development bootcamp at the <span class="blue-join">Developer Akademie GmbH</span>. It has an
+                educational purpose and is not intended for extensive personal & business usage. As such, we cannot
+                guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this
+                Product. The design of <span class="blue-join">Join</span> is owned by the
+                <span class="blue-join">Developer Akademie GmbH</span>. Unauthorized use, reproduction, modification,
+                distribution, or replication of the design is strictly prohibited.
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title">Proprietary rights</span>
+              <div class="help-text">
+                Aside from the design owned by
+                <span class="blue-join">Developer Akademie GmbH</span>, we, the listed students, retain all proprietary
+                rights in <span class="blue-join">Join</span>, including any associated copyrighted material,
+                trademarks, and other proprietary information.
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title">Use of the product</span>
+              <div class="help-text">
+                <span class="blue-join">Join</span> is intended to be used for lawful purposes only, in accordance with
+                all applicable laws and regulations. Any use of <span class="blue-join">Join</span> for illegal
+                activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are
+                solely responsible for your interactions with other users of <span class="blue-join">Join</span>.
+              </div>
+            </div>
+
+            <div>
+              <span class="help-topic-title">Disclaimer of warranties and limitation of liability</span>
+              <div class="help-text">
+                <span class="blue-join">Join</span> is provided "as is" without warranty of any kind, whether express or
+                implied, including but not limited to the implied warranties of merchantability, fitness for a
+                particular purpose, and non-infringement. In no event will we, the listed students, or the
+                <span class="blue-join">Developer Akademie</span>, be liable for any direct, indirect, incidental,
+                special, consequential or exemplary damages, including but not limited to, damages for loss of profits,
+                goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such
+                damages, arising out of or in connection with the use or performance of
+                <span class="blue-join">Join</span>.
+              </div>
+            </div>
+            <div>
+              <span class="help-topic-title">Indemnity</span>
+              <div class="help-text">
+                You agree to indemnify, defend and hold harmless us, the listed students, the
+                <span class="blue-join">Developer Akademie</span>, and our affiliates, partners, officers, directors,
+                agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including
+                reasonable legal fees) arising out of or relating to your use of
+                <span class="blue-join">Join</span> and/or your breach of this Legal Notice.
+              </div>
+            </div>
+            <!-- </div> -->
+            <div class="help-text">
+              For any questions or notices, please contact us at
+              <a class="mail-links" href="mailto:join803@da.de">join803@da.de</a>.
+            </div>
+            <div class="date-legal-notice">Date: December 05, 2023</div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="../js/summary.js"></script>
+    <script src="../js/login_out.js"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/login.css" />
+    <link rel="stylesheet" href="../static/font.css" />
+    <script src="../sensitive/token.js"></script>
+    <script src="../sensitive/url.js"></script>
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- END FAVICON -->
+
+    <title>Login</title>
+  </head>
+  <body class="login-body disp-flex" onload="init();initLocalStorage()">
+    <img class="login-logo" src="../icons/logo_blue.svg" alt="Logo" />
+    <div class="container-login">
+      <div class="menu-login">
+        <div class="icon-links-login">
+          <span class="question-user">Not a Join user?</span>
+          <button onclick="userAction('signup')" class="sign-up blue-btn">
+            Sign up
+            <!-- <a class="signup-link" href="../html/signup.html">Sign up</a> -->
+          </button>
+        </div>
+      </div>
+      <form class="user-log-data-section disp-flex" onsubmit="checkUserData();return false">
+        <div class="title-join-underline disp-flex">
+          <div class="log-title">Log in</div>
+          <div class="btm-bar"></div>
+        </div>
+        <div class="input-grp-section disp-flex">
+          <div class="grp-input-login disp-flex">
+            <div class="inp-ctn">
+              <div class="inpt-mail-icon-grp ps-rel-mail">
+                <input id="email" class="input-login input-login-1" type="email" placeholder="Email" required />
+                <button type="button" class="icon-btn-login mail-btn-pointer-pos">
+                  <img class="mail-icon-login" src="../icons/mail.svg" alt="Email" />
+                </button>
+              </div>
+              <p id="emailError"></p>
+            </div>
+            <!-- hier -->
+            <div class="inp-ctn">
+              <div class="inpt-mail-icon-grp ps-rel-pwd">
+                <input
+                  id="password"
+                  class="input-login input-login-2"
+                  type="password"
+                  placeholder="Password"
+                  minlength="4"
+                  required
+                  oninput="handlePwdIcon('password','lock-img-field')"
+                />
+                <button
+                  type="button"
+                  class="icon-btn-login pwd-btn-pos"
+                  onclick="showPassword('password') ;toggleVisibleIcon('lock-img-field')"
+                >
+                  <img id="lock-img-field" src="../icons/lock.svg" alt="Password" />
+                </button>
+              </div>
+              <p id="passwordError"></p>
+            </div>
+          </div>
+          <div class="remember-line disp-flex ft-sz-400">
+            <div class="remember-me disp-flex">
+              <!-- <input class="check-box" type="checkbox" /> -->
+              <img
+                id="checkbox-login"
+                src="../icons/checkBox.svg"
+                alt="Check"
+                onclick="checkButton('checkbox-login','../icons/checkBox.svg','../icons/check-checked.svg')"
+              />
+              <span class="remember ft-sz-400">Remember me</span>
+            </div>
+            <span class="forgot-pwd">I forgot my password</span>
+          </div>
+        </div>
+
+        <div class="btn-line disp-flex">
+          <button class="blue-btn log-guest-btn">Log in</button>
+          <a href="../html/summary.html" class="white-btn log-guest-btn">Guest Log in</a>
+        </div>
+      </form>
+      <div class="privacy-link-login">
+        <a class="links-login ft-sz-400" onclick="userAction('privacy_login')">Privacy Policy</a>
+        <a class="links-login ft-sz-400 legal-notice" onclick="userAction('legal_notice_login')">Legal Notice</a>
+      </div>
+    </div>
+    <script src="../js/login_out.js"></script>
+  </body>
+</html>

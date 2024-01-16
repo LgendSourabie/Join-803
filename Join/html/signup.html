@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/login.css" />
+    <link rel="stylesheet" href="../static/font.css" />
+    <script src="../sensitive/token.js"></script>
+    <script src="../sensitive/url.js"></script>
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- END FAVICON -->
+
+    <title>Signup</title>
+  </head>
+  <body class="login-body disp-flex" onload="init();initLocalStorage()">
+    <img class="login-logo" src="../icons/logo_blue.svg" alt="Logo" />
+    <div class="container-login">
+      <form class="user-log-data-section-signup disp-flex" onsubmit="registerUser();return false">
+        <img class="exit-arrow" src="../icons/arrow-left-line.svg" alt="Exit" onclick="userAction('login')" />
+        <div class="title-join-underline disp-flex">
+          <div class="log-title">Sign up</div>
+          <div class="btm-bar"></div>
+        </div>
+        <div class="input-grp-section-signup disp-flex">
+          <div class="grp-input-login disp-flex">
+            <div class="inp-ctn">
+              <div class="inpt-mail-icon-grp ps-rel-mail">
+                <input
+                  id="register-user-name"
+                  class="input-login input-login-1"
+                  type="text"
+                  pattern="[a-zA-Z\s]*"
+                  placeholder="Name"
+                  required
+                />
+                <button type="button" class="icon-btn-login mail-btn-pointer-pos">
+                  <img class="mail-icon-login" src="../icons/mail.svg" alt="Email" />
+                </button>
+              </div>
+              <!-- <p id="emailExist"></p> -->
+            </div>
+            <div class="inp-ctn">
+              <div class="inpt-mail-icon-grp ps-rel-mail">
+                <input
+                  id="register-user-email"
+                  class="input-login input-login-1"
+                  type="email"
+                  placeholder="Email"
+                  required
+                />
+                <button type="button" class="icon-btn-login mail-btn-pointer-pos">
+                  <img class="mail-icon-login" src="../icons/mail.svg" alt="Email" />
+                </button>
+              </div>
+              <p id="emailExist"></p>
+            </div>
+            <!-- hier -->
+            <div class="inp-ctn">
+              <div class="inpt-mail-icon-grp ps-rel-pwd">
+                <input
+                  id="pwd"
+                  class="input-login input-login-2"
+                  type="password"
+                  placeholder="Password"
+                  minlength="4"
+                  required
+                  oninput="handlePwdIcon('pwd','pwd-img-signup')"
+                />
+                <button type="button" class="icon-btn-login pwd-btn-pos" onclick="showPassword('pwd');toggleVisibleIcon('pwd-img-signup')">
+                  <img id="pwd-img-signup" src="../icons/lock.svg" alt="Password" />
+                </button>
+              </div>
+              <!-- <p id="passwordError"></p> -->
+            </div>
+            <div class="inp-ctn">
+              <div class="inpt-mail-icon-grp ps-rel-pwd">
+                <input
+                  id="confirm-pwd"
+                  class="input-login input-login-2"
+                  type="password"
+                  placeholder="Confirm Password"
+                  minlength="4"
+                  required
+                  oninput="handlePwdIcon('confirm-pwd','conf-pwd-img')"
+                />
+                <button type="button" class="icon-btn-login pwd-btn-pos" onclick="showPassword('confirm-pwd');toggleVisibleIcon('conf-pwd-img')">
+                  <img id="conf-pwd-img" src="../icons/lock.svg" alt="Password" />
+                </button>
+              </div>
+              <p id="confirmPwdError"></p>
+            </div>
+          </div>
+          <div class="remember-line rmb-signup disp-flex ft-sz-400">
+            <div class="remember-me disp-flex">
+              <img
+              id="checkbox-sign-up"
+              src="../icons/checkBox.svg"
+              alt="Check"
+              onclick="checkButton('checkbox-sign-up','../icons/checkBox.svg','../icons/check-checked.svg'); enableSignUP()"
+            />
+            <span class="remember ft-sz-400">I accepted the </span
+            ><a class="consent-policy" onclick="userAction('privacy_signup')">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="btn-line disp-flex">
+          <button id="sign-up-btn" class="blue-btn-signup log-guest-btn" disabled>Sign up</button>
+        </div>
+      </form>
+      <div class="privacy-link-login-signup">
+        <a class="links-login ft-sz-400" onclick="userAction('privacy_signup')">Privacy Policy</a>
+        <a class="links-login ft-sz-400 legal-notice" onclick="userAction('legal_notice_signup')">Legal Notice</a>
+      </div>
+      <button type="button" id="blue-btn-signup-success" class="blue-btn-signup-success">You signed up successfully</button>
+    </div>
+    <script src="../js/login_out.js"></script>
+  </body>
+</html>

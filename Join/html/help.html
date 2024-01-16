@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" class="html-scroll-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/summary.css" />
+    <link rel="stylesheet" href="../static/help.css" />
+    <link rel="stylesheet" href="../static/font.css" />
+    <script src="../sensitive/token.js"></script>
+    <script src="../sensitive/url.js"></script>
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- END FAVICON -->
+    <title>Help</title>
+  </head>
+  <body class="summary-body" onload="init()">
+    <div class="container-summary disp-flex">
+      <div class="left-side-section disp-flex">
+        <div class="section-1">
+          <img class="logo-summary" src="../icons/logo.svg" alt="Logo" />
+        </div>
+        <div class="section-2">
+          <div class="sub-menu-container disp-flex">
+            <img class="icons-left-side-section" src="../icons/summary.svg" alt="Summary" />
+            <p class="para-summary gray-text ft-sz-400">Summary</p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <img class="icons-left-side-section" src="../icons/addTask.svg" alt="Task" />
+            <p class="para-summary gray-text ft-sz-400">Add Task</p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <img class="icons-left-side-section" src="../icons/board.svg" alt="Board" />
+            <p class="para-summary gray-text ft-sz-400">Board</p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <img class="icons-left-side-section" src="../icons/contact.svg" alt="Contacts" />
+            <p class="para-summary gray-text ft-sz-400">Contacts</p>
+          </div>
+        </div>
+        <div class="section-3">
+          <a class="gray-text links" onclick="userAction('privacy')">Privacy Policy</a>
+          <a class="gray-text links" onclick="userAction('legal_notice')">Legal notice</a>
+        </div>
+      </div>
+      <div class="right-side-section">
+        <header class="menu disp-flex">
+          <img class="mobile-logo" src="../icons/logo_blue.svg" alt="Logo" />
+          <div class="kanban-tool ft-sz-400">Kanban Project Management Tool</div>
+          <div class="menu-icons-group disp-flex">
+            <button id="loginBtn" class="login" onclick="showSubmenu()">SM</button>
+          </div>
+        </header>
+        <div id="submenu-user" class="submenu-user d-none">
+          <a class="list-item ft-sz-400"> Legal Notice</a>
+          <a class="list-item ft-sz-400">Privacy Policy</a>
+          <a class="list-item ft-sz-400" href="../html/login.html">Log out</a>
+        </div>
+        <div class="task-info-section">
+          <span id="help-page" class="help-page">
+            <div class="title-help">Help</div>
+            <a href="../html/summary.html"
+              ><img id="return-btn" class="return-btn" src="../icons/arrow-left-line.svg" alt="Exit"
+            /></a>
+            <div class="help-text">
+              Welcome to the help page for <span class="blue-join">Join</span>, your guide to using our kanban project
+              management tool. Here, we'll provide an overview of what <span class="blue-join">Join</span> is, how it
+              can benefit you, and how to use it.
+            </div>
+            <span class="qa-join">What is Join?</span>
+            <div class="help-text">
+              <span class="blue-join">Join</span> is a kanban-based project management tool designed and built by a
+              group of dedicated students as part of their web development bootcamp at the Developer Akademie.
+            </div>
+            <div class="help-text">
+              Kanban, a Japanese term meaning "billboard", is a highly effective method to visualize work, limit
+              work-in-progress, and maximize efficiency (or flow).
+              <span class="blue-join">Join</span> leverages the principles of kanban to help users manage their tasks
+              and projects in an intuitive, visual interface.
+            </div>
+            <div class="help-text">
+              It is important to note that
+              <span class="blue-join">Join</span> is designed as an educational exercise and is not intended for
+              extensive business usage. While we strive to ensure the best possible user experience, we cannot guarantee
+              consistent availability, reliability, accuracy, or other aspects of quality regarding
+              <span class="blue-join">Join</span>.
+            </div>
+            <span class="qa-join">How to use it?</span>
+            <div class="help-text">
+              Here is a step-by-step guide on how to use
+              <span class="blue-join">Join</span>:
+            </div>
+            <div class="num-grp">
+              <div class="qa-join numerotation">1.</div>
+              <div>
+                <span class="help-topic-title">Exploring the Board</span>
+                <div class="help-text">
+                  When you log in to <span class="blue-join">Join</span>, you'll find a default board. This board
+                  represents your project and contains four default lists: "To Do", "In Progress", “Await feedback” and
+                  "Done".
+                </div>
+              </div>
+            </div>
+
+            <div class="num-grp">
+              <div class="qa-join numerotation">2.</div>
+              <div>
+                <span class="help-topic-title">Creating Cards</span>
+                <div class="help-text">
+                  In <span class="blue-join">Join</span>, you can add contacts to collaborate on your projects. Go to
+                  the "Contacts" section, click on "New contact", and fill in the required information. Once added,
+                  these contacts can be assigned tasks and they can interact with the tasks on the board.
+                </div>
+              </div>
+            </div>
+
+            <div class="num-grp">
+              <div class="qa-join numerotation">3.</div>
+              <div>
+                <span class="help-topic-title">Adding Cards</span>
+                <div class="help-text">
+                  Now that you've added your contacts, you can start adding cards. Cards represent individual tasks.
+                  Click the "+" button under the appropriate list to create a new card. Fill in the task details in the
+                  card, like task name, description, due date, assignees, etc.
+                </div>
+              </div>
+            </div>
+
+            <div class="num-grp">
+              <div class="qa-join numerotation">4.</div>
+              <div>
+                <span class="help-topic-title">Moving Cards</span>
+                <div class="help-text">
+                  As the task moves from one stage to another, you can reflect that on the board by dragging and
+                  dropping the card from one list to another.
+                </div>
+              </div>
+            </div>
+
+            <div class="num-grp">
+              <div class="qa-join numerotation">5.</div>
+              <div>
+                <span class="help-topic-title">Deleting Cards</span>
+                <div class="help-text">
+                  Once a task is completed, you can either move it to the "Done" list or delete it. Deleting a card will
+                  permanently remove it from the board. Please exercise caution when deleting cards, as this action is
+                  irreversible. <br />
+                  Remember that using
+                  <span class="blue-join">Join</span> effectively requires consistent updates from you and your team to
+                  ensure the board reflects the current state of your project. <br />
+                  Have more questions about <span class="blue-join">Join</span>? Feel free to contact us at
+                  [join803.gmail.com]. We're here to help you!
+                </div>
+              </div>
+            </div>
+            <div class="qa-join">Enjoy using Join!</div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="../js/summary.js"></script>
+    <script src="../js/login_out.js"></script>
+  </body>
+</html>
