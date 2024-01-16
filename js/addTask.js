@@ -226,7 +226,6 @@ function deleteSubtask(i) {
   let category = document.getElementById('selectCategory').value;
   let state = subtasks.map(returnfalse);
 
-  console.log(state)
   if (!categories.includes(category)) {
     categories.push(category);
   }

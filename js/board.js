@@ -1,84 +1,3 @@
-// let tasks = [
-//   {
-//     title: 'test note für den Zweck der Testung.',
-//     discription: 'we test it',
-//     'assigned to': 'Pascal',
-//     'due date': '13.12.23',
-//     prio: '/icons/priomedium.svg',
-//     category: 'Technical Task',
-//     subtasks: ['test2'],
-//     progress: [],
-//     id: 0,
-//     taskboard: 'todo',
-//     checkboxStates: []
-//   },
-//   {
-//     title: 'test note1',
-//     discription: 'we test it',
-//     'assigned to': 'Pascal',
-//     'due date': '13.12.23',
-//     prio: '/icons/priolow.svg',
-//     category: 'Technical Task',
-//     subtasks: ['test1', 'test2'],
-//     progress: [],
-//     id: 1,
-//     taskboard: 'todo',
-//     checkboxStates: []
-//   },
-//   {
-//     title: 'test note2',
-//     discription: 'we test it',
-//     'assigned to': 'Pascal',
-//     'due date': '13.12.23',
-//     prio: '/icons/priolow.svg',
-//     category: 'Technical Task',
-//     subtasks: ['test1', 'test2'],
-//     progress: [],
-//     id: 2,
-//     taskboard: 'awaitfeedback',
-//     checkboxStates: []
-//   },
-//   {
-//     title: 'test note3',
-//     discription: 'we test it',
-//     'assigned to': 'Pascal',
-//     'due date': '13.12.23',
-//     prio: '/icons/priolow.svg',
-//     category: 'Technical Task',
-//     subtasks: ['test1', 'test2'],
-//     progress: [],
-//     id: 3,
-//     taskboard: 'awaitfeedback',
-//     checkboxStates: []
-//   },
-//   {
-//     title: 'test note4',
-//     discription: 'we test it',
-//     'assigned to': 'Pascal',
-//     'due date': '13.12.23',
-//     prio: '/icons/priolow.svg',
-//     category: 'Technical Task',
-//     subtasks: ['test1', 'test2', 'klappts?'],
-//     progress: [],
-//     id: 4,
-//     taskboard: 'inprogress',
-//     checkboxStates: []
-//   },
-//   {
-//     title: 'test note5',
-//     discription: 'we test it',
-//     'assigned to': 'Pascal',
-//     'due date': '13.12.23',
-//     prio: '/icons/priolow.svg',
-//     category: 'Technical Task',
-//     subtasks: ['test1', 'test2'],
-//     progress: [],
-//     id: 5,
-//     taskboard: 'done',
-//     checkboxStates: []
-//   },
-// ];
-
 let currentDraggedElement;
 let edittodo = [];
 
@@ -264,15 +183,9 @@ function renderAssignedTopopup(assigned, id) {
 
 
 
-// function initializeCheckboxStates() {
-//   tasks.forEach(todo => {
-//     todo.checkboxStates = new Array(todo.subtasks.length).fill(false);
-//   });
-// }
-
 function createSubtasks(i) {
   const subtasksContainer = document.getElementById('subtasks');
-  subtasksContainer.innerHTML = ''; // Clear the content before appending
+  subtasksContainer.innerHTML = ''; 
 
   for (let j = 0; j < tasks[i].subtasks.length; j++) {
     const element = tasks[i].subtasks[j];
@@ -296,7 +209,6 @@ async function changecheckbox(j, i, subtaskIndex) {
   } else {
     checkbox.src = '../icons/uncheckBox.svg';
     tasks[i].checkboxStates[subtaskIndex] = false;
-    // Remove the subtask from progress array
     const subtaskToRemove = tasks[i].subtasks[subtaskIndex];
     const indexToRemove = tasks[i].progress.indexOf(subtaskToRemove);
     if (indexToRemove !== -1) {
@@ -478,7 +390,7 @@ async function saveEditTask(i) {
   let title = document.getElementById('edittitle').value;
   let description = document.getElementById('editdescription').value;
   let date = document.getElementById('date').value;
-  let assignedTo = btns;  //.map(btn=>btn.name)
+  let assignedTo = btns; 
   let category = document.getElementById('selectCategory').value;
   let state = subtasks.map(returnfalse);
 
@@ -532,19 +444,6 @@ function checkprio(i) {
   }
 }
 
-// const renderAssignedTo = function (index) {
-//   let btnUserProfile = document.getElementById('btn-grp');
-//   btnUserProfile.innerHTML = '';
-//   for (let i = 0; i < tasks[index].assignedTo.length; i++) {
-//     const btn = tasks[index].assignedTo[i];
-//     btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
-//     document.getElementById(`optBtn${i}`).style.backgroundColor = tasks[index].assignedTo[i]['bgColor'];
-//   }
-// }
-
-function renderOptionsAssignedTo() {
-
-}
 
 
 function edittasktemplate(i) {
