@@ -110,7 +110,6 @@ function forlooprender(test) {
 
   const container = document.getElementById(test);
   container.innerHTML = '';
-  debugger
   if (todo.length === 0) {
     container.innerHTML = `<img class="notask" src="../icons/notasktodo.svg" alt="Empty">`;
   } else {
@@ -118,7 +117,7 @@ function forlooprender(test) {
       const element = todo[index];
       const id = element.id
       container.innerHTML += todotemplate(element, id);
-      renderAssignedTo ('assigned'+index, index);
+      renderAssignedTo ('assigned'+index, id);
     }
   }
 }
@@ -172,14 +171,15 @@ function showtodowindow(i) {
   todowindow.classList.add('showtodowindow');
   todowindow.innerHTML = todowindowtemplate(i);
   createSubtasks(i);
-  renderAssignedTo ('assigned', i);
+  renderAssignedTopopup ('assigned', i);
+  rendercategory('category', i);
 }
 
 function todowindowtemplate(i) {
   return /*html*/ `
     <div class="overlay">
         <div class="overlaybutton">
-            <button>${tasks[i].category}</button>
+            <button id="category">${tasks[i].category}</button>
             <img src="../icons/close.svg" alt="" onclick="closetodowindow()">
         </div>
         <h1>${tasks[i].title}</h1>
@@ -218,7 +218,25 @@ function todowindowtemplate(i) {
 `;
 }
 
+function rendercategory(id, i){
+  if (tasks[i].category == 'User Story') {
+    document.getElementById(id).style.backgroundColor = '#0038FF';
+  }
+  document.getElementById(id).style.backgroundColor = '#1fd7c1';
+}
+
 function renderAssignedTo (assigned, id) {
+  tasks[id].assignedTo
+  let btnUserProfile = document.getElementById(assigned);
+  btnUserProfile.innerHTML = '';
+  for (let j = 0; j < tasks[id].assignedTo.length; j++) {
+    const btn = tasks[id].assignedTo[j];
+    btnUserProfile.innerHTML += `<button id="${id}optBtn${j}" class="btn-grp">${btn.initial}</button>`;
+    document.getElementById(`${id}optBtn${j}`).style.backgroundColor = tasks[id].assignedTo[j]['bgColor'];
+  }
+}
+
+function renderAssignedTopopup (assigned, id) {
   tasks[id].assignedTo
   let btnUserProfile = document.getElementById(assigned);
   btnUserProfile.innerHTML = '';
