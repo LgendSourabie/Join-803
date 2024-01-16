@@ -63,6 +63,7 @@ body {
   display: flex;
   align-items: center;
 }
+
 .bold-task-title {
   color: #2a3647;
   font-weight: 700;
@@ -120,6 +121,7 @@ body {
   margin-bottom: 2rem;
   padding-bottom: 2rem;
 }
+
 .overlaydelete,
 .overlayedit,
 .align-item-center {
@@ -137,10 +139,12 @@ body {
   overflow-y: hidden;
   user-select: none;
 }
+
 .todoscontainer {
   cursor: grabbing;
   cursor: -webkit-grabbing;
 }
+
 .todoscontainer::-webkit-scrollbar {
   opacity: 0;
 }
@@ -203,6 +207,10 @@ body {
   align-items: center;
 }
 
+.assignedprio button:not(:first-child) {
+  margin-left: -20px;
+}
+
 .drag-area-highlight {
   background-color: #8e98934b;
 }
@@ -234,16 +242,19 @@ body {
   width: 90vw;
   padding-inline: 1.5rem;
 }
+
 .gray-clr {
   font-family: 'Open sans';
   color: #42526e;
   font-weight: 700;
 }
+
 .align-horizontally {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
+
 .overlaybutton {
   /* width: 27.81rem; */
   display: flex;
@@ -340,14 +351,14 @@ body {
   display: none;
 }
 
-.headlineAndAddTask{
+.headlineAndAddTask {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
 }
 
-.headlineAndAddTask button{
+.headlineAndAddTask button {
   background-color: #2a3647;
   border-radius: 10px;
   padding: 8px;
@@ -356,11 +367,11 @@ body {
   align-items: center;
 }
 
-.headlineAndAddTask h1{
+.headlineAndAddTask h1 {
   font-size: 47px;
 }
 
-.headlineAndAddTask img{
+.headlineAndAddTask img {
   height: 20px;
 }
 
@@ -400,37 +411,39 @@ body {
   padding-left: 1rem;
 }
 
-.edittaskOverview{
+.edittaskOverview {
   background-color: white;
   padding: 2rem 2rem 2rem 2rem;
   border-radius: 1.2rem;
 }
 
-.addTaskContainerBoard{
+.addTaskContainerBoard {
   background-color: white;
-    width: fit-content;
-    padding: 20px 30px;
-    border-radius: 30px;
+  width: fit-content;
+  padding: 20px 30px;
+  border-radius: 30px;
 }
 
-.footerAddTaskBoard{
+.footerAddTaskBoard {
   display: flex;
   justify-content: space-between;
   width: 880px;
   margin-top: 50px;
 }
 
-.closeEdit{
-  display: flex;
-  justify-content: flex-end;
-  height: 20px;
-  width: 100%;
-}
+.closeEdit {
+    height: 30px;
+  }
 
-.editTaskContainer{
+.editTaskContainer {
   background: white;
   border-radius: 30px;
   padding: 20px 20px;
+}
+
+.closeEditContainer{
+  display: flex;
+  justify-content: flex-end;
 }
 
 
@@ -469,33 +482,7 @@ body {
     width: 15.25rem;
   }
 
-  /* Edit HS */
-  
-  .footerEditTask{
-    margin-top: 0 !important;
-    margin-bottom: 0;
-  }
-  
-  .btnGrpEditTask{
-    margin-bottom: 0 !important;
-    margin-top: 0 !important;
-  }
-  
-  .btnEditTask button{
-    margin-bottom: 0;
-  }
 
-  .prioSelection img{
-    width: 33%;
-  }
-
-  .editTaskTest1{
-    display: flex;
-    justify-content: center;
-  }
-  .createTaskButtonEditTask{
-    margin-bottom: 0 !important;
-  }
 }
 
 
@@ -507,5 +494,38 @@ body {
   .hiddenheadline {
     display: flex;
     flex-direction: column;
+  }
+
+
+}
+
+@media (width<=1300px) {
+  /* Edit HS */
+
+  .footerEditTask {
+    margin-top: 0 !important;
+    margin-bottom: 0;
+  }
+
+  .btnGrpEditTask {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .btnEditTask button {
+    margin-bottom: 0;
+  }
+
+  .prioSelection img {
+    width: 33%;
+  }
+
+  .editTaskTest1 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .createTaskButtonEditTask {
+    margin-bottom: 0 !important;
   }
 }

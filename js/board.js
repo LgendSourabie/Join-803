@@ -119,8 +119,20 @@ function forlooprender(test) {
       container.innerHTML += todotemplate(element, id);
       renderAssignedTo('assigned' + index, id);
       rendercategory('category' + id, id);
+      renderPrio(id);
     }
   }
+}
+
+function renderPrio(id){
+  if(tasks[id]['prio'] == 'low'){
+    document.getElementById('prio' + id).src = "../icons/priolow.svg"
+  }else if(tasks[id]['prio'] == 'medium'){
+    document.getElementById('prio' + id).src = "../icons/priomedium.svg"
+  }else{
+    document.getElementById('prio' + id).src = "../icons/priourgent.svg"
+  }
+  
 }
 
 function filterTodosByTitle(inputfield) {
@@ -161,7 +173,7 @@ function todotemplate(currentElement, i) {
     </div>
     <div class="assignedprio">
         <div id="assigned${i}" class="btn"></div>
-        <img src="${currentElement.prio}" alt="">
+        <img id="prio${i}" src="" alt="prio">
     </div>
 </div>
 `;
@@ -385,9 +397,9 @@ function templateOpenaddtask() {
                         <div class="addTaskOverview">
                             <span class="containerLeftSpan">Prio</span>
                             <div id="prio" class="prioSelection">
-                                <img id="colorUrgentImg" onclick="prio('../icons/priourgent.svg'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
-                                <img id="colorMediumImg" onclick="prio('../icons/priomedium.svg'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
-                                <img id="colorLowImg" onclick="prio('../icons/priolow.svg'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
+                                <img id="colorUrgentImg" onclick="prio('urgent'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
+                                <img id="colorMediumImg" onclick="prio('medium'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
+                                <img id="colorLowImg" onclick="prio('low'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
                             </div>
                         </div>
                         <div class="categoryAddTask addTaskOverview">
@@ -538,7 +550,10 @@ function renderOptionsAssignedTo() {
 function edittasktemplate(i) {
   return /*html*/ `
             <div class="addTaskOverviewContainer editTaskContainer">
-            <img class="closeEdit" src="../icons/close.svg" alt="" onclick="closetodowindow()">
+              <div class="closeEditContainer">
+                <img class="closeEdit" src="../icons/close.svg" alt="" onclick="closetodowindow()">
+              </div>
+            
         <div class="addTaskContainerLeftRight">
 
             <div class="addTaskContainerOneflyin">
@@ -576,9 +591,9 @@ function edittasktemplate(i) {
                         <div class="addTaskOverview">
                             <span class="containerLeftSpan">Prio</span>
                             <div id="prio" class="prioSelection">
-                                <img id="colorUrgentImg" onclick="prio('../icons/priourgent.svg'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
-                                <img id="colorMediumImg" onclick="prio('../icons/priomedium.svg'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
-                                <img id="colorLowImg" onclick="prio('../icons/priolow.svg'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
+                                <img id="colorUrgentImg" onclick="prio('urgent'); changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')" class="prio prioUrgentIMG testPrio" src="../img/img/urgent.svg" alt="">
+                                <img id="colorMediumImg" onclick="prio('medium'); changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')" class="prio prioMediumIMG testPrio" src="../img/img/medium-yellow.svg" alt="">
+                                <img id="colorLowImg" onclick="prio('low'); changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')" class="prio prioLowIMG testPrio" src="../img/img/low.svg" alt="">
                             </div>
                         </div>
                         <div class="categoryAddTask addTaskOverview">

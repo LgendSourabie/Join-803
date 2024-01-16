@@ -28,7 +28,6 @@ async function initialize() {
   await loadContacts();
   options();
   load() ;
-  // addContacts();
   addCategory();
   defaultPrio();
 }
@@ -60,7 +59,7 @@ function prio(id) {
 
 // Function to set the default priority
 function defaultPrio() {
-  prio('../icons/priomedium.svg');
+  prio('medium');
 }
 
 
@@ -223,7 +222,7 @@ function deleteSubtask(i) {
   let title = document.getElementById('title').value;
   let description = document.getElementById('description').value;
   let date = document.getElementById('date').value;
-  let assignedTo = btns;  //.map(btn=>btn.name)
+  let assignedTo = btns; 
   let category = document.getElementById('selectCategory').value;
   let state = subtasks.map(returnfalse);
 
