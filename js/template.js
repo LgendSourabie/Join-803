@@ -1,81 +1,3 @@
-// function templateSummary() {
-//   return /*html*/ `
-
-//     <span id="summary-page" class="summary-page">
-//             <div class="marketing-slogan disp-flex">
-//               <div class="title">Join 360</div>
-//               <div class="blue-separator-line"></div>
-//               <div class="slogan ft-sz-400">Key Metrics at a Glance</div>
-//               <div class="blue-separator-line-responsive"></div>
-//             </div>
-//             <div class="task disp-flex">
-//               <div class="task-overview disp-flex">
-//                 <div class="greeting-responsive">
-//                   <div>
-//                     <span id="greet-user-responsive" class="greeting"></span>
-//                   </div>
-//                   <span id="current-user-name-responsive" class="current-user-name"></span>
-//                 </div>
-//                 <div class="first-line-task disp-flex">
-//                   <div class="todo do-task disp-flex">
-//                     <img class="task-icons-blue" src="/icons/edit.svg" alt="TO-DO" />
-//                     <div class="middle">
-//                       <span id="todo" class="var-task">0</span>
-//                       <span class="task-text ft-sz-400">To-do</span>
-//                     </div>
-//                   </div>
-//                   <div class="done do-task disp-flex">
-//                     <img class="task-icons-blue" src="/icons/check.svg" alt="TO-DO" />
-//                     <div class="middle">
-//                       <span id="done" class="var-task">0</span>
-//                       <span class="task-text ft-sz-400">Done</span>
-//                     </div>
-//                   </div>
-//                 </div>
-//                 <div class="second-line-task disp-flex">
-//                   <div class="urgent disp-flex task-due-common">
-//                     <img class="task-icons" src="/icons/urgent.svg" alt="Urgent" />
-//                     <div class="middle">
-//                       <span id="urgent" class="var-task">0</span>
-//                       <span class="task-text ft-sz-400">Urgent</span>
-//                     </div>
-//                   </div>
-//                   <div class="gray-separator-line"></div>
-//                   <div class="upcomming-deadline disp-flex task-due-common">
-//                     <span id="due-date" class="due-date">October 16, 2022</span>
-//                     <span class="task-text ft-sz-400">Upcomming Deadline</span>
-//                   </div>
-//                 </div>
-//                 <div class="third-line-task disp-flex">
-//                   <div class="boar-progress-feedback disp-flex">
-//                     <span id="board-task-number" class="var-task">0</span
-//                     ><span class="task-text ft-sz-400">Tasks In</span>
-//                     <span class="task-text ft-sz-400">Board</span>
-//                   </div>
-//                   <div class="boar-progress-feedback disp-flex">
-//                     <span id="progress-task-number" class="var-task">0</span
-//                     ><span class="task-text ft-sz-400">Tasks In</span>
-//                     <span class="task-text ft-sz-400">Progress</span>
-//                   </div>
-//                   <div class="boar-progress-feedback disp-flex">
-//                     <span id="feedback-task-number" class="var-task">0</span
-//                     ><span class="task-text ft-sz-400">Awaiting</span>
-//                     <span class="task-text ft-sz-400">Feedback</span>
-//                   </div>
-//                 </div>
-//               </div>
-//               <div class="right-greeting disp-flex">
-//                 <div>
-//                   <span id="greet-user" class="greeting"></span>
-//                   <span id="comma" class="greeting"></span><br />
-//                 </div>
-//                 <span id="current-user-name" class="current-user-name"></span>
-//               </div>
-//             </div>
-//           </span>
-//     `;
-// }
-
 function templateAddTask() {
   return /*html*/ `
 <div id="add-task-page" class="addTaskContainer">
@@ -395,7 +317,6 @@ function templateAddTask() {
               <div class="qa-join">Enjoy using Join!</div>
             </span>
           </div>
-<!-- </div> -->
     `;
 }
 
