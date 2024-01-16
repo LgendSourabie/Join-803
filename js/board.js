@@ -84,7 +84,7 @@ let edittodo = [];
 
 async function renderToDos() {
   await loadContacts();
-  
+
   renewID();
 
   forlooprender('todo');
@@ -95,13 +95,13 @@ async function renderToDos() {
 
   forlooprender('done');
 
-  
+
 }
 
-function renewID(){
-  for (let i= 0; i < tasks.length; i++) {
+function renewID() {
+  for (let i = 0; i < tasks.length; i++) {
     const element = tasks[i];
-    element.id = i; 
+    element.id = i;
   }
 }
 
@@ -117,7 +117,8 @@ function forlooprender(test) {
       const element = todo[index];
       const id = element.id
       container.innerHTML += todotemplate(element, id);
-      renderAssignedTo ('assigned'+index, id);
+      renderAssignedTo('assigned' + index, id);
+      rendercategory('category' + id, id);
     }
   }
 }
@@ -148,7 +149,7 @@ function renderFilteredTodos(filteredTodos) {
 function todotemplate(currentElement, i) {
   return /*html*/ `
  <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement.id})" onclick="showtodowindow(${currentElement.id})">
-    <button class="todocardbutton">${currentElement.category}</button>
+    <button id="category${i}" class="todocardbutton">${currentElement.category}</button>
     <b>${currentElement.title}</b>
     <span>${currentElement.discription}</span>
     <div class="subtasks">
@@ -171,7 +172,7 @@ function showtodowindow(i) {
   todowindow.classList.add('showtodowindow');
   todowindow.innerHTML = todowindowtemplate(i);
   createSubtasks(i);
-  renderAssignedTopopup ('assigned', i);
+  renderAssignedTopopup('assigned', i);
   rendercategory('category', i);
 }
 
@@ -218,14 +219,16 @@ function todowindowtemplate(i) {
 `;
 }
 
-function rendercategory(id, i){
+function rendercategory(id, i) {
   if (tasks[i].category == 'User Story') {
     document.getElementById(id).style.backgroundColor = '#0038FF';
   }
-  document.getElementById(id).style.backgroundColor = '#1fd7c1';
+  else {
+    document.getElementById(id).style.backgroundColor = '#1fd7c1';
+  }
 }
 
-function renderAssignedTo (assigned, id) {
+function renderAssignedTo(assigned, id) {
   tasks[id].assignedTo
   let btnUserProfile = document.getElementById(assigned);
   btnUserProfile.innerHTML = '';
@@ -236,7 +239,7 @@ function renderAssignedTo (assigned, id) {
   }
 }
 
-function renderAssignedTopopup (assigned, id) {
+function renderAssignedTopopup(assigned, id) {
   tasks[id].assignedTo
   let btnUserProfile = document.getElementById(assigned);
   btnUserProfile.innerHTML = '';
@@ -452,7 +455,7 @@ async function edittask(i) {
   renderBtn();
   askcheckstate();
   checkprio(i);
-  
+
   checkcategory(i);
 
   subtasks = tasks[i].subtasks;
@@ -477,7 +480,7 @@ async function saveEditTask(i) {
 }
 
 function saveEditArray(val1, val2, val3, val4, val5, prios, val6, i) {
-    return {
+  return {
     title: `${val1}`,
     discription: `${val2}`,
     dueDate: `${val3}`,
@@ -492,7 +495,7 @@ function saveEditArray(val1, val2, val3, val4, val5, prios, val6, i) {
   };
 }
 
-function checkcategory(i){
+function checkcategory(i) {
   let select = document.getElementById('selectCategory');
   select.innerHTML = `<option id="selectCategory" value="${tasks[i].category}">${tasks[i].category}</option>`;
   for (let i = 0; i < categories.length; i++) {
@@ -505,15 +508,15 @@ function checkcategory(i){
 
 function askcheckstate() { }
 
-function checkprio(i){
+function checkprio(i) {
   if (tasks[i].prio.includes('../icons/priourgent.svg')) {
-    changeColorPrio('colorUrgentImg','colorLowImg', 'colorMediumImg','../img/img/urgent.svg', '../img/img/urgent-white.svg','../img/img/low.svg','../img/img/medium.svg')
+    changeColorPrio('colorUrgentImg', 'colorLowImg', 'colorMediumImg', '../img/img/urgent.svg', '../img/img/urgent-white.svg', '../img/img/low.svg', '../img/img/medium.svg')
   }
   if (tasks[i].prio.includes('../icons/priomedium.svg')) {
-    changeColorPrio('colorMediumImg','colorUrgentImg','colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg','../img/img/urgent.svg','../img/img/low.svg')
+    changeColorPrio('colorMediumImg', 'colorUrgentImg', 'colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg', '../img/img/urgent.svg', '../img/img/low.svg')
   }
   if (tasks[i].prio.includes('../icons/priolow.svg')) {
-    changeColorPrio('colorLowImg','colorMediumImg','colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg','../img/img/medium.svg','../img/img/urgent.svg')
+    changeColorPrio('colorLowImg', 'colorMediumImg', 'colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg', '../img/img/medium.svg', '../img/img/urgent.svg')
   }
 }
 
@@ -622,9 +625,9 @@ function edittasktemplate(i) {
   `;
 }
 
-async function deletetask(i){
-  if (confirm("Sind Sie sicher?")== true) {
-    tasks.splice(i,1);
+async function deletetask(i) {
+  if (confirm("Sind Sie sicher?") == true) {
+    tasks.splice(i, 1);
     await setItem('tasks', JSON.stringify(tasks));
     loadboard();
   }
