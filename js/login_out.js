@@ -162,8 +162,7 @@ async function init() {
     greetUserWithName();
     await loadTasks();
   } catch (e) {
-    // return;
-    console.log(e)
+    return;
   }
 }
 

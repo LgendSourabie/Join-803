@@ -77,6 +77,5 @@ const renderTask = async function () {
 };
 
 async function loadTasks() {
-  tasks = JSON.parse(await getItem("tasks"));
-  
+  tasks = JSON.parse(await getItem('tasks'));
 }
