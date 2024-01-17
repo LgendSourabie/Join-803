@@ -27,10 +27,7 @@
       <div class="menu-login">
         <div class="icon-links-login">
           <span class="question-user">Not a Join user?</span>
-          <button onclick="userAction('signup')" class="sign-up blue-btn">
-            Sign up
-            <!-- <a class="signup-link" href="../html/signup.html">Sign up</a> -->
-          </button>
+          <button onclick="userAction('signup')" class="sign-up blue-btn">Sign up</button>
         </div>
       </div>
       <form class="user-log-data-section disp-flex" onsubmit="checkUserData();return false">
@@ -41,24 +38,38 @@
         <div class="input-grp-section disp-flex">
           <div class="grp-input-login disp-flex">
             <div class="inp-ctn">
-              <input id="email" class="input-login input-login-1" type="email" placeholder="Email" required />
+              <div class="inpt-mail-icon-grp ps-rel-mail">
+                <input id="email" class="input-login input-login-1" type="email" placeholder="Email" required />
+                <button type="button" class="icon-btn-login mail-btn-pointer-pos">
+                  <img class="mail-icon-login" src="../icons/mail.svg" alt="Email" />
+                </button>
+              </div>
               <p id="emailError"></p>
             </div>
             <div class="inp-ctn">
-              <input
-                id="password"
-                class="input-login input-login-2"
-                type="password"
-                placeholder="Password"
-                minlength="4"
-                required
-              />
+              <div class="inpt-mail-icon-grp ps-rel-pwd">
+                <input
+                  id="password"
+                  class="input-login input-login-2"
+                  type="password"
+                  placeholder="Password"
+                  minlength="4"
+                  required
+                  oninput="handlePwdIcon('password','lock-img-field')"
+                />
+                <button
+                  type="button"
+                  class="icon-btn-login pwd-btn-pos"
+                  onclick="showPassword('password') ;toggleVisibleIcon('lock-img-field')"
+                >
+                  <img id="lock-img-field" src="../icons/lock.svg" alt="Password" />
+                </button>
+              </div>
               <p id="passwordError"></p>
             </div>
           </div>
           <div class="remember-line disp-flex ft-sz-400">
             <div class="remember-me disp-flex">
-              <!-- <input class="check-box" type="checkbox" /> -->
               <img
                 id="checkbox-login"
                 src="../icons/checkBox.svg"

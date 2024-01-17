@@ -167,14 +167,6 @@ a {
   display: flex;
   align-items: center;
   height: 100%;
-  /* border: 1px solid #d1d1d1;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background: white;
-  height: 100%;
-  width: 13%;
-  border-left: none;
-  padding-right: 43px; */
 }
 
 .ps-rel-mail {
@@ -205,12 +197,12 @@ a {
   text-decoration: none;
 }
 
-.input-login-0::placeholder {
+/* .input-login-0::placeholder {
   background-image: url('/icons/person.svg');
   background-repeat: no-repeat;
   background-position: right;
   object-fit: cover;
-}
+} */
 .signup-link {
   text-decoration: none;
   color: white;

@@ -128,30 +128,36 @@ a {
   line-height: 24px;
   font-weight: 400;
 }
-.input-login-1::placeholder {
-  background-image: url('/icons/mail.svg');
-  background-repeat: no-repeat;
-  background-position: right;
-  object-fit: cover;
+
+.inpt-mail-icon-grp {
+  height: 45px; /*152px zum Besprechen*/
+  display: flex;
 }
 
-.input-login-0::placeholder {
-  background-image: url('/icons/person.svg');
-  background-repeat: no-repeat;
-  background-position: right;
-  object-fit: cover;
-}
 .signup-link {
   text-decoration: none;
   color: white;
 }
 
-.input-login-2::placeholder {
-  background-image: url('/icons/lock.svg');
-  background-repeat: no-repeat;
-  background-position: right;
-  object-fit: cover;
+.pwd-btn-pos {
+  position: absolute;
+  right: 21px;
 }
+
+.mail-btn-pointer-pos {
+  cursor: text;
+  position: absolute;
+  right: 21px;
+}
+
+.icon-btn-login {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .blue-btn {
   background-color: #2a3647;
   border: none;
@@ -177,6 +183,14 @@ a {
   line-height: 19.2px;
   margin-left: 1.5rem;
 }
+
+.ps-rel-mail {
+  position: relative;
+}
+.ps-rel-pwd {
+  position: relative;
+}
+
 .log-guest-btn {
   font-size: 21px;
   font-weight: 700;
@@ -230,6 +244,7 @@ a {
   right: 0;
   left: 0;
 }
+
 .menu-login {
   width: 100%;
 }
@@ -237,15 +252,23 @@ a {
 .inp-ctn {
   width: 100%;
 }
+
 #emailError,
 #passwordError {
   color: red;
   margin-block-start: 0;
   margin-block-end: 0;
 }
+
 .input-login:user-invalid {
   border: 2px solid red;
 }
+
+.input-login:valid {
+  border-right: none;
+  border: 1px solid #29abe2;
+}
+
 .blue-btn:hover {
   background-color: #29abe2;
   transform: scale(1.01);

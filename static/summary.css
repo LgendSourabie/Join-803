@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 .html-scroll-hidden {
-  margin-right: -17px;
   overflow-x: hidden;
 }
 body {
