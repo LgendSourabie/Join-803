@@ -54,6 +54,12 @@ function templateAddTask() {
                                 <span class="star">*</span>
                             </span>    
                             <select onclick="changeBorderColor(this)" id="selectCategory">
+                            <!-- <div onclick="changeBorderColor(this)" id="selectCategory" class="category">Select task Category
+                          <div class="test6">
+                              <img class="dropDownImg" src="../img/img/arrow_drop_down.svg" alt="">
+                          </div>
+                          </div>
+                            <div id="selectCategory" class="selectCategory d-none"></div> -->
                             </select>
                         </div> 
                         <div class="subtasksAddTask addTaskOverview">

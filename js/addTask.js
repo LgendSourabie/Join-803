@@ -30,6 +30,10 @@ async function initialize() {
   load() ;
   addCategory();
   defaultPrio();
+
+  document.getElementById('title').addEventListener('input', checkRequiredField);
+  document.getElementById('date').addEventListener('input', checkRequiredField);
+  document.getElementById('selectCategory').addEventListener('input', checkRequiredField);
 }
 
 
@@ -66,6 +70,7 @@ function defaultPrio() {
 // Function to populate a dropdown list with task categories
 function addCategory() {
   let select = document.getElementById('selectCategory');
+  select.classList.toggle('d-none');
   select.innerHTML = `<option id="selectCategory" value="">Select task Category</option>`;
   for (let i = 0; i < categories.length; i++) {
     let currentCategory = categories[i];
@@ -374,3 +379,36 @@ function handleDropdownClick(element) {
   changeBorderColor(element);
   showOptions('options', 'd-none');
 }
+
+
+// Function to change border color for required Fields
+function changeBorderColorRequiredField(element) {
+  element.style.borderColor = 'red';
+}
+
+// Function to check the required Field
+function checkRequiredField() {
+  let title = document.getElementById('title');
+  let date = document.getElementById('date');
+  let category = document.getElementById('selectCategory');
+
+  let isTitleValid = title.value.trim() !== '';
+  let isDateValid = date.value.trim() !== '';
+  let isCategoryValid = category.value.trim() !== '';
+
+  if (!isTitleValid) {
+    changeBorderColorRequiredField(title);
+  }
+  if (!isDateValid) {
+    changeBorderColorRequiredField(date);
+  }
+  if (!isCategoryValid) {
+    changeBorderColorRequiredField(category);
+  }
+  let createTaskButton = document.getElementById('createTaskButton');
+  createTaskButton.disabled = !(isTitleValid && isDateValid && isCategoryValid);
+}
+
+
+
+
