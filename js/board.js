@@ -39,6 +39,7 @@ function forlooprender(test) {
       renderAssignedTo('assigned' + index, id);
       rendercategory('category' + id, id);
       renderPrio(id);
+      checksubtask(id);
     }
   }
 }
@@ -77,13 +78,19 @@ function renderFilteredTodos(filteredTodos) {
   }
 }
 
+function checksubtask(i){
+  if (tasks[i].subtasks.length==0) {
+    document.getElementById('subtasksnone'+i).style.display = 'none'; 
+  }
+}
+
 function todotemplate(currentElement, i) {
   return /*html*/ `
  <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement.id})" onclick="showtodowindow(${currentElement.id})">
     <button id="category${i}" class="todocardbutton">${currentElement.category}</button>
     <b>${currentElement.title}</b>
     <span>${currentElement.discription}</span>
-    <div class="subtasks">
+    <div id="subtasksnone${i}" class="subtasks">
         <div class="progress-container">
             <div class="progress" style="width: ${(currentElement.progress.length / currentElement.subtasks.length) * 100}%">
             </div>
