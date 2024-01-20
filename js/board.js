@@ -188,7 +188,11 @@ function renderAssignedTopopup(assigned, id) {
   btnUserProfile.innerHTML = '';
   for (let j = 0; j < tasks[id].assignedTo.length; j++) {
     const btn = tasks[id].assignedTo[j];
-    btnUserProfile.innerHTML += `<button id="optBtn${j}" class="btn-grp">${btn.initial}</button>`;
+    btnUserProfile.innerHTML += /*html*/`
+    <div>
+      <button id="optBtn${j}" class="btn-grp">${btn.initial}</button>
+      <span>${btn.name}</span>
+    </div>`;
     document.getElementById(`optBtn${j}`).style.backgroundColor = tasks[id].assignedTo[j]['bgColor'];
   }
 }
@@ -239,10 +243,11 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function moveTo(category) {
+async function moveTo(category) {
   tasks[currentDraggedElement]['taskboard'] = category;
   removeHighlight(category);
   renderToDos();
+  await setItem('tasks', JSON.stringify(tasks));
 }
 
 function highlight(id) {
@@ -385,9 +390,9 @@ async function edittask(i) {
   document.getElementById('selectCategory').value = tasks[i].category;
 
   btns = tasks[i].assignedTo;
-  options();
+  askcheckstate(i);
   renderBtn();
-  askcheckstate();
+  
   checkprio(i);
 
   checkcategory(i);
@@ -404,7 +409,6 @@ async function saveEditTask(i) {
   let category = document.getElementById('selectCategory').value;
   let state = subtasks.map(returnfalse);
 
-  console.log(state)
   if (!categories.includes(category)) {
     categories.push(category);
   }
@@ -440,7 +444,27 @@ function checkcategory(i) {
   }
 }
 
-function askcheckstate() { }
+function askcheckstate(id) {
+  let field = document.getElementById('options');
+  let listeOption = contacts.map(a => a['name']);
+  let initial = contacts.map(a => a['initials']);
+  let colors = contacts.map(a => a['bgColor']);
+  field.innerHTML = '';
+  
+  for (let i = 0; i < listeOption.length; i++) {
+    const option = listeOption[i];
+    const element = tasks[id].assignedTo;
+    
+    field.innerHTML += optionsHTMLTemplate(i, option, initial, colors);
+    document.getElementById(`btn-${i}`).style.backgroundColor = `${colors[i]}`;
+    
+    if (element.includes(option)) {
+      document.getElementById(`cont${i}`).backgroundColor = 'rgb(42, 54, 71)';
+      document.getElementById(`checkBox${i}`).src ='../img/img/Check_button-white.svg';
+    }
+  } 
+}
+
 
 function checkprio(i) {
   if (tasks[i].prio.includes('../icons/priourgent.svg')) {
