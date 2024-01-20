@@ -450,19 +450,19 @@ function askcheckstate(id) {
   let initial = contacts.map(a => a['initials']);
   let colors = contacts.map(a => a['bgColor']);
   field.innerHTML = '';
-  
+
   for (let i = 0; i < listeOption.length; i++) {
     const option = listeOption[i];
-    const element = tasks[id].assignedTo;
-    
+    const elements = tasks[id].assignedTo;
+
     field.innerHTML += optionsHTMLTemplate(i, option, initial, colors);
     document.getElementById(`btn-${i}`).style.backgroundColor = `${colors[i]}`;
-    
-    if (element.includes(option)) {
-      document.getElementById(`cont${i}`).backgroundColor = 'rgb(42, 54, 71)';
-      document.getElementById(`checkBox${i}`).src ='../img/img/Check_button-white.svg';
+
+    if (elements.includes(option.toLowerCase())) {
+      document.getElementById(`cont${i}`).style.backgroundColor = 'rgb(42, 54, 71)';
+      document.getElementById(`checkBox${i}`).src = '../img/img/Check_button-white.svg';
     }
-  } 
+  }
 }
 
 
