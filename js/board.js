@@ -36,7 +36,7 @@ function forlooprender(test) {
       const element = todo[index];
       const id = element.id
       container.innerHTML += todotemplate(element, id);
-      renderAssignedTo('assigned' + index, id);
+      renderAssignedTo('assigned' + id, id);
       rendercategory('category' + id, id);
       renderPrio(id);
       checksubtask(id);
@@ -74,7 +74,12 @@ function renderFilteredTodos(filteredTodos) {
 
   for (let index = 0; index < filteredTodos.length; index++) {
     const element = filteredTodos[index];
-    document.getElementById(element.taskboard).innerHTML += todotemplate(element);
+    const id = element.id;
+    document.getElementById(element.taskboard).innerHTML += todotemplate(element, id);
+    renderAssignedTo('assigned' + id, id);
+    rendercategory('category' + id, id);
+    renderPrio(id);
+    checksubtask(id);
   }
 }
 
@@ -167,7 +172,6 @@ function rendercategory(id, i) {
 }
 
 function renderAssignedTo(assigned, id) {
-  tasks[id].assignedTo
   let btnUserProfile = document.getElementById(assigned);
   btnUserProfile.innerHTML = '';
   for (let j = 0; j < tasks[id].assignedTo.length; j++) {
