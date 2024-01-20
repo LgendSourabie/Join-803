@@ -38,19 +38,19 @@ function forlooprender(test) {
       container.innerHTML += todotemplate(element, id);
       renderAssignedTo('assigned' + id, id);
       rendercategory('category' + id, id);
-      renderPrio(id);
+      renderPrio('prio'+id,id);
       checksubtask(id);
     }
   }
 }
 
-function renderPrio(id){
+function renderPrio(prio, id){
   if(tasks[id]['prio'] == 'low'){
-    document.getElementById('prio' + id).src = "../icons/priolow.svg"
+    document.getElementById(prio).src = "../icons/priolow.svg"
   }else if(tasks[id]['prio'] == 'medium'){
-    document.getElementById('prio' + id).src = "../icons/priomedium.svg"
+    document.getElementById(prio).src = "../icons/priomedium.svg"
   }else{
-    document.getElementById('prio' + id).src = "../icons/priourgent.svg"
+    document.getElementById(prio).src = "../icons/priourgent.svg"
   }
   
 }
@@ -78,7 +78,7 @@ function renderFilteredTodos(filteredTodos) {
     document.getElementById(element.taskboard).innerHTML += todotemplate(element, id);
     renderAssignedTo('assigned' + id, id);
     rendercategory('category' + id, id);
-    renderPrio(id);
+    renderPrio('prio'+id,id);
     checksubtask(id);
   }
 }
@@ -117,6 +117,7 @@ function showtodowindow(i) {
   createSubtasks(i);
   renderAssignedTopopup('assigned', i);
   rendercategory('category', i);
+  renderPrio('prio',i);
 }
 
 function todowindowtemplate(i) {
@@ -130,13 +131,13 @@ function todowindowtemplate(i) {
         <span class="overlaydiscription">${tasks[i].discription}</span>
         <div class="overlaytable">
             <span class="gray-clr">Due date:</span>
-            <span>${tasks[i]['due date']}</span>
+            <span>${tasks[i].dueDate}</span>
         </div>
         <div class="overlaytable">
             <span class="gray-clr">Priority</span>
             <div class='align-item-center'>
                 <span>${tasks[i].category}</span>
-                <img src="${tasks[i].prio}" alt="">
+                <img id="prio" src="" alt="prio">
             </div>
         </div>
         <div class="overlayassigned">
@@ -210,9 +211,9 @@ function createSubtasks(i) {
 }
 
 async function changecheckbox(j, i, subtaskIndex) {
-  console.log('Function triggered with:', j, i, subtaskIndex);
+
   const checkbox = document.getElementById(j);
-  console.log(checkbox.src);
+
   if (checkbox.src.includes('uncheckBox.svg')) {
     checkbox.src = '../icons/checkButton.svg';
     tasks[i].checkboxStates[subtaskIndex] = true;
@@ -226,9 +227,6 @@ async function changecheckbox(j, i, subtaskIndex) {
       tasks[i].progress.splice(indexToRemove, 1);
     }
   }
-
-  console.log('Updated checkboxStates:', tasks[i].checkboxStates);
-  console.log('Updated progress array:', tasks[i].progress);
   renderToDos();
   await setItem('tasks', JSON.stringify(tasks))
 }
