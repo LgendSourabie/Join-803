@@ -267,6 +267,7 @@ function openAddtask() {
   setTimeout(() => {
     document.getElementById('fly-in-container').classList.add('fly-in-add-edit');
   }, 50);
+  initialize();
   addCategory();
   options();
   renderBtn();
@@ -555,8 +556,8 @@ async function deletetask(i) {
     tasks.splice(i, 1);
     await setItem('tasks', JSON.stringify(tasks));
     loadboard();
-  }
-  showtodowindow(i);
+  }else{
+  showtodowindow(i);}
 }
 
 async function loadTasks() {
