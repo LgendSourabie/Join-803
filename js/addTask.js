@@ -25,6 +25,7 @@ function load() {
 
 // This function serves as an initializer, orchestrating various tasks to set up the application.
 async function initialize() {
+  subtasks = [];
   await loadContacts();
   options();
   load() ;
@@ -70,7 +71,7 @@ function defaultPrio() {
 // Function to populate a dropdown list with task categories
 function addCategory() {
   let select = document.getElementById('selectCategory');
-  select.classList.toggle('d-none');
+  // select.classList.toggle('d-none');
   select.innerHTML = `<option id="selectCategory" value="">Select task Category</option>`;
   for (let i = 0; i < categories.length; i++) {
     let currentCategory = categories[i];
@@ -249,7 +250,7 @@ function returnfalse() {
 function clearTask() {
   btns.splice(0, btns.length);
   renderBtn();
-  options();
+  // options();
   render(templateAddTask());
   initialize();
 }
