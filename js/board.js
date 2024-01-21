@@ -71,7 +71,6 @@ function renderFilteredTodos(filteredTodos) {
   document.getElementById('inprogress').innerHTML = '';
   document.getElementById('awaitfeedback').innerHTML = '';
   document.getElementById('done').innerHTML = '';
-
   for (let index = 0; index < filteredTodos.length; index++) {
     const element = filteredTodos[index];
     const id = element.id;
