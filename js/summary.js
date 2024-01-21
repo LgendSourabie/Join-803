@@ -53,7 +53,7 @@ const dueDateNextTask = async function () {
 
 const renderTask = async function () {
   await loadTasks();
-  let taskArray = tasks.map(todo => todo['taskboard']);
+  let taskArray = tasks.map(todo => todo['prio']);
   let toDo = taskArray.filter(a => a === 'todo');
   let feedback = taskArray.filter(a => a === 'awaitfeedback');
   let urgent = taskArray.filter(a => a === 'urgent');
