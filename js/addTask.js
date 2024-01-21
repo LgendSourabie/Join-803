@@ -71,7 +71,6 @@ function defaultPrio() {
 // Function to populate a dropdown list with task categories
 function addCategory() {
   let select = document.getElementById('selectCategory');
-  // select.classList.toggle('d-none');
   select.innerHTML = `<option id="selectCategory" value="">Select task Category</option>`;
   for (let i = 0; i < categories.length; i++) {
     let currentCategory = categories[i];
