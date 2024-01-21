@@ -150,6 +150,7 @@ body {
 }
 
 .todocard {
+  
   background-color: white;
   gap: 0.36rem;
   border-radius: 1.5rem;
@@ -207,7 +208,7 @@ body {
   align-items: center;
 }
 
-.assignedprio button:not(:first-child) {
+.assignedprio button:not(:first-child):not(:nth-child(6)) {
   margin-left: -20px;
 }
 
@@ -446,7 +447,9 @@ body {
   justify-content: flex-end;
 }
 
-
+.btn{
+  max-height: 240px;
+}
 
 
 
@@ -479,7 +482,7 @@ body {
   }
 
   .todocard {
-    width: 15.25rem;
+    min-width: 244px;
   }
 
 

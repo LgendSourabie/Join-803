@@ -409,7 +409,6 @@ li {
 #subtasks {
   border-radius: 10px;
   background: #FFFFFF;
-  border: 1px solid #A8A8A8;
 }
 
 .category {
@@ -609,7 +608,6 @@ li {
 
   .btn-grp {
     margin-top: 20px;
-    margin-bottom: 25px;
   }
 }
 

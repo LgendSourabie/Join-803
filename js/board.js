@@ -141,7 +141,7 @@ function todowindowtemplate(i) {
         </div>
         <div class="overlayassigned">
             <div class="gray-clr">Assinged to:</div>
-            <div id="assigned" class="btn"></div>
+            <div id="assigned" class="btn assigned"></div>
         </div>
         <div class="overlayassigned">
             <span class="gray-clr">Subtasks</span>
