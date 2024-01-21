@@ -100,7 +100,7 @@ function subtaskIMGS() {
     let element = document.getElementById('subtasksPlusIMG');
     let plusSubtask = document.getElementById('subtasksCancelIMG');
     let currentIMG = element.getAttribute('src');
-    checkNewSubtask()
+    checkNewSubtask();
     if (currentIMG === '../img/img/subtasksPlus.svg') {
         element.setAttribute('src', '../img/img/subtasks_check.svg');
     } else {
@@ -249,7 +249,6 @@ function returnfalse() {
 function clearTask() {
   btns.splice(0, btns.length);
   renderBtn();
-  // options();
   render(templateAddTask());
   initialize();
 }
@@ -391,11 +390,10 @@ function checkRequiredField() {
   let title = document.getElementById('title');
   let date = document.getElementById('date');
   let category = document.getElementById('selectCategory');
-
   let isTitleValid = title.value.trim() !== '';
   let isDateValid = date.value.trim() !== '';
   let isCategoryValid = category.value.trim() !== '';
-
+  
   if (!isTitleValid) {
     changeBorderColorRequiredField(title);
   }

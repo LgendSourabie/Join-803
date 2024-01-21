@@ -72,7 +72,7 @@ function templateAddTask() {
                     </div>
                 </div>
                 </div>
-            </div>
+              </div>
                 <div class="addTaskContainerTwo">
                         <div class="footerAddTask">
                             <div class="spanFooter">
