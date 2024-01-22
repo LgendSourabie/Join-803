@@ -571,6 +571,7 @@ a {
     height: 85px;
     position: fixed;
     bottom: 0;
+    z-index: 1;
   }
   .section-1,
   .section-3 {
