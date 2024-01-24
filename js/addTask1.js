@@ -389,12 +389,7 @@ const renderBtn = function () {
   }
 }
 
-/**
- * Function to change the border color
- * 
- * @param {element} element - The HTML element whose border color will be changed
- */
-// 
+
 
 
 

@@ -1,3 +1,9 @@
+/**
+ * Function to change the border color
+ * 
+ * @param {element} element - The HTML element whose border color will be changed
+ */
+// 
 function changeBorderColor(element) {
     if (element.style.borderColor === 'rgb(41, 171, 226)') {
       element.style.borderColor = '';
