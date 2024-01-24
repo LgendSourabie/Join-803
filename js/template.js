@@ -1,3 +1,7 @@
+/**
+ *
+ * @returns HTML content for add Task
+ */
 function templateAddTask() {
   return /*html*/ `
 <div id="add-task-page" class="addTaskContainer">
@@ -320,6 +324,10 @@ function templateAddTask() {
     `;
 }
 
+/**
+ *
+ * @returns HTML content for board
+ */
 function templateBoard() {
   return /*html*/ `
         <div id="board-page" class="mainSection">
@@ -386,6 +394,10 @@ function templateBoard() {
     `;
 }
 
+/**
+ *
+ * @returns HTML content for contact
+ */
 function templateContacts() {
   return /*html*/ `
     <div class="d-flex">
@@ -410,6 +422,10 @@ function templateContacts() {
     `;
 }
 
+/**
+ *
+ * @returns HTML content for help
+ */
 function templateHelp() {
   resetAll();
   return /*html*/ `
@@ -516,6 +532,11 @@ function templateHelp() {
 
     `;
 }
+
+/**
+ *
+ * @returns HTML content for privacy policy
+ */
 function templatePrivacy() {
   return /*html*/ `
             <div id="privacy-render" class="task-info-section">
@@ -541,6 +562,11 @@ function templatePrivacy() {
 
     `;
 }
+
+/**
+ *
+ * @returns HTML content for legal notice
+ */
 function templateLegalNotice() {
   return /*html*/ `
      <div id="legale-notice-render" class="task-info-section">
@@ -649,9 +675,12 @@ function templateLegalNotice() {
     `;
 }
 
-function loadboard(){
+/**
+ * render board when clicked
+ */
+function loadboard() {
   render(templateBoard());
   sliderScroll();
-  toggleButtonColor('third-bg','bord-text','bord-img','../icons/board-white.svg');
+  toggleButtonColor('third-bg', 'bord-text', 'bord-img', '../icons/board-white.svg');
   renderToDos();
 }
