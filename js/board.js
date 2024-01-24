@@ -314,13 +314,13 @@ function foraskcheckstate(initial, colors, field, elements, listeOption) {
 }
 
 function checkprio(i) {
-  if (tasks[i].prio.includes('../icons/priourgent.svg')) {
+  if (tasks[i].prio.includes('urgent')) {
     changeColorPrio('colorUrgentImg', 'colorLowImg', 'colorMediumImg', '../img/img/urgent.svg', '../img/img/urgent-white.svg', '../img/img/low.svg', '../img/img/medium.svg')
   }
-  if (tasks[i].prio.includes('../icons/priomedium.svg')) {
+  if (tasks[i].prio.includes('medium')) {
     changeColorPrio('colorMediumImg', 'colorUrgentImg', 'colorLowImg', '../img/img/medium-yellow.svg', '../img/img/medium.svg', '../img/img/urgent.svg', '../img/img/low.svg')
   }
-  if (tasks[i].prio.includes('../icons/priolow.svg')) {
+  if (tasks[i].prio.includes('low')) {
     changeColorPrio('colorLowImg', 'colorMediumImg', 'colorUrgentImg', '../img/img/low.svg', '../img/img/low-green.svg', '../img/img/medium.svg', '../img/img/urgent.svg')
   }
 }
