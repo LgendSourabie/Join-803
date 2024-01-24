@@ -1,22 +1,21 @@
 let currentDraggedElement;
 let edittodo = [];
 
+/** 
+ * function to load the Board
+*/
 async function renderToDos() {
   await loadContacts();
-
   renewID();
-
   forlooprender('todo');
-
   forlooprender('inprogress');
-
   forlooprender('awaitfeedback');
-
   forlooprender('done');
-
-
 }
 
+/** 
+ * function to renew the id in the tasks JSON 
+*/
 function renewID() {
   for (let i = 0; i < tasks.length; i++) {
     const element = tasks[i];
@@ -24,6 +23,12 @@ function renewID() {
   }
 }
 
+/** 
+ * function to render every todo inside the right column table
+ * 
+ * @param {string} test names the right column table
+ * 
+*/
 function forlooprender(test) {
   let todo = tasks.filter(t => t['taskboard'] == test);
 
@@ -36,6 +41,12 @@ function forlooprender(test) {
   }
 }
 
+/** 
+ * the for loop to render the ToDos 
+ * 
+ * @param {string} todo filters the tasks array
+ * @param {*} container 
+*/
 function returnforlooprender(todo, container){
   for (let index = 0; index < todo.length; index++) {
     const element = todo[index];
