@@ -1,4 +1,8 @@
 'use strict';
+let allDate = [];
+let allDateGMT;
+let allDateSTAMP;
+let upComingDate;
 
 /**
  * toggle the menu to allow or disallow the user to logout
@@ -7,11 +11,6 @@ const showSubmenu = function () {
   let element = document.getElementById('submenu-user');
   element.classList.toggle('d-none');
 };
-
-let allDate = [];
-let allDateGMT;
-let allDateSTAMP;
-let upComingDate;
 
 /**
  * determines the due date of the next task from the task array
