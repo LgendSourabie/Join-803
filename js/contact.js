@@ -1,5 +1,4 @@
-let alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-];
+let alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',];
 let contacts = [];
 let highlightedContact;
 let currentContact;
@@ -138,7 +137,6 @@ function createContact() {
 async function createOrEditContact(name, telephone, email, initials) {
   if (contactIndex != -1) {
     await editExistingContact(name, telephone, email, initials);
-    // xxxxxx
   } else {
     await createNewContact(name, telephone, email, initials);
   }
@@ -297,6 +295,7 @@ function showContactResponsiv(jsonIndex) {
 }
 }
 
+
 function closeContactResponsiv(i) {
   if (x.matches) {
     // document.getElementById('render-container').innerHTML = templateContacts();
@@ -310,6 +309,7 @@ function closeContactResponsiv(i) {
 async function loadContacts() {
   contacts = JSON.parse(await getItem('contacts'));
 }
+
 
 
 async function setItem(key, value) {

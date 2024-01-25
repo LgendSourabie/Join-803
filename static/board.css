@@ -452,8 +452,6 @@ body {
 }
 
 
-
-
 @media (width<=800px) {
   .todosection {
     flex-direction: column;
@@ -484,8 +482,6 @@ body {
   .todocard {
     min-width: 244px;
   }
-
-
 }
 
 

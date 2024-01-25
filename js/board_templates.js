@@ -1,6 +1,6 @@
 function todotemplate(currentElement, i) {
     return /*html*/ `
-   <div class="todocard" draggable="true" ondragstart="startDragging(${currentElement.id})" onclick="showtodowindow(${currentElement.id})">
+   <div id="draggableObject${i}" class="todocard" draggable="true" ondragstart="startDragging(${currentElement.id})" onclick="showtodowindow(${currentElement.id})">
       <button id="category${i}" class="todocardbutton">${currentElement.category}</button>
       <b>${currentElement.title}</b>
       <span>${currentElement.discription}</span>
