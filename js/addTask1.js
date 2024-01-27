@@ -11,7 +11,7 @@ let categories = ['Technical Task', 'User Story'];
  * Function to load contacts by parsing a JSON string retrieved from storage
  */
 async function loadContacts() {
-  contacts = JSON.parse(await getItem("contacts"));
+  contacts = JSON.parse(await getItem('contacts'));
 }
 
 /**
@@ -31,7 +31,7 @@ async function initialize() {
   subtasks = [];
   await loadContacts();
   options();
-  load() ;
+  load();
   addCategory();
   defaultPrio();
 
@@ -42,7 +42,7 @@ async function initialize() {
 
 /**
  * This function changes the source (image) attribute of three HTML elements based on their IDs
- * 
+ *
  * @param {string} id - The ID of the first HTML element
  * @param {string} id2 - The ID of the second HTML element
  * @param {string} id3 - The ID of the third HTML element
@@ -69,7 +69,7 @@ function changeColorPrio(id, id2, id3, currentsrc, src, src2, src3) {
 
 /**
  * Function to add priority to the array
- * 
+ *
  * @param {*} id - ID to be added to the priorities array
  */
 function prio(id) {
@@ -117,40 +117,40 @@ function changeSubtaskImg() {
  * Function to change the images
  */
 function subtaskIMGS() {
-    let element = document.getElementById('subtasksPlusIMG');
-    let plusSubtask = document.getElementById('subtasksCancelIMG');
-    let currentIMG = element.getAttribute('src');
-    checkNewSubtask();
-    if (currentIMG === '../img/img/subtasksPlus.svg') {
-        element.setAttribute('src', '../img/img/subtasks_check.svg');
-    } else {
-        element.setAttribute('src', '../img/img/subtasksPlus.svg');
-        plusSubtask.style.display = 'none';
-    }
+  let element = document.getElementById('subtasksPlusIMG');
+  let plusSubtask = document.getElementById('subtasksCancelIMG');
+  let currentIMG = element.getAttribute('src');
+  checkNewSubtask();
+  if (currentIMG === '../img/img/subtasksPlus.svg') {
+    element.setAttribute('src', '../img/img/subtasks_check.svg');
+  } else {
+    element.setAttribute('src', '../img/img/subtasksPlus.svg');
+    plusSubtask.style.display = 'none';
+  }
 }
 
 /**
  * Function to change two images and controls the display of an element based on a condition
  */
 function NewSubtaskIMGS() {
-    let element = document.getElementById('subtasksPlusIMG');
-    let plusSubtask = document.getElementById('subtasksCancelIMG');
-    let currentIMG = element.getAttribute('src');
-    checkNewSubtask();
-    if (currentIMG === '../img/img/subtasksPlus.svg') {
-        element.setAttribute('src', '../img/img/subtasks_check.svg');
-    } else {
-        element.setAttribute('src', '../img/img/subtasksPlus.svg');
-        plusSubtask.style.display = 'none';
-    }  
+  let element = document.getElementById('subtasksPlusIMG');
+  let plusSubtask = document.getElementById('subtasksCancelIMG');
+  let currentIMG = element.getAttribute('src');
+  checkNewSubtask();
+  if (currentIMG === '../img/img/subtasksPlus.svg') {
+    element.setAttribute('src', '../img/img/subtasks_check.svg');
+  } else {
+    element.setAttribute('src', '../img/img/subtasksPlus.svg');
+    plusSubtask.style.display = 'none';
+  }
 }
 
 /**
  * Function to switches the visibility of elements for editing based on the provided index
- * 
+ *
  * @param {number} index - The index used to identify the elements to be modified
  */
-function changeButton(index){
+function changeButton(index) {
   let element = document.getElementById(`test_test${index}`);
   let listEl = document.getElementById(`list${index}`);
   let inputEdit = document.getElementById(`input-edit-${index}`);
@@ -162,37 +162,37 @@ function changeButton(index){
 
 /**
  * Function to check the ID and the subtask Img
- * 
- * @returns 
+ *
+ * @returns
  */
 function checkNewSubtask() {
   let element = document.getElementById('subtasksPlusIMG');
   let currentIMG = element.getAttribute('src');
-  if (currentIMG !=='../img/img/subtasks_check.svg') return
+  if (currentIMG !== '../img/img/subtasks_check.svg') return;
   let subtaskField = document.getElementById('subtasksList');
   let singleSubtask = document.getElementById('subtasks');
- if(singleSubtask.value.length ===0) return;
+  if (singleSubtask.value.length === 0) return;
   subtasks.push(singleSubtask.value);
   renderSubtask();
-  singleSubtask.value='';
+  singleSubtask.value = '';
 }
 
 /**
  * Function for subtask input, adds to 'subtasks', renders updates, and clears input
- * 
+ *
  * @param {*} i - The index used to identify the subtask input element
- * @returns 
+ * @returns
  */
 function checkNewSubtaskEdit(i) {
   let element = document.getElementById('newSubtaskImgsHover');
   let currentIMG = element.getAttribute('src');
-  if (currentIMG !=='../img/img/subtasks_check.svg') return
+  if (currentIMG !== '../img/img/subtasks_check.svg') return;
   let subtaskField = document.getElementById('subtasksList');
   let singleSubtask = document.getElementById(`input-edit-${i}`);
- if(singleSubtask.value.length ===0) return;
+  if (singleSubtask.value.length === 0) return;
   subtasks.push(singleSubtask.value);
   renderSubtask();
-  singleSubtask.value='';
+  singleSubtask.value = '';
 }
 
 /**
@@ -205,15 +205,15 @@ const renderSubtask = function () {
     const subtask = subtasks[i];
     subtaskField.innerHTML += renderSubtaskHTMLTemplate(i, subtask);
   }
-}
+};
 
 /**
  * Function to edit subtasks
- * 
+ *
  * @param {number} i - The index of the subtask to be edited
  */
 function editSubtask(i) {
-  subtasks.splice(i,1);
+  subtasks.splice(i, 1);
   changeButton(i);
 }
 
@@ -221,28 +221,28 @@ function editSubtask(i) {
  * Function to delete the Subtask Input
  */
 function deleteSubtaskInput() {
- document.getElementById('subtasks').value = '';
- renderSubtask();
+  document.getElementById('subtasks').value = '';
+  renderSubtask();
 }
 
 /**
  * Function to delete subtasks
- * 
+ *
  * @param {number} i - The index of the subtask to be deleted
  */
 function deleteSubtask(i) {
-  subtasks.splice(i,1);
+  subtasks.splice(i, 1);
   renderSubtask();
 }
 
 /**
  * Function to create and save a new task with user input
  */
- async function createTask() {
+async function createTask() {
   let title = document.getElementById('title').value;
   let description = document.getElementById('description').value;
   let date = document.getElementById('date').value;
-  let assignedTo = btns; 
+  let assignedTo = btns;
   let category = document.getElementById('selectCategory').value;
   let state = subtasks.map(returnfalse);
 
@@ -250,7 +250,7 @@ function deleteSubtask(i) {
     categories.push(category);
   }
 
-  tasks.push (saveArray(title, description, date, category, assignedTo, prios, subtasks));
+  tasks.push(saveArray(title, description, date, category, assignedTo, prios, subtasks));
   await setItem('tasks', JSON.stringify(tasks));
   loadboard();
   btns = [];
@@ -258,11 +258,11 @@ function deleteSubtask(i) {
 
 /**
  * Function to return false
- * 
- * @returns 
+ *
+ * @returns
  */
 function returnfalse() {
-  return false; 
+  return false;
 }
 
 /**
@@ -277,7 +277,7 @@ function clearTask() {
 
 /**
  * Function to load an HTML page
- * 
+ *
  * @param {string} page - The name of the HTML page to load
  */
 function loadHTML(page) {
@@ -288,7 +288,7 @@ function loadHTML(page) {
 
 /**
  * Function to save task details to local storage
- * 
+ *
  * @param {string} val1 - The title of the task
  * @param {string} val2 - The description of the task
  * @param {string} val3 - The due date of the task
@@ -296,11 +296,11 @@ function loadHTML(page) {
  * @param {*} val5 - The assigned person or team for the task
  * @param {Array} prios - An array containing task priorities
  * @param {*} val6 - The subtasks for the task
- * @returns 
+ * @returns
  */
 function saveArray(val1, val2, val3, val4, val5, prios, val6) {
   let identification = tasks.length;
-    return {
+  return {
     title: `${val1}`,
     discription: `${val2}`,
     dueDate: `${val3}`,
@@ -323,7 +323,7 @@ function options() {
   let listeOption = contacts.map(a => a['name']);
   let initial = contacts.map(a => a['initials']);
   let colors = contacts.map(a => a['bgColor']);
-  field.innerHTML = '';
+  if (field) field.innerHTML = '';
   for (let i = 0; i < listeOption.length; i++) {
     const option = listeOption[i];
     field.innerHTML += optionsHTMLTemplate(i, option, initial, colors);
@@ -333,7 +333,7 @@ function options() {
 
 /**
  * Function to switches the CSS class of the element with the specified ID to show or hide options
- * 
+ *
  * @param {string} id - The ID of the HTML element to toggle
  * @param {string} className - The name of the CSS class to toggle
  */
@@ -343,7 +343,7 @@ function showOptions(id, className) {
 
 /**
  * Function to change the checkbox
- * 
+ *
  * @param {number} index - The index of the checkbox to be changed
  */
 function changeCheckState(index) {
@@ -351,14 +351,15 @@ function changeCheckState(index) {
   let currentState = field.getAttribute('src');
   if (currentState === '../img/img/checkBox.svg') {
     field.setAttribute('src', '../img/img/Check_button-white.svg');
-  } if (currentState === '../img/img/Check_button-white.svg') {
+  }
+  if (currentState === '../img/img/Check_button-white.svg') {
     field.setAttribute('src', '../img/img/checkBox.svg');
-  } 
+  }
 }
 
 /**
  * Function to update the button
- * 
+ *
  * @param {number} index - The index of the button to be updated
  */
 function updateBtn(index) {
@@ -370,7 +371,7 @@ function updateBtn(index) {
   if (existingIndex !== -1) {
     btns.splice(existingIndex, 1);
   } else {
-    btns.push({ initial: initial, name: namePerson, bgColor: bgColor});
+    btns.push({ initial: initial, name: namePerson, bgColor: bgColor });
   }
   showOptions(`cont${index}`, 'newColor');
   renderBtn();
@@ -387,11 +388,4 @@ const renderBtn = function () {
     btnUserProfile.innerHTML += `<button id="optBtn${i}" class="btn-grp">${btn.initial}</button>`;
     document.getElementById(`optBtn${i}`).style.backgroundColor = btns[i]['bgColor'];
   }
-}
-
-
-
-
-
-
-
+};
