@@ -2,9 +2,9 @@ let currentDraggedElement;
 let edittodo = [];
 // let allowMove = false;
 
-/** 
+/**
  * function to load the Board
-*/
+ */
 async function renderToDos() {
   await loadContacts();
   renewID();
@@ -15,9 +15,9 @@ async function renderToDos() {
   touchDragAndDrop();
 }
 
-/** 
- * function to renew the id in the tasks JSON 
-*/
+/**
+ * function to renew the id in the tasks JSON
+ */
 function renewID() {
   for (let i = 0; i < tasks.length; i++) {
     const element = tasks[i];
@@ -25,12 +25,12 @@ function renewID() {
   }
 }
 
-/** 
+/**
  * function to render every todo inside the right column table
- * 
+ *
  * @param {string} test names the right column table
- * 
-*/
+ *
+ */
 function forlooprender(test) {
   let todo = tasks.filter(t => t['taskboard'] == test);
 
@@ -43,44 +43,43 @@ function forlooprender(test) {
   }
 }
 
-/** 
- * the for loop to render the ToDos 
- * 
+/**
+ * the for loop to render the ToDos
+ *
  * @param {string} todo filters the tasks array
- * @param {string} container 
-*/
-function returnforlooprender(todo, container){
+ * @param {string} container
+ */
+function returnforlooprender(todo, container) {
   for (let index = 0; index < todo.length; index++) {
     const element = todo[index];
-    const id = element.id
+    const id = element.id;
     container.innerHTML += todotemplate(element, id);
     renderAssignedTo('assigned' + id, id);
     rendercategory('category' + id, id);
-    renderPrio('prio'+id,id);
+    renderPrio('prio' + id, id);
     checksubtask(id);
   }
 }
 
-/** 
- * function to load the prio icon 
+/**
+ * function to load the prio icon
  * @param {number} id id to identify the JSON
- * @param {string} prio to call the right id 
-*/
-function renderPrio(prio, id){
-  if(tasks[id]['prio'] == 'low'){
-    document.getElementById(prio).src = "../icons/priolow.svg"
-  }else if(tasks[id]['prio'] == 'medium'){
-    document.getElementById(prio).src = "../icons/priomedium.svg"
-  }else{
-    document.getElementById(prio).src = "../icons/priourgent.svg"
+ * @param {string} prio to call the right id
+ */
+function renderPrio(prio, id) {
+  if (tasks[id]['prio'] == 'low') {
+    document.getElementById(prio).src = '../icons/priolow.svg';
+  } else if (tasks[id]['prio'] == 'medium') {
+    document.getElementById(prio).src = '../icons/priomedium.svg';
+  } else {
+    document.getElementById(prio).src = '../icons/priourgent.svg';
   }
-  
 }
 
-/** 
- * function to filter the todos 
+/**
+ * function to filter the todos
  * @param {string} inputfield brings the id to load
-*/
+ */
 function filterTodosByTitle(inputfield) {
   let input = document.getElementById(inputfield);
   let filter = input.value.toLowerCase();
@@ -92,10 +91,10 @@ function filterTodosByTitle(inputfield) {
   renderFilteredTodos(filteredTodos);
 }
 
-/** 
- * function to render the filtered to dos 
+/**
+ * function to render the filtered to dos
  * @param {string} filteredTodos -the filtered JSON
-*/
+ */
 function renderFilteredTodos(filteredTodos) {
   document.getElementById('todo').innerHTML = '';
   document.getElementById('inprogress').innerHTML = '';
@@ -107,25 +106,25 @@ function renderFilteredTodos(filteredTodos) {
     document.getElementById(element.taskboard).innerHTML += todotemplate(element, id);
     renderAssignedTo('assigned' + id, id);
     rendercategory('category' + id, id);
-    renderPrio('prio'+id,id);
+    renderPrio('prio' + id, id);
     checksubtask(id);
   }
 }
 
-/** 
+/**
  * checks if there is any Subtask
- * @param {number} i -the index to identify the right JSON 
-*/
-function checksubtask(i){
-  if (tasks[i].subtasks.length==0) {
-    document.getElementById('subtasksnone'+i).style.display = 'none'; 
+ * @param {number} i -the index to identify the right JSON
+ */
+function checksubtask(i) {
+  if (tasks[i].subtasks.length == 0) {
+    document.getElementById('subtasksnone' + i).style.display = 'none';
   }
 }
 
-/** 
- * shows the full todo Window 
- * @param {number} i -the index to identify the right JSON 
-*/
+/**
+ * shows the full todo Window
+ * @param {number} i -the index to identify the right JSON
+ */
 function showtodowindow(i) {
   let todowindow = document.getElementById('showtodowindow');
   todowindow.classList.add('showtodowindow');
@@ -133,28 +132,27 @@ function showtodowindow(i) {
   createSubtasks(i);
   renderAssignedTopopup('assigned', i);
   rendercategory('category', i);
-  renderPrio('prio',i);
+  renderPrio('prio', i);
 }
 
-/** 
+/**
  * shows the right Category in the todo Window
- * @param {number} i -the index to identify the right JSON 
- * @param {string} id -the id from the Element  
-*/
+ * @param {number} i -the index to identify the right JSON
+ * @param {string} id -the id from the Element
+ */
 function rendercategory(id, i) {
   if (tasks[i].category == 'User Story') {
     document.getElementById(id).style.backgroundColor = '#0038FF';
-  }
-  else {
+  } else {
     document.getElementById(id).style.backgroundColor = '#1fd7c1';
   }
 }
 
-/** 
+/**
  * function to render the Assigned to section
  * @param {string} assigned -Id for right implementation
  * @param {number} id -the index to identify the right JSON
-*/
+ */
 function renderAssignedTo(assigned, id) {
   let btnUserProfile = document.getElementById(assigned);
   btnUserProfile.innerHTML = '';
@@ -165,18 +163,18 @@ function renderAssignedTo(assigned, id) {
   }
 }
 
-/** 
+/**
  * function to render the Assigned to section inside the pop up Window
  * @param {string} assigned -Id for right implementation
  * @param {number} id -the index to identify the right JSON
-*/
+ */
 function renderAssignedTopopup(assigned, id) {
-  tasks[id].assignedTo
+  tasks[id].assignedTo;
   let btnUserProfile = document.getElementById(assigned);
   btnUserProfile.innerHTML = '';
   for (let j = 0; j < tasks[id].assignedTo.length; j++) {
     const btn = tasks[id].assignedTo[j];
-    btnUserProfile.innerHTML += /*html*/`
+    btnUserProfile.innerHTML += /*html*/ `
     <div>
       <button id="optBtn${j}" class="btn-grp">${btn.initial}</button>
       <span>${btn.name}</span>
@@ -185,44 +183,46 @@ function renderAssignedTopopup(assigned, id) {
   }
 }
 
-/** 
+/**
  * function to render subtasks
  * @param {number} i -the index to identify the right JSON
-*/
+ */
 function createSubtasks(i) {
   const subtasksContainer = document.getElementById('subtasks');
-  subtasksContainer.innerHTML = ''; 
+  subtasksContainer.innerHTML = '';
 
   for (let j = 0; j < tasks[i].subtasks.length; j++) {
     const element = tasks[i].subtasks[j];
     subtasksContainer.innerHTML += /*html*/ `
         <div class="align-horizontally">
-            <img id="checkbox${j}" src="${tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'}" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
+            <img id="checkbox${j}" src="${
+      tasks[i].checkboxStates[j] ? '../icons/checkButton.svg' : '../icons/uncheckBox.svg'
+    }" alt="" onclick="changecheckbox('checkbox${j}' , ${i}, ${j})">
            <span>${element}</span> 
         </div>
     `;
   }
 }
 
-/** 
+/**
  * function to change the checkstate
  * @param {string} j -Id for right implementation
  * @param {number} i -the index to identify the right JSON
  * @param {number} subtaskIndex -The index to identify the right subtask
-*/
+ */
 async function changecheckbox(j, i, subtaskIndex) {
   const checkbox = document.getElementById(j);
   ifchangecheckbox(i, subtaskIndex, checkbox);
   renderToDos();
-  await setItem('tasks', JSON.stringify(tasks))
+  await setItem('tasks', JSON.stringify(tasks));
 }
 
-/** 
+/**
  * if question to change the checkstate
  * @param {string} i -the index to identify the right JSON
  * @param {number} subtaskIndex -The index to identify the right subtask
  * @param {string} checkbox -Id to find the right Element
-*/
+ */
 function ifchangecheckbox(i, subtaskIndex, checkbox) {
   if (checkbox.src.includes('uncheckBox.svg')) {
     checkbox.src = '../icons/checkButton.svg';
@@ -239,26 +239,26 @@ function ifchangecheckbox(i, subtaskIndex, checkbox) {
   }
 }
 
-/** 
+/**
  * function to drag the right element
  * @param {number} id -the index to identify the right JSON
-*/
+ */
 function startDragging(id) {
   currentDraggedElement = id;
 }
 
-/** 
+/**
  * function to drop the right element
  * @param {string} ev -the event for droping
-*/
+ */
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
-/** 
+/**
  * function to move the element to a new column
  * @param {string} category -the category
-*/
+ */
 async function moveTo(category) {
   tasks[currentDraggedElement]['taskboard'] = category;
   removeHighlight(category);
@@ -266,217 +266,70 @@ async function moveTo(category) {
   await setItem('tasks', JSON.stringify(tasks));
 }
 
-
 /**
  * starts touch drag and drop
  * gets all object for drag and drop and add touch event
  */
-function touchDragAndDrop(){
-  let todoContainers = []
-  let timeStamp = new Date().setTime()
+function touchDragAndDrop() {
+  let todoContainers = [];
+  let timeStamp = new Date().setTime();
   getAllDraggableObjects(todoContainers);
   todoContainers.forEach(elem => {
-    elem = document.getElementById(elem)
-    touchEvents(timeStamp, elem)
+    elem = document.getElementById(elem);
+    touchEvents(timeStamp, elem);
   });
 }
 
-
 /**
  * gets all draggable objects
- * @param {HTML-Id} todoContainers 
+ * @param {HTML-Id} todoContainers
  */
-function getAllDraggableObjects(todoContainers){
+function getAllDraggableObjects(todoContainers) {
   for (let i = 0; i < tasks.length; i++) {
     let object = 'draggableObject' + i;
-    todoContainers.push(object)
+    todoContainers.push(object);
   }
 }
-
 
 /**
  * starts the touch event
  * @param {number} timeStamp for controlling the hold-longer-for-dragging option
  * @param {string} elem defines the ID from the element that is touched
  */
-function touchEvents(timeStamp, elem){
+function touchEvents(timeStamp, elem) {
   elem.addEventListener('touchstart', e => {
-    touchMove(timeStamp, elem);  
-    touchEnd(elem)
+    touchMove(timeStamp, elem);
+    touchEnd(elem);
   });
 }
-
 
 /**
  * controls the moving touch if the container is held longer than 1s
  * @param {int} timeStamp for controlling the hold-longer-for-dragging option
  * @param {*} elem defines the ID from the element that is touched
  */
-function touchMove(timeStamp, elem){
-    timeStamp = new Date().getTime()      
-    elem.addEventListener('touchmove', eve => {
-      if(Math.round((new Date().getTime() - timeStamp) / 1000 ) >= 1){
-        if (eve.cancelable) {
-          allowMove = true;
-          eve.preventDefault();
-          containerToTouchCoordinates(eve, elem);
-       }
+function touchMove(timeStamp, elem) {
+  timeStamp = new Date().getTime();
+  elem.addEventListener('touchmove', eve => {
+    if (Math.round((new Date().getTime() - timeStamp) / 1000) >= 1) {
+      if (eve.cancelable) {
+        allowMove = true;
+        eve.preventDefault();
+        containerToTouchCoordinates(eve, elem);
       }
-    })
+    }
+  });
 }
 
-
 /**
- * 
+ *
  * @param {event} eve describes the touch-move event
  * @param {HTML Element} elem is the moving container
  */
-function containerToTouchCoordinates(eve, elem){
+function containerToTouchCoordinates(eve, elem) {
   let nextX = eve.changedTouches[0].pageX;
   let nextY = eve.changedTouches[0].pageY;
   elem.style.position = 'fixed';
   elem.style.left = nextX + 'px';
   elem.style.top = nextY + 'px';
 }
-
-
-/**
- * get the position of the todo-departments
- */
-function setPosition(){
-  todoPos = document.getElementById('todo').getBoundingClientRect();
-  inprogressPos = document.getElementById('inprogress').getBoundingClientRect();
-  awaitfeedbackPos = document.getElementById('awaitfeedback').getBoundingClientRect();
-  donePos = document.getElementById('done').getBoundingClientRect();
-}
-
-/**
- * controls the touch-end event
- * @param {HTML Element} elem is the moving container
- */
-function touchEnd(elem){
-  elem.addEventListener('touchend', eve => {
-    if (allowMove == true) {
-      allowMove = false;
-      setPosition();
-      insertContainerTouchEnd(eve, elem);
-      renderToDos();
-    }
-  })
-}
-
-
-function insertContainerTouchEnd(eve, elem){
-  let elemId = elem.id.slice(15);   
-  let nextY = eve.changedTouches[0].pageY;
-  let nextX = eve.changedTouches[0].pageX;
-  let offsetDrop = 30;
-      if(canDroppedDone(nextX, nextY, offsetDrop)){
-        tasks[elemId].taskboard = 'done';
-      }else if(canDroppedAwaitfeedback(nextX, nextY, offsetDrop)){
-        tasks[elemId].taskboard = 'awaitfeedback';
-      }else if(canDroppedInprogress(nextX, nextY, offsetDrop)){
-        tasks[elemId].taskboard = 'inprogress';
-      }else if(canDroppedTodo(nextX, nextY, offsetDrop)){
-        tasks[elemId].taskboard = 'todo';
-      }
-}
-
-
-/**
- * @param {integer} nextX 
- * @param {integer} nextY 
- * @param {integer} offsetDrop 
- * @returns if the touch-point is in the done section
- */
-function canDroppedDone(nextX, nextY, offsetDrop){
-  return nextY > donePos.top - offsetDrop && 
-  nextY < donePos.bottom + offsetDrop && 
-  nextX < donePos.right + offsetDrop && 
-  nextX > donePos.left - offsetDrop;
-}
-
-
-/**
- * @param {integer} nextX 
- * @param {integer} nextY 
- * @param {integer} offsetDrop 
- * @returns if the touch-point is in the await feedback section
- */
-function canDroppedAwaitfeedback(nextX, nextY, offsetDrop){
-  return  nextY > awaitfeedbackPos.top - offsetDrop && 
-  nextY < awaitfeedbackPos.bottom + offsetDrop && 
-  nextX < awaitfeedbackPos.right + offsetDrop && 
-  nextX > awaitfeedbackPos.left - offsetDrop;
-}
-
-
-/**
- * @param {integer} nextX 
- * @param {integer} nextY 
- * @param {integer} offsetDrop 
- * @returns if the touch-point is in the in progress section
- */
-function canDroppedInprogress(nextX, nextY, offsetDrop){
-  return nextY > inprogressPos.top - offsetDrop && 
-  nextY < inprogressPos.bottom + offsetDrop && 
-  nextX < inprogressPos.right + offsetDrop && 
-  nextX > inprogressPos.left - offsetDrop;
-}
-
-
-/**
- * @param {integer} nextX 
- * @param {integer} nextY 
- * @param {integer} offsetDrop 
- * @returns if the touch-point is in the todo section
- */
-function canDroppedTodo(nextX, nextY, offsetDrop){
-  return nextY > todoPos.top - offsetDrop && 
-  nextY < todoPos.bottom + offsetDrop && 
-  nextX < todoPos.right + offsetDrop && 
-  nextX > todoPos.left - offsetDrop;
-}
-
-
-/** 
- * function to highlight the element
- * @param {number} id -the index to identify the right JSON
-*/
-function highlight(id) {
-  document.getElementById(id).classList.add('drag-area-highlight');
-}
-
-/** 
- * function to remove the highlight 
- * @param {number} id -the index to identify the right JSON
-*/
-function removeHighlight(id) {
-  document.getElementById(id).classList.remove('drag-area-highlight');
-}
-
-/** 
- * function to close the todo popup
-*/
-function closetodowindow() {
-  document.getElementById('showtodowindow').classList.remove('showtodowindow');
-  document.getElementById('showtodowindow').innerHTML = '';
-}
-
-/** 
- * function to open the add task window
-*/
-function openAddtask() {
-  let addtask = document.getElementById('add-task-bg');
-  addtask.classList.remove('d-none');
-  addtask.innerHTML = templateOpenaddtask();
-  setTimeout(() => {
-    document.getElementById('fly-in-container').classList.add('fly-in-add-edit');
-  }, 50);
-  btns = [];
-  initialize();
-  addCategory();
-  options();
-  renderBtn();
-}
-

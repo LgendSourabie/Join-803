@@ -1,77 +1,3 @@
-let allowMove = false;
-let donePos;
-let awaitfeedbackPos;
-let inprogressPos;
-let todoPos;
-
-/**
- * starts touch drag and drop
- * gets all object for drag and drop and add touch event
- */
-function touchDragAndDrop() {
-  let todoContainers = [];
-  let timeStamp = new Date().setTime();
-  getAllDraggableObjects(todoContainers);
-  todoContainers.forEach(elem => {
-    elem = document.getElementById(elem);
-    touchEvents(timeStamp, elem);
-  });
-}
-
-/**
- * gets all draggable objects
- * @param {HTML-Id} todoContainers
- */
-function getAllDraggableObjects(todoContainers) {
-  for (let i = 0; i < tasks.length; i++) {
-    let object = 'draggableObject' + i;
-    todoContainers.push(object);
-  }
-}
-
-/**
- * starts the touch event
- * @param {number} timeStamp for controlling the hold-longer-for-dragging option
- * @param {string} elem defines the ID from the element that is touched
- */
-function touchEvents(timeStamp, elem) {
-  elem.addEventListener('touchstart', e => {
-    touchMove(timeStamp, elem);
-    touchEnd(elem);
-  });
-}
-
-/**
- * controls the moving touch if the container is held longer than 1s
- * @param {int} timeStamp for controlling the hold-longer-for-dragging option
- * @param {*} elem defines the ID from the element that is touched
- */
-function touchMove(timeStamp, elem) {
-  timeStamp = new Date().getTime();
-  elem.addEventListener('touchmove', eve => {
-    if (Math.round((new Date().getTime() - timeStamp) / 1000) >= 1) {
-      if (eve.cancelable) {
-        allowMove = true;
-        eve.preventDefault();
-        containerToTouchCoordinates(eve, elem);
-      }
-    }
-  });
-}
-
-/**
- *
- * @param {event} eve describes the touch-move event
- * @param {HTML Element} elem is the moving container
- */
-function containerToTouchCoordinates(eve, elem) {
-  let nextX = eve.changedTouches[0].pageX;
-  let nextY = eve.changedTouches[0].pageY;
-  elem.style.position = 'fixed';
-  elem.style.left = nextX + 'px';
-  elem.style.top = nextY + 'px';
-}
-
 /**
  * get the position of the todo-departments
  */
@@ -97,11 +23,6 @@ function touchEnd(elem) {
   });
 }
 
-/**
- * inserts the moving element in the right section
- * @param {*} eve is the touch move event
- * @param {*} elem is the moving container
- */
 function insertContainerTouchEnd(eve, elem) {
   let elemId = elem.id.slice(15);
   let nextY = eve.changedTouches[0].pageY;
@@ -161,4 +82,45 @@ function canDroppedInprogress(nextX, nextY, offsetDrop) {
  */
 function canDroppedTodo(nextX, nextY, offsetDrop) {
   return nextY > todoPos.top - offsetDrop && nextY < todoPos.bottom + offsetDrop && nextX < todoPos.right + offsetDrop && nextX > todoPos.left - offsetDrop;
+}
+
+/**
+ * function to highlight the element
+ * @param {number} id -the index to identify the right JSON
+ */
+function highlight(id) {
+  document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+/**
+ * function to remove the highlight
+ * @param {number} id -the index to identify the right JSON
+ */
+function removeHighlight(id) {
+  document.getElementById(id).classList.remove('drag-area-highlight');
+}
+
+/**
+ * function to close the todo popup
+ */
+function closetodowindow() {
+  document.getElementById('showtodowindow').classList.remove('showtodowindow');
+  document.getElementById('showtodowindow').innerHTML = '';
+}
+
+/**
+ * function to open the add task window
+ */
+function openAddtask() {
+  let addtask = document.getElementById('add-task-bg');
+  addtask.classList.remove('d-none');
+  addtask.innerHTML = templateOpenaddtask();
+  setTimeout(() => {
+    document.getElementById('fly-in-container').classList.add('fly-in-add-edit');
+  }, 50);
+  btns = [];
+  initialize();
+  addCategory();
+  options();
+  renderBtn();
 }
